@@ -23,7 +23,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 #include "gvc-utils.h"
 
@@ -99,10 +99,10 @@ gvc_channel_map_to_pretty_string (MateMixerStreamControl *control)
 {
         g_return_val_if_fail (MATE_MIXER_IS_STREAM_CONTROL (control), NULL);
 
-#define HAS_POSITION(p) (mate_mixer_stream_control_has_channel_position (control, (p)))
+#define HAS_POSITION(p) (cafe_mixer_stream_control_has_channel_position (control, (p)))
 
         /* Modeled after PulseAudio 5.0, probably could be extended with other combinations */
-        switch (mate_mixer_stream_control_get_num_channels (control)) {
+        switch (cafe_mixer_stream_control_get_num_channels (control)) {
         case 1:
                 if (HAS_POSITION (MATE_MIXER_CHANNEL_MONO))
                         return _("Mono");

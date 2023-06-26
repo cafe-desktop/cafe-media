@@ -28,7 +28,7 @@
 
 G_BEGIN_DECLS
 
-#define GVC_APPLET_DBUS_NAME    "org.mate.VolumeControlApplet"
+#define GVC_APPLET_DBUS_NAME    "org.cafe.VolumeControlApplet"
 #define APPLET_ICON             "multimedia-volume-control"
 
 #define GVC_TYPE_APPLET         (gvc_applet_get_type ())

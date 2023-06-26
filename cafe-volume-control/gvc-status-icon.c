@@ -27,7 +27,7 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 #include "gvc-status-icon.h"
 #include "gvc-stream-status-icon.h"
@@ -70,12 +70,12 @@ update_icon_input (GvcStatusIcon *status_icon)
         if (status_icon->priv->input != NULL) {
                 const gchar *app_id;
                 const GList *inputs =
-                        mate_mixer_stream_list_controls (status_icon->priv->input);
+                        cafe_mixer_stream_list_controls (status_icon->priv->input);
 
-                control = mate_mixer_stream_get_default_control (status_icon->priv->input);
+                control = cafe_mixer_stream_get_default_control (status_icon->priv->input);
 
                 const gchar *stream_name =
-                        mate_mixer_stream_get_name (status_icon->priv->input);
+                        cafe_mixer_stream_get_name (status_icon->priv->input);
                 g_debug ("Got stream name %s", stream_name);
                 if (g_str_has_suffix (stream_name, ".monitor")) {
                         inputs = NULL;
@@ -86,18 +86,18 @@ update_icon_input (GvcStatusIcon *status_icon)
                         MateMixerStreamControl    *input =
                                 MATE_MIXER_STREAM_CONTROL (inputs->data);
                         MateMixerStreamControlRole role =
-                                mate_mixer_stream_control_get_role (input);
+                                cafe_mixer_stream_control_get_role (input);
 
                         if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
                                 MateMixerAppInfo *app_info =
-                                        mate_mixer_stream_control_get_app_info (input);
+                                        cafe_mixer_stream_control_get_app_info (input);
 
-                                app_id = mate_mixer_app_info_get_id (app_info);
+                                app_id = cafe_mixer_app_info_get_id (app_info);
                                 if (app_id == NULL) {
                                         /* A recording application which has no
                                          * identifier set */
                                         g_debug ("Found a recording application control %s",
-                                                 mate_mixer_stream_control_get_label (input));
+                                                 cafe_mixer_stream_control_get_label (input));
 
                                         if (G_UNLIKELY (control == NULL)) {
                                                 /* In the unlikely case when there is no
@@ -109,7 +109,7 @@ update_icon_input (GvcStatusIcon *status_icon)
                                         break;
                                 }
 
-                                if (strcmp (app_id, "org.mate.VolumeControl") != 0 &&
+                                if (strcmp (app_id, "org.cafe.VolumeControl") != 0 &&
                                     strcmp (app_id, "org.gnome.VolumeControl") != 0 &&
                                     strcmp (app_id, "org.PulseAudio.pavucontrol") != 0) {
                                         g_debug ("Found a recording application %s", app_id);
@@ -141,9 +141,9 @@ update_icon_output (GvcStatusIcon *status_icon)
         MateMixerStream        *stream;
         MateMixerStreamControl *control = NULL;
 
-        stream = mate_mixer_context_get_default_output_stream (status_icon->priv->context);
+        stream = cafe_mixer_context_get_default_output_stream (status_icon->priv->context);
         if (stream != NULL)
-                control = mate_mixer_stream_get_default_control (stream);
+                control = cafe_mixer_stream_get_default_control (stream);
 
         gvc_stream_status_icon_set_control (status_icon->priv->icon_output, control);
 
@@ -166,10 +166,10 @@ on_input_stream_control_added (MateMixerStream *stream,
 {
         MateMixerStreamControl *control;
 
-        control = mate_mixer_stream_get_control (stream, name);
+        control = cafe_mixer_stream_get_control (stream, name);
         if (G_LIKELY (control != NULL)) {
                 MateMixerStreamControlRole role =
-                        mate_mixer_stream_control_get_role (control);
+                        cafe_mixer_stream_control_get_role (control);
 
                 /* Non-application input control doesn't affect the icon */
                 if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
@@ -197,7 +197,7 @@ update_default_input_stream (GvcStatusIcon *status_icon)
 {
         MateMixerStream *stream;
 
-        stream = mate_mixer_context_get_default_input_stream (status_icon->priv->context);
+        stream = cafe_mixer_context_get_default_input_stream (status_icon->priv->context);
         if (stream == status_icon->priv->input)
                 return FALSE;
 
@@ -229,7 +229,7 @@ on_context_state_notify (MateMixerContext *context,
                          GParamSpec       *pspec,
                          GvcStatusIcon        *status_icon)
 {
-        MateMixerState state = mate_mixer_context_get_state (context);
+        MateMixerState state = cafe_mixer_context_get_state (context);
 
         switch (state) {
         case MATE_MIXER_STATE_FAILED:
@@ -275,7 +275,7 @@ gvc_status_icon_start (GvcStatusIcon *status_icon)
         if (G_UNLIKELY (status_icon->priv->running == TRUE))
                 return;
 
-        if (G_UNLIKELY (mate_mixer_context_open (status_icon->priv->context) == FALSE)) {
+        if (G_UNLIKELY (cafe_mixer_context_open (status_icon->priv->context) == FALSE)) {
                 /* Normally this should never happen, in the worst case we
                  * should end up with the Null module */
                 g_warning ("Failed to connect to a sound system");
@@ -328,14 +328,14 @@ gvc_status_icon_init (GvcStatusIcon *status_icon)
         gtk_status_icon_set_title (GTK_STATUS_ICON (status_icon->priv->icon_output),
                                    _("Sound Output Volume"));
 
-        status_icon->priv->context = mate_mixer_context_new ();
+        status_icon->priv->context = cafe_mixer_context_new ();
 
-        mate_mixer_context_set_app_name (status_icon->priv->context,
+        cafe_mixer_context_set_app_name (status_icon->priv->context,
                                          _("MATE Volume Control StatusIcon"));
 
-        mate_mixer_context_set_app_id (status_icon->priv->context, GVC_STATUS_ICON_DBUS_NAME);
-        mate_mixer_context_set_app_version (status_icon->priv->context, VERSION);
-        mate_mixer_context_set_app_icon (status_icon->priv->context, "multimedia-volume-control");
+        cafe_mixer_context_set_app_id (status_icon->priv->context, GVC_STATUS_ICON_DBUS_NAME);
+        cafe_mixer_context_set_app_version (status_icon->priv->context, VERSION);
+        cafe_mixer_context_set_app_icon (status_icon->priv->context, "multimedia-volume-control");
 
         g_signal_connect (G_OBJECT (status_icon->priv->context),
                           "notify::state",

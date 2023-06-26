@@ -29,7 +29,7 @@
 #include <gtk/gtk.h>
 
 #include <canberra-gtk.h>
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 #include "gvc-channel-bar.h"
 
@@ -212,10 +212,10 @@ on_adjustment_value_changed (GtkAdjustment *adjustment,
         lower = gtk_adjustment_get_lower (bar->priv->adjustment);
 
         if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_WRITABLE)
-                mate_mixer_stream_control_set_mute (bar->priv->control, (value <= lower));
+                cafe_mixer_stream_control_set_mute (bar->priv->control, (value <= lower));
 
         if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_VOLUME_WRITABLE)
-                mate_mixer_stream_control_set_volume (bar->priv->control, (guint) value);
+                cafe_mixer_stream_control_set_volume (bar->priv->control, (guint) value);
 }
 
 static void
@@ -225,7 +225,7 @@ on_mute_button_toggled (GtkToggleButton *button, GvcChannelBar *bar)
 
         mute = gtk_toggle_button_get_active (button);
 
-        mate_mixer_stream_control_set_mute (bar->priv->control, mute);
+        cafe_mixer_stream_control_set_mute (bar->priv->control, mute);
 }
 
 static void
@@ -299,8 +299,8 @@ update_marks (GvcChannelBar *bar)
 
         /* Base volume represents unamplified volume, normal volume is the 100%
          * volume, in many cases they are the same as unamplified volume is unknown */
-        base   = mate_mixer_stream_control_get_base_volume (bar->priv->control);
-        normal = mate_mixer_stream_control_get_normal_volume (bar->priv->control);
+        base   = cafe_mixer_stream_control_get_base_volume (bar->priv->control);
+        normal = cafe_mixer_stream_control_get_normal_volume (bar->priv->control);
 
         if (normal <= gtk_adjustment_get_lower (bar->priv->adjustment))
                 return;
@@ -361,12 +361,12 @@ update_adjustment_value (GvcChannelBar *bar)
         if (bar->priv->control == NULL)
                 set_lower = TRUE;
         else if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE)
-                set_lower = mate_mixer_stream_control_get_mute (bar->priv->control);
+                set_lower = cafe_mixer_stream_control_get_mute (bar->priv->control);
 
         if (set_lower == TRUE)
                 value = gtk_adjustment_get_lower (bar->priv->adjustment);
         else
-                value = mate_mixer_stream_control_get_volume (bar->priv->control);
+                value = cafe_mixer_stream_control_get_volume (bar->priv->control);
 
         gdouble maximum = gtk_adjustment_get_upper (bar->priv->adjustment);
         gdouble minimum = gtk_adjustment_get_lower (bar->priv->adjustment);
@@ -393,11 +393,11 @@ update_adjustment_limits (GvcChannelBar *bar)
         gdouble maximum = 0.0;
 
         if (bar->priv->control != NULL) {
-                minimum = mate_mixer_stream_control_get_min_volume (bar->priv->control);
+                minimum = cafe_mixer_stream_control_get_min_volume (bar->priv->control);
                 if (bar->priv->extended)
-                        maximum = mate_mixer_stream_control_get_max_volume (bar->priv->control);
+                        maximum = cafe_mixer_stream_control_get_max_volume (bar->priv->control);
                 else
-                        maximum = mate_mixer_stream_control_get_normal_volume (bar->priv->control);
+                        maximum = cafe_mixer_stream_control_get_normal_volume (bar->priv->control);
         }
 
         gtk_adjustment_configure (bar->priv->adjustment,
@@ -420,7 +420,7 @@ update_mute_button (GvcChannelBar *bar)
                         enable = TRUE;
 
                 if (enable == TRUE) {
-                        gboolean mute = mate_mixer_stream_control_get_mute (bar->priv->control);
+                        gboolean mute = cafe_mixer_stream_control_get_mute (bar->priv->control);
 
                         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (bar->priv->mute_button),
                                                       mute);
@@ -445,10 +445,10 @@ on_scale_button_press_event (GtkWidget      *widget,
          * changing volume until user releases the mouse button. */
         if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE &&
             bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
-                if (mate_mixer_stream_control_get_mute (bar->priv->control) == TRUE) {
+                if (cafe_mixer_stream_control_get_mute (bar->priv->control) == TRUE) {
                         guint minimum = (guint) gtk_adjustment_get_lower (bar->priv->adjustment);
 
-                        if (mate_mixer_stream_control_get_volume (bar->priv->control) > minimum)
+                        if (cafe_mixer_stream_control_get_volume (bar->priv->control) > minimum)
                                 bar->priv->click_lock = TRUE;
                 }
         }
@@ -472,7 +472,7 @@ on_scale_button_release_event (GtkWidget      *widget,
         ca_gtk_play_for_widget (GTK_WIDGET (bar), 0,
                                 CA_PROP_EVENT_ID, "audio-volume-change",
                                 CA_PROP_EVENT_DESCRIPTION, "Volume change",
-                                CA_PROP_APPLICATION_ID, "org.mate.VolumeControl",
+                                CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
                                 CA_PROP_APPLICATION_NAME, _("Volume Control"),
                                 CA_PROP_APPLICATION_VERSION, VERSION,
                                 CA_PROP_APPLICATION_ICON_NAME, "multimedia-volume-control",
@@ -517,7 +517,7 @@ on_control_mute_notify (MateMixerStreamControl *control,
                         GvcChannelBar          *bar)
 {
         if (bar->priv->show_mute == TRUE) {
-                gboolean mute = mate_mixer_stream_control_get_mute (control);
+                gboolean mute = cafe_mixer_stream_control_get_mute (control);
 
                 g_signal_handlers_block_by_func (G_OBJECT (bar->priv->mute_button),
                                                  on_mute_button_toggled,
@@ -564,7 +564,7 @@ gvc_channel_bar_set_control (GvcChannelBar *bar, MateMixerStreamControl *control
         bar->priv->control = control;
 
         if (control != NULL)
-                bar->priv->control_flags = mate_mixer_stream_control_get_flags (control);
+                bar->priv->control_flags = cafe_mixer_stream_control_get_flags (control);
         else
                 bar->priv->control_flags = MATE_MIXER_STREAM_CONTROL_NO_FLAGS;
 
@@ -870,7 +870,7 @@ gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
         maximum = gtk_adjustment_get_upper (bar->priv->adjustment);
 
         /* Use the same setting for `scrollstep` as used by the media keys plugin */
-        settings = g_settings_new ("org.mate.SettingsDaemon.plugins.media-keys");
+        settings = g_settings_new ("org.cafe.SettingsDaemon.plugins.media-keys");
         scrollstep = g_settings_get_int (settings, "volume-step");
         if (scrollstep <= 0 || scrollstep > 100) {
                 GVariant *variant = g_settings_get_default_value (settings, "volume-step");

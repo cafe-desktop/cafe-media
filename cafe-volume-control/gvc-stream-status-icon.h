@@ -24,7 +24,7 @@
 
 #include <glib.h>
 #include <glib-object.h>
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 G_BEGIN_DECLS
 

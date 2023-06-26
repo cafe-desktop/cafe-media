@@ -25,11 +25,11 @@
 #include <glib.h>
 #include <glib-object.h>
 
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 G_BEGIN_DECLS
 
-#define GVC_DIALOG_DBUS_NAME          "org.mate.VolumeControl"
+#define GVC_DIALOG_DBUS_NAME          "org.cafe.VolumeControl"
 
 #define GVC_TYPE_MIXER_DIALOG         (gvc_mixer_dialog_get_type ())
 #define GVC_MIXER_DIALOG(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), GVC_TYPE_MIXER_DIALOG, GvcMixerDialog))

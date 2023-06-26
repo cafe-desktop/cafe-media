@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Sound
 Comment=Change sound volume and sound events
-Exec=mate-volume-control
+Exec=cafe-volume-control
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=multimedia-volume-control
 Terminal=false
@@ -12,6 +12,6 @@ Categories=AudioVideo;Mixer;Settings;HardwareSettings;
 Keywords=MATE;volume;control;mixer;settings;sound;events;
 OnlyShowIn=MATE;
 X-MATE-Bugzilla-Bugzilla=MATE
-X-MATE-Bugzilla-Product=mate-media
-X-MATE-Bugzilla-Component=mate-volume-control
+X-MATE-Bugzilla-Product=cafe-media
+X-MATE-Bugzilla-Component=cafe-volume-control
 X-MATE-Bugzilla-Version=@VERSION@

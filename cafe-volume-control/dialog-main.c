@@ -27,7 +27,7 @@
 
 #include <libintl.h>
 #include <gio/gio.h>
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 #include "gvc-mixer-dialog.h"
 
@@ -125,7 +125,7 @@ on_context_state_notify (MateMixerContext *context,
                          GParamSpec       *pspec,
                          GtkApplication	  *app)
 {
-        MateMixerState state = mate_mixer_context_get_state (context);
+        MateMixerState state = cafe_mixer_context_get_state (context);
 
         if (state == MATE_MIXER_STATE_READY) {
                 remove_warning_dialog ();
@@ -225,22 +225,22 @@ main (int argc, char **argv)
                 return 1;
         }
 
-        if (mate_mixer_init () == FALSE) {
-                g_warning ("libmatemixer initialization failed, exiting");
+        if (cafe_mixer_init () == FALSE) {
+                g_warning ("libcafemixer initialization failed, exiting");
                 return 1;
         }
 
-        context = mate_mixer_context_new ();
+        context = cafe_mixer_context_new ();
 
         if (backend != NULL) {
                 if (strcmp (backend, "pulse") == 0)
-                        mate_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_PULSEAUDIO);
+                        cafe_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_PULSEAUDIO);
                 else if (strcmp (backend, "alsa") == 0)
-                        mate_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_ALSA);
+                        cafe_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_ALSA);
                 else if (strcmp (backend, "oss") == 0)
-                        mate_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_OSS);
+                        cafe_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_OSS);
                 else if (strcmp (backend, "null") == 0)
-                        mate_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_NULL);
+                        cafe_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_NULL);
                 else {
                         g_warning ("Invalid backend: %s", backend);
                         g_object_unref (context);
@@ -252,19 +252,19 @@ main (int argc, char **argv)
                 g_free (backend);
         }
 
-        mate_mixer_context_set_app_name (context, _("Volume Control"));
-        mate_mixer_context_set_app_id (context, GVC_DIALOG_DBUS_NAME);
-        mate_mixer_context_set_app_version (context, VERSION);
-        mate_mixer_context_set_app_icon (context, "multimedia-volume-control");
+        cafe_mixer_context_set_app_name (context, _("Volume Control"));
+        cafe_mixer_context_set_app_id (context, GVC_DIALOG_DBUS_NAME);
+        cafe_mixer_context_set_app_version (context, VERSION);
+        cafe_mixer_context_set_app_icon (context, "multimedia-volume-control");
 
         g_signal_connect (G_OBJECT (context),
                           "notify::state",
                           G_CALLBACK (on_context_state_notify),
                           app);
 
-        mate_mixer_context_open (context);
+        cafe_mixer_context_open (context);
 
-        if (mate_mixer_context_get_state (context) == MATE_MIXER_STATE_CONNECTING) {
+        if (cafe_mixer_context_get_state (context) == MATE_MIXER_STATE_CONNECTING) {
                 popup_id = g_timeout_add_seconds (DIALOG_POPUP_TIMEOUT,
                                                   dialog_popup_timeout,
                                                   NULL);

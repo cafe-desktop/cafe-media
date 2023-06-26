@@ -24,7 +24,7 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 #include "gvc-combo-box.h"
 
@@ -103,14 +103,14 @@ on_switch_active_option_notify (MateMixerSwitch *swtch,
         gboolean               cont;
         const gchar           *name;
 
-        active = mate_mixer_switch_get_active_option (swtch);
+        active = cafe_mixer_switch_get_active_option (swtch);
         if (G_UNLIKELY (active == NULL)) {
                 g_warn_if_reached ();
                 return;
         }
 
         /* Select the newly activated switch option in the combo box */
-        name = mate_mixer_switch_option_get_name (active);
+        name = cafe_mixer_switch_option_get_name (active);
         cont = gtk_tree_model_get_iter_first (combobox->priv->model, &iter);
         while (cont == TRUE) {
                 gchar *current;
@@ -141,8 +141,8 @@ gvc_combo_box_set_switch (GvcComboBox *combobox, MateMixerSwitch *swtch)
 
         combobox->priv->swtch = g_object_ref (swtch);
 
-        active  = mate_mixer_switch_get_active_option (swtch);
-        options = mate_mixer_switch_list_options (swtch);
+        active  = cafe_mixer_switch_get_active_option (swtch);
+        options = cafe_mixer_switch_list_options (swtch);
         while (options != NULL) {
                 GtkTreeIter            iter;
                 MateMixerSwitchOption *option = MATE_MIXER_SWITCH_OPTION (options->data);
@@ -151,9 +151,9 @@ gvc_combo_box_set_switch (GvcComboBox *combobox, MateMixerSwitch *swtch)
                                                    &iter,
                                                    G_MAXINT,
                                                    COL_NAME,
-                                                   mate_mixer_switch_option_get_name (option),
+                                                   cafe_mixer_switch_option_get_name (option),
                                                    COL_HUMAN_NAME,
-                                                   mate_mixer_switch_option_get_label (option),
+                                                   cafe_mixer_switch_option_get_label (option),
                                                    -1);
 
                 /* Select the currently active option of the switch */
@@ -307,7 +307,7 @@ on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
                             COL_NAME, &name,
                             -1);
 
-        option = mate_mixer_switch_get_option (combobox->priv->swtch, name);
+        option = cafe_mixer_switch_get_option (combobox->priv->swtch, name);
         if (G_UNLIKELY (option == NULL)) {
                 g_warn_if_reached ();
                 g_free (name);
@@ -317,7 +317,7 @@ on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
         /* Inform that we are about to change the active option of the switch */
         g_signal_emit (combobox, signals[CHANGING], 0, option);
 
-        mate_mixer_switch_set_active_option (combobox->priv->swtch, option);
+        cafe_mixer_switch_set_active_option (combobox->priv->swtch, option);
         g_free (name);
 }
 

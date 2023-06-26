@@ -27,7 +27,7 @@
 
 G_BEGIN_DECLS
 
-#define GVC_STATUS_ICON_DBUS_NAME    "org.mate.VolumeControlStatusIcon"
+#define GVC_STATUS_ICON_DBUS_NAME    "org.cafe.VolumeControlStatusIcon"
 
 #define GVC_TYPE_STATUS_ICON         (gvc_status_icon_get_type ())
 #define GVC_STATUS_ICON(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), GVC_TYPE_STATUS_ICON, GvcStatusIcon))
