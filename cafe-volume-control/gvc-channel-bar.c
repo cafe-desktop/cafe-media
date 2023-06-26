@@ -55,8 +55,8 @@ struct _GvcChannelBarPrivate
         GtkSizeGroup               *size_group;
         gboolean                    symmetric;
         gboolean                    click_lock;
-        MateMixerStreamControl     *control;
-        MateMixerStreamControlFlags control_flags;
+        CafeMixerStreamControl     *control;
+        CafeMixerStreamControlFlags control_flags;
 };
 
 enum {
@@ -504,7 +504,7 @@ on_scale_scroll_event (GtkWidget      *widget,
 }
 
 static void
-on_control_volume_notify (MateMixerStreamControl *control,
+on_control_volume_notify (CafeMixerStreamControl *control,
                           GParamSpec             *pspec,
                           GvcChannelBar          *bar)
 {
@@ -512,7 +512,7 @@ on_control_volume_notify (MateMixerStreamControl *control,
 }
 
 static void
-on_control_mute_notify (MateMixerStreamControl *control,
+on_control_mute_notify (CafeMixerStreamControl *control,
                         GParamSpec             *pspec,
                         GvcChannelBar          *bar)
 {
@@ -532,7 +532,7 @@ on_control_mute_notify (MateMixerStreamControl *control,
         update_adjustment_value (bar);
 }
 
-MateMixerStreamControl *
+CafeMixerStreamControl *
 gvc_channel_bar_get_control (GvcChannelBar *bar)
 {
         g_return_val_if_fail (GVC_IS_CHANNEL_BAR (bar), NULL);
@@ -541,7 +541,7 @@ gvc_channel_bar_get_control (GvcChannelBar *bar)
 }
 
 void
-gvc_channel_bar_set_control (GvcChannelBar *bar, MateMixerStreamControl *control)
+gvc_channel_bar_set_control (GvcChannelBar *bar, CafeMixerStreamControl *control)
 {
         g_return_if_fail (GVC_IS_CHANNEL_BAR (bar));
 
@@ -1007,7 +1007,7 @@ gvc_channel_bar_class_init (GvcChannelBarClass *klass)
         properties[PROP_CONTROL] =
                 g_param_spec_object ("control",
                                      "Control",
-                                     "MateMixer stream control",
+                                     "CafeMixer stream control",
                                      MATE_MIXER_TYPE_STREAM_CONTROL,
                                      G_PARAM_READWRITE |
                                      G_PARAM_CONSTRUCT |
@@ -1153,7 +1153,7 @@ gvc_channel_bar_init (GvcChannelBar *bar)
 }
 
 GtkWidget *
-gvc_channel_bar_new (MateMixerStreamControl *control)
+gvc_channel_bar_new (CafeMixerStreamControl *control)
 {
         return g_object_new (GVC_TYPE_CHANNEL_BAR,
                              "control", control,

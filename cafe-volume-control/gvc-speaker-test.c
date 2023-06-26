@@ -36,7 +36,7 @@ struct _GvcSpeakerTestPrivate
 {
         GArray           *controls;
         ca_context       *canberra;
-        MateMixerStream  *stream;
+        CafeMixerStream  *stream;
 };
 
 enum {
@@ -53,7 +53,7 @@ static void gvc_speaker_test_finalize   (GObject             *object);
 G_DEFINE_TYPE_WITH_PRIVATE (GvcSpeakerTest, gvc_speaker_test, GTK_TYPE_GRID)
 
 typedef struct {
-        MateMixerChannelPosition position;
+        CafeMixerChannelPosition position;
         guint left;
         guint top;
 } TablePosition;
@@ -74,7 +74,7 @@ static const TablePosition positions[] = {
         { MATE_MIXER_CHANNEL_LFE, 3, 2 }
 };
 
-MateMixerStream *
+CafeMixerStream *
 gvc_speaker_test_get_stream (GvcSpeakerTest *test)
 {
         g_return_val_if_fail (GVC_IS_SPEAKER_TEST (test), NULL);
@@ -83,9 +83,9 @@ gvc_speaker_test_get_stream (GvcSpeakerTest *test)
 }
 
 static void
-gvc_speaker_test_set_stream (GvcSpeakerTest *test, MateMixerStream *stream)
+gvc_speaker_test_set_stream (GvcSpeakerTest *test, CafeMixerStream *stream)
 {
-        MateMixerStreamControl *control;
+        CafeMixerStreamControl *control;
         const gchar            *name;
         guint                   i;
 
@@ -154,7 +154,7 @@ gvc_speaker_test_class_init (GvcSpeakerTestClass *klass)
         properties[PROP_STREAM] =
                 g_param_spec_object ("stream",
                                      "Stream",
-                                     "MateMixer stream",
+                                     "CafeMixer stream",
                                      MATE_MIXER_TYPE_STREAM,
                                      G_PARAM_READWRITE |
                                      G_PARAM_CONSTRUCT_ONLY |
@@ -164,7 +164,7 @@ gvc_speaker_test_class_init (GvcSpeakerTestClass *klass)
 }
 
 static const gchar *
-sound_name (MateMixerChannelPosition position)
+sound_name (CafeMixerChannelPosition position)
 {
         switch (position) {
         case MATE_MIXER_CHANNEL_FRONT_LEFT:
@@ -191,7 +191,7 @@ sound_name (MateMixerChannelPosition position)
 }
 
 static const gchar *
-icon_name (MateMixerChannelPosition position, gboolean playing)
+icon_name (CafeMixerChannelPosition position, gboolean playing)
 {
         switch (position) {
         case MATE_MIXER_CHANNEL_FRONT_LEFT:
@@ -241,7 +241,7 @@ update_button (GtkWidget *control)
         GtkWidget *button;
         GtkWidget *image;
         gboolean   playing;
-        MateMixerChannelPosition position;
+        CafeMixerChannelPosition position;
 
         button = g_object_get_data (G_OBJECT (control), "button");
         image  = g_object_get_data (G_OBJECT (control), "image");
@@ -295,7 +295,7 @@ on_test_button_clicked (GtkButton *button, GtkWidget *control)
         if (playing) {
                 g_object_set_data (G_OBJECT (control), "playing", GINT_TO_POINTER (FALSE));
         } else {
-                MateMixerChannelPosition position;
+                CafeMixerChannelPosition position;
                 const gchar *name;
                 ca_proplist *proplist;
 
@@ -336,7 +336,7 @@ on_test_button_clicked (GtkButton *button, GtkWidget *control)
 }
 
 static GtkWidget *
-create_control (ca_context *canberra, MateMixerChannelPosition position)
+create_control (ca_context *canberra, CafeMixerChannelPosition position)
 {
         GtkWidget   *control;
         GtkWidget   *box;
@@ -460,7 +460,7 @@ gvc_speaker_test_finalize (GObject *object)
 }
 
 GtkWidget *
-gvc_speaker_test_new (MateMixerStream *stream)
+gvc_speaker_test_new (CafeMixerStream *stream)
 {
         GObject *test;
 

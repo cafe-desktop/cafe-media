@@ -224,7 +224,7 @@
 #
 # Konventioner:
 #
-#   Mate-CD -> cd-afspiller
+#   Cafe-CD -> cd-afspiller
 #   sample -> (oftest) lydklip
 #   sink -> destination
 #   track -> spor
@@ -264,7 +264,7 @@
 # Copyright (C) 1999 - 2009 Free Software Foundation, Inc.
 # simos: around 250 messages (initial translation, started counting)
 # kostas: 05Jan2003, one more update
-# kostas: 03Aug2003, update for Mate 2.4
+# kostas: 03Aug2003, update for Cafe 2.4
 # nikos: 07Sep2003, Review translation
 # nikos: 07Sep2003, change some messages for better shape of vol control window
 # kostas:12Nov2003, fixes
@@ -277,7 +277,7 @@
 # aarg : 336 messages, 19Jul2002, fixes to translation.
 # kostas: 475 messages, 26Oct2002, completed translation.
 # kostas: fixed 3 typos, 21Nov2002 (thanks to Nikos Charonitakis).
-# kostas: 583 messages, 06Jan2003, updated translation for Mate 2.1x.
+# kostas: 583 messages, 06Jan2003, updated translation for Cafe 2.1x.
 # Kostas Papadimas <pkst@gnome.org> 2002, 2003.
 # Simos Xenitellis <simos@hellug.gr>, 1999, 2000, 2001, 2002.
 # Nikos Charonitakis <frolix68@yahoo.gr>, 2002, 2003, 2004.
@@ -292,7 +292,7 @@
 
 ========== en@shaw.po ==========
 # Shavian translation for cafe-media.
-# Copyright (C) 2009 The Mate Foundation.
+# Copyright (C) 2009 The Cafe Foundation.
 # Thomas Thurman <tthurman@gnome.org>, 2009.
 
 
@@ -507,7 +507,7 @@
 # Emese Kovacs <emese@cafe.hu>, 2002.
 # Laszlo Dvornik <dvornik@cafe.hu>, 2004.
 # Gabor Kelemen <kelemeng at cafe dot hu>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
-# Mate ORY <orycafe at gmail d0t com>, 2006.
+# Cafe ORY <orycafe at gmail d0t com>, 2006.
 
 
 
@@ -549,7 +549,7 @@
 
 
 ========== ka.po ==========
-# Georgian translation for Mate Media.
+# Georgian translation for Cafe Media.
 # # Copyright © 2006 Georgian Ubuntu Translators.
 # Alexander Didebulidze <didebuli@in.tum.de>, 2005.
 # 
@@ -607,7 +607,7 @@
 
 ========== lv.po ==========
 # translation of lv.po to Latvian
-# Mate-media for Latvian.
+# Cafe-media for Latvian.
 # Copyright (C) 2001, 2006, 2009 Free Software Foundation, Inc.
 #
 # Artis Trops <hornet@navigators.lv>, 2001.
@@ -694,7 +694,7 @@
 
 
 ========== ms.po ==========
-# Mate-media Bahasa Melayu (ms)
+# Cafe-media Bahasa Melayu (ms)
 # Jika takut risiko, Jangan bicara tentang Perjuangan
 # Hasbullah Bin Pit (sebol) <sebol@ikhlas.com>, 2001,2002, 2003
 #
@@ -943,7 +943,7 @@
 # Andraž Tori <andraz.tori1@guest.arnes.si>, 2000.
 # Matjaž Horvat <m@owca.info>, 2006.
 # Matic Žgur <mr.zgur@gmail.com>, 2007.
-# Matej Urbančič <cafeju@svn.cafe.org>, 2007 - 2010.
+# Cafej Urbančič <cafeju@svn.cafe.org>, 2007 - 2010.
 #
 
 
@@ -1006,7 +1006,7 @@
 ========== ta.po ==========
 # translation of cafe-media.master.ta.po to Tamil
 # translation of media.po to
-# Tamil translation of Tamil Mate Media 2.4.
+# Tamil translation of Tamil Cafe Media 2.4.
 # Copyright (C) 2003, 2004, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
 #

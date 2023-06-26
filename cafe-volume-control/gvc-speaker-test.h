@@ -54,9 +54,9 @@ struct _GvcSpeakerTestClass
 
 GType               gvc_speaker_test_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_speaker_test_new                 (MateMixerStream *stream);
+GtkWidget *         gvc_speaker_test_new                 (CafeMixerStream *stream);
 
-MateMixerStream *   gvc_speaker_test_get_stream          (GvcSpeakerTest  *test);
+CafeMixerStream *   gvc_speaker_test_get_stream          (GvcSpeakerTest  *test);
 
 G_END_DECLS
 

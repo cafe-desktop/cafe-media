@@ -238,7 +238,7 @@ msgstr ""
 
 #: cafe-volume-control/gvc-mixer-dialog.c:1968
 msgid "Hardware"
-msgstr "Material"
+msgstr "Caferial"
 
 #: cafe-volume-control/gvc-mixer-dialog.c:1973
 msgid "C_hoose a device to configure:"

@@ -90,7 +90,7 @@ msgstr "Phiên bản ứng dụng này"
 
 #: cafe-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
-msgstr "__ Điều khiển âm lượng Mate"
+msgstr "__ Điều khiển âm lượng Cafe"
 
 #: cafe-volume-control/gvc-applet.c:56
 #: cafe-volume-control/gvc-stream-status-icon.c:246
@@ -115,7 +115,7 @@ msgstr "Kết xuất"
 
 #: cafe-volume-control/gvc-applet.c:406
 msgid "MATE Volume Control Applet"
-msgstr "Bộ điều khiển âm lượng Mate"
+msgstr "Bộ điều khiển âm lượng Cafe"
 
 #: cafe-volume-control/gvc-applet.c:463
 msgid "Unmute Output"

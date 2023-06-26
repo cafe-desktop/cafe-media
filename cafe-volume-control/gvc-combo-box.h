@@ -52,16 +52,16 @@ struct _GvcComboBoxClass
         GtkBoxClass             parent_class;
 
         void (* changing)       (GvcComboBox           *combobox,
-                                 MateMixerSwitchOption *option);
+                                 CafeMixerSwitchOption *option);
         void (* button_clicked) (GvcComboBox           *combobox);
 };
 
 GType               gvc_combo_box_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_combo_box_new                 (MateMixerSwitch *swtch,
+GtkWidget *         gvc_combo_box_new                 (CafeMixerSwitch *swtch,
                                                        const gchar     *label);
 
-MateMixerSwitch *   gvc_combo_box_get_switch          (GvcComboBox     *combobox);
+CafeMixerSwitch *   gvc_combo_box_get_switch          (GvcComboBox     *combobox);
 
 void                gvc_combo_box_set_size_group      (GvcComboBox     *combobox,
                                                        GtkSizeGroup    *group,

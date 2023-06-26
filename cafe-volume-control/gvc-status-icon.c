@@ -53,8 +53,8 @@ struct _GvcStatusIconPrivate
         GvcStreamStatusIcon *icon_input;
         GvcStreamStatusIcon *icon_output;
         gboolean             running;
-        MateMixerContext    *context;
-        MateMixerStream     *input;
+        CafeMixerContext    *context;
+        CafeMixerStream     *input;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (GvcStatusIcon, gvc_status_icon, G_TYPE_OBJECT)
@@ -62,7 +62,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (GvcStatusIcon, gvc_status_icon, G_TYPE_OBJECT)
 static void
 update_icon_input (GvcStatusIcon *status_icon)
 {
-        MateMixerStreamControl *control = NULL;
+        CafeMixerStreamControl *control = NULL;
         gboolean                show = FALSE;
 
         /* Enable the input icon in case there is an input stream present and there
@@ -83,13 +83,13 @@ update_icon_input (GvcStatusIcon *status_icon)
                 }
 
                 while (inputs != NULL) {
-                        MateMixerStreamControl    *input =
+                        CafeMixerStreamControl    *input =
                                 MATE_MIXER_STREAM_CONTROL (inputs->data);
-                        MateMixerStreamControlRole role =
+                        CafeMixerStreamControlRole role =
                                 cafe_mixer_stream_control_get_role (input);
 
                         if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
-                                MateMixerAppInfo *app_info =
+                                CafeMixerAppInfo *app_info =
                                         cafe_mixer_stream_control_get_app_info (input);
 
                                 app_id = cafe_mixer_app_info_get_id (app_info);
@@ -138,8 +138,8 @@ update_icon_input (GvcStatusIcon *status_icon)
 static void
 update_icon_output (GvcStatusIcon *status_icon)
 {
-        MateMixerStream        *stream;
-        MateMixerStreamControl *control = NULL;
+        CafeMixerStream        *stream;
+        CafeMixerStreamControl *control = NULL;
 
         stream = cafe_mixer_context_get_default_output_stream (status_icon->priv->context);
         if (stream != NULL)
@@ -160,15 +160,15 @@ update_icon_output (GvcStatusIcon *status_icon)
 }
 
 static void
-on_input_stream_control_added (MateMixerStream *stream,
+on_input_stream_control_added (CafeMixerStream *stream,
                                const gchar     *name,
                                GvcStatusIcon       *status_icon)
 {
-        MateMixerStreamControl *control;
+        CafeMixerStreamControl *control;
 
         control = cafe_mixer_stream_get_control (stream, name);
         if (G_LIKELY (control != NULL)) {
-                MateMixerStreamControlRole role =
+                CafeMixerStreamControlRole role =
                         cafe_mixer_stream_control_get_role (control);
 
                 /* Non-application input control doesn't affect the icon */
@@ -183,7 +183,7 @@ on_input_stream_control_added (MateMixerStream *stream,
 }
 
 static void
-on_input_stream_control_removed (MateMixerStream *stream,
+on_input_stream_control_removed (CafeMixerStream *stream,
                                  const gchar     *name,
                                  GvcStatusIcon       *status_icon)
 {
@@ -195,7 +195,7 @@ on_input_stream_control_removed (MateMixerStream *stream,
 static gboolean
 update_default_input_stream (GvcStatusIcon *status_icon)
 {
-        MateMixerStream *stream;
+        CafeMixerStream *stream;
 
         stream = cafe_mixer_context_get_default_input_stream (status_icon->priv->context);
         if (stream == status_icon->priv->input)
@@ -225,11 +225,11 @@ update_default_input_stream (GvcStatusIcon *status_icon)
 }
 
 static void
-on_context_state_notify (MateMixerContext *context,
+on_context_state_notify (CafeMixerContext *context,
                          GParamSpec       *pspec,
                          GvcStatusIcon        *status_icon)
 {
-        MateMixerState state = cafe_mixer_context_get_state (context);
+        CafeMixerState state = cafe_mixer_context_get_state (context);
 
         switch (state) {
         case MATE_MIXER_STATE_FAILED:
@@ -249,7 +249,7 @@ on_context_state_notify (MateMixerContext *context,
 }
 
 static void
-on_context_default_input_stream_notify (MateMixerContext *context,
+on_context_default_input_stream_notify (CafeMixerContext *context,
                                         GParamSpec       *pspec,
                                         GvcStatusIcon        *status_icon)
 {
@@ -260,7 +260,7 @@ on_context_default_input_stream_notify (MateMixerContext *context,
 }
 
 static void
-on_context_default_output_stream_notify (MateMixerContext *control,
+on_context_default_output_stream_notify (CafeMixerContext *control,
                                          GParamSpec       *pspec,
                                          GvcStatusIcon        *status_icon)
 {
