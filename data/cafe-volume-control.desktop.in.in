@@ -9,9 +9,9 @@ Type=Application
 StartupNotify=true
 Categories=AudioVideo;Mixer;Settings;HardwareSettings;
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-Keywords=MATE;volume;control;mixer;settings;sound;events;
-OnlyShowIn=MATE;
-X-MATE-Bugzilla-Bugzilla=MATE
-X-MATE-Bugzilla-Product=cafe-media
-X-MATE-Bugzilla-Component=cafe-volume-control
-X-MATE-Bugzilla-Version=@VERSION@
+Keywords=CAFE;volume;control;mixer;settings;sound;events;
+OnlyShowIn=CAFE;
+X-CAFE-Bugzilla-Bugzilla=CAFE
+X-CAFE-Bugzilla-Product=cafe-media
+X-CAFE-Bugzilla-Component=cafe-volume-control
+X-CAFE-Bugzilla-Version=@VERSION@

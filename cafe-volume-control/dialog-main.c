@@ -127,11 +127,11 @@ on_context_state_notify (CafeMixerContext *context,
 {
         CafeMixerState state = cafe_mixer_context_get_state (context);
 
-        if (state == MATE_MIXER_STATE_READY) {
+        if (state == CAFE_MIXER_STATE_READY) {
                 remove_warning_dialog ();
                 context_ready (context, app);
         }
-        else if (state == MATE_MIXER_STATE_FAILED) {
+        else if (state == CAFE_MIXER_STATE_FAILED) {
                 GtkWidget *dialog;
 
                 remove_warning_dialog ();
@@ -199,7 +199,7 @@ main (int argc, char **argv)
         textdomain (GETTEXT_PACKAGE);
 
         gtk_init_with_args (&argc, &argv,
-                            _(" — MATE Volume Control"),
+                            _(" — CAFE Volume Control"),
                             entries, GETTEXT_PACKAGE,
                             &error);
 
@@ -234,13 +234,13 @@ main (int argc, char **argv)
 
         if (backend != NULL) {
                 if (strcmp (backend, "pulse") == 0)
-                        cafe_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_PULSEAUDIO);
+                        cafe_mixer_context_set_backend_type (context, CAFE_MIXER_BACKEND_PULSEAUDIO);
                 else if (strcmp (backend, "alsa") == 0)
-                        cafe_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_ALSA);
+                        cafe_mixer_context_set_backend_type (context, CAFE_MIXER_BACKEND_ALSA);
                 else if (strcmp (backend, "oss") == 0)
-                        cafe_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_OSS);
+                        cafe_mixer_context_set_backend_type (context, CAFE_MIXER_BACKEND_OSS);
                 else if (strcmp (backend, "null") == 0)
-                        cafe_mixer_context_set_backend_type (context, MATE_MIXER_BACKEND_NULL);
+                        cafe_mixer_context_set_backend_type (context, CAFE_MIXER_BACKEND_NULL);
                 else {
                         g_warning ("Invalid backend: %s", backend);
                         g_object_unref (context);
@@ -264,7 +264,7 @@ main (int argc, char **argv)
 
         cafe_mixer_context_open (context);
 
-        if (cafe_mixer_context_get_state (context) == MATE_MIXER_STATE_CONNECTING) {
+        if (cafe_mixer_context_get_state (context) == CAFE_MIXER_STATE_CONNECTING) {
                 popup_id = g_timeout_add_seconds (DIALOG_POPUP_TIMEOUT,
                                                   dialog_popup_timeout,
                                                   NULL);

@@ -25,7 +25,7 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
-#define MATE_DESKTOP_USE_UNSTABLE_API
+#define CAFE_DESKTOP_USE_UNSTABLE_API
 #include <libcafe-desktop/cafe-desktop-utils.h>
 
 #include "gvc-level-bar.h"

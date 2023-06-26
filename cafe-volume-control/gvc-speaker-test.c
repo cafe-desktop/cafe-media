@@ -60,18 +60,18 @@ typedef struct {
 
 static const TablePosition positions[] = {
         /* Position, X, Y */
-        { MATE_MIXER_CHANNEL_FRONT_LEFT, 0, 0, },
-        { MATE_MIXER_CHANNEL_FRONT_LEFT_CENTER, 1, 0, },
-        { MATE_MIXER_CHANNEL_FRONT_CENTER, 2, 0, },
-        { MATE_MIXER_CHANNEL_MONO, 2, 0, },
-        { MATE_MIXER_CHANNEL_FRONT_RIGHT_CENTER, 3, 0, },
-        { MATE_MIXER_CHANNEL_FRONT_RIGHT, 4, 0, },
-        { MATE_MIXER_CHANNEL_SIDE_LEFT, 0, 1, },
-        { MATE_MIXER_CHANNEL_SIDE_RIGHT, 4, 1, },
-        { MATE_MIXER_CHANNEL_BACK_LEFT, 0, 2, },
-        { MATE_MIXER_CHANNEL_BACK_CENTER, 2, 2, },
-        { MATE_MIXER_CHANNEL_BACK_RIGHT, 4, 2, },
-        { MATE_MIXER_CHANNEL_LFE, 3, 2 }
+        { CAFE_MIXER_CHANNEL_FRONT_LEFT, 0, 0, },
+        { CAFE_MIXER_CHANNEL_FRONT_LEFT_CENTER, 1, 0, },
+        { CAFE_MIXER_CHANNEL_FRONT_CENTER, 2, 0, },
+        { CAFE_MIXER_CHANNEL_MONO, 2, 0, },
+        { CAFE_MIXER_CHANNEL_FRONT_RIGHT_CENTER, 3, 0, },
+        { CAFE_MIXER_CHANNEL_FRONT_RIGHT, 4, 0, },
+        { CAFE_MIXER_CHANNEL_SIDE_LEFT, 0, 1, },
+        { CAFE_MIXER_CHANNEL_SIDE_RIGHT, 4, 1, },
+        { CAFE_MIXER_CHANNEL_BACK_LEFT, 0, 2, },
+        { CAFE_MIXER_CHANNEL_BACK_CENTER, 2, 2, },
+        { CAFE_MIXER_CHANNEL_BACK_RIGHT, 4, 2, },
+        { CAFE_MIXER_CHANNEL_LFE, 3, 2 }
 };
 
 CafeMixerStream *
@@ -155,7 +155,7 @@ gvc_speaker_test_class_init (GvcSpeakerTestClass *klass)
                 g_param_spec_object ("stream",
                                      "Stream",
                                      "CafeMixer stream",
-                                     MATE_MIXER_TYPE_STREAM,
+                                     CAFE_MIXER_TYPE_STREAM,
                                      G_PARAM_READWRITE |
                                      G_PARAM_CONSTRUCT_ONLY |
                                      G_PARAM_STATIC_STRINGS);
@@ -167,23 +167,23 @@ static const gchar *
 sound_name (CafeMixerChannelPosition position)
 {
         switch (position) {
-        case MATE_MIXER_CHANNEL_FRONT_LEFT:
+        case CAFE_MIXER_CHANNEL_FRONT_LEFT:
                 return "audio-channel-front-left";
-        case MATE_MIXER_CHANNEL_FRONT_RIGHT:
+        case CAFE_MIXER_CHANNEL_FRONT_RIGHT:
                 return "audio-channel-front-right";
-        case MATE_MIXER_CHANNEL_FRONT_CENTER:
+        case CAFE_MIXER_CHANNEL_FRONT_CENTER:
                 return "audio-channel-front-center";
-        case MATE_MIXER_CHANNEL_BACK_LEFT:
+        case CAFE_MIXER_CHANNEL_BACK_LEFT:
                 return "audio-channel-rear-left";
-        case MATE_MIXER_CHANNEL_BACK_RIGHT:
+        case CAFE_MIXER_CHANNEL_BACK_RIGHT:
                 return "audio-channel-rear-right";
-        case MATE_MIXER_CHANNEL_BACK_CENTER:
+        case CAFE_MIXER_CHANNEL_BACK_CENTER:
                 return "audio-channel-rear-center";
-        case MATE_MIXER_CHANNEL_LFE:
+        case CAFE_MIXER_CHANNEL_LFE:
                 return "audio-channel-lfe";
-        case MATE_MIXER_CHANNEL_SIDE_LEFT:
+        case CAFE_MIXER_CHANNEL_SIDE_LEFT:
                 return "audio-channel-side-left";
-        case MATE_MIXER_CHANNEL_SIDE_RIGHT:
+        case CAFE_MIXER_CHANNEL_SIDE_RIGHT:
                 return "audio-channel-side-right";
         default:
                 return NULL;
@@ -194,39 +194,39 @@ static const gchar *
 icon_name (CafeMixerChannelPosition position, gboolean playing)
 {
         switch (position) {
-        case MATE_MIXER_CHANNEL_FRONT_LEFT:
+        case CAFE_MIXER_CHANNEL_FRONT_LEFT:
                 return playing
                         ? "audio-speaker-left-testing"
                         : "audio-speaker-left";
-        case MATE_MIXER_CHANNEL_FRONT_RIGHT:
+        case CAFE_MIXER_CHANNEL_FRONT_RIGHT:
                 return playing
                         ? "audio-speaker-right-testing"
                         : "audio-speaker-right";
-        case MATE_MIXER_CHANNEL_FRONT_CENTER:
+        case CAFE_MIXER_CHANNEL_FRONT_CENTER:
                 return playing
                         ? "audio-speaker-center-testing"
                         : "audio-speaker-center";
-        case MATE_MIXER_CHANNEL_BACK_LEFT:
+        case CAFE_MIXER_CHANNEL_BACK_LEFT:
                 return playing
                         ? "audio-speaker-left-back-testing"
                         : "audio-speaker-left-back";
-        case MATE_MIXER_CHANNEL_BACK_RIGHT:
+        case CAFE_MIXER_CHANNEL_BACK_RIGHT:
                 return playing
                         ? "audio-speaker-right-back-testing"
                         : "audio-speaker-right-back";
-        case MATE_MIXER_CHANNEL_BACK_CENTER:
+        case CAFE_MIXER_CHANNEL_BACK_CENTER:
                 return playing
                         ? "audio-speaker-center-back-testing"
                         : "audio-speaker-center-back";
-        case MATE_MIXER_CHANNEL_LFE:
+        case CAFE_MIXER_CHANNEL_LFE:
                 return playing
                         ? "audio-subwoofer-testing"
                         : "audio-subwoofer";
-        case MATE_MIXER_CHANNEL_SIDE_LEFT:
+        case CAFE_MIXER_CHANNEL_SIDE_LEFT:
                 return playing
                         ? "audio-speaker-left-side-testing"
                         : "audio-speaker-left-side";
-        case MATE_MIXER_CHANNEL_SIDE_RIGHT:
+        case CAFE_MIXER_CHANNEL_SIDE_RIGHT:
                 return playing
                         ? "audio-speaker-right-side-testing"
                         : "audio-speaker-right-side";
@@ -464,7 +464,7 @@ gvc_speaker_test_new (CafeMixerStream *stream)
 {
         GObject *test;
 
-        g_return_val_if_fail (MATE_MIXER_IS_STREAM (stream), NULL);
+        g_return_val_if_fail (CAFE_MIXER_IS_STREAM (stream), NULL);
 
         test = g_object_new (GVC_TYPE_SPEAKER_TEST,
                              "row-spacing", 6,

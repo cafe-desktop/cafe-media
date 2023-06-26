@@ -231,7 +231,7 @@ find_stream_lfe_channel (CafeMixerStreamControl *control)
                 CafeMixerChannelPosition position;
 
                 position = cafe_mixer_stream_control_get_channel_position (control, i);
-                if (position == MATE_MIXER_CHANNEL_LFE)
+                if (position == CAFE_MIXER_CHANNEL_LFE)
                         return i;
         }
 
@@ -242,7 +242,7 @@ static void
 gvc_balance_bar_set_control (GvcBalanceBar *bar, CafeMixerStreamControl *control)
 {
         g_return_if_fail (GVC_BALANCE_BAR (bar));
-        g_return_if_fail (MATE_MIXER_IS_STREAM_CONTROL (control));
+        g_return_if_fail (CAFE_MIXER_IS_STREAM_CONTROL (control));
 
         if (bar->priv->control != NULL) {
                 g_signal_handlers_disconnect_by_func (G_OBJECT (bar->priv->control),
@@ -414,7 +414,7 @@ gvc_balance_bar_class_init (GvcBalanceBarClass *klass)
                 g_param_spec_object ("control",
                                      "Control",
                                      "CafeMixer stream control",
-                                     MATE_MIXER_TYPE_STREAM_CONTROL,
+                                     CAFE_MIXER_TYPE_STREAM_CONTROL,
                                      G_PARAM_READWRITE |
                                      G_PARAM_STATIC_STRINGS);
 

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -40,8 +40,8 @@ msgstr "multimedia-volume-control"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control.desktop.in.in:13
-msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr "MATE;volume;control;mixer;settings;sound;events;"
+msgid "CAFE;volume;control;mixer;settings;sound;events;"
+msgstr "CAFE;volume;control;mixer;settings;sound;events;"
 
 #: data/cafe-volume-control-status-icon.desktop.in:3
 #: cafe-volume-control/dialog-main.c:255
@@ -58,8 +58,8 @@ msgstr "顯示桌面音量控制"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control-status-icon.desktop.in:12
-msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr "MATE;volume;control;mixer;settings;sound;"
+msgid "CAFE;volume;control;mixer;settings;sound;"
+msgstr "CAFE;volume;control;mixer;settings;sound;"
 
 #: cafe-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -88,8 +88,8 @@ msgid "Version of this application"
 msgstr "本程式的版本"
 
 #: cafe-volume-control/dialog-main.c:202
-msgid " — MATE Volume Control"
-msgstr " — MATE 音量控制"
+msgid " — CAFE Volume Control"
+msgstr " — CAFE 音量控制"
 
 #: cafe-volume-control/gvc-applet.c:56
 #: cafe-volume-control/gvc-stream-status-icon.c:246
@@ -113,8 +113,8 @@ msgid "Output"
 msgstr "輸出"
 
 #: cafe-volume-control/gvc-applet.c:406
-msgid "MATE Volume Control Applet"
-msgstr "MATE 音量控制面板程式"
+msgid "CAFE Volume Control Applet"
+msgstr "CAFE 音量控制面板程式"
 
 #: cafe-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
@@ -338,8 +338,8 @@ msgid "Sound Output Volume"
 msgstr "音效輸出音量"
 
 #: cafe-volume-control/gvc-status-icon.c:334
-msgid "MATE Volume Control StatusIcon"
-msgstr "MATE 音量控制狀態圖示"
+msgid "CAFE Volume Control StatusIcon"
+msgstr "CAFE 音量控制狀態圖示"
 
 #: cafe-volume-control/gvc-stream-applet-icon.c:196
 #: cafe-volume-control/gvc-stream-status-icon.c:201
@@ -465,5 +465,5 @@ msgid "Volume Control Factory"
 msgstr "音量控制工廠"
 
 #: cafe-volume-control/status-icon-main.c:55
-msgid " — MATE Volume Control Status Icon"
-msgstr " — MATE 音量控制狀態圖示"
+msgid " — CAFE Volume Control Status Icon"
+msgstr " — CAFE 音量控制狀態圖示"

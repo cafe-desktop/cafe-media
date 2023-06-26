@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -40,9 +40,9 @@ msgstr "multimedia-volume-control"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control.desktop.in.in:13
-msgid "MATE;volume;control;mixer;settings;sound;events;"
+msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr ""
-"MATE;volume;control;mixer;settings;sound;events;lydstyrke;kontrol;styring;mikser;indstillinger;opsætning;lyde;hændelser;"
+"CAFE;volume;control;mixer;settings;sound;events;lydstyrke;kontrol;styring;mikser;indstillinger;opsætning;lyde;hændelser;"
 
 #: data/cafe-volume-control-status-icon.desktop.in:3
 #: cafe-volume-control/dialog-main.c:255
@@ -59,9 +59,9 @@ msgstr "Vis lydstyrkekontrol til skrivebordet"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control-status-icon.desktop.in:12
-msgid "MATE;volume;control;mixer;settings;sound;"
+msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr ""
-"MATE;volume;control;mixer;settings;sound;lydstyrke;kontrol;mikser;lyd;indstillinger;"
+"CAFE;volume;control;mixer;settings;sound;lydstyrke;kontrol;mikser;lyd;indstillinger;"
 
 #: cafe-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -90,8 +90,8 @@ msgid "Version of this application"
 msgstr "Version af dette programmel"
 
 #: cafe-volume-control/dialog-main.c:202
-msgid " — MATE Volume Control"
-msgstr " — Lydstyrkekontrol til MATE"
+msgid " — CAFE Volume Control"
+msgstr " — Lydstyrkekontrol til CAFE"
 
 #: cafe-volume-control/gvc-applet.c:56
 #: cafe-volume-control/gvc-stream-status-icon.c:246
@@ -115,8 +115,8 @@ msgid "Output"
 msgstr "Output"
 
 #: cafe-volume-control/gvc-applet.c:406
-msgid "MATE Volume Control Applet"
-msgstr "MATE-panelprogram til lydstyrkekontrol"
+msgid "CAFE Volume Control Applet"
+msgstr "CAFE-panelprogram til lydstyrkekontrol"
 
 #: cafe-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
@@ -342,8 +342,8 @@ msgid "Sound Output Volume"
 msgstr "Afspilningslydstyrke"
 
 #: cafe-volume-control/gvc-status-icon.c:334
-msgid "MATE Volume Control StatusIcon"
-msgstr "Statusikon for MATE-lydstyrkekontrol"
+msgid "CAFE Volume Control StatusIcon"
+msgstr "Statusikon for CAFE-lydstyrkekontrol"
 
 #: cafe-volume-control/gvc-stream-applet-icon.c:196
 #: cafe-volume-control/gvc-stream-status-icon.c:201
@@ -469,5 +469,5 @@ msgid "Volume Control Factory"
 msgstr "Fabrik til lydstyrkekontrol"
 
 #: cafe-volume-control/status-icon-main.c:55
-msgid " — MATE Volume Control Status Icon"
-msgstr "- Statusikon for MATE-lydstyrkekontrol"
+msgid " — CAFE Volume Control Status Icon"
+msgstr "- Statusikon for CAFE-lydstyrkekontrol"

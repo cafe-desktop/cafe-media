@@ -28,7 +28,7 @@
 #include <libcafemixer/cafemixer.h>
 #include <cafe-panel-applet.h>
 
-#define MATE_DESKTOP_USE_UNSTABLE_API
+#define CAFE_DESKTOP_USE_UNSTABLE_API
 #include <libcafe-desktop/cafe-desktop-utils.h>
 
 #include "gvc-channel-bar.h"
@@ -87,7 +87,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         gtk_container_foreach (GTK_CONTAINER (icon->priv->dock), (GtkCallback) gtk_widget_show_all, NULL);
         gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
 
-        if (icon->priv->orient == MATE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == MATE_PANEL_APPLET_ORIENT_RIGHT) {
+        if (icon->priv->orient == CAFE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == CAFE_PANEL_APPLET_ORIENT_RIGHT) {
                 if (allocation.x + allocation.width + dock_req.width <= monitor.x + monitor.width)
                         x = allocation.x + allocation.width;
                 else
@@ -345,10 +345,10 @@ update_icon (GvcStreamAppletIcon *icon)
 
         flags = cafe_mixer_stream_control_get_flags (icon->priv->control);
 
-        if (flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE)
+        if (flags & CAFE_MIXER_STREAM_CONTROL_MUTE_READABLE)
                 muted = cafe_mixer_stream_control_get_mute (icon->priv->control);
 
-        if (flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
+        if (flags & CAFE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
                 volume = cafe_mixer_stream_control_get_volume (icon->priv->control);
                 normal = cafe_mixer_stream_control_get_normal_volume (icon->priv->control);
 
@@ -359,7 +359,7 @@ update_icon (GvcStreamAppletIcon *icon)
                 else
                         n = CLAMP (3 * volume / normal + 1, 1, 3);
         }
-        if (flags & MATE_MIXER_STREAM_CONTROL_HAS_DECIBEL)
+        if (flags & CAFE_MIXER_STREAM_CONTROL_HAS_DECIBEL)
                 decibel = cafe_mixer_stream_control_get_decibel (icon->priv->control);
 
         /* Apparently applet icon will reset icon even if it doesn't change */
@@ -377,9 +377,9 @@ update_icon (GvcStreamAppletIcon *icon)
                                           _("Muted at"),
                                           volume_percent,
                                           description);
-        } else if (flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
-                if (flags & MATE_MIXER_STREAM_CONTROL_HAS_DECIBEL) {
-                        if (decibel > -MATE_MIXER_INFINITY) {
+        } else if (flags & CAFE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
+                if (flags & CAFE_MIXER_STREAM_CONTROL_HAS_DECIBEL) {
+                        if (decibel > -CAFE_MIXER_INFINITY) {
                                 markup = g_strdup_printf ("<b>%s: %u%%</b>\n"
                                                           "<small>%0.2f dB\n%s</small>",
                                                           icon->priv->display_name,
@@ -440,7 +440,7 @@ gvc_stream_applet_icon_set_orient (GvcStreamAppletIcon  *icon,
         if (orient)
                 icon->priv->orient = orient;
         else
-                icon->priv->orient = MATE_PANEL_APPLET_ORIENT_DOWN;
+                icon->priv->orient = CAFE_PANEL_APPLET_ORIENT_DOWN;
 }
 
 void
@@ -619,7 +619,7 @@ gvc_stream_applet_icon_class_init (GvcStreamAppletIconClass *klass)
                 g_param_spec_object ("control",
                                      "Control",
                                      "CafeMixer stream control",
-                                     MATE_MIXER_TYPE_STREAM_CONTROL,
+                                     CAFE_MIXER_TYPE_STREAM_CONTROL,
                                      G_PARAM_READWRITE |
                                      G_PARAM_CONSTRUCT |
                                      G_PARAM_STATIC_STRINGS);

@@ -103,8 +103,8 @@
 
 ========== bn.po ==========
 # Bengali Translation of the cafe-media.
-# This file is distributed under the same license as the MATE-MEDIA package.
-# Copyright (C) 2003-2005 The MATE Foundation.
+# This file is distributed under the same license as the CAFE-MEDIA package.
+# Copyright (C) 2003-2005 The CAFE Foundation.
 # 
 # Sayamindu Dasgupta <unmadindu@Softhome.net>, 2003.
 # Runa Bhattacharjee <runab77@Softhome.net>, 2003.
@@ -121,8 +121,8 @@
 ========== bn_IN.po ==========
 # translation of bn_IN.po to Bengali INDIA
 # Translation of cafe-media.cafe-2-12.po to Bengali India
-# This file is distributed under the same license as the MATE-MEDIA package.
-# Copyright (C) 2003-2005 The MATE Foundation.
+# This file is distributed under the same license as the CAFE-MEDIA package.
+# Copyright (C) 2003-2005 The CAFE Foundation.
 #
 # Sayamindu Dasgupta <unmadindu@Softhome.net>, 2003.
 # Runa Bhattacharjee <runab77@Softhome.net>, 2003.
@@ -260,7 +260,7 @@
 
 
 ========== el.po ==========
-# Greek translation of MATE media
+# Greek translation of CAFE media
 # Copyright (C) 1999 - 2009 Free Software Foundation, Inc.
 # simos: around 250 messages (initial translation, started counting)
 # kostas: 05Jan2003, one more update
@@ -273,7 +273,7 @@
 # nikos:2Sep2004, update
 #
 #
-# nikos: 336 messages, 13Jul2002, updated translation for MATE 2.0.
+# nikos: 336 messages, 13Jul2002, updated translation for CAFE 2.0.
 # aarg : 336 messages, 19Jul2002, fixes to translation.
 # kostas: 475 messages, 26Oct2002, completed translation.
 # kostas: fixed 3 typos, 21Nov2002 (thanks to Nikos Charonitakis).
@@ -300,7 +300,7 @@
 
 ========== en_CA.po ==========
 # Canadian English translation of cafe-media
-# Copyright (C) 2004-2006 Adam Weinberger and the MATE Foundation
+# Copyright (C) 2004-2006 Adam Weinberger and the CAFE Foundation
 # This file is distributed under the same licence as the cafe-media package.
 # Alexander Winston <alexander.winston@comcast.net>, 2004.
 # Adam Weinberger <adamw@gnome.org>, 2004, 2005, 2006.
@@ -343,11 +343,11 @@
 
 
 ========== et.po ==========
-# MATE-meedia eesti keele tõlge.
-# Estonian translation of MATE-media.
+# CAFE-meedia eesti keele tõlge.
+# Estonian translation of CAFE-media.
 #
 # Copyright (C) 1999, 2002, 2003, 2005, 2006 Free Software Foundation, Inc.
-# Copyright (C) 2007, 2009, 2010 The MATE Project.
+# Copyright (C) 2007, 2009, 2010 The CAFE Project.
 # This file is distributed under the same license as the cafe-media package.
 #
 # Lauris Kaplinski <lauris@ariman.ee>, 1999.
@@ -629,7 +629,7 @@
 
 
 ========== mg.po ==========
-# MALAGASY TRANSLATION OF MATE-MEDIA.
+# MALAGASY TRANSLATION OF CAFE-MEDIA.
 # Copyright (C) 2006-2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Thierry Randrianiriana <randrianiriana@gmail.com>, 2006-2009.
@@ -841,8 +841,8 @@
 
 
 ========== pt_BR.po ==========
-# Brazilian Portuguese translation of MATE Media.
-# Copyright (C) 2001-2009 the MATE Media authors.
+# Brazilian Portuguese translation of CAFE Media.
+# Copyright (C) 2001-2009 the CAFE Media authors.
 # This file is distributed under the same license as the cafe-media package.
 # Gustavo Maciel Dias Vieira <gustavo@sagui.org>, 2001.
 # Evandro Fernandes Giovanini <evandrofg@ig.com.br>, 2002-2003.
@@ -921,7 +921,7 @@
 
 ========== sk.po ==========
 # translation of sk.po to Slovak
-# MATE-media Slovak translation
+# CAFE-media Slovak translation
 # Copyright (C) 2000-2002, 2003, 2004, 2005, 2007 Free Software Foundation, Inc.
 #
 # $Id: sk.po,v 1.69 2006/01/31 00:07:02 thomasvs Exp $
@@ -1091,8 +1091,8 @@
 
 
 ========== vi.po ==========
-# Vietnamese translation for MATE Media.
-# Copyright © 2009 MATE i18n Project for Vietnamese.
+# Vietnamese translation for CAFE Media.
+# Copyright © 2009 CAFE i18n Project for Vietnamese.
 # Nguyễn Thái Ngọc Duy <pclouds@gmx.net>, 2002.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
 #

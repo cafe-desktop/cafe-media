@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -47,7 +47,7 @@ msgstr ""
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control.desktop.in.in:13
-msgid "MATE;volume;control;mixer;settings;sound;events;"
+msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr ""
 
 #: data/cafe-volume-control-status-icon.desktop.in:3
@@ -65,7 +65,7 @@ msgstr "デスクトップの音量を調節するアプレットです"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control-status-icon.desktop.in:12
-msgid "MATE;volume;control;mixer;settings;sound;"
+msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr ""
 
 #: cafe-volume-control/dialog-main.c:143
@@ -95,7 +95,7 @@ msgid "Version of this application"
 msgstr "このアプリケーションのバージョンを表示する"
 
 #: cafe-volume-control/dialog-main.c:202
-msgid " — MATE Volume Control"
+msgid " — CAFE Volume Control"
 msgstr " — 音量調節ツール"
 
 #: cafe-volume-control/gvc-applet.c:56
@@ -120,8 +120,8 @@ msgid "Output"
 msgstr "出力"
 
 #: cafe-volume-control/gvc-applet.c:406
-msgid "MATE Volume Control Applet"
-msgstr "MATE 音量調整アプレット"
+msgid "CAFE Volume Control Applet"
+msgstr "CAFE 音量調整アプレット"
 
 #: cafe-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
@@ -345,7 +345,7 @@ msgid "Sound Output Volume"
 msgstr "出力の音量"
 
 #: cafe-volume-control/gvc-status-icon.c:334
-msgid "MATE Volume Control StatusIcon"
+msgid "CAFE Volume Control StatusIcon"
 msgstr ""
 
 #: cafe-volume-control/gvc-stream-applet-icon.c:196
@@ -472,5 +472,5 @@ msgid "Volume Control Factory"
 msgstr ""
 
 #: cafe-volume-control/status-icon-main.c:55
-msgid " — MATE Volume Control Status Icon"
+msgid " — CAFE Volume Control Status Icon"
 msgstr ""

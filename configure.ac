@@ -12,8 +12,8 @@ AM_MAINTAINER_MODE
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
-MATE_MAINTAINER_MODE_DEFINES
-MATE_COMPILE_WARNINGS([yes])
+CAFE_MAINTAINER_MODE_DEFINES
+CAFE_COMPILE_WARNINGS([yes])
 
 # Checks for programs.
 AC_PROG_CC
@@ -37,8 +37,8 @@ GLIB_REQUIRED_VERSION=2.50.0
 GIO_REQUIRED_VERSION=2.50.0
 GTK_REQUIRED_VERSION=3.22.0
 CANBERRA_REQUIRED_VERSION=0.13
-MATE_MIXER_REQUIRED_VERSION=1.10.0
-MATE_DESKTOP_REQUIRED_VERSION=1.17.0
+CAFE_MIXER_REQUIRED_VERSION=1.10.0
+CAFE_DESKTOP_REQUIRED_VERSION=1.17.0
 LIBPANEL4_REQUIRED=1.17.0
 
 dnl=======================================================================
@@ -51,8 +51,8 @@ PKG_CHECK_MODULES(VOLUME_CONTROL,
                   gio-2.0 >= $GIO_REQUIRED_VERSION
                   libcanberra-gtk3 >= $CANBERRA_REQUIRED_VERSION
                   libxml-2.0
-                  cafe-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
-                  libcafemixer >= $MATE_MIXER_REQUIRED_VERSION
+                  cafe-desktop-2.0 >= $CAFE_DESKTOP_REQUIRED_VERSION
+                  libcafemixer >= $CAFE_MIXER_REQUIRED_VERSION
                   libcafepanelapplet-4.0 >= $LIBPANEL4_REQUIRED
 )
 
