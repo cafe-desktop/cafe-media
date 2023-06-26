@@ -42,6 +42,21 @@ requires:
     - libx11-dev
     - libxml2-dev
 
+    #required for libvnck
+    - gir1.2-freedesktop
+    - libatk1.0-dev
+    - libcairo2-dev
+    - libice-dev
+    - libpango1.0-dev
+    - librsvg2-dev
+    - libsm-dev
+    - libsoup2.4-dev
+    - libxau-dev
+    - libxrandr-dev
+    - lsb-release
+    - meson
+    - yelp-tools
+
 before_scripts:
   # Install cafe-common fron tarball
   - ./html-cppcheck
@@ -49,6 +64,7 @@ before_scripts:
   - ./install-from-git https://github.com/cafe-desktop/cafe-common master
   - ./install-from-git https://github.com/cafe-desktop/libcafemixer master
   - ./install-from-git https://github.com/cafe-desktop/cafe-desktop master
+  - ./install-from-git https://github.com/cafe-desktop/libvnck master meson
 
 build_scripts:
   - ./before-build
