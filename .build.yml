@@ -22,7 +22,9 @@ requires:
     - libcafemixer-dev
     - libxml2-dev
     - make
-    - cafe-common
+
+    #required for cafe-common
+    - autoconf
 
 before_scripts:
   # Install cafe-common fron tarball
