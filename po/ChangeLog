@@ -58,7 +58,7 @@
 2009-03-16  Marc-André Lureau  <marcandre.lureau@gmail.com>
 
 	* POTFILES.skip: added
-	sound-theme/sounds/mate-sounds-default.xml.in.
+	sound-theme/sounds/cafe-sounds-default.xml.in.
 
 2009-03-16  Kostas Papadimas <pkst@gnome.org>
 
@@ -1507,7 +1507,7 @@
 
 2006-08-27  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
-	* POTFILES.in: Removed mate-cd/eggtrayicon.c
+	* POTFILES.in: Removed cafe-cd/eggtrayicon.c
 	* th.po: Updated Thai translation.
 
 2006-08-25  Josep Puigdemont i Casamajó  <josep.puigdemont@gmail.com>
@@ -2396,7 +2396,7 @@
 2005-07-31  Ilkka Tuohela  <hile@iki.fi>
 
 	* fi.po: Bulk updates to Finnish translation
-	for new mate.fi website.
+	for new cafe.fi website.
 
 2005-07-30  Francisco Javier F. Serrador  <serrador@cvs.gnome.org>
 
@@ -4780,7 +4780,7 @@
 
 2002-12-09  Artis Trops  <hornet@navigator.lv>
 
-	* lv.po: sync with mate-2-0 branch.
+	* lv.po: sync with cafe-2-0 branch.
 
 2002-12-04  Christian Neumair  <chris@gnome-de.org>
 
@@ -5210,8 +5210,8 @@
 2002-05-31  Ole Laursen  <olau@hardworking.dk>
 
 	* POTFILES.in: Fixed s/.in.h/.in/ and added
-	gmix/mate-volume-control.desktop.in.in instead of
-	gmix/mate-volume-control.desktop.in.
+	gmix/cafe-volume-control.desktop.in.in instead of
+	gmix/cafe-volume-control.desktop.in.
 
 	* da.po: Updated Danish translation.
 
@@ -6709,7 +6709,7 @@ Thu Dec 16 11:35:59 1999  Changwoo Ryu  <cwryu@debian.org>
 1999-05-31  James Henstridge  <james@daa.com.au>
 
 	* fi.po: fixed problem with po file that Steve Luzynski mentioned
-	on mate-list.
+	on cafe-list.
 
 1999-05-26  Tuomas J. Lukka <lukka@iki.fi>
 

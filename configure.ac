@@ -1,8 +1,8 @@
 AC_PREREQ(2.60)
 
-AC_INIT([mate-media],
+AC_INIT([cafe-media],
         [1.24.1],
-        [https://mate-desktop.org/])
+        [https://cafe-desktop.org/])
 
 AC_CONFIG_AUX_DIR([build-aux])
 
@@ -51,9 +51,9 @@ PKG_CHECK_MODULES(VOLUME_CONTROL,
                   gio-2.0 >= $GIO_REQUIRED_VERSION
                   libcanberra-gtk3 >= $CANBERRA_REQUIRED_VERSION
                   libxml-2.0
-                  mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
-                  libmatemixer >= $MATE_MIXER_REQUIRED_VERSION
-                  libmatepanelapplet-4.0 >= $LIBPANEL4_REQUIRED
+                  cafe-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION
+                  libcafemixer >= $MATE_MIXER_REQUIRED_VERSION
+                  libcafepanelapplet-4.0 >= $LIBPANEL4_REQUIRED
 )
 
 AC_SUBST(VOLUME_CONTROL_CFLAGS)
@@ -71,7 +71,7 @@ dnl=======================================================================
 AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
 
-GETTEXT_PACKAGE=mate-media
+GETTEXT_PACKAGE=cafe-media
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the Gettext package name])
 
@@ -134,7 +134,7 @@ fi
 AC_CONFIG_FILES([
 Makefile
 data/Makefile
-data/mate-volume-control.desktop.in
+data/cafe-volume-control.desktop.in
 data/icons/Makefile
 data/icons/16x16/Makefile
 data/icons/16x16/status/Makefile
@@ -150,7 +150,7 @@ data/icons/scalable/status/Makefile
 data/sounds/Makefile
 man/Makefile
 po/Makefile.in
-mate-volume-control/Makefile
+cafe-volume-control/Makefile
 ])
 
 AC_OUTPUT

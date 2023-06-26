@@ -27,7 +27,7 @@
 #include <gtk/gtk.h>
 
 #include <canberra.h>
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 #include "gvc-speaker-test.h"
 #include "gvc-utils.h"
@@ -89,14 +89,14 @@ gvc_speaker_test_set_stream (GvcSpeakerTest *test, MateMixerStream *stream)
         const gchar            *name;
         guint                   i;
 
-        name = mate_mixer_stream_get_name (stream);
-        control = mate_mixer_stream_get_default_control (stream);
+        name = cafe_mixer_stream_get_name (stream);
+        control = cafe_mixer_stream_get_default_control (stream);
 
         ca_context_change_device (test->priv->canberra, name);
 
         for (i = 0; i < G_N_ELEMENTS (positions); i++) {
                 gboolean has_position =
-                        mate_mixer_stream_control_has_channel_position (control, positions[i].position);
+                        cafe_mixer_stream_control_has_channel_position (control, positions[i].position);
 
                 gtk_widget_set_visible (g_array_index (test->priv->controls, GtkWidget *, i),
                                         has_position);
@@ -424,7 +424,7 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
         ca_context_set_driver (test->priv->canberra, "pulse");
 
         ca_context_change_props (test->priv->canberra,
-                                 CA_PROP_APPLICATION_ID, "org.mate.VolumeControl",
+                                 CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
                                  CA_PROP_APPLICATION_NAME, _("Volume Control"),
                                  CA_PROP_APPLICATION_VERSION, VERSION,
                                  CA_PROP_APPLICATION_ICON_NAME, "multimedia-volume-control",

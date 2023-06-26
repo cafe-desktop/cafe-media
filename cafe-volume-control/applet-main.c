@@ -29,8 +29,8 @@
 
 #include <libintl.h>
 #include <gio/gio.h>
-#include <libmatemixer/matemixer.h>
-#include <mate-panel-applet.h>
+#include <libcafemixer/cafemixer.h>
+#include <cafe-panel-applet.h>
 
 #include "gvc-applet.h"
 
@@ -56,8 +56,8 @@ applet_main (MatePanelApplet* applet_widget)
                 g_warning ("Applet is already running, exiting");
                 return TRUE;
         }
-        if (mate_mixer_init () == FALSE) {
-                g_warning ("libmatemixer initialization failed, exiting");
+        if (cafe_mixer_init () == FALSE) {
+                g_warning ("libcafemixer initialization failed, exiting");
                 return FALSE;
         }
 
@@ -74,7 +74,7 @@ applet_main (MatePanelApplet* applet_widget)
         return TRUE;
 }
 
-/* this function, called by mate-panel, will create the applet */
+/* this function, called by cafe-panel, will create the applet */
 static gboolean
 applet_factory (MatePanelApplet* applet, const char* iid, gpointer data)
 {
@@ -86,7 +86,7 @@ applet_factory (MatePanelApplet* applet, const char* iid, gpointer data)
         return retval;
 }
 
-/* needed by mate-panel applet library */
+/* needed by cafe-panel applet library */
 MATE_PANEL_APPLET_OUT_PROCESS_FACTORY("GvcAppletFactory",
                                       PANEL_TYPE_APPLET,
                                       "Volume Control applet",

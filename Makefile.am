@@ -1,6 +1,6 @@
 NULL =
 
-SUBDIRS = po data man mate-volume-control
+SUBDIRS = po data man cafe-volume-control
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	--enable-compile-warnings=no \
@@ -10,7 +10,7 @@ DIST_SUBDIRS =					\
 	data					\
 	po 					\
 	man					\
-	mate-volume-control			\
+	cafe-volume-control			\
 	$(NULL)
 
 EXTRA_DIST =					\
@@ -25,9 +25,9 @@ EXTRA_DIST =					\
 	$(NULL)
 
 DISTCLEANFILES =				\
-	mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet \
-	mate-volume-control/org.mate.panel.applet.GvcAppletFactory.service \
-	mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.in \
+	cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet \
+	cafe-volume-control/org.cafe.panel.applet.GvcAppletFactory.service \
+	cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.in \
 	$(NULL)
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}

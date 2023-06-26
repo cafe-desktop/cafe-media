@@ -28,7 +28,7 @@
 
 #include <libintl.h>
 #include <gio/gio.h>
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 #include "gvc-status-icon.h"
 
@@ -80,8 +80,8 @@ main (int argc, char **argv)
                 g_warning ("Status icon is already running, exiting");
                 return 0;
         }
-        if (mate_mixer_init () == FALSE) {
-                g_warning ("libmatemixer initialization failed, exiting");
+        if (cafe_mixer_init () == FALSE) {
+                g_warning ("libcafemixer initialization failed, exiting");
                 return 1;
         }
 

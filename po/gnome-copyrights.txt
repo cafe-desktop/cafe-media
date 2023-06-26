@@ -1,7 +1,7 @@
 ========== af.po ==========
-# Afrikaans translation of mate-media.
+# Afrikaans translation of cafe-media.
 # Copyright (C) 2010
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # Contributors:
 # F Wolff <friedel@translate.org.za>, 2010.
 
@@ -11,7 +11,7 @@
 ========== am.po ==========
 # Translations into the Amharic Language.
 # Copyright (C) 2002 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # Ge'ez Frontier Foundation <locales@geez.org>, 2002.
 #
 #
@@ -20,9 +20,9 @@
 
 
 ========== ar.po ==========
-# translation of mate-media.HEAD.po to Arabic
-# This file is distributed under the same license as the mate-media.ar package.
-# Copyright (C) 2003 THE mate-media.ar'S COPYRIGHT HOLDER.
+# translation of cafe-media.HEAD.po to Arabic
+# This file is distributed under the same license as the cafe-media.ar package.
+# Copyright (C) 2003 THE cafe-media.ar'S COPYRIGHT HOLDER.
 # Sayed Jaffer Al-Mosawi <mosawi@arabeyes.org>, 2002.
 # Arafat Medini <lumina@silverpen.de>, 2002,2003.
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
@@ -40,16 +40,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Amitakhya Phukan <amitakhya@svn.mate.org>, 2008.
+# Amitakhya Phukan <amitakhya@svn.cafe.org>, 2008.
 # Amitakhya Phukan <aphukan@fedoraproject.org>, 2009.
 
 
 
 
 ========== ast.po ==========
-# Asturian translation for mate-media.
-# Copyright (C) 2009 mate-media's COPYRIGHT HOLDER
-# This file is distributed under the same license as the mate-media package.
+# Asturian translation for cafe-media.
+# Copyright (C) 2009 cafe-media's COPYRIGHT HOLDER
+# This file is distributed under the same license as the cafe-media package.
 # Astur <malditoastur@gmail.com>, 2009.
 #
 
@@ -57,7 +57,7 @@
 
 
 ========== az.po ==========
-# translation of mate-media.HEAD.az.po to Azerbaijani
+# translation of cafe-media.HEAD.az.po to Azerbaijani
 # Copyright (C) 2000, 2004 Free Software Foundation, Inc.
 # Vasif Ismailoglu MD <azerb_linux@hotmail.com>, 2000.
 # Mətin Əmirov <metin@karegen.com>, 2004.
@@ -67,7 +67,7 @@
 
 
 ========== be.po ==========
-# Беларускі пераклад mate-media.HEAD.
+# Беларускі пераклад cafe-media.HEAD.
 # Copyright (C) 2003, 2004 Free Software Foundation, Inc.
 # Vital Khilko <dojlid@mova.org>, 2003.
 # Ales Nyakhaychyk <nab@mail.by>, 2004.
@@ -78,7 +78,7 @@
 
 
 ========== be@latin.po ==========
-# Biełaruski pierakład mate-media 
+# Biełaruski pierakład cafe-media 
 # Alaksandar Navicki <zolak@lacinka.org>, 2007. Łacinka.org
 #
 
@@ -86,7 +86,7 @@
 
 
 ========== bg.po ==========
-# Bulgarian translation of mate-media po-file.
+# Bulgarian translation of cafe-media po-file.
 # Copyright (C) 2002, 2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Copyright (C) 2009, 2010 Free Software Foundation, Inc.
 # Evgeni Boevski <linkej@yahoo.com>, 2002, 2003.
@@ -102,7 +102,7 @@
 
 
 ========== bn.po ==========
-# Bengali Translation of the mate-media.
+# Bengali Translation of the cafe-media.
 # This file is distributed under the same license as the MATE-MEDIA package.
 # Copyright (C) 2003-2005 The MATE Foundation.
 # 
@@ -120,7 +120,7 @@
 
 ========== bn_IN.po ==========
 # translation of bn_IN.po to Bengali INDIA
-# Translation of mate-media.mate-2-12.po to Bengali India
+# Translation of cafe-media.cafe-2-12.po to Bengali India
 # This file is distributed under the same license as the MATE-MEDIA package.
 # Copyright (C) 2003-2005 The MATE Foundation.
 #
@@ -134,9 +134,9 @@
 
 
 ========== br.po ==========
-# Breton translation of mate-media.
+# Breton translation of cafe-media.
 # Copyright (C) 2006 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
 # Jérémy Ar Floc'h <jeremy.lefloch@gmail.com>, 2006.
 #
@@ -145,8 +145,8 @@
 
 
 ========== bs.po ==========
-# translation of mate-media.HEAD.bs.po to Bosnian
-# This file is distributed under the same license as the mate-media package.
+# translation of cafe-media.HEAD.bs.po to Bosnian
+# This file is distributed under the same license as the cafe-media package.
 # Copyright (C) 2004 Free Software Foundation, Inc.
 # Mehemed Sacirovic <mesa@tesanj.net>, 2004.
 #
@@ -155,7 +155,7 @@
 
 
 ========== ca.po ==========
-# Traducció del mate-media de l'equip de Softcatalà.
+# Traducció del cafe-media de l'equip de Softcatalà.
 # Copyright © 2000-2009 Free Software Foundation, Inc.
 # Softcatalà <info@softcatala.org>, 2000.
 # Antoni Lacasta i Sulla <als@tinet.org>, 2002.
@@ -168,7 +168,7 @@
 
 
 ========== ca@valencia.po ==========
-# Traducció del mate-media de l'equip de Softcatalà.
+# Traducció del cafe-media de l'equip de Softcatalà.
 # Copyright © 2000-2009 Free Software Foundation, Inc.
 # Softcatalà <info@softcatala.org>, 2000.
 # Antoni Lacasta i Sulla <als@tinet.org>, 2002.
@@ -181,23 +181,23 @@
 
 
 ========== cs.po ==========
-# Czech messages for mate-media.
-# Copyright (C) 2001, 2007, 2008, 2009, 2010 the author(s) of mate-media.
+# Czech messages for cafe-media.
+# Copyright (C) 2001, 2007, 2008, 2009, 2010 the author(s) of cafe-media.
 # Copyright (C) 2004, 2005, 2006 Miloslav Trmac <mitr@volny.cz>.
-# Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.mate.org>.
-# This file is distributed under the same license as the mate-media package.
+# Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.cafe.org>.
+# This file is distributed under the same license as the cafe-media package.
 # Stanislav Brabec <utx@penguin.cz>, 2000, 2001.
 # Michal Bukovjan <bukm@centrum.cz>, 2002.
 # Miloslav Trmac <mitr@volny.cz>, 2003, 2004, 2005, 2006.
 # Petr Tomeš <ptomes@gmail.com>, 2006.
-# Lukas Novotny <lukasnov@cvs.mate.org>, 2006.
+# Lukas Novotny <lukasnov@cvs.cafe.org>, 2006.
 # Petr Kovar <pknbe@volny.cz>, 2007, 2008, 2009, 2010.
 
 
 
 
 ========== cy.po ==========
-# mate-media yn Gymraeg.
+# cafe-media yn Gymraeg.
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # www.kyfieithu.co.uk <kyfieithu@kyfieithu.co.uk>, 2003.
 # KGyfieithu <kyfieithu@dotmon.com>, 2003.
@@ -211,9 +211,9 @@
 
 
 ========== da.po ==========
-# Danish translation of the mate-media.
+# Danish translation of the cafe-media.
 # Copyright (C) 1998-99, 2000-10 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998-2000
 # Keld Simonsen <keld@dkuug.dk>, 2000-2001.
 # Ole Laursen <olau@hardworking.dk>, 2001-2004, 06.
@@ -236,12 +236,12 @@
 
 
 ========== de.po ==========
-# German mate-media translation
+# German cafe-media translation
 # Copyright (C) 2000-2004 Free Software Foundation, Inc.
 # Matthias Warkus <mawa@iname.com>, 1999.
 # Karl Eichwalder <ke@suse.de>, 1999, 2000.
 # Christian Meyer <chrisime@gnome.org>, 2000-2002.
-# Christian Neumair <chris@mate-de.org>, 2002-2004.
+# Christian Neumair <chris@cafe-de.org>, 2002-2004.
 # Hendrik Richter <hendrikr@gnome.org>, 2004, 2005, 2006, 2008, 2009.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009.
 # Mario Blättermann <mariobl@gnome.org>, 2010.
@@ -251,7 +251,7 @@
 
 
 ========== dz.po ==========
-# Dzongkha translation of mate-media
+# Dzongkha translation of cafe-media
 # Copyright @ 2006, Free Software Foundation, Inc.
 # Mindu Dorji
 #
@@ -291,7 +291,7 @@
 
 
 ========== en@shaw.po ==========
-# Shavian translation for mate-media.
+# Shavian translation for cafe-media.
 # Copyright (C) 2009 The Mate Foundation.
 # Thomas Thurman <tthurman@gnome.org>, 2009.
 
@@ -299,9 +299,9 @@
 
 
 ========== en_CA.po ==========
-# Canadian English translation of mate-media
+# Canadian English translation of cafe-media
 # Copyright (C) 2004-2006 Adam Weinberger and the MATE Foundation
-# This file is distributed under the same licence as the mate-media package.
+# This file is distributed under the same licence as the cafe-media package.
 # Alexander Winston <alexander.winston@comcast.net>, 2004.
 # Adam Weinberger <adamw@gnome.org>, 2004, 2005, 2006.
 #
@@ -321,9 +321,9 @@
 
 
 ========== es.po ==========
-# translation of mate-media.HEAD.po to Español
+# translation of cafe-media.HEAD.po to Español
 # Copyright © 1998-2003, 2006, 2007, 2008 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # Miguel de Icaza <miguel@metropolis.nuclecu.unam.mx> 1998.
 #
 #
@@ -331,12 +331,12 @@
 # Jesús Bravo Álvarez <jba@pobox.com>, 2000.
 # Germán Poo Caamaño <gpoo@ubiobio.cl>, 2002  (Revisor).
 # Yelitza Louze <ylouze@redhat.com>, 2003.
-# Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2004.
+# Francisco Javier F. Serrador <serrador@cvs.cafe.org>, 2004.
 # Lucas Vieites <lucas@asixinformatica.com>, 2002-2004.
-# Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2004, 2005, 2006.
+# Francisco Javier F. Serrador <serrador@cvs.cafe.org>, 2004, 2005, 2006.
 # Lucas Vieites Fariña <lucas@asixinformatica.com>, 2005, 2006, 2007.
 # Claudio Saavedra <csaavedra@alumnos.utalca.cl> 2007 (QA).
-# Jorge González <jorgegonz@svn.mate.org>, 2008, 2009, 2010.
+# Jorge González <jorgegonz@svn.cafe.org>, 2008, 2009, 2010.
 #
 
 
@@ -348,7 +348,7 @@
 #
 # Copyright (C) 1999, 2002, 2003, 2005, 2006 Free Software Foundation, Inc.
 # Copyright (C) 2007, 2009, 2010 The MATE Project.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
 # Lauris Kaplinski <lauris@ariman.ee>, 1999.
 # Tõivo Leedjärv <toivo@linux.ee>, 2002, 2003.
@@ -371,7 +371,7 @@
 
 
 ========== fa.po ==========
-# Persian translation of mate-media.
+# Persian translation of cafe-media.
 # Copyright (C) 2003, 2005 Sharif FarsiWeb, Inc.
 # Roozbeh Pournader <roozbeh@farsiweb.info>, 2003, 2005.
 # Sara Khalatbari <sara@bamdad.org>, 2005.
@@ -383,7 +383,7 @@
 
 
 ========== fi.po ==========
-# Finnish translation of the mate-media module.
+# Finnish translation of the cafe-media module.
 # Copyright (C) 1998-2009 Free Software Foundation, Inc.
 # Tuomas J. Lukka <lukka@iki.fi>, 1998.
 # Mikko Rauhala <mjr@iki.fi>, 1999.
@@ -397,9 +397,9 @@
 
 
 ========== fr.po ==========
-# French translation of mate-media.
+# French translation of cafe-media.
 # Copyright (C) 1998-2010 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
 # Vincent Renardias <vincent@ldsol.com>, 1998-1999.
 # Thibaut Cousin <thibaut.cousin@clermont.in2p3.fr>, 1999.
@@ -417,9 +417,9 @@
 
 
 ========== ga.po ==========
-# Irish translations for mate-media package.
+# Irish translations for cafe-media package.
 # Copyright (C) 1998-2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # Alastair McKinstry <mckinstry@computer.org>, 1999.
 # Paul Duffy <dubhthach@frink.nuigalway.ie>, 2003.
 # Seán de Búrca <leftmostcat@gmail.com>, 2008, 2009.
@@ -429,8 +429,8 @@
 
 
 ========== gl.po ==========
-# translation of mate-media.master.po to Galician
-# Galician translation of mate-media.
+# translation of cafe-media.master.po to Galician
+# Galician translation of cafe-media.
 # Copyright (C) 1999 Sergio Rua <srua@iname.com>
 # Copyright (C) 2000-2001 Jesús Bravo Álvarez <jba@pobox.com>
 #
@@ -440,7 +440,7 @@
 # Jesús Bravo Álvarez <jba@pobox.com>, 2000-2001.
 # Sergio Rua <srua@iname.com>, 1999.
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
-# Ignacio Casal Quinteiro <icq@cvs.mate.org>, 2007, 2008.
+# Ignacio Casal Quinteiro <icq@cvs.cafe.org>, 2007, 2008.
 # Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
 # Suso Baleato <suso.baleato@xunta.es>, 2009.
 # Fran Diéguez <fran.dieguez@glug.es>, 2009.
@@ -453,7 +453,7 @@
 
 
 ========== gu.po ==========
-# translation of mate-media.master.gu.po to Gujarati
+# translation of cafe-media.master.gu.po to Gujarati
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -464,9 +464,9 @@
 
 
 ========== he.po ==========
-# translation of mate-media.HEAD.he.po to Hebrew
-# translation of mate-media.mate-2-0-gstreamer.he.po to Hebrew
-# translation of mate-media.mate-2-0.he.po to Hebrew
+# translation of cafe-media.HEAD.he.po to Hebrew
+# translation of cafe-media.cafe-2-0-gstreamer.he.po to Hebrew
+# translation of cafe-media.cafe-2-0.he.po to Hebrew
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # Gil 'Dolfin' Osher <dolfin@rpg.org.il>, 2002,2003
@@ -476,7 +476,7 @@
 
 
 ========== hi.po ==========
-# translation of mate-media.master.po to Hindi
+# translation of cafe-media.master.po to Hindi
 # Copyright (C) 2003, 2004, 2005, 2006, 2008, 2009 Free Software Foundation, Inc.
 #
 # G Karunakar <karunakar@freedomink.org>, 2003.
@@ -488,7 +488,7 @@
 
 
 ========== hr.po ==========
-# Translation of mate-media to Croatiann
+# Translation of cafe-media to Croatiann
 # Copyright (C) Croatiann team
 # Translators: Automatski Prijevod <>,Denis Lackovic <delacko@fly.srk.fer.hr>,pr pr <delacko@192.168.0.1>,Robert Sedak <robert.sedak@sk.t-com.hr>,
 
@@ -496,18 +496,18 @@
 
 
 ========== hu.po ==========
-# Hungarian translation of mate-media.
+# Hungarian translation of cafe-media.
 # Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
-# Szabolcs Ban <shooby@mate.hu>, 1999, 2000.
+# Szabolcs Ban <shooby@cafe.hu>, 1999, 2000.
 # Miklos Szel <mukka@freemail.hu>, 2000.
-# Gergely Nagy <greg@mate.hu>, 2001.
-# Andras Timar <timar@mate.hu>, 2001, 2002, 2003.
-# Emese Kovacs <emese@mate.hu>, 2002.
-# Laszlo Dvornik <dvornik@mate.hu>, 2004.
-# Gabor Kelemen <kelemeng at mate dot hu>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
-# Mate ORY <orymate at gmail d0t com>, 2006.
+# Gergely Nagy <greg@cafe.hu>, 2001.
+# Andras Timar <timar@cafe.hu>, 2001, 2002, 2003.
+# Emese Kovacs <emese@cafe.hu>, 2002.
+# Laszlo Dvornik <dvornik@cafe.hu>, 2004.
+# Gabor Kelemen <kelemeng at cafe dot hu>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
+# Mate ORY <orycafe at gmail d0t com>, 2006.
 
 
 
@@ -519,13 +519,13 @@
 
 
 ========== it.po ==========
-# mate-media Italian translation
+# cafe-media Italian translation
 # Copyright (C) 2000-2009, 2010 Free Software Foundation, Inc.
-# This file is distributed under the same licence of the mate-media package
-# Salvatore Isaja <salvois@it.mate.org>, 2000-2002.
+# This file is distributed under the same licence of the cafe-media package
+# Salvatore Isaja <salvois@it.cafe.org>, 2000-2002.
 # Luca Ferretti <elle.uca@infinito.it>.
 # Alessio Frusciante <algol@firenze.linux.it>, 2004.
-# Salvatore Isaja <salvois@it.mate.org>, 2004, 2005.
+# Salvatore Isaja <salvois@it.cafe.org>, 2004, 2005.
 #
 # Milo Casagrande <milo@ubuntu.com>, 2006-2009, 2009, 2010.
 
@@ -533,7 +533,7 @@
 
 
 ========== ja.po ==========
-# mate-media ja.po.
+# cafe-media ja.po.
 # Copyright (C) 1998-2000, 2002-2010 Free Software Foundation, Inc.
 # Mitsuru Oka <95i44@is.kochi-u.ac.jp>, 1998.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1999.
@@ -558,7 +558,7 @@
 
 
 ========== kn.po ==========
-# translation of mate-media.master.kn.po to Kannada
+# translation of cafe-media.master.kn.po to Kannada
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -568,8 +568,8 @@
 
 
 ========== ko.po ==========
-# mate-media ko.po
-# This file is distributed under the same license as the mate-media package.
+# cafe-media ko.po
+# This file is distributed under the same license as the cafe-media package.
 #
 # Updated by Young-Ho, Cha <ganadist@chollian.net>, 2000, 2006, 2007.
 # Changwoo Ryu <cwryu@debian.org>, 1998, 2002, 2003, 2004, 2006, 2008, 2009, 2010.
@@ -581,7 +581,7 @@
 
 ========== ku.po ==========
 # translation of ku.po to Kurdish
-# translation of mate-media.HEAD.po to Kurdish
+# translation of cafe-media.HEAD.po to Kurdish
 # German translation of PACKAGE.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -593,7 +593,7 @@
 
 
 ========== lt.po ==========
-# Lithuanian translation of mate-media
+# Lithuanian translation of cafe-media
 # Copyright © 2000-2010 Free Software Foundation, Inc.
 # Gediminas Paulauskas <menesis@chatsubo.lt>, 2000-2003.
 # Žygimantas Beručka <zygis@gnome.org>, 2003-2006, 2009, 2010.
@@ -638,9 +638,9 @@
 
 
 ========== mk.po ==========
-# translation of mate-media.HEAD.mk.po to Macedonian
-# translation of mate-media.HEAD.po to
-# translation of mate-media.HEAD.po to
+# translation of cafe-media.HEAD.mk.po to Macedonian
+# translation of cafe-media.HEAD.po to
+# translation of cafe-media.HEAD.po to
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -655,9 +655,9 @@
 
 
 ========== ml.po ==========
-# translation of mate-media.master.ml.po to Malayalam
-# This file is distributed under the same license as the mate-media package.
-# Copyright (C) 2003, 2006-2007, 2010 mate-media'S COPYRIGHT HOLDER.
+# translation of cafe-media.master.ml.po to Malayalam
+# This file is distributed under the same license as the cafe-media package.
+# Copyright (C) 2003, 2006-2007, 2010 cafe-media'S COPYRIGHT HOLDER.
 #
 # FSF-India <locale@gnu.org.in>, 2003.
 # Ani Peter <apeter@redhat.com>, 2006, 2007.
@@ -668,9 +668,9 @@
 
 ========== mn.po ==========
 # translation of mn.po to Mongolian
-# translation of mate-media.mate-2-4.po to Mongolian
-# translation of mate-media.HEAD.po to Mongolian
-# translation of mate-media.HEAD.mn.po to Mongolian
+# translation of cafe-media.cafe-2-4.po to Mongolian
+# translation of cafe-media.HEAD.po to Mongolian
+# translation of cafe-media.HEAD.mn.po to Mongolian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Sukhochir <sukhochir@csms.edu.mn>, 2003.
@@ -703,7 +703,7 @@
 
 
 ========== nb.po ==========
-# Norwegian (bokmål dialect) translation of the mate-media module.
+# Norwegian (bokmål dialect) translation of the cafe-media module.
 # Copyright (C) 1998-2004, 2005 Free Software Foundation, Inc.
 # Kjartan Maraas <kmaraas@gnome.org>, 1998-2010.
 # Terance Edward Sola <terance@lyse.net>, 2005.
@@ -713,9 +713,9 @@
 
 
 ========== nds.po ==========
-# Low German translation for mate-media.
-# Copyright (C) 2009 mate-media's COPYRIGHT HOLDER
-# This file is distributed under the same license as the mate-media package.
+# Low German translation for cafe-media.
+# Copyright (C) 2009 cafe-media's COPYRIGHT HOLDER
+# This file is distributed under the same license as the cafe-media package.
 # Nils-Christoph Fiedler <linux@medienkompanie.de>, 2009.
 #
 
@@ -723,7 +723,7 @@
 
 
 ========== ne.po ==========
-# translation of mate-media.HEAD.ne.po to Nepali
+# translation of cafe-media.HEAD.ne.po to Nepali
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -741,9 +741,9 @@
 
 
 ========== nl.po ==========
-# Dutch translation for mate-media
+# Dutch translation for cafe-media
 #
-# This package is distributed under the same license as the mate-media package.
+# This package is distributed under the same license as the cafe-media package.
 #
 # Wing Tung Leung <tg@skynet.be>, 1999.
 # Dennis Smit <synap@area101.penguin.nl>, 2002.
@@ -764,7 +764,7 @@
 ========== nn.po ==========
 # translation of nn.po to
 # translation of nn.po to Norwegian Nynorsk
-# Norwegian (nynorsk) translation of mate-media.
+# Norwegian (nynorsk) translation of cafe-media.
 # Copyright (C) 2000-2002 Free Software Foundation
 #
 # Kjartan Maraas <kmaraas@gnome.org>, 2001.
@@ -778,9 +778,9 @@
 
 ========== oc.po ==========
 # Translation of oc.po to Occitan
-# Occitan translation of mate-media.
+# Occitan translation of cafe-media.
 # Copyright (C) 2007 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
 # Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>, 2007.
 
@@ -788,10 +788,10 @@
 
 
 ========== or.po ==========
-# translation of mate-media.mate-2-30.or.po to Oriya
-# Oriya translation of mate-media.HEAD.pot.
+# translation of cafe-media.cafe-2-30.or.po to Oriya
+# Oriya translation of cafe-media.HEAD.pot.
 # Copyright (C) 2004, 2006, 2009, 2010 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media  package.
+# This file is distributed under the same license as the cafe-media  package.
 # $Id: or.po,v 1.1 2006/04/03 23:09:31 gmohanty Exp $
 #
 # Parashar Nayak  <parasar_24@yahoo.com>, 2004.
@@ -802,9 +802,9 @@
 
 
 ========== pa.po ==========
-# translation of mate-media.HEAD.po to Punjabi
-# Copyright (C) 2004 THE mate-media.HEAD'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the mate-media.HEAD package.
+# translation of cafe-media.HEAD.po to Punjabi
+# Copyright (C) 2004 THE cafe-media.HEAD'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the cafe-media.HEAD package.
 #
 # Amanpreet Singh Alam <amanlinux@netscape.net>, 2004.
 # A S Alam <aalam@users.sf.net>, 2005, 2006, 2007, 2009, 2010.
@@ -830,9 +830,9 @@
 
 
 ========== pt.po ==========
-# mate-media's Portuguese Translation
-# Copyright © 1998, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010 mate-media
-# Distributed under the same licence as the mate-media package
+# cafe-media's Portuguese Translation
+# Copyright © 1998, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010 cafe-media
+# Distributed under the same licence as the cafe-media package
 # Nuno Ferreira <nmrf@rnl.ist.utl.pt>, 1998.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
 #
@@ -843,7 +843,7 @@
 ========== pt_BR.po ==========
 # Brazilian Portuguese translation of MATE Media.
 # Copyright (C) 2001-2009 the MATE Media authors.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # Gustavo Maciel Dias Vieira <gustavo@sagui.org>, 2001.
 # Evandro Fernandes Giovanini <evandrofg@ig.com.br>, 2002-2003.
 # Raphael Higino <In Memoriam>, 2004-2005.
@@ -862,11 +862,11 @@
 
 
 ========== ro.po ==========
-# translation of mate-media.HEAD.ro.po to Română
-# translation of mate-media.HEAD.ro.po to
-# Romanian translation for mate-media.
+# translation of cafe-media.HEAD.ro.po to Română
+# translation of cafe-media.HEAD.ro.po to
+# Romanian translation for cafe-media.
 # Copyright (C) 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
-# Mugurel Tudor <mugurelu@mate.ro>, 2002-2003, 2004, 2005, 2006, 2007.
+# Mugurel Tudor <mugurelu@cafe.ro>, 2002-2003, 2004, 2005, 2006, 2007.
 # Adi Roiban https://launchpad.net/~adiroiban, 2008, 2009
 # Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010.
 
@@ -874,8 +874,8 @@
 
 
 ========== ru.po ==========
-# translation of mate-media.master.ru.po to Russian
-# Russian translation of mate-media
+# translation of cafe-media.master.ru.po to Russian
+# Russian translation of cafe-media
 # Copyright (C) 1998-2008, 2010 Free Software Foundation, Inc.
 #
 # Valek Filippov <frob@df.ru>, 2000-2002.
@@ -892,9 +892,9 @@
 
 
 ========== rw.po ==========
-# translation of mate-media to Kinyarwanda.
+# translation of cafe-media to Kinyarwanda.
 # Copyright (C) 2005 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # Steve Murphy <murf@e-tools.com>, 2005
 # Steve performed initial rough translation from compendium built from translations provided by the following translators:
 # Philibert Ndandali  <ndandali@yahoo.fr>, 2005.
@@ -936,23 +936,23 @@
 
 
 ========== sl.po ==========
-# Slovenian translations for mate-media.
+# Slovenian translations for cafe-media.
 # Copyright (C) 2005-2007 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
 # Andraž Tori <andraz.tori1@guest.arnes.si>, 2000.
 # Matjaž Horvat <m@owca.info>, 2006.
 # Matic Žgur <mr.zgur@gmail.com>, 2007.
-# Matej Urbančič <mateju@svn.mate.org>, 2007 - 2010.
+# Matej Urbančič <cafeju@svn.cafe.org>, 2007 - 2010.
 #
 
 
 
 
 ========== sq.po ==========
-# Përkthimi i mesazheve të mate-media në shqip
+# Përkthimi i mesazheve të cafe-media në shqip
 # Copyright (C) 2003-2006, 2008 Free Software Foundation, Inc.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
 # Laurent Dhima  <laurenti@alblinux.net>, 2003-2006, 2008.
 
@@ -960,10 +960,10 @@
 
 
 ========== sr.po ==========
-# Serbian translation of mate-media
+# Serbian translation of cafe-media
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004, 2005, 2006, 2007.
 #
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
 # Maintainer: Данило Шеган <dsegan@gmx.net>
 # Reviewed on 2005-08-08 by: Игор Несторовић <igor@prevod.org>"
@@ -975,10 +975,10 @@
 
 
 ========== sr@latin.po ==========
-# Serbian translation of mate-media
+# Serbian translation of cafe-media
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004, 2005, 2006, 2007.
 #
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 #
 # Maintainer: Danilo Šegan <dsegan@gmx.net>
 # Reviewed on 2005-08-08 by: Igor Nestorović <igor@prevod.org>"
@@ -990,7 +990,7 @@
 
 
 ========== sv.po ==========
-# Swedish messages for mate-media.
+# Swedish messages for cafe-media.
 # Copyright (C) 1998-2010 Free Software Foundation, Inc.
 # Martin Wahlen <mva@sbbs.se>, 1998, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>, 2000.
@@ -1004,7 +1004,7 @@
 
 
 ========== ta.po ==========
-# translation of mate-media.master.ta.po to Tamil
+# translation of cafe-media.master.ta.po to Tamil
 # translation of media.po to
 # Tamil translation of Tamil Mate Media 2.4.
 # Copyright (C) 2003, 2004, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
@@ -1031,8 +1031,8 @@
 
 
 ========== th.po ==========
-# Thai translation of mate-media.
-# This file is distributed under the same license as the mate-media package.
+# Thai translation of cafe-media.
+# This file is distributed under the same license as the cafe-media package.
 # Copyright (C) 2003-2010 Free Software Foundation, Inc.
 # Sawit Kasuriya <sawitk@hotmail.com>, 2003.
 # Sapa <sapac@hotmail.com>, 2003, 2004.
@@ -1045,7 +1045,7 @@
 
 
 ========== tk.po ==========
-# Turkmen translation of mate-media
+# Turkmen translation of cafe-media
 # Copyright (C) 2004 Free Software Foundation
 # Copyright (C) 2004 Gurban Mühemmet Tewekgeli and
 #                                Kakilik - Turkmen free software developers community
@@ -1058,7 +1058,7 @@
 
 
 ========== tr.po ==========
-# Turkish translation of mate-media.
+# Turkish translation of cafe-media.
 # Copyright (C) 2000,2001,2002,2003, 2004, 2005 Free Software Foundation, Inc.
 # Fatih Demir <kabalak@gtranslator.org>, 2000.
 # Arman Aksoy (Armish) <armish@linux-sevenler.de>, 2003.
@@ -1070,7 +1070,7 @@
 
 
 ========== ug.po ==========
-# Uyghur translations for mate-media.
+# Uyghur translations for cafe-media.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Sahran <sahran@live.com>, 2010-09-22.
@@ -1080,7 +1080,7 @@
 
 
 ========== uk.po ==========
-# Ukrainian translation of the mate-media module.
+# Ukrainian translation of the cafe-media module.
 # Copyright (C) 1999 Free Software Foundation, Inc.
 # Yuri Syrota <rasta@renome.rovno.ua> 1999
 # Maxim Dizumanenko <dziumanenko@gmail.com>, 2002-2007
@@ -1112,9 +1112,9 @@
 
 
 ========== xh.po ==========
-# Xhosa translation of mate-media
+# Xhosa translation of cafe-media
 # Copyright (C) 2005 Canonical Ltd.
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # Translation by Canonical Ltd <translations@canonical.com> with thanks to
 # Translation World CC in South Africa, 2005.
 #
@@ -1123,11 +1123,11 @@
 
 
 ========== zh_CN.po ==========
-# Simplified Chinese translation of mate-media
+# Simplified Chinese translation of cafe-media
 # Copyright (C) 2002, 2003, 2004, 2007, 2009, 2010 Free Software Foundation, Inc.
 # Dillion Chen <dillon.chen@turbolinux.com.cn>, 1999
 # Replaced by He Qiangqiang <carton@linux.net.cn>, 2002
-# Sun G11n <mate_int_l10n@ireland.sun.com>, 2002
+# Sun G11n <cafe_int_l10n@ireland.sun.com>, 2002
 # Funda Wang <fundawang@linux.net.cn>, 2003,2004.
 # Yang Zhang <zyangmath@gmail.com>, 2007.
 # Deng Xiyue <manphiz@gmail.com>, 2009.
@@ -1139,7 +1139,7 @@
 
 
 ========== zh_HK.po ==========
-# Chinese (Hong Kong) translation of mate-media.
+# Chinese (Hong Kong) translation of cafe-media.
 # Copyright (C) 1999-2007 Free Software Foundation, Inc.
 # Fernando <bv1al@journalist.com.tw>, 1999.
 # Abel Cheung <abel@oaka.org>, 2001-2003.
@@ -1152,7 +1152,7 @@
 
 
 ========== zh_TW.po ==========
-# Chinese (Taiwan) translation of mate-media.
+# Chinese (Taiwan) translation of cafe-media.
 # Copyright (C) 1999-2007 Free Software Foundation, Inc.
 # Fernando <bv1al@journalist.com.tw>, 1999.
 # Abel Cheung <abel@oaka.org>, 2001-2003.

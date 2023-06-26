@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
-# This file is distributed under the same license as the mate-media package.
+# This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -11,466 +11,466 @@
 # Mika Kobayashi, 2020
 # Rockers <sumorock@hotmail.com>, 2020
 # ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2020
-# Wolfgang Ulbrich <mate@raveit.de>, 2020
+# Wolfgang Ulbrich <cafe@raveit.de>, 2020
 # Ikuru K <kanumaiku@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-media 1.23.0\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Project-Id-Version: cafe-media 1.23.0\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2019-11-09 15:11+0100\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: Ikuru K <kanumaiku@gmail.com>, 2020\n"
-"Language-Team: Japanese (https://www.transifex.com/mate/teams/13566/ja/)\n"
+"Language-Team: Japanese (https://www.transifex.com/cafe/teams/13566/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: data/mate-volume-control.desktop.in.in:3
+#: data/cafe-volume-control.desktop.in.in:3
 msgid "Sound"
 msgstr "サウンド"
 
-#: data/mate-volume-control.desktop.in.in:4
+#: data/cafe-volume-control.desktop.in.in:4
 msgid "Change sound volume and sound events"
 msgstr "音量や音のイベントを変更します"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
-#: data/mate-volume-control.desktop.in.in:7
-#: data/mate-volume-control-status-icon.desktop.in:6
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:11
+#: data/cafe-volume-control.desktop.in.in:7
+#: data/cafe-volume-control-status-icon.desktop.in:6
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:11
 msgid "multimedia-volume-control"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/mate-volume-control.desktop.in.in:13
+#: data/cafe-volume-control.desktop.in.in:13
 msgid "MATE;volume;control;mixer;settings;sound;events;"
 msgstr ""
 
-#: data/mate-volume-control-status-icon.desktop.in:3
-#: mate-volume-control/dialog-main.c:255
-#: mate-volume-control/gvc-channel-bar.c:476
-#: mate-volume-control/gvc-speaker-test.c:428
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:9
+#: data/cafe-volume-control-status-icon.desktop.in:3
+#: cafe-volume-control/dialog-main.c:255
+#: cafe-volume-control/gvc-channel-bar.c:476
+#: cafe-volume-control/gvc-speaker-test.c:428
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:9
 msgid "Volume Control"
 msgstr "音量調節ツール"
 
-#: data/mate-volume-control-status-icon.desktop.in:4
+#: data/cafe-volume-control-status-icon.desktop.in:4
 msgid "Show desktop volume control"
 msgstr "デスクトップの音量を調節するアプレットです"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/mate-volume-control-status-icon.desktop.in:12
+#: data/cafe-volume-control-status-icon.desktop.in:12
 msgid "MATE;volume;control;mixer;settings;sound;"
 msgstr ""
 
-#: mate-volume-control/dialog-main.c:143
+#: cafe-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
 msgstr "サウンドシステムが無効です"
 
-#: mate-volume-control/dialog-main.c:165
+#: cafe-volume-control/dialog-main.c:165
 msgid "Waiting for sound system to respond"
 msgstr "サウンドシステムからの応答待ちです"
 
-#: mate-volume-control/dialog-main.c:190
+#: cafe-volume-control/dialog-main.c:190
 msgid "Sound system backend"
 msgstr "サウンドシステムバックエンド"
 
-#: mate-volume-control/dialog-main.c:191
-#: mate-volume-control/status-icon-main.c:46
+#: cafe-volume-control/dialog-main.c:191
+#: cafe-volume-control/status-icon-main.c:46
 msgid "Enable debug"
 msgstr "デバッグを有効にする"
 
-#: mate-volume-control/dialog-main.c:192
+#: cafe-volume-control/dialog-main.c:192
 msgid "Startup page"
 msgstr "起動時に開くページを指定する"
 
-#: mate-volume-control/dialog-main.c:193
-#: mate-volume-control/status-icon-main.c:45
+#: cafe-volume-control/dialog-main.c:193
+#: cafe-volume-control/status-icon-main.c:45
 msgid "Version of this application"
 msgstr "このアプリケーションのバージョンを表示する"
 
-#: mate-volume-control/dialog-main.c:202
+#: cafe-volume-control/dialog-main.c:202
 msgid " — MATE Volume Control"
 msgstr " — 音量調節ツール"
 
-#: mate-volume-control/gvc-applet.c:56
-#: mate-volume-control/gvc-stream-status-icon.c:246
+#: cafe-volume-control/gvc-applet.c:56
+#: cafe-volume-control/gvc-stream-status-icon.c:246
 msgid "_Sound Preferences"
 msgstr "サウンドの設定(_S)"
 
-#: mate-volume-control/gvc-applet.c:57 mate-volume-control/gvc-applet.c:468
+#: cafe-volume-control/gvc-applet.c:57 cafe-volume-control/gvc-applet.c:468
 msgid "Mute Output"
 msgstr ""
 
-#: mate-volume-control/gvc-applet.c:401
-#: mate-volume-control/gvc-mixer-dialog.c:2011
-#: mate-volume-control/gvc-status-icon.c:323
+#: cafe-volume-control/gvc-applet.c:401
+#: cafe-volume-control/gvc-mixer-dialog.c:2011
+#: cafe-volume-control/gvc-status-icon.c:323
 msgid "Input"
 msgstr "入力"
 
-#: mate-volume-control/gvc-applet.c:402
-#: mate-volume-control/gvc-mixer-dialog.c:2098
-#: mate-volume-control/gvc-status-icon.c:324
+#: cafe-volume-control/gvc-applet.c:402
+#: cafe-volume-control/gvc-mixer-dialog.c:2098
+#: cafe-volume-control/gvc-status-icon.c:324
 msgid "Output"
 msgstr "出力"
 
-#: mate-volume-control/gvc-applet.c:406
+#: cafe-volume-control/gvc-applet.c:406
 msgid "MATE Volume Control Applet"
 msgstr "MATE 音量調整アプレット"
 
-#: mate-volume-control/gvc-applet.c:463
+#: cafe-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
 msgstr ""
 
-#: mate-volume-control/gvc-applet.c:513
+#: cafe-volume-control/gvc-applet.c:513
 msgid "Volume Control Applet"
 msgstr ""
 
-#: mate-volume-control/gvc-balance-bar.c:137
+#: cafe-volume-control/gvc-balance-bar.c:137
 msgctxt "balance"
 msgid "Left"
 msgstr "左"
 
-#: mate-volume-control/gvc-balance-bar.c:138
+#: cafe-volume-control/gvc-balance-bar.c:138
 msgctxt "balance"
 msgid "Right"
 msgstr "右"
 
-#: mate-volume-control/gvc-balance-bar.c:141
+#: cafe-volume-control/gvc-balance-bar.c:141
 msgctxt "balance"
 msgid "Rear"
 msgstr "リア"
 
-#: mate-volume-control/gvc-balance-bar.c:142
+#: cafe-volume-control/gvc-balance-bar.c:142
 msgctxt "balance"
 msgid "Front"
 msgstr "フロント"
 
-#: mate-volume-control/gvc-balance-bar.c:145
+#: cafe-volume-control/gvc-balance-bar.c:145
 msgctxt "balance"
 msgid "Minimum"
 msgstr "最小"
 
-#: mate-volume-control/gvc-balance-bar.c:146
+#: cafe-volume-control/gvc-balance-bar.c:146
 msgctxt "balance"
 msgid "Maximum"
 msgstr "最大"
 
-#: mate-volume-control/gvc-balance-bar.c:334
+#: cafe-volume-control/gvc-balance-bar.c:334
 msgid "_Balance:"
 msgstr "バランス(_B):"
 
-#: mate-volume-control/gvc-balance-bar.c:337
+#: cafe-volume-control/gvc-balance-bar.c:337
 msgid "_Fade:"
 msgstr "フェード(_F):"
 
-#: mate-volume-control/gvc-balance-bar.c:340
+#: cafe-volume-control/gvc-balance-bar.c:340
 msgid "_Subwoofer:"
 msgstr "サブウーファー(_S):"
 
-#: mate-volume-control/gvc-channel-bar.c:309
+#: cafe-volume-control/gvc-channel-bar.c:309
 msgctxt "volume"
 msgid "Unamplified"
 msgstr "増幅しない"
 
-#: mate-volume-control/gvc-channel-bar.c:322
+#: cafe-volume-control/gvc-channel-bar.c:322
 msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: mate-volume-control/gvc-channel-bar.c:1079
+#: cafe-volume-control/gvc-channel-bar.c:1079
 msgid "Mute"
 msgstr "ミュート"
 
-#: mate-volume-control/gvc-combo-box.c:249
-#: mate-volume-control/gvc-mixer-dialog.c:1618
+#: cafe-volume-control/gvc-combo-box.c:249
+#: cafe-volume-control/gvc-mixer-dialog.c:1618
 msgid "_Profile:"
 msgstr "プロファイル(_P):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:355
-#: mate-volume-control/gvc-mixer-dialog.c:504
+#: cafe-volume-control/gvc-mixer-dialog.c:355
+#: cafe-volume-control/gvc-mixer-dialog.c:504
 msgid "Co_nnector:"
 msgstr "コネクター(_N):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1126
+#: cafe-volume-control/gvc-mixer-dialog.c:1126
 msgid "Disabled"
 msgstr "無効"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1132
+#: cafe-volume-control/gvc-mixer-dialog.c:1132
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
 msgstr[0] ""
 
-#: mate-volume-control/gvc-mixer-dialog.c:1141
+#: cafe-volume-control/gvc-mixer-dialog.c:1141
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] ""
 
-#: mate-volume-control/gvc-mixer-dialog.c:1509
-#: mate-volume-control/gvc-mixer-dialog.c:1778
-#: mate-volume-control/gvc-sound-theme-chooser.c:864
+#: cafe-volume-control/gvc-mixer-dialog.c:1509
+#: cafe-volume-control/gvc-mixer-dialog.c:1778
+#: cafe-volume-control/gvc-sound-theme-chooser.c:864
 msgid "Name"
 msgstr "名前"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1557
+#: cafe-volume-control/gvc-mixer-dialog.c:1557
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s でスピーカのテスト"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1621
+#: cafe-volume-control/gvc-mixer-dialog.c:1621
 msgid "Test Speakers"
 msgstr "スピーカのテスト"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1826
+#: cafe-volume-control/gvc-mixer-dialog.c:1826
 msgid "Sound Effects"
 msgstr "サウンドの効果"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1849
+#: cafe-volume-control/gvc-mixer-dialog.c:1849
 msgid "_Alert volume: "
 msgstr "警告音の音量(_A): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1918
+#: cafe-volume-control/gvc-mixer-dialog.c:1918
 msgid "_Output volume: "
 msgstr "出力の音量(_O): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:1968
+#: cafe-volume-control/gvc-mixer-dialog.c:1968
 msgid "Hardware"
 msgstr "ハードウェア"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1973
+#: cafe-volume-control/gvc-mixer-dialog.c:1973
 msgid "C_hoose a device to configure:"
 msgstr "設定するデバイスを選択してください(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:1997
-#: mate-volume-control/gvc-mixer-dialog.c:2127
+#: cafe-volume-control/gvc-mixer-dialog.c:1997
+#: cafe-volume-control/gvc-mixer-dialog.c:2127
 msgid "Settings for the selected device:"
 msgstr "選択したデバイスの設定:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2020
+#: cafe-volume-control/gvc-mixer-dialog.c:2020
 msgid "_Input volume: "
 msgstr "入力の音量(_I): "
 
-#: mate-volume-control/gvc-mixer-dialog.c:2045
+#: cafe-volume-control/gvc-mixer-dialog.c:2045
 msgid "Input level:"
 msgstr "入力レベル:"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2070
+#: cafe-volume-control/gvc-mixer-dialog.c:2070
 msgid "C_hoose a device for sound input:"
 msgstr "サウンドの入力デバイスを選択してください(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2103
+#: cafe-volume-control/gvc-mixer-dialog.c:2103
 msgid "C_hoose a device for sound output:"
 msgstr "サウンドの出力デバイスを選択してください(_H):"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2152
+#: cafe-volume-control/gvc-mixer-dialog.c:2152
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2157
+#: cafe-volume-control/gvc-mixer-dialog.c:2157
 msgid "No application is currently playing or recording audio."
 msgstr "現在、再生または録音しているアプリケーションはありません"
 
-#: mate-volume-control/gvc-mixer-dialog.c:2345
-#: mate-volume-control/gvc-sound-theme-chooser.c:728
-#: mate-volume-control/gvc-sound-theme-chooser.c:740
-#: mate-volume-control/gvc-sound-theme-chooser.c:752
+#: cafe-volume-control/gvc-mixer-dialog.c:2345
+#: cafe-volume-control/gvc-sound-theme-chooser.c:728
+#: cafe-volume-control/gvc-sound-theme-chooser.c:740
+#: cafe-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Sound Preferences"
 msgstr "サウンドを設定する"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:316
+#: cafe-volume-control/gvc-sound-theme-chooser.c:316
 msgid "No sounds"
 msgstr "なし"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:437
+#: cafe-volume-control/gvc-sound-theme-chooser.c:437
 msgid "Built-in"
 msgstr "インストール済"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:624
-#: mate-volume-control/sound-theme-file-utils.c:293
+#: cafe-volume-control/gvc-sound-theme-chooser.c:624
+#: cafe-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
 msgstr "カスタム"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:731
-#: mate-volume-control/gvc-sound-theme-chooser.c:742
-#: mate-volume-control/gvc-sound-theme-chooser.c:754
+#: cafe-volume-control/gvc-sound-theme-chooser.c:731
+#: cafe-volume-control/gvc-sound-theme-chooser.c:742
+#: cafe-volume-control/gvc-sound-theme-chooser.c:754
 msgid "Testing event sound"
 msgstr "イベント音のテスト中"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:840
+#: cafe-volume-control/gvc-sound-theme-chooser.c:840
 msgid "Default"
 msgstr "デフォルト"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:841
+#: cafe-volume-control/gvc-sound-theme-chooser.c:841
 msgid "From theme"
 msgstr "テーマ"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:871
+#: cafe-volume-control/gvc-sound-theme-chooser.c:871
 msgid "Type"
 msgstr "種類"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1028
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1028
 msgid "Sound _theme:"
 msgstr "サウンドのテーマ(_T):"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1041
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1041
 msgid "C_hoose an alert sound:"
 msgstr "警告音を選択してください(_H):"
 
-#: mate-volume-control/gvc-sound-theme-chooser.c:1069
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1069
 msgid "Enable _window and button sounds"
 msgstr "ウィンドウとボタンの音を鳴らす(_W)"
 
-#: mate-volume-control/gvc-speaker-test.c:252
+#: cafe-volume-control/gvc-speaker-test.c:252
 msgid "Stop"
 msgstr "停止"
 
-#: mate-volume-control/gvc-speaker-test.c:252
-#: mate-volume-control/gvc-speaker-test.c:366
+#: cafe-volume-control/gvc-speaker-test.c:252
+#: cafe-volume-control/gvc-speaker-test.c:366
 msgid "Test"
 msgstr "テスト"
 
-#: mate-volume-control/gvc-status-icon.c:327
+#: cafe-volume-control/gvc-status-icon.c:327
 msgid "Microphone Volume"
 msgstr "マイクのボリューム"
 
-#: mate-volume-control/gvc-status-icon.c:329
+#: cafe-volume-control/gvc-status-icon.c:329
 msgid "Sound Output Volume"
 msgstr "出力の音量"
 
-#: mate-volume-control/gvc-status-icon.c:334
+#: cafe-volume-control/gvc-status-icon.c:334
 msgid "MATE Volume Control StatusIcon"
 msgstr ""
 
-#: mate-volume-control/gvc-stream-applet-icon.c:196
-#: mate-volume-control/gvc-stream-status-icon.c:201
+#: cafe-volume-control/gvc-stream-applet-icon.c:196
+#: cafe-volume-control/gvc-stream-status-icon.c:201
 #, c-format
 msgid "Failed to start Sound Preferences: %s"
 msgstr "サウンドの設定を起動できませんでした: %s"
 
-#: mate-volume-control/gvc-stream-applet-icon.c:377
-#: mate-volume-control/gvc-stream-status-icon.c:422
+#: cafe-volume-control/gvc-stream-applet-icon.c:377
+#: cafe-volume-control/gvc-stream-status-icon.c:422
 msgid "Muted at"
 msgstr ""
 
-#: mate-volume-control/gvc-stream-status-icon.c:236
+#: cafe-volume-control/gvc-stream-status-icon.c:236
 msgid "_Mute"
 msgstr "ミュート(_M)"
 
-#: mate-volume-control/gvc-utils.c:58
+#: cafe-volume-control/gvc-utils.c:58
 msgid "Unknown"
 msgstr "不明"
 
-#: mate-volume-control/gvc-utils.c:60 mate-volume-control/gvc-utils.c:108
+#: cafe-volume-control/gvc-utils.c:60 cafe-volume-control/gvc-utils.c:108
 msgid "Mono"
 msgstr "モノラル"
 
-#: mate-volume-control/gvc-utils.c:61
+#: cafe-volume-control/gvc-utils.c:61
 msgid "Front Left"
 msgstr "左前方"
 
-#: mate-volume-control/gvc-utils.c:62
+#: cafe-volume-control/gvc-utils.c:62
 msgid "Front Right"
 msgstr "右前方"
 
-#: mate-volume-control/gvc-utils.c:63
+#: cafe-volume-control/gvc-utils.c:63
 msgid "Front Center"
 msgstr "中央前方"
 
-#: mate-volume-control/gvc-utils.c:64
+#: cafe-volume-control/gvc-utils.c:64
 msgid "LFE"
 msgstr "LFE"
 
-#: mate-volume-control/gvc-utils.c:65
+#: cafe-volume-control/gvc-utils.c:65
 msgid "Rear Left"
 msgstr "左後方"
 
-#: mate-volume-control/gvc-utils.c:66
+#: cafe-volume-control/gvc-utils.c:66
 msgid "Rear Right"
 msgstr "右後方"
 
-#: mate-volume-control/gvc-utils.c:67
+#: cafe-volume-control/gvc-utils.c:67
 msgid "Rear Center"
 msgstr "中央後方"
 
-#: mate-volume-control/gvc-utils.c:68
+#: cafe-volume-control/gvc-utils.c:68
 msgid "Front Left of Center"
 msgstr "中央の左前方"
 
-#: mate-volume-control/gvc-utils.c:69
+#: cafe-volume-control/gvc-utils.c:69
 msgid "Front Right of Center"
 msgstr "中央の右前方"
 
-#: mate-volume-control/gvc-utils.c:70
+#: cafe-volume-control/gvc-utils.c:70
 msgid "Side Left"
 msgstr "左側"
 
-#: mate-volume-control/gvc-utils.c:71
+#: cafe-volume-control/gvc-utils.c:71
 msgid "Side Right"
 msgstr "右側"
 
-#: mate-volume-control/gvc-utils.c:72
+#: cafe-volume-control/gvc-utils.c:72
 msgid "Top Front Left"
 msgstr "上左前方"
 
-#: mate-volume-control/gvc-utils.c:73
+#: cafe-volume-control/gvc-utils.c:73
 msgid "Top Front Right"
 msgstr "上右前方"
 
-#: mate-volume-control/gvc-utils.c:74
+#: cafe-volume-control/gvc-utils.c:74
 msgid "Top Front Center"
 msgstr "上中央前方"
 
-#: mate-volume-control/gvc-utils.c:75
+#: cafe-volume-control/gvc-utils.c:75
 msgid "Top Center"
 msgstr "上中央"
 
-#: mate-volume-control/gvc-utils.c:76
+#: cafe-volume-control/gvc-utils.c:76
 msgid "Top Rear Left"
 msgstr "上左後方"
 
-#: mate-volume-control/gvc-utils.c:77
+#: cafe-volume-control/gvc-utils.c:77
 msgid "Top Rear Right"
 msgstr "上右後方"
 
-#: mate-volume-control/gvc-utils.c:78
+#: cafe-volume-control/gvc-utils.c:78
 msgid "Top Rear Center"
 msgstr "上中央後方"
 
-#: mate-volume-control/gvc-utils.c:113
+#: cafe-volume-control/gvc-utils.c:113
 msgid "Stereo"
 msgstr "ステレオ"
 
-#: mate-volume-control/gvc-utils.c:120
+#: cafe-volume-control/gvc-utils.c:120
 msgid "Surround 4.0"
 msgstr "サラウンド 4.0"
 
-#: mate-volume-control/gvc-utils.c:128
+#: cafe-volume-control/gvc-utils.c:128
 msgid "Surround 4.1"
 msgstr "サラウンド 4.1"
 
-#: mate-volume-control/gvc-utils.c:130
+#: cafe-volume-control/gvc-utils.c:130
 msgid "Surround 5.0"
 msgstr "サラウンド 5.0"
 
-#: mate-volume-control/gvc-utils.c:140
+#: cafe-volume-control/gvc-utils.c:140
 msgid "Surround 5.1"
 msgstr "サラウンド 5.1"
 
-#: mate-volume-control/gvc-utils.c:151
+#: cafe-volume-control/gvc-utils.c:151
 msgid "Surround 7.1"
 msgstr "サラウンド 7.1"
 
-#: mate-volume-control/org.mate.applets.GvcApplet.mate-panel-applet.desktop.in.in:5
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:5
 msgid "Volume Control Factory"
 msgstr ""
 
-#: mate-volume-control/status-icon-main.c:55
+#: cafe-volume-control/status-icon-main.c:55
 msgid " — MATE Volume Control Status Icon"
 msgstr ""

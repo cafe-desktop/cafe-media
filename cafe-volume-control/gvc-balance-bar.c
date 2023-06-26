@@ -25,7 +25,7 @@
 #include <gtk/gtk.h>
 
 #include <canberra-gtk.h>
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 
 #include "gvc-balance-bar.h"
 
@@ -196,15 +196,15 @@ update_balance_value (GvcBalanceBar *bar)
 
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
-                value = mate_mixer_stream_control_get_balance (bar->priv->control);
+                value = cafe_mixer_stream_control_get_balance (bar->priv->control);
                 g_debug ("Balance value changed to %.2f", value);
                 break;
         case BALANCE_TYPE_FR:
-                value = mate_mixer_stream_control_get_fade (bar->priv->control);
+                value = cafe_mixer_stream_control_get_fade (bar->priv->control);
                 g_debug ("Fade value changed to %.2f", value);
                 break;
         case BALANCE_TYPE_LFE:
-                value = mate_mixer_stream_control_get_channel_volume (bar->priv->control,
+                value = cafe_mixer_stream_control_get_channel_volume (bar->priv->control,
                                                                       bar->priv->lfe_channel);
 
                 g_debug ("Subwoofer volume changed to %.0f", value);
@@ -227,10 +227,10 @@ find_stream_lfe_channel (MateMixerStreamControl *control)
 {
         guint i;
 
-        for (i = 0; i < mate_mixer_stream_control_get_num_channels (control); i++) {
+        for (i = 0; i < cafe_mixer_stream_control_get_num_channels (control); i++) {
                 MateMixerChannelPosition position;
 
-                position = mate_mixer_stream_control_get_channel_position (control, i);
+                position = cafe_mixer_stream_control_get_channel_position (control, i);
                 if (position == MATE_MIXER_CHANNEL_LFE)
                         return i;
         }
@@ -257,8 +257,8 @@ gvc_balance_bar_set_control (GvcBalanceBar *bar, MateMixerStreamControl *control
                 gdouble minimum;
                 gdouble maximum;
 
-                minimum = mate_mixer_stream_control_get_min_volume (bar->priv->control);
-                maximum = mate_mixer_stream_control_get_normal_volume (bar->priv->control);
+                minimum = cafe_mixer_stream_control_get_min_volume (bar->priv->control);
+                maximum = cafe_mixer_stream_control_get_normal_volume (bar->priv->control);
 
                 /* Configure the adjustment for the volume limits of the current
                  * stream.
@@ -481,13 +481,13 @@ on_adjustment_value_changed (GtkAdjustment *adjustment, GvcBalanceBar *bar)
 
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
-                mate_mixer_stream_control_set_balance (bar->priv->control, value);
+                cafe_mixer_stream_control_set_balance (bar->priv->control, value);
                 break;
         case BALANCE_TYPE_FR:
-                mate_mixer_stream_control_set_fade (bar->priv->control, value);
+                cafe_mixer_stream_control_set_fade (bar->priv->control, value);
                 break;
         case BALANCE_TYPE_LFE:
-                mate_mixer_stream_control_set_channel_volume (bar->priv->control,
+                cafe_mixer_stream_control_set_channel_volume (bar->priv->control,
                                                       bar->priv->lfe_channel,
                                                       value);
                 break;

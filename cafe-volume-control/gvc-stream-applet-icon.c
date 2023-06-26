@@ -25,11 +25,11 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-#include <libmatemixer/matemixer.h>
-#include <mate-panel-applet.h>
+#include <libcafemixer/cafemixer.h>
+#include <cafe-panel-applet.h>
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-desktop-utils.h>
+#include <libcafe-desktop/cafe-desktop-utils.h>
 
 #include "gvc-channel-bar.h"
 #include "gvc-stream-applet-icon.h"
@@ -157,9 +157,9 @@ on_applet_icon_button_press (GtkWidget           *applet_icon,
 
         /* Middle click acts as mute/unmute */
         if (event->button == 2) {
-                gboolean is_muted = mate_mixer_stream_control_get_mute (icon->priv->control);
+                gboolean is_muted = cafe_mixer_stream_control_get_mute (icon->priv->control);
 
-                mate_mixer_stream_control_set_mute (icon->priv->control, !is_muted);
+                cafe_mixer_stream_control_set_mute (icon->priv->control, !is_muted);
                 return TRUE;
         }
         return FALSE;
@@ -168,13 +168,13 @@ on_applet_icon_button_press (GtkWidget           *applet_icon,
 void
 gvc_stream_applet_icon_set_mute (GvcStreamAppletIcon *icon, gboolean mute)
 {
-        mate_mixer_stream_control_set_mute (icon->priv->control, mute);
+        cafe_mixer_stream_control_set_mute (icon->priv->control, mute);
 }
 
 gboolean
 gvc_stream_applet_icon_get_mute (GvcStreamAppletIcon *icon)
 {
-        return mate_mixer_stream_control_get_mute (icon->priv->control);
+        return cafe_mixer_stream_control_get_mute (icon->priv->control);
 }
 
 void
@@ -182,8 +182,8 @@ gvc_stream_applet_icon_volume_control (GvcStreamAppletIcon *icon)
 {
         GError *error = NULL;
 
-        mate_gdk_spawn_command_line_on_screen (gtk_widget_get_screen (icon->priv->dock),
-                                               "mate-volume-control",
+        cafe_gdk_spawn_command_line_on_screen (gtk_widget_get_screen (icon->priv->dock),
+                                               "cafe-volume-control",
                                                &error);
 
         if (error != NULL) {
@@ -343,14 +343,14 @@ update_icon (GvcStreamAppletIcon *icon)
         } else
                 gtk_widget_set_has_tooltip (GTK_WIDGET (icon), TRUE);
 
-        flags = mate_mixer_stream_control_get_flags (icon->priv->control);
+        flags = cafe_mixer_stream_control_get_flags (icon->priv->control);
 
         if (flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE)
-                muted = mate_mixer_stream_control_get_mute (icon->priv->control);
+                muted = cafe_mixer_stream_control_get_mute (icon->priv->control);
 
         if (flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
-                volume = mate_mixer_stream_control_get_volume (icon->priv->control);
-                normal = mate_mixer_stream_control_get_normal_volume (icon->priv->control);
+                volume = cafe_mixer_stream_control_get_volume (icon->priv->control);
+                normal = cafe_mixer_stream_control_get_normal_volume (icon->priv->control);
 
                 /* Select an icon, they are expected to be sorted, the lowest index being
                  * the mute icon and the rest being volume increments */
@@ -360,7 +360,7 @@ update_icon (GvcStreamAppletIcon *icon)
                         n = CLAMP (3 * volume / normal + 1, 1, 3);
         }
         if (flags & MATE_MIXER_STREAM_CONTROL_HAS_DECIBEL)
-                decibel = mate_mixer_stream_control_get_decibel (icon->priv->control);
+                decibel = cafe_mixer_stream_control_get_decibel (icon->priv->control);
 
         /* Apparently applet icon will reset icon even if it doesn't change */
         if (icon->priv->current_icon != n) {
@@ -368,7 +368,7 @@ update_icon (GvcStreamAppletIcon *icon)
                 icon->priv->current_icon = n;
         }
 
-        description = mate_mixer_stream_control_get_label (icon->priv->control);
+        description = cafe_mixer_stream_control_get_label (icon->priv->control);
 
         guint volume_percent = (guint) round (100.0 * volume / normal);
         if (muted) {
@@ -725,7 +725,7 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
         GtkWidget *toplevel = gtk_widget_get_toplevel (icon->priv->dock);
         GtkStyleContext *context;
         context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
-        gtk_style_context_add_class(context,"mate-panel-applet-slider");
+        gtk_style_context_add_class(context,"cafe-panel-applet-slider");
 
         /* Make transparency possible in gtk3 theme */
         GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
