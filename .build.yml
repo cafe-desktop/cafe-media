@@ -2,20 +2,6 @@
 # THE FOLLOWING LINES IS USED BY docker-build
 ##########################################################
 requires:
-  archlinux:
-    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/mate-media
-    - autoconf-archive
-    - clang
-    - gcc
-    - git
-    - libcanberra
-    - libmatemixer
-    - make
-    - mate-common
-    - mate-desktop
-    - mate-panel
-    - which
-
   debian:
     # Useful URL: https://github.com/mate-desktop/debian-packages
     # Useful URL: https://salsa.debian.org/debian-mate-team/mate-media
@@ -24,41 +10,6 @@ requires:
     - clang
     - clang-tools
     - cppcheck
-    - gcc
-    - git
-    - libcanberra-gtk3-dev
-    - libglib2.0-dev
-    - libgtk-3-dev
-    - libmate-desktop-dev
-    - libmate-panel-applet-dev
-    - libmatemixer-dev
-    - libxml2-dev
-    - make
-    - mate-common
-
-  fedora:
-    # Useful URL: https://src.fedoraproject.org/cgit/rpms/mate-media.git
-    - autoconf-archive    
-    - clang
-    - clang-analyzer
-    - gcc
-    - desktop-file-utils
-    - git
-    - gtk3-devel
-    - libmatemixer-devel
-    - libxml2-devel
-    - libcanberra-devel
-    - make
-    - mate-common
-    - mate-desktop-devel
-    - mate-panel-devel
-    - redhat-rpm-config
-
-  ubuntu:
-    - autoconf-archive    
-    - autopoint
-    - clang
-    - clang-tools
     - gcc
     - git
     - libcanberra-gtk3-dev
