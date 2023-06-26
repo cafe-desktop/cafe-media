@@ -75,7 +75,7 @@ remove_warning_dialog (void)
 }
 
 static void
-context_ready (MateMixerContext *context, GtkApplication *application)
+context_ready (CafeMixerContext *context, GtkApplication *application)
 {
         /* The dialog might be already created, e.g. when reconnected
          * to a sound server */
@@ -121,11 +121,11 @@ context_ready (MateMixerContext *context, GtkApplication *application)
 }
 
 static void
-on_context_state_notify (MateMixerContext *context,
+on_context_state_notify (CafeMixerContext *context,
                          GParamSpec       *pspec,
                          GtkApplication	  *app)
 {
-        MateMixerState state = cafe_mixer_context_get_state (context);
+        CafeMixerState state = cafe_mixer_context_get_state (context);
 
         if (state == MATE_MIXER_STATE_READY) {
                 remove_warning_dialog ();
@@ -183,7 +183,7 @@ main (int argc, char **argv)
 {
         GError           *error = NULL;
         gchar            *backend = NULL;
-        MateMixerContext *context;
+        CafeMixerContext *context;
         GApplication	 *app;
 
         GOptionEntry      entries[] = {

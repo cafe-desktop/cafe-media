@@ -52,7 +52,7 @@ struct _GvcStreamStatusIconClass
 
 GType                 gvc_stream_status_icon_get_type         (void) G_GNUC_CONST;
 
-GvcStreamStatusIcon * gvc_stream_status_icon_new              (MateMixerStreamControl *control,
+GvcStreamStatusIcon * gvc_stream_status_icon_new              (CafeMixerStreamControl *control,
                                                                const gchar           **icon_names);
 
 void                  gvc_stream_status_icon_set_icon_names   (GvcStreamStatusIcon    *icon,
@@ -61,7 +61,7 @@ void                  gvc_stream_status_icon_set_display_name (GvcStreamStatusIc
                                                                   const gchar         *display_name);
 
 void                  gvc_stream_status_icon_set_control      (GvcStreamStatusIcon    *icon,
-                                                               MateMixerStreamControl *control);
+                                                               CafeMixerStreamControl *control);
 
 G_END_DECLS
 

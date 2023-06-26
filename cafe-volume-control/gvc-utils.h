@@ -27,9 +27,9 @@
 
 G_BEGIN_DECLS
 
-const gchar *gvc_channel_position_to_pulse_string  (MateMixerChannelPosition position);
-const gchar *gvc_channel_position_to_pretty_string (MateMixerChannelPosition position);
-const gchar *gvc_channel_map_to_pretty_string      (MateMixerStreamControl  *control);
+const gchar *gvc_channel_position_to_pulse_string  (CafeMixerChannelPosition position);
+const gchar *gvc_channel_position_to_pretty_string (CafeMixerChannelPosition position);
+const gchar *gvc_channel_map_to_pretty_string      (CafeMixerStreamControl  *control);
 
 G_END_DECLS
 

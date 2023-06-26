@@ -65,11 +65,11 @@ struct _GvcAppletPrivate
         GvcStreamAppletIcon *icon_input;
         GvcStreamAppletIcon *icon_output;
         gboolean             running;
-        MateMixerContext    *context;
-        MateMixerStream     *output;
-        MateMixerStream     *input;
+        CafeMixerContext    *context;
+        CafeMixerStream     *output;
+        CafeMixerStream     *input;
 
-        MatePanelApplet     *applet;
+        CafePanelApplet     *applet;
         GtkBox              *box;
         GtkActionGroup      *action_group;
 };
@@ -79,7 +79,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (GvcApplet, gvc_applet, G_TYPE_OBJECT)
 static void
 update_icon_input (GvcApplet *applet)
 {
-        MateMixerStreamControl *control = NULL;
+        CafeMixerStreamControl *control = NULL;
         gboolean                show = FALSE;
 
         /* Enable the input icon in case there is an input stream present and there
@@ -98,11 +98,11 @@ update_icon_input (GvcApplet *applet)
                 }
 
                 while (inputs != NULL) {
-                        MateMixerStreamControl *input = MATE_MIXER_STREAM_CONTROL (inputs->data);
-                        MateMixerStreamControlRole role = cafe_mixer_stream_control_get_role (input);
+                        CafeMixerStreamControl *input = MATE_MIXER_STREAM_CONTROL (inputs->data);
+                        CafeMixerStreamControlRole role = cafe_mixer_stream_control_get_role (input);
 
                         if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
-                                MateMixerAppInfo *app_info = cafe_mixer_stream_control_get_app_info (input);
+                                CafeMixerAppInfo *app_info = cafe_mixer_stream_control_get_app_info (input);
 
                                 app_id = cafe_mixer_app_info_get_id (app_info);
                                 if (app_id == NULL) {
@@ -150,8 +150,8 @@ update_icon_input (GvcApplet *applet)
 static void
 update_icon_output (GvcApplet *applet)
 {
-        MateMixerStream        *stream;
-        MateMixerStreamControl *control = NULL;
+        CafeMixerStream        *stream;
+        CafeMixerStreamControl *control = NULL;
 
         stream = cafe_mixer_context_get_default_output_stream (applet->priv->context);
         if (stream != NULL)
@@ -170,15 +170,15 @@ update_icon_output (GvcApplet *applet)
 }
 
 static void
-on_output_stream_control_added (MateMixerStream *stream,
+on_output_stream_control_added (CafeMixerStream *stream,
                                 const gchar     *name,
                                 GvcApplet       *applet)
 {
-        MateMixerStreamControl *control;
+        CafeMixerStreamControl *control;
 
         control = cafe_mixer_stream_get_control (stream, name);
         if (G_LIKELY (control != NULL)) {
-                MateMixerStreamControlRole role = cafe_mixer_stream_control_get_role (control);
+                CafeMixerStreamControlRole role = cafe_mixer_stream_control_get_role (control);
 
                 /* Non-application output control doesn't affect the icon */
                 if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
@@ -192,15 +192,15 @@ on_output_stream_control_added (MateMixerStream *stream,
 }
 
 static void
-on_input_stream_control_added (MateMixerStream *stream,
+on_input_stream_control_added (CafeMixerStream *stream,
                                const gchar     *name,
                                GvcApplet       *applet)
 {
-        MateMixerStreamControl *control;
+        CafeMixerStreamControl *control;
 
         control = cafe_mixer_stream_get_control (stream, name);
         if (G_LIKELY (control != NULL)) {
-                MateMixerStreamControlRole role = cafe_mixer_stream_control_get_role (control);
+                CafeMixerStreamControlRole role = cafe_mixer_stream_control_get_role (control);
 
                 /* Non-application input control doesn't affect the icon */
                 if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
@@ -214,7 +214,7 @@ on_input_stream_control_added (MateMixerStream *stream,
 }
 
 static void
-on_output_stream_control_removed (MateMixerStream *stream,
+on_output_stream_control_removed (CafeMixerStream *stream,
                                   const gchar     *name,
                                   GvcApplet       *applet)
 {
@@ -224,7 +224,7 @@ on_output_stream_control_removed (MateMixerStream *stream,
 }
 
 static void
-on_input_stream_control_removed (MateMixerStream *stream,
+on_input_stream_control_removed (CafeMixerStream *stream,
                                  const gchar     *name,
                                  GvcApplet       *applet)
 {
@@ -236,7 +236,7 @@ on_input_stream_control_removed (MateMixerStream *stream,
 static gboolean
 update_default_output_stream (GvcApplet *applet)
 {
-        MateMixerStream *stream;
+        CafeMixerStream *stream;
 
         stream = cafe_mixer_context_get_default_output_stream (applet->priv->context);
         if (stream == applet->priv->output)
@@ -267,7 +267,7 @@ update_default_output_stream (GvcApplet *applet)
 static gboolean
 update_default_input_stream (GvcApplet *applet)
 {
-        MateMixerStream *stream;
+        CafeMixerStream *stream;
 
         stream = cafe_mixer_context_get_default_input_stream (applet->priv->context);
         if (stream == applet->priv->input)
@@ -296,11 +296,11 @@ update_default_input_stream (GvcApplet *applet)
 }
 
 static void
-on_context_state_notify (MateMixerContext *context,
+on_context_state_notify (CafeMixerContext *context,
                          GParamSpec       *pspec,
                          GvcApplet        *applet)
 {
-        MateMixerState state = cafe_mixer_context_get_state (context);
+        CafeMixerState state = cafe_mixer_context_get_state (context);
 
         switch (state) {
         case MATE_MIXER_STATE_FAILED:
@@ -321,7 +321,7 @@ on_context_state_notify (MateMixerContext *context,
 }
 
 static void
-on_context_default_input_stream_notify (MateMixerContext *context,
+on_context_default_input_stream_notify (CafeMixerContext *context,
                                         GParamSpec       *pspec,
                                         GvcApplet        *applet)
 {
@@ -332,7 +332,7 @@ on_context_default_input_stream_notify (MateMixerContext *context,
 }
 
 static void
-on_context_default_output_stream_notify (MateMixerContext *control,
+on_context_default_output_stream_notify (CafeMixerContext *control,
                                          GParamSpec       *pspec,
                                          GvcApplet        *applet)
 {
@@ -471,7 +471,7 @@ gvc_applet_set_mute (GtkWidget* widget, int size, gpointer user_data)
 }
 
 static void
-gvc_applet_set_orient(GtkWidget *widget, MatePanelAppletOrient orient, gpointer user_data)
+gvc_applet_set_orient(GtkWidget *widget, CafePanelAppletOrient orient, gpointer user_data)
 {
         GvcApplet *applet = user_data;
 
@@ -505,7 +505,7 @@ menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
 }
 
 gboolean
-gvc_applet_fill (GvcApplet *applet, MatePanelApplet* applet_widget)
+gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
 {
         GdkEventMask    event_mask;
         GdkWindow      *window;

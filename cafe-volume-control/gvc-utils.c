@@ -79,7 +79,7 @@ static const gchar *pretty_position[MATE_MIXER_CHANNEL_MAX] = {
 };
 
 const gchar *
-gvc_channel_position_to_pulse_string (MateMixerChannelPosition position)
+gvc_channel_position_to_pulse_string (CafeMixerChannelPosition position)
 {
         g_return_val_if_fail (position >= 0 && position < MATE_MIXER_CHANNEL_MAX, NULL);
 
@@ -87,7 +87,7 @@ gvc_channel_position_to_pulse_string (MateMixerChannelPosition position)
 }
 
 const gchar *
-gvc_channel_position_to_pretty_string (MateMixerChannelPosition position)
+gvc_channel_position_to_pretty_string (CafeMixerChannelPosition position)
 {
         g_return_val_if_fail (position >= 0 && position < MATE_MIXER_CHANNEL_MAX, NULL);
 
@@ -95,7 +95,7 @@ gvc_channel_position_to_pretty_string (MateMixerChannelPosition position)
 }
 
 const gchar *
-gvc_channel_map_to_pretty_string (MateMixerStreamControl *control)
+gvc_channel_map_to_pretty_string (CafeMixerStreamControl *control)
 {
         g_return_val_if_fail (MATE_MIXER_IS_STREAM_CONTROL (control), NULL);
 

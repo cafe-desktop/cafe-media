@@ -35,7 +35,7 @@
 #include "gvc-applet.h"
 
 static gboolean
-applet_main (MatePanelApplet* applet_widget)
+applet_main (CafePanelApplet* applet_widget)
 {
         GError       *error = NULL;
         GvcApplet    *applet;
@@ -76,7 +76,7 @@ applet_main (MatePanelApplet* applet_widget)
 
 /* this function, called by cafe-panel, will create the applet */
 static gboolean
-applet_factory (MatePanelApplet* applet, const char* iid, gpointer data)
+applet_factory (CafePanelApplet* applet, const char* iid, gpointer data)
 {
         gboolean retval = FALSE;
 

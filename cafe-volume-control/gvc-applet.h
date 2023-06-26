@@ -57,7 +57,7 @@ GType               gvc_applet_get_type            (void) G_GNUC_CONST;
 
 GvcApplet *         gvc_applet_new                 (void);
 void                gvc_applet_start               (GvcApplet *applet);
-gboolean            gvc_applet_fill                (GvcApplet *applet, MatePanelApplet *applet_widget);
+gboolean            gvc_applet_fill                (GvcApplet *applet, CafePanelApplet *applet_widget);
 
 G_END_DECLS
 

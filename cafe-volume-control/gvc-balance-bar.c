@@ -48,7 +48,7 @@ struct _GvcBalanceBarPrivate
         GtkAdjustment   *adjustment;
         GtkSizeGroup    *size_group;
         gboolean         symmetric;
-        MateMixerStreamControl *control;
+        CafeMixerStreamControl *control;
         gint             lfe_channel;
 };
 
@@ -215,7 +215,7 @@ update_balance_value (GvcBalanceBar *bar)
 }
 
 static void
-on_balance_value_changed (MateMixerStream *stream,
+on_balance_value_changed (CafeMixerStream *stream,
                           GParamSpec      *pspec,
                           GvcBalanceBar   *bar)
 {
@@ -223,12 +223,12 @@ on_balance_value_changed (MateMixerStream *stream,
 }
 
 static gint
-find_stream_lfe_channel (MateMixerStreamControl *control)
+find_stream_lfe_channel (CafeMixerStreamControl *control)
 {
         guint i;
 
         for (i = 0; i < cafe_mixer_stream_control_get_num_channels (control); i++) {
-                MateMixerChannelPosition position;
+                CafeMixerChannelPosition position;
 
                 position = cafe_mixer_stream_control_get_channel_position (control, i);
                 if (position == MATE_MIXER_CHANNEL_LFE)
@@ -239,7 +239,7 @@ find_stream_lfe_channel (MateMixerStreamControl *control)
 }
 
 static void
-gvc_balance_bar_set_control (GvcBalanceBar *bar, MateMixerStreamControl *control)
+gvc_balance_bar_set_control (GvcBalanceBar *bar, CafeMixerStreamControl *control)
 {
         g_return_if_fail (GVC_BALANCE_BAR (bar));
         g_return_if_fail (MATE_MIXER_IS_STREAM_CONTROL (control));
@@ -413,7 +413,7 @@ gvc_balance_bar_class_init (GvcBalanceBarClass *klass)
         properties[PROP_CONTROL] =
                 g_param_spec_object ("control",
                                      "Control",
-                                     "MateMixer stream control",
+                                     "CafeMixer stream control",
                                      MATE_MIXER_TYPE_STREAM_CONTROL,
                                      G_PARAM_READWRITE |
                                      G_PARAM_STATIC_STRINGS);
@@ -518,7 +518,7 @@ gvc_balance_bar_dispose (GObject *object)
 }
 
 GtkWidget *
-gvc_balance_bar_new (MateMixerStreamControl *control, GvcBalanceType btype)
+gvc_balance_bar_new (CafeMixerStreamControl *control, GvcBalanceType btype)
 {
         return g_object_new (GVC_TYPE_BALANCE_BAR,
                             "balance-type", btype,

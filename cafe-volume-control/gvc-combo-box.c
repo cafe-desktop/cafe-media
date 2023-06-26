@@ -37,7 +37,7 @@ struct _GvcComboBoxPrivate
         GtkWidget       *button;
         GtkTreeModel    *model;
         GtkWidget       *combobox;
-        MateMixerSwitch *swtch;
+        CafeMixerSwitch *swtch;
 };
 
 enum {
@@ -69,7 +69,7 @@ static void gvc_combo_box_dispose    (GObject          *object);
 
 G_DEFINE_TYPE_WITH_PRIVATE (GvcComboBox, gvc_combo_box, GTK_TYPE_BOX)
 
-MateMixerSwitch *
+CafeMixerSwitch *
 gvc_combo_box_get_switch (GvcComboBox *combobox)
 {
         g_return_val_if_fail (GVC_IS_COMBO_BOX (combobox), NULL);
@@ -94,12 +94,12 @@ gvc_combo_box_set_size_group (GvcComboBox  *combobox,
 }
 
 static void
-on_switch_active_option_notify (MateMixerSwitch *swtch,
+on_switch_active_option_notify (CafeMixerSwitch *swtch,
                                 GParamSpec      *pspec,
                                 GvcComboBox     *combobox)
 {
         GtkTreeIter            iter;
-        MateMixerSwitchOption *active;
+        CafeMixerSwitchOption *active;
         gboolean               cont;
         const gchar           *name;
 
@@ -131,9 +131,9 @@ on_switch_active_option_notify (MateMixerSwitch *swtch,
 }
 
 static void
-gvc_combo_box_set_switch (GvcComboBox *combobox, MateMixerSwitch *swtch)
+gvc_combo_box_set_switch (GvcComboBox *combobox, CafeMixerSwitch *swtch)
 {
-        MateMixerSwitchOption *active;
+        CafeMixerSwitchOption *active;
         const GList           *options;
 
         g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
@@ -145,7 +145,7 @@ gvc_combo_box_set_switch (GvcComboBox *combobox, MateMixerSwitch *swtch)
         options = cafe_mixer_switch_list_options (swtch);
         while (options != NULL) {
                 GtkTreeIter            iter;
-                MateMixerSwitchOption *option = MATE_MIXER_SWITCH_OPTION (options->data);
+                CafeMixerSwitchOption *option = MATE_MIXER_SWITCH_OPTION (options->data);
 
                 gtk_list_store_insert_with_values (GTK_LIST_STORE (combobox->priv->model),
                                                    &iter,
@@ -236,7 +236,7 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
         properties[PROP_SWITCH] =
                 g_param_spec_object ("switch",
                                      "switch",
-                                     "The MateMixerSwitch",
+                                     "The CafeMixerSwitch",
                                      MATE_MIXER_TYPE_SWITCH,
                                      G_PARAM_READWRITE |
                                      G_PARAM_CONSTRUCT_ONLY |
@@ -298,7 +298,7 @@ on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
 {
         GtkTreeIter            iter;
         gchar                 *name;
-        MateMixerSwitchOption *option;
+        CafeMixerSwitchOption *option;
 
         if (G_UNLIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter) == FALSE))
                 return;
@@ -432,7 +432,7 @@ gvc_combo_box_dispose (GObject *object)
 }
 
 GtkWidget *
-gvc_combo_box_new (MateMixerSwitch *swtch, const gchar *label)
+gvc_combo_box_new (CafeMixerSwitch *swtch, const gchar *label)
 {
         return g_object_new (GVC_TYPE_COMBO_BOX,
                              "switch", swtch,

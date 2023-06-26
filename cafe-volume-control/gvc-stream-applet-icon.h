@@ -53,7 +53,7 @@ struct _GvcStreamAppletIconClass
 
 GType                 gvc_stream_applet_icon_get_type         (void) G_GNUC_CONST;
 
-GvcStreamAppletIcon * gvc_stream_applet_icon_new              (MateMixerStreamControl *control,
+GvcStreamAppletIcon * gvc_stream_applet_icon_new              (CafeMixerStreamControl *control,
                                                                const gchar           **icon_names);
 
 void                  gvc_stream_applet_icon_set_icon_names   (GvcStreamAppletIcon    *icon,
@@ -62,13 +62,13 @@ void                  gvc_stream_applet_icon_set_display_name (GvcStreamAppletIc
                                                                   const gchar         *display_name);
 
 void                  gvc_stream_applet_icon_set_control      (GvcStreamAppletIcon    *icon,
-                                                               MateMixerStreamControl *control);
+                                                               CafeMixerStreamControl *control);
 
 void                  gvc_stream_applet_icon_set_size         (GvcStreamAppletIcon *icon,
                                                                guint                size);
 
 void                  gvc_stream_applet_icon_set_orient       (GvcStreamAppletIcon  *icon,
-                                                               MatePanelAppletOrient orient);
+                                                               CafePanelAppletOrient orient);
 
 gboolean              gvc_stream_applet_icon_get_mute         (GvcStreamAppletIcon *icon);
 

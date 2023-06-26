@@ -56,11 +56,11 @@ struct _GvcChannelBarClass
 
 GType               gvc_channel_bar_get_type            (void);
 
-GtkWidget *         gvc_channel_bar_new                 (MateMixerStreamControl    *control);
+GtkWidget *         gvc_channel_bar_new                 (CafeMixerStreamControl    *control);
 
-MateMixerStreamControl *gvc_channel_bar_get_control          (GvcChannelBar      *bar);
+CafeMixerStreamControl *gvc_channel_bar_get_control          (GvcChannelBar      *bar);
 void                gvc_channel_bar_set_control          (GvcChannelBar      *bar,
-                                                         MateMixerStreamControl    *control);
+                                                         CafeMixerStreamControl    *control);
 
 const gchar *       gvc_channel_bar_get_name            (GvcChannelBar      *bar);
 void                gvc_channel_bar_set_name            (GvcChannelBar      *bar,

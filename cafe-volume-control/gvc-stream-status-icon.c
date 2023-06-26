@@ -39,7 +39,7 @@ struct _GvcStreamStatusIconPrivate
         GtkWidget       *bar;
         guint            current_icon;
         gchar           *display_name;
-        MateMixerStreamControl *control;
+        CafeMixerStreamControl *control;
 };
 
 enum
@@ -377,7 +377,7 @@ update_icon (GvcStreamStatusIcon *icon)
         guint                n = 0;
         gchar               *markup;
         const gchar         *description;
-        MateMixerStreamControlFlags flags;
+        CafeMixerStreamControlFlags flags;
 
         if (icon->priv->control == NULL) {
                 /* Do not bother creating a tooltip for an unusable icon as it
@@ -480,7 +480,7 @@ gvc_stream_status_icon_set_icon_names (GvcStreamStatusIcon  *icon,
 }
 
 static void
-on_stream_control_volume_notify (MateMixerStreamControl     *control,
+on_stream_control_volume_notify (CafeMixerStreamControl     *control,
                          GParamSpec          *pspec,
                          GvcStreamStatusIcon *icon)
 {
@@ -488,7 +488,7 @@ on_stream_control_volume_notify (MateMixerStreamControl     *control,
 }
 
 static void
-on_stream_control_mute_notify (MateMixerStreamControl     *control,
+on_stream_control_mute_notify (CafeMixerStreamControl     *control,
                        GParamSpec          *pspec,
                        GvcStreamStatusIcon *icon)
 {
@@ -511,7 +511,7 @@ gvc_stream_status_icon_set_display_name (GvcStreamStatusIcon *icon,
 
 void
 gvc_stream_status_icon_set_control (GvcStreamStatusIcon    *icon,
-                                    MateMixerStreamControl *control)
+                                    CafeMixerStreamControl *control)
 {
         g_return_if_fail (GVC_STREAM_STATUS_ICON (icon));
 
@@ -629,7 +629,7 @@ gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass)
         properties[PROP_CONTROL] =
                 g_param_spec_object ("control",
                                      "Control",
-                                     "MateMixer stream control",
+                                     "CafeMixer stream control",
                                      MATE_MIXER_TYPE_STREAM_CONTROL,
                                      G_PARAM_READWRITE |
                                      G_PARAM_CONSTRUCT |
@@ -776,7 +776,7 @@ gvc_stream_status_icon_finalize (GObject *object)
 }
 
 GvcStreamStatusIcon *
-gvc_stream_status_icon_new (MateMixerStreamControl *control,
+gvc_stream_status_icon_new (CafeMixerStreamControl *control,
                             const gchar           **icon_names)
 {
         return g_object_new (GVC_TYPE_STREAM_STATUS_ICON,
