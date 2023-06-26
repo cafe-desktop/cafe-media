@@ -1,6 +1,6 @@
-These are the MATE media tools for MATE:
+These are the CAFE media tools for CAFE:
 
-cafe-volume-control  - MATE volume control application and applet
+cafe-volume-control  - CAFE volume control application and applet
 
 Refer to the following files for license information for each sub-component
 of cafe-media:
@@ -8,4 +8,4 @@ of cafe-media:
 cafe-volume-control  - COPYING
 documentation        - COPYING-DOCS
 
-MATE-Media is a fork of GNOME-Media.
+CAFE-Media is a fork of GNOME-Media.

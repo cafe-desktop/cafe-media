@@ -211,10 +211,10 @@ on_adjustment_value_changed (GtkAdjustment *adjustment,
         value = gtk_adjustment_get_value (bar->priv->adjustment);
         lower = gtk_adjustment_get_lower (bar->priv->adjustment);
 
-        if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_WRITABLE)
+        if (bar->priv->control_flags & CAFE_MIXER_STREAM_CONTROL_MUTE_WRITABLE)
                 cafe_mixer_stream_control_set_mute (bar->priv->control, (value <= lower));
 
-        if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_VOLUME_WRITABLE)
+        if (bar->priv->control_flags & CAFE_MIXER_STREAM_CONTROL_VOLUME_WRITABLE)
                 cafe_mixer_stream_control_set_volume (bar->priv->control, (guint) value);
 }
 
@@ -360,7 +360,7 @@ update_adjustment_value (GvcChannelBar *bar)
          * volume is unavailable */
         if (bar->priv->control == NULL)
                 set_lower = TRUE;
-        else if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE)
+        else if (bar->priv->control_flags & CAFE_MIXER_STREAM_CONTROL_MUTE_READABLE)
                 set_lower = cafe_mixer_stream_control_get_mute (bar->priv->control);
 
         if (set_lower == TRUE)
@@ -416,7 +416,7 @@ update_mute_button (GvcChannelBar *bar)
                 gboolean enable = FALSE;
 
                 if (bar->priv->control != NULL &&
-                    bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE)
+                    bar->priv->control_flags & CAFE_MIXER_STREAM_CONTROL_MUTE_READABLE)
                         enable = TRUE;
 
                 if (enable == TRUE) {
@@ -443,8 +443,8 @@ on_scale_button_press_event (GtkWidget      *widget,
         /* Muting the stream when volume is non-zero moves the slider to zero,
          * but the volume remains the same. In this case delay unmuting and
          * changing volume until user releases the mouse button. */
-        if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE &&
-            bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
+        if (bar->priv->control_flags & CAFE_MIXER_STREAM_CONTROL_MUTE_READABLE &&
+            bar->priv->control_flags & CAFE_MIXER_STREAM_CONTROL_VOLUME_READABLE) {
                 if (cafe_mixer_stream_control_get_mute (bar->priv->control) == TRUE) {
                         guint minimum = (guint) gtk_adjustment_get_lower (bar->priv->adjustment);
 
@@ -566,14 +566,14 @@ gvc_channel_bar_set_control (GvcChannelBar *bar, CafeMixerStreamControl *control
         if (control != NULL)
                 bar->priv->control_flags = cafe_mixer_stream_control_get_flags (control);
         else
-                bar->priv->control_flags = MATE_MIXER_STREAM_CONTROL_NO_FLAGS;
+                bar->priv->control_flags = CAFE_MIXER_STREAM_CONTROL_NO_FLAGS;
 
-        if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_VOLUME_READABLE)
+        if (bar->priv->control_flags & CAFE_MIXER_STREAM_CONTROL_VOLUME_READABLE)
                 g_signal_connect (G_OBJECT (control),
                                   "notify::volume",
                                   G_CALLBACK (on_control_volume_notify),
                                   bar);
-        if (bar->priv->control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_READABLE)
+        if (bar->priv->control_flags & CAFE_MIXER_STREAM_CONTROL_MUTE_READABLE)
                 g_signal_connect (G_OBJECT (control),
                                   "notify::mute",
                                   G_CALLBACK (on_control_mute_notify),
@@ -1008,7 +1008,7 @@ gvc_channel_bar_class_init (GvcChannelBarClass *klass)
                 g_param_spec_object ("control",
                                      "Control",
                                      "CafeMixer stream control",
-                                     MATE_MIXER_TYPE_STREAM_CONTROL,
+                                     CAFE_MIXER_TYPE_STREAM_CONTROL,
                                      G_PARAM_READWRITE |
                                      G_PARAM_CONSTRUCT |
                                      G_PARAM_STATIC_STRINGS);

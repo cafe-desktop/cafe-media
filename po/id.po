@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -45,8 +45,8 @@ msgstr "multimedia-volume-control"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control.desktop.in.in:13
-msgid "MATE;volume;control;mixer;settings;sound;events;"
-msgstr "MATE;volume;kendali;mixer;pengaturan;suara;kejadian;"
+msgid "CAFE;volume;control;mixer;settings;sound;events;"
+msgstr "CAFE;volume;kendali;mixer;pengaturan;suara;kejadian;"
 
 #: data/cafe-volume-control-status-icon.desktop.in:3
 #: cafe-volume-control/dialog-main.c:255
@@ -63,8 +63,8 @@ msgstr "Tampilkan kendali volume desktop"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control-status-icon.desktop.in:12
-msgid "MATE;volume;control;mixer;settings;sound;"
-msgstr "MATE;volume;kendali;mixer;pengaturan;suara'"
+msgid "CAFE;volume;control;mixer;settings;sound;"
+msgstr "CAFE;volume;kendali;mixer;pengaturan;suara'"
 
 #: cafe-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -93,8 +93,8 @@ msgid "Version of this application"
 msgstr "Versi dari aplikasi ini"
 
 #: cafe-volume-control/dialog-main.c:202
-msgid " — MATE Volume Control"
-msgstr " - Kendali Volume MATE"
+msgid " — CAFE Volume Control"
+msgstr " - Kendali Volume CAFE"
 
 #: cafe-volume-control/gvc-applet.c:56
 #: cafe-volume-control/gvc-stream-status-icon.c:246
@@ -118,8 +118,8 @@ msgid "Output"
 msgstr "Keluaran"
 
 #: cafe-volume-control/gvc-applet.c:406
-msgid "MATE Volume Control Applet"
-msgstr "Applet Kontrol Volume MATE"
+msgid "CAFE Volume Control Applet"
+msgstr "Applet Kontrol Volume CAFE"
 
 #: cafe-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
@@ -343,8 +343,8 @@ msgid "Sound Output Volume"
 msgstr "Volume Keluaran Suara"
 
 #: cafe-volume-control/gvc-status-icon.c:334
-msgid "MATE Volume Control StatusIcon"
-msgstr "StatusIcon Kendali Volume MATE"
+msgid "CAFE Volume Control StatusIcon"
+msgstr "StatusIcon Kendali Volume CAFE"
 
 #: cafe-volume-control/gvc-stream-applet-icon.c:196
 #: cafe-volume-control/gvc-stream-status-icon.c:201
@@ -470,5 +470,5 @@ msgid "Volume Control Factory"
 msgstr "Pabrik Kendali Volume"
 
 #: cafe-volume-control/status-icon-main.c:55
-msgid " — MATE Volume Control Status Icon"
-msgstr " — Ikon Status Kendali Volume MATE"
+msgid " — CAFE Volume Control Status Icon"
+msgstr " — Ikon Status Kendali Volume CAFE"

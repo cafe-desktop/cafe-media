@@ -87,7 +87,7 @@ applet_factory (CafePanelApplet* applet, const char* iid, gpointer data)
 }
 
 /* needed by cafe-panel applet library */
-MATE_PANEL_APPLET_OUT_PROCESS_FACTORY("GvcAppletFactory",
+CAFE_PANEL_APPLET_OUT_PROCESS_FACTORY("GvcAppletFactory",
                                       PANEL_TYPE_APPLET,
                                       "Volume Control applet",
                                       applet_factory,

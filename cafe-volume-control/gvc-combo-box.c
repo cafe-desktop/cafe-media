@@ -137,7 +137,7 @@ gvc_combo_box_set_switch (GvcComboBox *combobox, CafeMixerSwitch *swtch)
         const GList           *options;
 
         g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
-        g_return_if_fail (MATE_MIXER_IS_SWITCH (swtch));
+        g_return_if_fail (CAFE_MIXER_IS_SWITCH (swtch));
 
         combobox->priv->swtch = g_object_ref (swtch);
 
@@ -145,7 +145,7 @@ gvc_combo_box_set_switch (GvcComboBox *combobox, CafeMixerSwitch *swtch)
         options = cafe_mixer_switch_list_options (swtch);
         while (options != NULL) {
                 GtkTreeIter            iter;
-                CafeMixerSwitchOption *option = MATE_MIXER_SWITCH_OPTION (options->data);
+                CafeMixerSwitchOption *option = CAFE_MIXER_SWITCH_OPTION (options->data);
 
                 gtk_list_store_insert_with_values (GTK_LIST_STORE (combobox->priv->model),
                                                    &iter,
@@ -237,7 +237,7 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
                 g_param_spec_object ("switch",
                                      "switch",
                                      "The CafeMixerSwitch",
-                                     MATE_MIXER_TYPE_SWITCH,
+                                     CAFE_MIXER_TYPE_SWITCH,
                                      G_PARAM_READWRITE |
                                      G_PARAM_CONSTRUCT_ONLY |
                                      G_PARAM_STATIC_STRINGS);
@@ -280,7 +280,7 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
                               g_cclosure_marshal_VOID__OBJECT,
                               G_TYPE_NONE,
                               1,
-                              MATE_MIXER_TYPE_SWITCH_OPTION);
+                              CAFE_MIXER_TYPE_SWITCH_OPTION);
 
         signals[BUTTON_CLICKED] =
                 g_signal_new ("button-clicked",

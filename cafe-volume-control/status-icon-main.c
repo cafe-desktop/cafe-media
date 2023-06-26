@@ -52,7 +52,7 @@ main (int argc, char **argv)
         textdomain (GETTEXT_PACKAGE);
 
         gtk_init_with_args (&argc, &argv,
-                            _(" — MATE Volume Control Status Icon"),
+                            _(" — CAFE Volume Control Status Icon"),
                             entries, GETTEXT_PACKAGE,
                             &error);
 

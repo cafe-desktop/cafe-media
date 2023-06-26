@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -44,7 +44,7 @@ msgstr ""
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control.desktop.in.in:13
-msgid "MATE;volume;control;mixer;settings;sound;events;"
+msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr ""
 
 #: data/cafe-volume-control-status-icon.desktop.in:3
@@ -62,7 +62,7 @@ msgstr "اعرض التحكم في حجم الصوت"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control-status-icon.desktop.in:12
-msgid "MATE;volume;control;mixer;settings;sound;"
+msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr ""
 
 #: cafe-volume-control/dialog-main.c:143
@@ -92,7 +92,7 @@ msgid "Version of this application"
 msgstr "إصدار هذا التطبيق"
 
 #: cafe-volume-control/dialog-main.c:202
-msgid " — MATE Volume Control"
+msgid " — CAFE Volume Control"
 msgstr " — تحكم متّة في شدة الصوت"
 
 #: cafe-volume-control/gvc-applet.c:56
@@ -117,8 +117,8 @@ msgid "Output"
 msgstr "الإخراج"
 
 #: cafe-volume-control/gvc-applet.c:406
-msgid "MATE Volume Control Applet"
-msgstr "MATE الصغير للتحكم في شدة الصوت"
+msgid "CAFE Volume Control Applet"
+msgstr "CAFE الصغير للتحكم في شدة الصوت"
 
 #: cafe-volume-control/gvc-applet.c:463
 msgid "Unmute Output"
@@ -352,7 +352,7 @@ msgid "Sound Output Volume"
 msgstr "شدة صوت الخرْج"
 
 #: cafe-volume-control/gvc-status-icon.c:334
-msgid "MATE Volume Control StatusIcon"
+msgid "CAFE Volume Control StatusIcon"
 msgstr ""
 
 #: cafe-volume-control/gvc-stream-applet-icon.c:196
@@ -479,5 +479,5 @@ msgid "Volume Control Factory"
 msgstr ""
 
 #: cafe-volume-control/status-icon-main.c:55
-msgid " — MATE Volume Control Status Icon"
+msgid " — CAFE Volume Control Status Icon"
 msgstr ""

@@ -140,11 +140,11 @@ find_stream_port_switch (CafeMixerStream *stream)
 
         switches = cafe_mixer_stream_list_switches (stream);
         while (switches != NULL) {
-                CafeMixerStreamSwitch *swtch = MATE_MIXER_STREAM_SWITCH (switches->data);
+                CafeMixerStreamSwitch *swtch = CAFE_MIXER_STREAM_SWITCH (switches->data);
 
-                if (!MATE_MIXER_IS_STREAM_TOGGLE (swtch) &&
-                    cafe_mixer_stream_switch_get_role (swtch) == MATE_MIXER_STREAM_SWITCH_ROLE_PORT)
-                    return MATE_MIXER_SWITCH (swtch);
+                if (!CAFE_MIXER_IS_STREAM_TOGGLE (swtch) &&
+                    cafe_mixer_stream_switch_get_role (swtch) == CAFE_MIXER_STREAM_SWITCH_ROLE_PORT)
+                    return CAFE_MIXER_SWITCH (swtch);
 
                 switches = switches->next;
         }
@@ -158,10 +158,10 @@ find_device_profile_switch (CafeMixerDevice *device)
 
         switches = cafe_mixer_device_list_switches (device);
         while (switches != NULL) {
-                CafeMixerDeviceSwitch *swtch = MATE_MIXER_DEVICE_SWITCH (switches->data);
+                CafeMixerDeviceSwitch *swtch = CAFE_MIXER_DEVICE_SWITCH (switches->data);
 
-                if (cafe_mixer_device_switch_get_role (swtch) == MATE_MIXER_DEVICE_SWITCH_ROLE_PROFILE)
-                        return MATE_MIXER_SWITCH (swtch);
+                if (cafe_mixer_device_switch_get_role (swtch) == CAFE_MIXER_DEVICE_SWITCH_ROLE_PROFILE)
+                        return CAFE_MIXER_SWITCH (swtch);
 
                 switches = switches->next;
         }
@@ -178,10 +178,10 @@ find_device_test_stream (GvcMixerDialog *dialog, CafeMixerDevice *device)
                 CafeMixerStream   *stream;
                 CafeMixerDirection direction;
 
-                stream = MATE_MIXER_STREAM (streams->data);
+                stream = CAFE_MIXER_STREAM (streams->data);
                 direction = cafe_mixer_stream_get_direction (stream);
 
-                if (direction == MATE_MIXER_DIRECTION_OUTPUT) {
+                if (direction == CAFE_MIXER_DIRECTION_OUTPUT) {
                     CafeMixerStreamControl *control;
 
                     control = cafe_mixer_stream_get_default_control (stream);
@@ -293,7 +293,7 @@ update_output_settings (GvcMixerDialog *dialog)
         flags = cafe_mixer_stream_control_get_flags (control);
 
         /* Enable balance bar if it is available */
-        if (flags & MATE_MIXER_STREAM_CONTROL_CAN_BALANCE) {
+        if (flags & CAFE_MIXER_STREAM_CONTROL_CAN_BALANCE) {
                 dialog->priv->output_balance_bar =
                         gvc_balance_bar_new (control, BALANCE_TYPE_RL);
 
@@ -310,7 +310,7 @@ update_output_settings (GvcMixerDialog *dialog)
         }
 
         /* Enable fade bar if it is available */
-        if (flags & MATE_MIXER_STREAM_CONTROL_CAN_FADE) {
+        if (flags & CAFE_MIXER_STREAM_CONTROL_CAN_FADE) {
                 dialog->priv->output_fade_bar =
                         gvc_balance_bar_new (control, BALANCE_TYPE_FR);
 
@@ -327,7 +327,7 @@ update_output_settings (GvcMixerDialog *dialog)
         }
 
         /* Enable subwoofer volume bar if subwoofer is available */
-        if (cafe_mixer_stream_control_has_channel_position (control, MATE_MIXER_CHANNEL_LFE)) {
+        if (cafe_mixer_stream_control_has_channel_position (control, CAFE_MIXER_CHANNEL_LFE)) {
                 dialog->priv->output_lfe_bar =
                         gvc_balance_bar_new (control, BALANCE_TYPE_LFE);
 
@@ -403,7 +403,7 @@ set_output_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                 while (controls != NULL) {
                         CafeMixerStream        *parent;
 
-                        control = MATE_MIXER_STREAM_CONTROL (controls->data);
+                        control = CAFE_MIXER_STREAM_CONTROL (controls->data);
                         parent  = cafe_mixer_stream_control_get_stream (control);
 
                         /* Prefer streamless controls to stay the way they are, forcing them to
@@ -412,7 +412,7 @@ set_output_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                                 CafeMixerDirection direction =
                                         cafe_mixer_stream_get_direction (parent);
 
-                                if (direction == MATE_MIXER_DIRECTION_OUTPUT)
+                                if (direction == CAFE_MIXER_DIRECTION_OUTPUT)
                                         cafe_mixer_stream_control_set_stream (control, stream);
                         }
                         controls = controls->next;
@@ -486,7 +486,7 @@ update_input_settings (GvcMixerDialog *dialog)
         flags = cafe_mixer_stream_control_get_flags (control);
 
         /* Enable level bar only if supported by the control */
-        if (flags & MATE_MIXER_STREAM_CONTROL_HAS_MONITOR)
+        if (flags & CAFE_MIXER_STREAM_CONTROL_HAS_MONITOR)
                 g_signal_connect (G_OBJECT (control),
                                   "monitor-value",
                                   G_CALLBACK (on_stream_control_monitor_value),
@@ -566,7 +566,7 @@ set_input_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                 while (controls != NULL) {
                         CafeMixerStream *parent;
 
-                        control = MATE_MIXER_STREAM_CONTROL (controls->data);
+                        control = CAFE_MIXER_STREAM_CONTROL (controls->data);
                         parent  = cafe_mixer_stream_control_get_stream (control);
 
                         /* Prefer streamless controls to stay the way they are, forcing them to
@@ -575,7 +575,7 @@ set_input_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                                 CafeMixerDirection direction =
                                         cafe_mixer_stream_get_direction (parent);
 
-                                if (direction == MATE_MIXER_DIRECTION_INPUT)
+                                if (direction == CAFE_MIXER_DIRECTION_INPUT)
                                         cafe_mixer_stream_control_set_stream (control, stream);
                         }
                         controls = controls->next;
@@ -702,7 +702,7 @@ add_application_control (GvcMixerDialog *dialog, CafeMixerStreamControl *control
         CafeMixerStream                *stream;
         CafeMixerStreamControlMediaRole media_role;
         CafeMixerAppInfo               *info;
-        CafeMixerDirection              direction = MATE_MIXER_DIRECTION_UNKNOWN;
+        CafeMixerDirection              direction = CAFE_MIXER_DIRECTION_UNKNOWN;
         GtkWidget                      *bar;
         const gchar                    *app_id;
         const gchar                    *app_name;
@@ -717,10 +717,10 @@ add_application_control (GvcMixerDialog *dialog, CafeMixerStreamControl *control
                 return;
 
         /* Skip streams with roles we don't care about */
-        if (media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT ||
-            media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_TEST ||
-            media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_ABSTRACT ||
-            media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_FILTER)
+        if (media_role == CAFE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT ||
+            media_role == CAFE_MIXER_STREAM_CONTROL_MEDIA_ROLE_TEST ||
+            media_role == CAFE_MIXER_STREAM_CONTROL_MEDIA_ROLE_ABSTRACT ||
+            media_role == CAFE_MIXER_STREAM_CONTROL_MEDIA_ROLE_FILTER)
                 return;
 
         app_id = cafe_mixer_app_info_get_id (info);
@@ -753,7 +753,7 @@ add_application_control (GvcMixerDialog *dialog, CafeMixerStreamControl *control
         if (stream != NULL)
                 direction = cafe_mixer_stream_get_direction (stream);
 
-        if (direction == MATE_MIXER_DIRECTION_INPUT)
+        if (direction == CAFE_MIXER_DIRECTION_INPUT)
                 g_object_set (G_OBJECT (bar),
                               "low-icon-name", "audio-input-microphone-low",
                               "high-icon-name", "audio-input-microphone-high",
@@ -761,7 +761,7 @@ add_application_control (GvcMixerDialog *dialog, CafeMixerStreamControl *control
 
         app_icon = cafe_mixer_app_info_get_icon (info);
         if (app_icon == NULL) {
-                if (direction == MATE_MIXER_DIRECTION_INPUT)
+                if (direction == CAFE_MIXER_DIRECTION_INPUT)
                         app_icon = "audio-input-microphone";
                 else
                         app_icon = "applications-multimedia";
@@ -795,7 +795,7 @@ on_stream_control_added (CafeMixerStream *stream,
 
         role = cafe_mixer_stream_control_get_role (control);
 
-        if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+        if (role == CAFE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
                 add_application_control (dialog, control);
 }
 
@@ -843,7 +843,7 @@ add_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
 
         direction = cafe_mixer_stream_get_direction (stream);
 
-        if (direction == MATE_MIXER_DIRECTION_INPUT) {
+        if (direction == CAFE_MIXER_DIRECTION_INPUT) {
                 CafeMixerStream *input;
 
                 input = cafe_mixer_context_get_default_input_stream (dialog->priv->context);
@@ -855,7 +855,7 @@ add_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                 }
                 model = gtk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
         }
-        else if (direction == MATE_MIXER_DIRECTION_OUTPUT) {
+        else if (direction == CAFE_MIXER_DIRECTION_OUTPUT) {
                 CafeMixerStream        *output;
                 CafeMixerStreamControl *control;
 
@@ -875,12 +875,12 @@ add_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
 
         controls = cafe_mixer_stream_list_controls (stream);
         while (controls != NULL) {
-                CafeMixerStreamControl    *control = MATE_MIXER_STREAM_CONTROL (controls->data);
+                CafeMixerStreamControl    *control = CAFE_MIXER_STREAM_CONTROL (controls->data);
                 CafeMixerStreamControlRole role;
 
                 role = cafe_mixer_stream_control_get_role (control);
 
-                if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+                if (role == CAFE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
                         add_application_control (dialog, control);
 
                 controls = controls->next;
@@ -950,7 +950,7 @@ on_context_stream_added (CafeMixerContext *context,
         /* If the newly added stream belongs to the currently selected device and
          * the test button is hidden, this stream may be the one to allow the
          * sound test and therefore we may need to enable the button */
-        if (dialog->priv->hw_profile_combo != NULL && direction == MATE_MIXER_DIRECTION_OUTPUT) {
+        if (dialog->priv->hw_profile_combo != NULL && direction == CAFE_MIXER_DIRECTION_OUTPUT) {
                 CafeMixerDevice *device1;
                 CafeMixerDevice *device2;
 
@@ -1065,13 +1065,13 @@ on_context_stored_control_added (CafeMixerContext *context,
         CafeMixerStreamControl         *control;
         CafeMixerStreamControlMediaRole media_role;
 
-        control = MATE_MIXER_STREAM_CONTROL (cafe_mixer_context_get_stored_control (context, name));
+        control = CAFE_MIXER_STREAM_CONTROL (cafe_mixer_context_get_stored_control (context, name));
         if (G_UNLIKELY (control == NULL))
                 return;
 
         media_role = cafe_mixer_stream_control_get_media_role (control);
 
-        if (media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT)
+        if (media_role == CAFE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT)
                 bar_set_stream_control (dialog, dialog->priv->effects_bar, control);
 }
 
@@ -1107,14 +1107,14 @@ device_status (CafeMixerDevice *device)
         /* Get number of input and output streams in the device */
         streams = cafe_mixer_device_list_streams (device);
         while (streams != NULL) {
-                CafeMixerStream   *stream = MATE_MIXER_STREAM (streams->data);
+                CafeMixerStream   *stream = CAFE_MIXER_STREAM (streams->data);
                 CafeMixerDirection direction;
 
                 direction = cafe_mixer_stream_get_direction (stream);
 
-                if (direction == MATE_MIXER_DIRECTION_INPUT)
+                if (direction == CAFE_MIXER_DIRECTION_INPUT)
                         inputs++;
-                else if (direction == MATE_MIXER_DIRECTION_OUTPUT)
+                else if (direction == CAFE_MIXER_DIRECTION_OUTPUT)
                         outputs++;
 
                 streams = streams->next;
@@ -1353,7 +1353,7 @@ on_input_radio_toggled (GtkCellRendererToggle *renderer,
                 // XXX cache this
                 flags = cafe_mixer_context_get_backend_flags (dialog->priv->context);
 
-                if (flags & MATE_MIXER_BACKEND_CAN_SET_DEFAULT_INPUT_STREAM)
+                if (flags & CAFE_MIXER_BACKEND_CAN_SET_DEFAULT_INPUT_STREAM)
                         cafe_mixer_context_set_default_input_stream (dialog->priv->context, stream);
                 else
                         set_input_stream (dialog, stream);
@@ -1398,7 +1398,7 @@ on_output_radio_toggled (GtkCellRendererToggle *renderer,
                 // XXX cache this
                 flags = cafe_mixer_context_get_backend_flags (dialog->priv->context);
 
-                if (flags & MATE_MIXER_BACKEND_CAN_SET_DEFAULT_OUTPUT_STREAM)
+                if (flags & CAFE_MIXER_BACKEND_CAN_SET_DEFAULT_OUTPUT_STREAM)
                         cafe_mixer_context_set_default_output_stream (dialog->priv->context, stream);
                 else
                         set_output_stream (dialog, stream);
@@ -1834,7 +1834,7 @@ create_page_effects (GvcMixerDialog *self)
          * Only look for a stored control because regular controls only exist
          * for short time periods when an event sound is played.
          */
-        if (self->priv->backend_flags & MATE_MIXER_BACKEND_HAS_STORED_CONTROLS) {
+        if (self->priv->backend_flags & CAFE_MIXER_BACKEND_HAS_STORED_CONTROLS) {
                 GvcChannelBar *bar;
                 const GList   *list;
 
@@ -1851,12 +1851,12 @@ create_page_effects (GvcMixerDialog *self)
                 /* Find an event role stored control */
                 list = cafe_mixer_context_list_stored_controls (self->priv->context);
                 while (list != NULL) {
-                        CafeMixerStreamControl *control = MATE_MIXER_STREAM_CONTROL (list->data);
+                        CafeMixerStreamControl *control = CAFE_MIXER_STREAM_CONTROL (list->data);
                         CafeMixerStreamControlMediaRole media_role;
 
                         media_role = cafe_mixer_stream_control_get_media_role (control);
 
-                        if (media_role == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT) {
+                        if (media_role == CAFE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT) {
                                 bar_set_stream_control (self, GTK_WIDGET (bar), control);
                                 break;
                         }
@@ -2163,13 +2163,13 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         list = cafe_mixer_context_list_streams (self->priv->context);
         while (list != NULL) {
-                add_stream (self, MATE_MIXER_STREAM (list->data));
+                add_stream (self, CAFE_MIXER_STREAM (list->data));
                 list = list->next;
         }
 
         list = cafe_mixer_context_list_devices (self->priv->context);
         while (list != NULL) {
-                add_device (self, MATE_MIXER_DEVICE (list->data));
+                add_device (self, CAFE_MIXER_DEVICE (list->data));
                 list = list->next;
         }
 
@@ -2307,7 +2307,7 @@ gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass)
                                          g_param_spec_object ("context",
                                                               "Context",
                                                               "CafeMixer context",
-                                                              MATE_MIXER_TYPE_CONTEXT,
+                                                              CAFE_MIXER_TYPE_CONTEXT,
                                                               G_PARAM_READWRITE |
                                                               G_PARAM_CONSTRUCT_ONLY |
                                                               G_PARAM_STATIC_STRINGS));

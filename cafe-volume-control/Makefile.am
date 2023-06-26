@@ -17,7 +17,7 @@ AM_CPPFLAGS = \
 	$(WARN_CFLAGS) \
 	$(VOLUME_CONTROL_CFLAGS) \
 	$(DISABLE_DEPRECATED) \
-	-DMATELOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFELOCALEDIR=\""$(datadir)/locale"\" \
 	-DLOCALE_DIR=\""$(datadir)/locale"\" \
 	-DICON_DATA_DIR="\"$(pkgdatadir)/icons\"" \
 	-DSOUND_SET_DIR="\"$(pkgdatadir)/sounds\"" \
@@ -83,7 +83,7 @@ cafe_volume_control_applet_LDADD = \
 	-lm \
 	libcafevolumecontrol.la \
 	$(VOLUME_CONTROL_LIBS) \
-	$(MATEDESKTOP_LIBS) \
+	$(CAFEDESKTOP_LIBS) \
 	$(NULL)
 
 cafe_volume_control_applet_SOURCES = \

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -40,7 +40,7 @@ msgstr "multimedia-volume-control"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control.desktop.in.in:13
-msgid "MATE;volume;control;mixer;settings;sound;events;"
+msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr "Мејт;јачина;управљање;миксер;подешавања;звук;догађаји;"
 
 #: data/cafe-volume-control-status-icon.desktop.in:3
@@ -58,7 +58,7 @@ msgstr "Прикажите управљање јачином звука"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control-status-icon.desktop.in:12
-msgid "MATE;volume;control;mixer;settings;sound;"
+msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr "Мејт;јачина;управљање;миксер;подешавања;звук;"
 
 #: cafe-volume-control/dialog-main.c:143
@@ -88,7 +88,7 @@ msgid "Version of this application"
 msgstr "Издање овог програма"
 
 #: cafe-volume-control/dialog-main.c:202
-msgid " — MATE Volume Control"
+msgid " — CAFE Volume Control"
 msgstr " — Мејтово управљање звуком"
 
 #: cafe-volume-control/gvc-applet.c:56
@@ -113,7 +113,7 @@ msgid "Output"
 msgstr "Излаз"
 
 #: cafe-volume-control/gvc-applet.c:406
-msgid "MATE Volume Control Applet"
+msgid "CAFE Volume Control Applet"
 msgstr "Мејтово програмче за управљање звуком"
 
 #: cafe-volume-control/gvc-applet.c:463
@@ -342,7 +342,7 @@ msgid "Sound Output Volume"
 msgstr "Јачина излазног звука"
 
 #: cafe-volume-control/gvc-status-icon.c:334
-msgid "MATE Volume Control StatusIcon"
+msgid "CAFE Volume Control StatusIcon"
 msgstr "Иконица стања управљања Мејтовом јачином звука"
 
 #: cafe-volume-control/gvc-stream-applet-icon.c:196
@@ -469,5 +469,5 @@ msgid "Volume Control Factory"
 msgstr "Фабрика управљања јачином звука"
 
 #: cafe-volume-control/status-icon-main.c:55
-msgid " — MATE Volume Control Status Icon"
+msgid " — CAFE Volume Control Status Icon"
 msgstr " – Иконица стања управљања Мејтовом јачином звука"

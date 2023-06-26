@@ -98,10 +98,10 @@ update_icon_input (GvcApplet *applet)
                 }
 
                 while (inputs != NULL) {
-                        CafeMixerStreamControl *input = MATE_MIXER_STREAM_CONTROL (inputs->data);
+                        CafeMixerStreamControl *input = CAFE_MIXER_STREAM_CONTROL (inputs->data);
                         CafeMixerStreamControlRole role = cafe_mixer_stream_control_get_role (input);
 
-                        if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
+                        if (role == CAFE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
                                 CafeMixerAppInfo *app_info = cafe_mixer_stream_control_get_app_info (input);
 
                                 app_id = cafe_mixer_app_info_get_id (app_info);
@@ -181,7 +181,7 @@ on_output_stream_control_added (CafeMixerStream *stream,
                 CafeMixerStreamControlRole role = cafe_mixer_stream_control_get_role (control);
 
                 /* Non-application output control doesn't affect the icon */
-                if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+                if (role != CAFE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
                         return;
         }
 
@@ -203,7 +203,7 @@ on_input_stream_control_added (CafeMixerStream *stream,
                 CafeMixerStreamControlRole role = cafe_mixer_stream_control_get_role (control);
 
                 /* Non-application input control doesn't affect the icon */
-                if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+                if (role != CAFE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
                         return;
         }
 
@@ -303,11 +303,11 @@ on_context_state_notify (CafeMixerContext *context,
         CafeMixerState state = cafe_mixer_context_get_state (context);
 
         switch (state) {
-        case MATE_MIXER_STATE_FAILED:
+        case CAFE_MIXER_STATE_FAILED:
                 g_warning ("Failed to connect to a sound system");
                 break;
 
-        case MATE_MIXER_STATE_READY:
+        case CAFE_MIXER_STATE_READY:
                 update_default_output_stream (applet);
                 update_default_input_stream (applet);
 
@@ -403,7 +403,7 @@ gvc_applet_init (GvcApplet *applet)
 
         applet->priv->context = cafe_mixer_context_new ();
 
-        cafe_mixer_context_set_app_name (applet->priv->context, _("MATE Volume Control Applet"));
+        cafe_mixer_context_set_app_name (applet->priv->context, _("CAFE Volume Control Applet"));
 
         cafe_mixer_context_set_app_id (applet->priv->context, GVC_APPLET_DBUS_NAME);
         cafe_mixer_context_set_app_version (applet->priv->context, VERSION);
@@ -513,22 +513,22 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
         g_set_application_name (_("Volume Control Applet"));
         gtk_window_set_default_icon_name (APPLET_ICON);
 
-        cafe_panel_applet_set_flags (applet_widget, MATE_PANEL_APPLET_EXPAND_MINOR);
-        cafe_panel_applet_set_background_widget (MATE_PANEL_APPLET (applet_widget), GTK_WIDGET (applet_widget));
+        cafe_panel_applet_set_flags (applet_widget, CAFE_PANEL_APPLET_EXPAND_MINOR);
+        cafe_panel_applet_set_background_widget (CAFE_PANEL_APPLET (applet_widget), GTK_WIDGET (applet_widget));
 
         applet->priv->applet = applet_widget;
         /*FIXME: We haved to set this up BEFORE packing in icons. find a way to update this when the applet is moved that works*/
         switch (cafe_panel_applet_get_orient (applet->priv->applet)) {
-        case MATE_PANEL_APPLET_ORIENT_UP:
+        case CAFE_PANEL_APPLET_ORIENT_UP:
                 applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
 		break;
-        case MATE_PANEL_APPLET_ORIENT_DOWN:
+        case CAFE_PANEL_APPLET_ORIENT_DOWN:
                 applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
 		break;
-        case MATE_PANEL_APPLET_ORIENT_LEFT:
+        case CAFE_PANEL_APPLET_ORIENT_LEFT:
                 applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
 		break;
-        case MATE_PANEL_APPLET_ORIENT_RIGHT:
+        case CAFE_PANEL_APPLET_ORIENT_RIGHT:
                 applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
         break;
         }

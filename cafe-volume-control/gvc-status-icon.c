@@ -84,11 +84,11 @@ update_icon_input (GvcStatusIcon *status_icon)
 
                 while (inputs != NULL) {
                         CafeMixerStreamControl    *input =
-                                MATE_MIXER_STREAM_CONTROL (inputs->data);
+                                CAFE_MIXER_STREAM_CONTROL (inputs->data);
                         CafeMixerStreamControlRole role =
                                 cafe_mixer_stream_control_get_role (input);
 
-                        if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
+                        if (role == CAFE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
                                 CafeMixerAppInfo *app_info =
                                         cafe_mixer_stream_control_get_app_info (input);
 
@@ -172,7 +172,7 @@ on_input_stream_control_added (CafeMixerStream *stream,
                         cafe_mixer_stream_control_get_role (control);
 
                 /* Non-application input control doesn't affect the icon */
-                if (role != MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
+                if (role != CAFE_MIXER_STREAM_CONTROL_ROLE_APPLICATION)
                         return;
         }
 
@@ -232,11 +232,11 @@ on_context_state_notify (CafeMixerContext *context,
         CafeMixerState state = cafe_mixer_context_get_state (context);
 
         switch (state) {
-        case MATE_MIXER_STATE_FAILED:
+        case CAFE_MIXER_STATE_FAILED:
                 g_warning ("Failed to connect to a sound system");
                 break;
 
-        case MATE_MIXER_STATE_READY:
+        case CAFE_MIXER_STATE_READY:
                 update_default_input_stream (status_icon);
 
                 /* Each status change may affect the visibility of the icons */
@@ -331,7 +331,7 @@ gvc_status_icon_init (GvcStatusIcon *status_icon)
         status_icon->priv->context = cafe_mixer_context_new ();
 
         cafe_mixer_context_set_app_name (status_icon->priv->context,
-                                         _("MATE Volume Control StatusIcon"));
+                                         _("CAFE Volume Control StatusIcon"));
 
         cafe_mixer_context_set_app_id (status_icon->priv->context, GVC_STATUS_ICON_DBUS_NAME);
         cafe_mixer_context_set_app_version (status_icon->priv->context, VERSION);
