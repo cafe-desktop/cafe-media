@@ -752,7 +752,7 @@ gvc_channel_bar_set_icon_name (GvcChannelBar *bar, const gchar *name)
 
         if (name != NULL) {
                 CtkIconTheme *icon_theme;
-                CdkPixbuf *pixbuf;
+                GdkPixbuf *pixbuf;
                 gint width, height;
                 GError *error = NULL;
 
