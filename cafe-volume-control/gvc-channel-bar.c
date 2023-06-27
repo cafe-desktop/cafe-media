@@ -28,7 +28,7 @@
 #include <glib-object.h>
 #include <ctk/ctk.h>
 
-#include <canberra-ctk.h>
+#include <kanberra-ctk.h>
 #include <libcafemixer/cafemixer.h>
 
 #include "gvc-channel-bar.h"

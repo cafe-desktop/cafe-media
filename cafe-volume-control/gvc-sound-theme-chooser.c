@@ -32,7 +32,7 @@
 #include <glib-object.h>
 #include <gio/gio.h>
 #include <ctk/ctk.h>
-#include <canberra-ctk.h>
+#include <kanberra-ctk.h>
 #include <libxml/tree.h>
 
 #include "gvc-sound-theme-chooser.h"
