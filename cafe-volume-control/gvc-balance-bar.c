@@ -103,7 +103,7 @@ create_scale_box (GvcBalanceBar *bar)
 
         ca_ctk_widget_disable_sounds (bar->priv->scale, FALSE);
 
-        ctk_widget_add_events (bar->priv->scale, GDK_SCROLL_MASK);
+        ctk_widget_add_events (bar->priv->scale, CDK_SCROLL_MASK);
 
         g_signal_connect (G_OBJECT (bar->priv->scale),
                           "scroll-event",
@@ -453,12 +453,12 @@ on_scale_scroll_event (CtkWidget      *widget,
         else
                 step = 0.05;
 
-        if (event->direction == GDK_SCROLL_UP) {
+        if (event->direction == CDK_SCROLL_UP) {
                 if (value + step > maximum)
                         value = maximum;
                 else
                         value = value + step;
-        } else if (event->direction == GDK_SCROLL_DOWN) {
+        } else if (event->direction == CDK_SCROLL_DOWN) {
                 if (value - step < minimum)
                         value = minimum;
                 else
