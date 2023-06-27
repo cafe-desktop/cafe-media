@@ -308,10 +308,10 @@ on_test_button_clicked (CtkButton *button, CtkWidget *control)
                                   CA_PROP_MEDIA_NAME,
                                   gvc_channel_position_to_pretty_string (position));
                 ca_proplist_sets (proplist,
-                                  CA_PROP_CANBERRA_FORCE_CHANNEL,
+                                  CA_PROP_KANBERRA_FORCE_CHANNEL,
                                   gvc_channel_position_to_pulse_string (position));
 
-                ca_proplist_sets (proplist, CA_PROP_CANBERRA_ENABLE, "1");
+                ca_proplist_sets (proplist, CA_PROP_KANBERRA_ENABLE, "1");
 
                 name = sound_name (position);
                 if (name != NULL) {
