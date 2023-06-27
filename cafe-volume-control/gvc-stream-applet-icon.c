@@ -66,11 +66,11 @@ static gboolean
 popup_dock (GvcStreamAppletIcon *icon, guint time)
 {
         CtkAllocation  allocation;
-        GdkDisplay    *display;
-        GdkScreen     *screen;
+        CdkDisplay    *display;
+        CdkScreen     *screen;
         int            x, y;
-        GdkMonitor    *monitor_num;
-        GdkRectangle   monitor;
+        CdkMonitor    *monitor_num;
+        CdkRectangle   monitor;
         CtkRequisition dock_req;
 
         screen = ctk_widget_get_screen (CTK_WIDGET (icon));
@@ -123,8 +123,8 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         display = ctk_widget_get_display (icon->priv->dock);
 
         do {
-                GdkSeat *seat = cdk_display_get_default_seat (display);
-                GdkWindow *window = ctk_widget_get_window (icon->priv->dock);
+                CdkSeat *seat = cdk_display_get_default_seat (display);
+                CdkWindow *window = ctk_widget_get_window (icon->priv->dock);
 
                 if (cdk_seat_grab (seat,
                                    window,
@@ -147,7 +147,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
 
 static gboolean
 on_applet_icon_button_press (CtkWidget           *applet_icon,
-                             GdkEventButton      *event,
+                             CdkEventButton      *event,
                              GvcStreamAppletIcon *icon)
 {
         if (event->button == 1) {
@@ -206,17 +206,17 @@ gvc_stream_applet_icon_volume_control (GvcStreamAppletIcon *icon)
 
 static gboolean
 on_applet_icon_scroll_event (CtkWidget           *event_box,
-                             GdkEventScroll      *event,
+                             CdkEventScroll      *event,
                              GvcStreamAppletIcon *icon)
 {
         return gvc_channel_bar_scroll (GVC_CHANNEL_BAR (icon->priv->bar), event->direction);
 }
 
 static void
-gvc_icon_release_grab (GvcStreamAppletIcon *icon, GdkEventButton *event)
+gvc_icon_release_grab (GvcStreamAppletIcon *icon, CdkEventButton *event)
 {
-        GdkDisplay *display = ctk_widget_get_display (icon->priv->dock);
-        GdkSeat *seat = cdk_display_get_default_seat (display);
+        CdkDisplay *display = ctk_widget_get_display (icon->priv->dock);
+        CdkSeat *seat = cdk_display_get_default_seat (display);
         cdk_seat_ungrab (seat);
         ctk_grab_remove (icon->priv->dock);
 
@@ -226,7 +226,7 @@ gvc_icon_release_grab (GvcStreamAppletIcon *icon, GdkEventButton *event)
 
 static gboolean
 on_dock_button_press (CtkWidget           *widget,
-                      GdkEventButton      *event,
+                      CdkEventButton      *event,
                       GvcStreamAppletIcon *icon)
 {
         if (event->type == CDK_BUTTON_PRESS) {
@@ -240,11 +240,11 @@ on_dock_button_press (CtkWidget           *widget,
 static void
 popdown_dock (GvcStreamAppletIcon *icon)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
 
         display = ctk_widget_get_display (icon->priv->dock);
 
-        GdkSeat *seat = cdk_display_get_default_seat (display);
+        CdkSeat *seat = cdk_display_get_default_seat (display);
         cdk_seat_ungrab (seat);
 
         /* Hide again */
@@ -286,7 +286,7 @@ on_dock_grab_broken_event (CtkWidget           *widget,
 
 static gboolean
 on_dock_key_release (CtkWidget           *widget,
-                     GdkEventKey         *event,
+                     CdkEventKey         *event,
                      GvcStreamAppletIcon *icon)
 {
         if (event->keyval == CDK_KEY_Escape) {
@@ -298,7 +298,7 @@ on_dock_key_release (CtkWidget           *widget,
 
 static gboolean
 on_dock_scroll_event (CtkWidget           *widget,
-                      GdkEventScroll      *event,
+                      CdkEventScroll      *event,
                       GvcStreamAppletIcon *icon)
 {
         /* Forward event to the applet icon */
@@ -728,8 +728,8 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
         ctk_style_context_add_class(context,"cafe-panel-applet-slider");
 
         /* Make transparency possible in ctk3 theme */
-        GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-        GdkVisual *visual = cdk_screen_get_rgba_visual(screen);
+        CdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
+        CdkVisual *visual = cdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
 
         box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);

@@ -65,7 +65,7 @@ static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 static void     gvc_balance_bar_dispose     (GObject            *object);
 
 static gboolean on_scale_scroll_event       (CtkWidget          *widget,
-                                             GdkEventScroll     *event,
+                                             CdkEventScroll     *event,
                                              GvcBalanceBar      *bar);
 
 static void     on_adjustment_value_changed (CtkAdjustment      *adjustment,
@@ -434,7 +434,7 @@ gvc_balance_bar_class_init (GvcBalanceBarClass *klass)
 
 static gboolean
 on_scale_scroll_event (CtkWidget      *widget,
-                       GdkEventScroll *event,
+                       CdkEventScroll *event,
                        GvcBalanceBar  *bar)
 {
         gdouble value;

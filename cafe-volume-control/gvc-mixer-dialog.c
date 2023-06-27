@@ -128,7 +128,7 @@ static void bar_set_stream_control      (GvcMixerDialog         *dialog,
                                          CafeMixerStreamControl *control);
 
 static gboolean dialog_page_scroll_event_cb (CtkWidget          *widget,
-                                             GdkEventScroll     *event,
+                                             CdkEventScroll     *event,
                                              CtkWindow          *window);
 
 G_DEFINE_TYPE_WITH_PRIVATE (GvcMixerDialog, gvc_mixer_dialog, CTK_TYPE_DIALOG)
@@ -1796,7 +1796,7 @@ static void
 dialog_accel_cb (CtkAccelGroup    *accelgroup,
                  GObject          *object,
                  guint             key,
-                 GdkModifierType   mod,
+                 CdkModifierType   mod,
                  GvcMixerDialog   *self)
 {
         gint num = -1;
@@ -2374,7 +2374,7 @@ gvc_mixer_dialog_set_page (GvcMixerDialog *self, const gchar *page)
 
 static gboolean
 dialog_page_scroll_event_cb (CtkWidget      *widget,
-                             GdkEventScroll *event,
+                             CdkEventScroll *event,
                              CtkWindow      *window)
 {
         CtkNotebook *notebook = CTK_NOTEBOOK (widget);
@@ -2384,7 +2384,7 @@ dialog_page_scroll_event_cb (CtkWidget      *widget,
         if (child == NULL)
                 return FALSE;
 
-        event_widget = ctk_get_event_widget ((GdkEvent *) event);
+        event_widget = ctk_get_event_widget ((CdkEvent *) event);
 
         /* Ignore scroll events from the content of the page */
         if (event_widget == NULL ||

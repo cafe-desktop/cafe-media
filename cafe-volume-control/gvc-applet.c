@@ -507,8 +507,8 @@ menu_activate_open_volume_control (CtkAction *action, GvcApplet *applet)
 gboolean
 gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
 {
-        GdkEventMask    event_mask;
-        GdkWindow      *window;
+        CdkEventMask    event_mask;
+        CdkWindow      *window;
 
         g_set_application_name (_("Volume Control Applet"));
         ctk_window_set_default_icon_name (APPLET_ICON);

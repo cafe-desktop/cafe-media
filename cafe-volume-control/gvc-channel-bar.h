@@ -103,7 +103,7 @@ void                gvc_channel_bar_set_size_group      (GvcChannelBar      *bar
                                                          gboolean            symmetric);
 
 gboolean            gvc_channel_bar_scroll              (GvcChannelBar      *bar,
-                                                         GdkScrollDirection  direction);
+                                                         CdkScrollDirection  direction);
 
 G_END_DECLS
 

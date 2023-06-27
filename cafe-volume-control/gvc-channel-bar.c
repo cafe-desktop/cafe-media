@@ -77,13 +77,13 @@ enum {
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
 static gboolean on_scale_button_press_event   (CtkWidget          *widget,
-                                               GdkEventButton     *event,
+                                               CdkEventButton     *event,
                                                GvcChannelBar      *bar);
 static gboolean on_scale_button_release_event (CtkWidget          *widget,
-                                               GdkEventButton     *event,
+                                               CdkEventButton     *event,
                                                GvcChannelBar      *bar);
 static gboolean on_scale_scroll_event         (CtkWidget          *widget,
-                                               GdkEventScroll     *event,
+                                               CdkEventScroll     *event,
                                                GvcChannelBar      *bar);
 
 G_DEFINE_TYPE_WITH_PRIVATE (GvcChannelBar, gvc_channel_bar, CTK_TYPE_BOX)
@@ -437,7 +437,7 @@ update_mute_button (GvcChannelBar *bar)
 
 static gboolean
 on_scale_button_press_event (CtkWidget      *widget,
-                             GdkEventButton *event,
+                             CdkEventButton *event,
                              GvcChannelBar  *bar)
 {
         /* Muting the stream when volume is non-zero moves the slider to zero,
@@ -457,7 +457,7 @@ on_scale_button_press_event (CtkWidget      *widget,
 
 static gboolean
 on_scale_button_release_event (CtkWidget      *widget,
-                               GdkEventButton *event,
+                               CdkEventButton *event,
                                GvcChannelBar  *bar)
 {
         if (bar->priv->click_lock == TRUE) {
@@ -482,16 +482,16 @@ on_scale_button_release_event (CtkWidget      *widget,
 
 static gboolean
 on_scale_scroll_event (CtkWidget      *widget,
-                       GdkEventScroll *event,
+                       CdkEventScroll *event,
                        GvcChannelBar  *bar)
 {
-        GdkScrollDirection direction = event->direction;
+        CdkScrollDirection direction = event->direction;
 
         if (direction == CDK_SCROLL_SMOOTH) {
                 gdouble dx = 0.0;
                 gdouble dy = 0.0;
 
-                cdk_event_get_scroll_deltas ((const GdkEvent *) event, &dx, &dy);
+                cdk_event_get_scroll_deltas ((const CdkEvent *) event, &dx, &dy);
                 if (dy > 0.0)
                         direction = CDK_SCROLL_DOWN;
                 else if (dy < 0.0)
@@ -752,7 +752,7 @@ gvc_channel_bar_set_icon_name (GvcChannelBar *bar, const gchar *name)
 
         if (name != NULL) {
                 CtkIconTheme *icon_theme;
-                GdkPixbuf *pixbuf;
+                CdkPixbuf *pixbuf;
                 gint width, height;
                 GError *error = NULL;
 
@@ -836,7 +836,7 @@ gvc_channel_bar_set_high_icon_name (GvcChannelBar *bar, const gchar *name)
 }
 
 gboolean
-gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
+gvc_channel_bar_scroll (GvcChannelBar *bar, CdkScrollDirection direction)
 {
         gdouble value;
         gdouble minimum;
