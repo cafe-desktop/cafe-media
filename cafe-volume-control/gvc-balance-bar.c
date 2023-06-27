@@ -101,7 +101,7 @@ create_scale_box (GvcBalanceBar *bar)
                             bar->priv->end_box,
                             FALSE, FALSE, 0);
 
-        ca_ctk_widget_disable_sounds (bar->priv->scale, FALSE);
+        ka_ctk_widget_disable_sounds (bar->priv->scale, FALSE);
 
         ctk_widget_add_events (bar->priv->scale, CDK_SCROLL_MASK);
 
