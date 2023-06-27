@@ -470,12 +470,12 @@ on_scale_button_release_event (CtkWidget      *widget,
 
         /* Play a sound */
         ka_ctk_play_for_widget (CTK_WIDGET (bar), 0,
-                                CA_PROP_EVENT_ID, "audio-volume-change",
-                                CA_PROP_EVENT_DESCRIPTION, "Volume change",
-                                CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
-                                CA_PROP_APPLICATION_NAME, _("Volume Control"),
-                                CA_PROP_APPLICATION_VERSION, VERSION,
-                                CA_PROP_APPLICATION_ICON_NAME, "multimedia-volume-control",
+                                KA_PROP_EVENT_ID, "audio-volume-change",
+                                KA_PROP_EVENT_DESCRIPTION, "Volume change",
+                                KA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
+                                KA_PROP_APPLICATION_NAME, _("Volume Control"),
+                                KA_PROP_APPLICATION_VERSION, VERSION,
+                                KA_PROP_APPLICATION_ICON_NAME, "multimedia-volume-control",
                                 NULL);
         return FALSE;
 }

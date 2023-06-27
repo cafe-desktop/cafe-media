@@ -274,7 +274,7 @@ finish_cb (ka_context *c, uint32_t id, int error_code, void *userdata)
 {
         CtkWidget *control = (CtkWidget *) userdata;
 
-        if (error_code == CA_ERROR_DESTROYED || control == NULL)
+        if (error_code == KA_ERROR_DESTROYED || control == NULL)
                 return;
 
         g_idle_add ((GSourceFunc) idle_cb, control);
@@ -303,29 +303,29 @@ on_test_button_clicked (CtkButton *button, CtkWidget *control)
 
                 ka_proplist_create (&proplist);
                 ka_proplist_sets (proplist,
-                                  CA_PROP_MEDIA_ROLE, "test");
+                                  KA_PROP_MEDIA_ROLE, "test");
                 ka_proplist_sets (proplist,
-                                  CA_PROP_MEDIA_NAME,
+                                  KA_PROP_MEDIA_NAME,
                                   gvc_channel_position_to_pretty_string (position));
                 ka_proplist_sets (proplist,
-                                  CA_PROP_KANBERRA_FORCE_CHANNEL,
+                                  KA_PROP_KANBERRA_FORCE_CHANNEL,
                                   gvc_channel_position_to_pulse_string (position));
 
-                ka_proplist_sets (proplist, CA_PROP_KANBERRA_ENABLE, "1");
+                ka_proplist_sets (proplist, KA_PROP_KANBERRA_ENABLE, "1");
 
                 name = sound_name (position);
                 if (name != NULL) {
-                        ka_proplist_sets (proplist, CA_PROP_EVENT_ID, name);
+                        ka_proplist_sets (proplist, KA_PROP_EVENT_ID, name);
                         playing = ka_context_play_full (kanberra, 1, proplist, finish_cb, control) >= 0;
                 }
 
                 if (!playing) {
-                        ka_proplist_sets (proplist, CA_PROP_EVENT_ID, "audio-test-signal");
+                        ka_proplist_sets (proplist, KA_PROP_EVENT_ID, "audio-test-signal");
                         playing = ka_context_play_full (kanberra, 1, proplist, finish_cb, control) >= 0;
                 }
 
                 if (!playing) {
-                        ka_proplist_sets(proplist, CA_PROP_EVENT_ID, "bell-window-system");
+                        ka_proplist_sets(proplist, KA_PROP_EVENT_ID, "bell-window-system");
                         playing = ka_context_play_full (kanberra, 1, proplist, finish_cb, control) >= 0;
                 }
 
@@ -424,10 +424,10 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
         ka_context_set_driver (test->priv->kanberra, "pulse");
 
         ka_context_change_props (test->priv->kanberra,
-                                 CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
-                                 CA_PROP_APPLICATION_NAME, _("Volume Control"),
-                                 CA_PROP_APPLICATION_VERSION, VERSION,
-                                 CA_PROP_APPLICATION_ICON_NAME, "multimedia-volume-control",
+                                 KA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
+                                 KA_PROP_APPLICATION_NAME, _("Volume Control"),
+                                 KA_PROP_APPLICATION_VERSION, VERSION,
+                                 KA_PROP_APPLICATION_ICON_NAME, "multimedia-volume-control",
                                  NULL);
 
         test->priv->controls = g_array_new (FALSE, FALSE, sizeof (CtkWidget *));

@@ -725,37 +725,37 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, CtkTreePath *path)
         if (strcmp (id, DEFAULT_ALERT_ID) == 0) {
                 if (parent_theme != NULL) {
                         ka_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
-                                                CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
-                                                CA_PROP_EVENT_ID, "bell-window-system",
-                                                CA_PROP_KANBERRA_XDG_THEME_NAME, parent_theme,
-                                                CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
-                                                CA_PROP_KANBERRA_CACHE_CONTROL, "never",
-                                                CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
-#ifdef CA_PROP_KANBERRA_ENABLE
-                                                CA_PROP_KANBERRA_ENABLE, "1",
+                                                KA_PROP_APPLICATION_NAME, _("Sound Preferences"),
+                                                KA_PROP_EVENT_ID, "bell-window-system",
+                                                KA_PROP_KANBERRA_XDG_THEME_NAME, parent_theme,
+                                                KA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
+                                                KA_PROP_KANBERRA_CACHE_CONTROL, "never",
+                                                KA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
+#ifdef KA_PROP_KANBERRA_ENABLE
+                                                KA_PROP_KANBERRA_ENABLE, "1",
 #endif
                                                 NULL);
                 } else {
                         ka_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
-                                                CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
-                                                CA_PROP_EVENT_ID, "bell-window-system",
-                                                CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
-                                                CA_PROP_KANBERRA_CACHE_CONTROL, "never",
-                                                CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
-#ifdef CA_PROP_KANBERRA_ENABLE
-                                                CA_PROP_KANBERRA_ENABLE, "1",
+                                                KA_PROP_APPLICATION_NAME, _("Sound Preferences"),
+                                                KA_PROP_EVENT_ID, "bell-window-system",
+                                                KA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
+                                                KA_PROP_KANBERRA_CACHE_CONTROL, "never",
+                                                KA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
+#ifdef KA_PROP_KANBERRA_ENABLE
+                                                KA_PROP_KANBERRA_ENABLE, "1",
 #endif
                                                 NULL);
                 }
         } else {
                 ka_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
-                                        CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
-                                        CA_PROP_MEDIA_FILENAME, id,
-                                        CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
-                                        CA_PROP_KANBERRA_CACHE_CONTROL, "never",
-                                        CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
-#ifdef CA_PROP_KANBERRA_ENABLE
-                                        CA_PROP_KANBERRA_ENABLE, "1",
+                                        KA_PROP_APPLICATION_NAME, _("Sound Preferences"),
+                                        KA_PROP_MEDIA_FILENAME, id,
+                                        KA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
+                                        KA_PROP_KANBERRA_CACHE_CONTROL, "never",
+                                        KA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
+#ifdef KA_PROP_KANBERRA_ENABLE
+                                        KA_PROP_KANBERRA_ENABLE, "1",
 #endif
                                         NULL);
 
