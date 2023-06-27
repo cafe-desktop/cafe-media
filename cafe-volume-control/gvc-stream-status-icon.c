@@ -21,7 +21,7 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkkeysyms.h>
 
 #include <libcafemixer/cafemixer.h>
@@ -70,9 +70,9 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         GdkRectangle   monitor;
         GtkRequisition dock_req;
 
-        screen = gtk_status_icon_get_screen (GTK_STATUS_ICON (icon));
+        screen = ctk_status_icon_get_screen (GTK_STATUS_ICON (icon));
 
-        if (gtk_status_icon_get_geometry (GTK_STATUS_ICON (icon),
+        if (ctk_status_icon_get_geometry (GTK_STATUS_ICON (icon),
                                           &screen,
                                           &area,
                                           &orientation) == FALSE) {
@@ -81,16 +81,16 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         }
 
         /* position roughly */
-        gtk_window_set_screen (GTK_WINDOW (icon->priv->dock), screen);
+        ctk_window_set_screen (GTK_WINDOW (icon->priv->dock), screen);
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
                                          1 - orientation);
 
         monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), area.x, area.y);
         gdk_monitor_get_geometry (monitor_num, &monitor);
 
-        gtk_container_foreach (GTK_CONTAINER (icon->priv->dock),
-                               (GtkCallback) gtk_widget_show_all, NULL);
-        gtk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
+        ctk_container_foreach (GTK_CONTAINER (icon->priv->dock),
+                               (GtkCallback) ctk_widget_show_all, NULL);
+        ctk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
 
         if (orientation == GTK_ORIENTATION_VERTICAL) {
                 if (area.x + area.width + dock_req.width <= monitor.x + monitor.width)
@@ -114,22 +114,22 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
                         x = monitor.x + monitor.width - dock_req.width;
         }
 
-        gtk_window_move (GTK_WINDOW (icon->priv->dock), x, y);
+        ctk_window_move (GTK_WINDOW (icon->priv->dock), x, y);
 
         /* Without this, the popup window appears as a square after changing
          * the orientation */
-        gtk_window_resize (GTK_WINDOW (icon->priv->dock), 1, 1);
+        ctk_window_resize (GTK_WINDOW (icon->priv->dock), 1, 1);
 
-        gtk_widget_show_all (icon->priv->dock);
+        ctk_widget_show_all (icon->priv->dock);
 
         /* Grab focus */
-        gtk_grab_add (icon->priv->dock);
+        ctk_grab_add (icon->priv->dock);
 
-        display = gtk_widget_get_display (icon->priv->dock);
+        display = ctk_widget_get_display (icon->priv->dock);
 
         do {
                 GdkSeat *seat = gdk_display_get_default_seat (display);
-                GdkWindow *window = gtk_widget_get_window (icon->priv->dock);
+                GdkWindow *window = ctk_widget_get_window (icon->priv->dock);
 
                 if (gdk_seat_grab (seat,
                                    window,
@@ -139,13 +139,13 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
                                    NULL,
                                    NULL,
                                    NULL) != GDK_GRAB_SUCCESS) {
-                        gtk_grab_remove (icon->priv->dock);
-                        gtk_widget_hide (icon->priv->dock);
+                        ctk_grab_remove (icon->priv->dock);
+                        ctk_widget_hide (icon->priv->dock);
                         break;
                 }
         } while (0);
 
-        gtk_widget_grab_focus (icon->priv->dock);
+        ctk_widget_grab_focus (icon->priv->dock);
 
         return TRUE;
 }
@@ -176,7 +176,7 @@ on_menu_mute_toggled (GtkMenuItem *item, GvcStreamStatusIcon *icon)
 {
         gboolean is_muted;
 
-        is_muted = gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (item));
+        is_muted = ctk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (item));
 
         cafe_mixer_stream_control_set_mute (icon->priv->control, is_muted);
 }
@@ -187,14 +187,14 @@ on_menu_activate_open_volume_control (GtkMenuItem         *item,
 {
         GError *error = NULL;
 
-        cafe_gdk_spawn_command_line_on_screen (gtk_widget_get_screen (icon->priv->dock),
+        cafe_gdk_spawn_command_line_on_screen (ctk_widget_get_screen (icon->priv->dock),
                                                "cafe-volume-control",
                                                &error);
 
         if (error != NULL) {
                 GtkWidget *dialog;
 
-                dialog = gtk_message_dialog_new (NULL,
+                dialog = ctk_message_dialog_new (NULL,
                                                  0,
                                                  GTK_MESSAGE_ERROR,
                                                  GTK_BUTTONS_CLOSE,
@@ -202,9 +202,9 @@ on_menu_activate_open_volume_control (GtkMenuItem         *item,
                                                  error->message);
                 g_signal_connect (G_OBJECT (dialog),
                                   "response",
-                                  G_CALLBACK (gtk_widget_destroy),
+                                  G_CALLBACK (ctk_widget_destroy),
                                   NULL);
-                gtk_widget_show (dialog);
+                ctk_widget_show (dialog);
                 g_error_free (error);
         }
 }
@@ -219,47 +219,47 @@ on_status_icon_popup_menu (GtkStatusIcon       *status_icon,
         GtkWidget *item;
         GtkWidget *image;
 
-        menu = gtk_menu_new ();
+        menu = ctk_menu_new ();
 
         /*Set up theme and transparency support*/
-        GtkWidget *toplevel = gtk_widget_get_toplevel (menu);
-        /* Fix any failures of compiz/other wm's to communicate with gtk for transparency */
-        GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
+        GtkWidget *toplevel = ctk_widget_get_toplevel (menu);
+        /* Fix any failures of compiz/other wm's to communicate with ctk for transparency */
+        GdkScreen *screen = ctk_widget_get_screen(GTK_WIDGET(toplevel));
         GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
-        gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
+        ctk_widget_set_visual(GTK_WIDGET(toplevel), visual);
         /* Set menu and it's toplevel window to follow panel theme */
         GtkStyleContext *context;
-        context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
-        gtk_style_context_add_class(context,"gnome-panel-menu-bar");
-        gtk_style_context_add_class(context,"cafe-panel-menu-bar");
+        context = ctk_widget_get_style_context (GTK_WIDGET(toplevel));
+        ctk_style_context_add_class(context,"gnome-panel-menu-bar");
+        ctk_style_context_add_class(context,"cafe-panel-menu-bar");
 
-        item = gtk_check_menu_item_new_with_mnemonic (_("_Mute"));
-        gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item),
+        item = ctk_check_menu_item_new_with_mnemonic (_("_Mute"));
+        ctk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item),
                                         cafe_mixer_stream_control_get_mute (icon->priv->control));
         g_signal_connect (G_OBJECT (item),
                           "toggled",
                           G_CALLBACK (on_menu_mute_toggled),
                           icon);
 
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+        ctk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
-        item = gtk_image_menu_item_new_with_mnemonic (_("_Sound Preferences"));
-        image = gtk_image_new_from_icon_name ("multimedia-volume-control",
+        item = ctk_image_menu_item_new_with_mnemonic (_("_Sound Preferences"));
+        image = ctk_image_new_from_icon_name ("multimedia-volume-control",
                                               GTK_ICON_SIZE_MENU);
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
+        ctk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
 
         g_signal_connect (G_OBJECT (item),
                           "activate",
                           G_CALLBACK (on_menu_activate_open_volume_control),
                           icon);
 
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
+        ctk_menu_shell_append (GTK_MENU_SHELL (menu), item);
 
-        gtk_widget_show_all (menu);
-        gtk_menu_popup (GTK_MENU (menu),
+        ctk_widget_show_all (menu);
+        ctk_menu_popup (GTK_MENU (menu),
                         NULL,
                         NULL,
-                        gtk_status_icon_position_menu,
+                        ctk_status_icon_position_menu,
                         status_icon,
                         button,
                         activate_time);
@@ -276,13 +276,13 @@ on_status_icon_scroll_event (GtkStatusIcon       *status_icon,
 static void
 gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
 {
-        GdkDisplay *display = gtk_widget_get_display (icon->priv->dock);
+        GdkDisplay *display = ctk_widget_get_display (icon->priv->dock);
         GdkSeat *seat = gdk_display_get_default_seat (display);
         gdk_seat_ungrab (seat);
-        gtk_grab_remove (icon->priv->dock);
+        ctk_grab_remove (icon->priv->dock);
 
         /* Hide again */
-        gtk_widget_hide (icon->priv->dock);
+        ctk_widget_hide (icon->priv->dock);
 }
 
 static gboolean
@@ -303,13 +303,13 @@ popdown_dock (GvcStreamStatusIcon *icon)
 {
         GdkDisplay *display;
 
-        display = gtk_widget_get_display (icon->priv->dock);
+        display = ctk_widget_get_display (icon->priv->dock);
 
         GdkSeat *seat = gdk_display_get_default_seat (display);
         gdk_seat_ungrab (seat);
 
         /* Hide again */
-        gtk_widget_hide (icon->priv->dock);
+        ctk_widget_hide (icon->priv->dock);
 }
 
 /* This is called when the grab is broken for either the dock, or the scale */
@@ -319,10 +319,10 @@ gvc_icon_grab_notify (GvcStreamStatusIcon *icon, gboolean was_grabbed)
         if (was_grabbed != FALSE)
                 return;
 
-        if (gtk_widget_has_grab (icon->priv->dock) == FALSE)
+        if (ctk_widget_has_grab (icon->priv->dock) == FALSE)
                 return;
 
-        if (gtk_widget_is_ancestor (gtk_grab_get_current (), icon->priv->dock))
+        if (ctk_widget_is_ancestor (ctk_grab_get_current (), icon->priv->dock))
                 return;
 
         popdown_dock (icon);
@@ -382,10 +382,10 @@ update_icon (GvcStreamStatusIcon *icon)
         if (icon->priv->control == NULL) {
                 /* Do not bother creating a tooltip for an unusable icon as it
                  * has no practical use */
-                gtk_status_icon_set_has_tooltip (GTK_STATUS_ICON (icon), FALSE);
+                ctk_status_icon_set_has_tooltip (GTK_STATUS_ICON (icon), FALSE);
                 return;
         } else
-                gtk_status_icon_set_has_tooltip (GTK_STATUS_ICON (icon), TRUE);
+                ctk_status_icon_set_has_tooltip (GTK_STATUS_ICON (icon), TRUE);
 
         flags = cafe_mixer_stream_control_get_flags (icon->priv->control);
 
@@ -408,7 +408,7 @@ update_icon (GvcStreamStatusIcon *icon)
 
         /* Apparently status icon will reset icon even if it doesn't change */
         if (icon->priv->current_icon != n) {
-                gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
+                ctk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
                                                     icon->priv->icon_names[n]);
                 icon->priv->current_icon = n;
         }
@@ -450,7 +450,7 @@ update_icon (GvcStreamStatusIcon *icon)
                                           description);
         }
 
-        gtk_status_icon_set_tooltip_markup (GTK_STATUS_ICON (icon), markup);
+        ctk_status_icon_set_tooltip_markup (GTK_STATUS_ICON (icon), markup);
 
         g_free (markup);
 }
@@ -473,7 +473,7 @@ gvc_stream_status_icon_set_icon_names (GvcStreamStatusIcon  *icon,
 
         /* Set the first icon as the initial one, the icon may be immediately
          * updated or not depending on whether a stream is available */
-        gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon), names[0]);
+        ctk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon), names[0]);
         update_icon (icon);
 
         g_object_notify_by_pspec (G_OBJECT (icon), properties[PROP_ICON_NAMES]);
@@ -607,7 +607,7 @@ gvc_stream_status_icon_dispose (GObject *object)
         GvcStreamStatusIcon *icon = GVC_STREAM_STATUS_ICON (object);
 
         if (icon->priv->dock != NULL) {
-                gtk_widget_destroy (icon->priv->dock);
+                ctk_widget_destroy (icon->priv->dock);
                 icon->priv->dock = NULL;
         }
 
@@ -659,8 +659,8 @@ gvc_stream_status_icon_class_init (GvcStreamStatusIconClass *klass)
 static void
 on_status_icon_visible_notify (GvcStreamStatusIcon *icon)
 {
-        if (gtk_status_icon_get_visible (GTK_STATUS_ICON (icon)) == FALSE)
-                gtk_widget_hide (icon->priv->dock);
+        if (ctk_status_icon_get_visible (GTK_STATUS_ICON (icon)) == FALSE)
+                ctk_widget_hide (icon->priv->dock);
 }
 
 static void
@@ -668,7 +668,7 @@ on_icon_theme_change (GtkSettings         *settings,
                       GParamSpec          *pspec,
                       GvcStreamStatusIcon *icon)
 {
-        gtk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
+        ctk_status_icon_set_from_icon_name (GTK_STATUS_ICON (icon),
                                             icon->priv->icon_names[icon->priv->current_icon]);
 }
 
@@ -702,9 +702,9 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
                           NULL);
 
         /* Create the dock window */
-        icon->priv->dock = gtk_window_new (GTK_WINDOW_POPUP);
+        icon->priv->dock = ctk_window_new (GTK_WINDOW_POPUP);
 
-        gtk_window_set_decorated (GTK_WINDOW (icon->priv->dock), FALSE);
+        ctk_window_set_decorated (GTK_WINDOW (icon->priv->dock), FALSE);
 
         g_signal_connect (G_OBJECT (icon->priv->dock),
                           "button-press-event",
@@ -727,9 +727,9 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
                           G_CALLBACK (on_dock_grab_broken_event),
                           icon);
 
-        frame = gtk_frame_new (NULL);
-        gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_OUT);
-        gtk_container_add (GTK_CONTAINER (icon->priv->dock), frame);
+        frame = ctk_frame_new (NULL);
+        ctk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_OUT);
+        ctk_container_add (GTK_CONTAINER (icon->priv->dock), frame);
 
         icon->priv->bar = gvc_channel_bar_new (NULL);
 
@@ -737,24 +737,24 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
                                          GTK_ORIENTATION_VERTICAL);
 
         /* Set volume control frame, slider and toplevel window to follow panel theme */
-        GtkWidget *toplevel = gtk_widget_get_toplevel (icon->priv->dock);
+        GtkWidget *toplevel = ctk_widget_get_toplevel (icon->priv->dock);
         GtkStyleContext *context;
-        context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
-        gtk_style_context_add_class(context,"cafe-panel-applet-slider");
-        /* Make transparency possible in gtk3 theme */
-        GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
+        context = ctk_widget_get_style_context (GTK_WIDGET(toplevel));
+        ctk_style_context_add_class(context,"cafe-panel-applet-slider");
+        /* Make transparency possible in ctk3 theme */
+        GdkScreen *screen = ctk_widget_get_screen(GTK_WIDGET(toplevel));
         GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
-        gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
+        ctk_widget_set_visual(GTK_WIDGET(toplevel), visual);
 
-        box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+        box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 
-        gtk_container_set_border_width (GTK_CONTAINER (box), 2);
-        gtk_container_add (GTK_CONTAINER (frame), box);
+        ctk_container_set_border_width (GTK_CONTAINER (box), 2);
+        ctk_container_add (GTK_CONTAINER (frame), box);
 
-        gtk_box_pack_start (GTK_BOX (box), icon->priv->bar, TRUE, FALSE, 0);
+        ctk_box_pack_start (GTK_BOX (box), icon->priv->bar, TRUE, FALSE, 0);
 
-        g_signal_connect (gtk_settings_get_default (),
-                          "notify::gtk-icon-theme-name",
+        g_signal_connect (ctk_settings_get_default (),
+                          "notify::ctk-icon-theme-name",
                           G_CALLBACK (on_icon_theme_change),
                           icon);
 }
@@ -768,7 +768,7 @@ gvc_stream_status_icon_finalize (GObject *object)
 
         g_strfreev (icon->priv->icon_names);
 
-        g_signal_handlers_disconnect_by_func (gtk_settings_get_default (),
+        g_signal_handlers_disconnect_by_func (ctk_settings_get_default (),
                                               on_icon_theme_change,
                                               icon);
 

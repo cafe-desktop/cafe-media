@@ -23,7 +23,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #define CAFE_DESKTOP_USE_UNSTABLE_API
 #include <libcafe-desktop/cafe-desktop-utils.h>
@@ -117,9 +117,9 @@ fraction_from_adjustment (GvcLevelBar   *bar,
         gdouble min;
         gdouble max;
 
-        level = gtk_adjustment_get_value (adjustment);
-        min   = gtk_adjustment_get_lower (adjustment);
-        max   = gtk_adjustment_get_upper (adjustment);
+        level = ctk_adjustment_get_value (adjustment);
+        min   = ctk_adjustment_get_lower (adjustment);
+        max   = ctk_adjustment_get_upper (adjustment);
 
         switch (bar->priv->scale) {
         case GVC_LEVEL_SCALE_LINEAR:
@@ -136,11 +136,11 @@ fraction_from_adjustment (GvcLevelBar   *bar,
 static gboolean
 reset_max_peak (GvcLevelBar *bar)
 {
-        bar->priv->max_peak = gtk_adjustment_get_lower (bar->priv->peak_adjustment);
+        bar->priv->max_peak = ctk_adjustment_get_lower (bar->priv->peak_adjustment);
 
         bar->priv->layout.max_peak_num = 0;
 
-        gtk_widget_queue_draw (GTK_WIDGET (bar));
+        ctk_widget_queue_draw (GTK_WIDGET (bar));
 
         bar->priv->max_peak_id = 0;
         return FALSE;
@@ -155,24 +155,24 @@ bar_calc_layout (GvcLevelBar *bar)
 
         GtkStyleContext *context;
 
-        context = gtk_widget_get_style_context (GTK_WIDGET (bar));
+        context = ctk_widget_get_style_context (GTK_WIDGET (bar));
 
-        gtk_style_context_save (context);
-        gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
-        gtk_style_context_get_background_color (context,
-                                                gtk_style_context_get_state (context),
+        ctk_style_context_save (context);
+        ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
+        ctk_style_context_get_background_color (context,
+                                                ctk_style_context_get_state (context),
                                                 &bar->priv->layout.color_bg);
-        cafe_desktop_gtk_style_get_dark_color (context,
-                                               gtk_style_context_get_state (context),
+        cafe_desktop_ctk_style_get_dark_color (context,
+                                               ctk_style_context_get_state (context),
                                                &bar->priv->layout.color_dark);
 
-        gtk_style_context_set_state (context, GTK_STATE_FLAG_SELECTED);
-        gtk_style_context_get_background_color (context,
-                                                gtk_style_context_get_state (context),
+        ctk_style_context_set_state (context, GTK_STATE_FLAG_SELECTED);
+        ctk_style_context_get_background_color (context,
+                                                ctk_style_context_get_state (context),
                                                 &bar->priv->layout.color_fg);
-        gtk_style_context_restore (context);
+        ctk_style_context_restore (context);
 
-        gtk_widget_get_allocation (GTK_WIDGET (bar), &allocation);
+        ctk_widget_get_allocation (GTK_WIDGET (bar), &allocation);
 
         bar->priv->layout.area.width = allocation.width - 2;
         bar->priv->layout.area.height = allocation.height - 2;
@@ -227,7 +227,7 @@ update_peak_value (GvcLevelBar *bar)
         bar_calc_layout (bar);
 
         if (layout_changed (&bar->priv->layout, &layout))
-                gtk_widget_queue_draw (GTK_WIDGET (bar));
+                ctk_widget_queue_draw (GTK_WIDGET (bar));
 }
 
 static void
@@ -259,7 +259,7 @@ gvc_level_bar_set_orientation (GvcLevelBar   *bar,
 
                 bar->priv->orientation = orientation;
 
-                gtk_widget_queue_draw (GTK_WIDGET (bar));
+                ctk_widget_queue_draw (GTK_WIDGET (bar));
 
                 g_object_notify_by_pspec (G_OBJECT (bar), properties[PROP_ORIENTATION]);
         }
@@ -484,8 +484,8 @@ gvc_level_bar_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
         /* FIXME: add height property, labels, etc */
         GTK_WIDGET_CLASS (gvc_level_bar_parent_class)->size_allocate (widget, allocation);
 
-        gtk_widget_set_allocation (widget, allocation);
-        gtk_widget_get_allocation (widget, allocation);
+        ctk_widget_set_allocation (widget, allocation);
+        ctk_widget_get_allocation (widget, allocation);
 
         if (bar->priv->orientation == GTK_ORIENTATION_VERTICAL) {
                 allocation->height = MIN (allocation->height, MIN_VERTICAL_BAR_HEIGHT);
@@ -606,10 +606,10 @@ gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
         } else {
                 int i;
 
-                if (gtk_widget_get_direction (widget) == GTK_TEXT_DIR_RTL) {
+                if (ctk_widget_get_direction (widget) == GTK_TEXT_DIR_RTL) {
                         GtkAllocation allocation;
 
-                        gtk_widget_get_allocation (widget, &allocation);
+                        ctk_widget_get_allocation (widget, &allocation);
 
                         cairo_scale (cr, -1, 1);
                         cairo_translate (cr, -allocation.width, 0);
@@ -675,7 +675,7 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
         widget_class->get_preferred_height = gvc_level_bar_get_preferred_height;
         widget_class->size_allocate = gvc_level_bar_size_allocate;
 
-        gtk_widget_class_set_css_name (widget_class, "gvc-level-bar");
+        ctk_widget_class_set_css_name (widget_class, "gvc-level-bar");
 
         properties[PROP_ORIENTATION] =
                 g_param_spec_enum ("orientation",
@@ -719,13 +719,13 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
 static void
 gvc_level_bar_init (GvcLevelBar *bar)
 {
-        GtkStyleContext *context = gtk_widget_get_style_context (GTK_WIDGET (bar));
+        GtkStyleContext *context = ctk_widget_get_style_context (GTK_WIDGET (bar));
 
-        gtk_style_context_add_class (context, GTK_STYLE_CLASS_LIST_ROW);
+        ctk_style_context_add_class (context, GTK_STYLE_CLASS_LIST_ROW);
 
         bar->priv = gvc_level_bar_get_instance_private (bar);
 
-        bar->priv->peak_adjustment = GTK_ADJUSTMENT (gtk_adjustment_new (0.0,
+        bar->priv->peak_adjustment = GTK_ADJUSTMENT (ctk_adjustment_new (0.0,
                                                                          0.0,
                                                                          1.0,
                                                                          0.05,
@@ -738,7 +738,7 @@ gvc_level_bar_init (GvcLevelBar *bar)
                           G_CALLBACK (on_peak_adjustment_value_changed),
                           bar);
 
-        bar->priv->rms_adjustment = GTK_ADJUSTMENT (gtk_adjustment_new (0.0,
+        bar->priv->rms_adjustment = GTK_ADJUSTMENT (ctk_adjustment_new (0.0,
                                                                         0.0,
                                                                         1.0,
                                                                         0.05,
@@ -751,7 +751,7 @@ gvc_level_bar_init (GvcLevelBar *bar)
                           G_CALLBACK (on_rms_adjustment_value_changed),
                           bar);
 
-        gtk_widget_set_has_window (GTK_WIDGET (bar), FALSE);
+        ctk_widget_set_has_window (GTK_WIDGET (bar), FALSE);
 }
 
 static void

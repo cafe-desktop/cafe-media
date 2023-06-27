@@ -23,7 +23,7 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <libintl.h>
 #include <gio/gio.h>
@@ -47,9 +47,9 @@ on_dialog_response (GtkDialog *dialog, guint response_id, gpointer data)
         gboolean destroy = GPOINTER_TO_INT (data);
 
         if (destroy == TRUE)
-                gtk_widget_destroy (GTK_WIDGET (dialog));
+                ctk_widget_destroy (GTK_WIDGET (dialog));
 
-        gtk_main_quit ();
+        ctk_main_quit ();
 }
 
 static void
@@ -58,9 +58,9 @@ on_dialog_close (GtkDialog *dialog, gpointer data)
         gboolean destroy = GPOINTER_TO_INT (data);
 
         if (destroy == TRUE)
-                gtk_widget_destroy (GTK_WIDGET (dialog));
+                ctk_widget_destroy (GTK_WIDGET (dialog));
 
-        gtk_main_quit ();
+        ctk_main_quit ();
 }
 
 static void
@@ -71,7 +71,7 @@ remove_warning_dialog (void)
                 popup_id = 0;
         }
 
-        g_clear_pointer (&warning_dialog, gtk_widget_destroy);
+        g_clear_pointer (&warning_dialog, ctk_widget_destroy);
 }
 
 static void
@@ -82,7 +82,7 @@ context_ready (CafeMixerContext *context, GtkApplication *application)
         GtkApplication *app;
         GError *error = NULL;
 
-        app = gtk_application_new ("context.ready", G_APPLICATION_FLAGS_NONE);
+        app = ctk_application_new ("context.ready", G_APPLICATION_FLAGS_NONE);
         g_application_register (G_APPLICATION (app), NULL, &error);
         if (error != NULL)
         {
@@ -96,7 +96,7 @@ context_ready (CafeMixerContext *context, GtkApplication *application)
                 g_application_activate (G_APPLICATION (app));
                 g_object_unref (app);
                 app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (context));
-                gtk_main_quit ();
+                ctk_main_quit ();
         }
 
         if (app_dialog != NULL)
@@ -115,9 +115,9 @@ context_ready (CafeMixerContext *context, GtkApplication *application)
 
         gvc_mixer_dialog_set_page (GVC_MIXER_DIALOG (app_dialog), page);
 
-        gtk_widget_show (app_dialog);
+        ctk_widget_show (app_dialog);
 
-        g_signal_connect_swapped (app, "activate", G_CALLBACK (gtk_window_present), app_dialog);
+        g_signal_connect_swapped (app, "activate", G_CALLBACK (ctk_window_present), app_dialog);
 }
 
 static void
@@ -136,7 +136,7 @@ on_context_state_notify (CafeMixerContext *context,
 
                 remove_warning_dialog ();
 
-                dialog = gtk_message_dialog_new (GTK_WINDOW (app_dialog),
+                dialog = ctk_message_dialog_new (GTK_WINDOW (app_dialog),
                                                  0,
                                                  GTK_MESSAGE_ERROR,
                                                  GTK_BUTTONS_CLOSE,
@@ -151,14 +151,14 @@ on_context_state_notify (CafeMixerContext *context,
                                   G_CALLBACK (on_dialog_close),
                                   GINT_TO_POINTER (TRUE));
 
-                gtk_widget_show (dialog);
+                ctk_widget_show (dialog);
         }
 }
 
 static gboolean
 dialog_popup_timeout (gpointer data)
 {
-	warning_dialog = gtk_message_dialog_new (GTK_WINDOW (app_dialog),
+	warning_dialog = ctk_message_dialog_new (GTK_WINDOW (app_dialog),
 	                                         0,
 	                                         GTK_MESSAGE_INFO,
 	                                         GTK_BUTTONS_CANCEL,
@@ -173,7 +173,7 @@ dialog_popup_timeout (gpointer data)
                       G_CALLBACK (on_dialog_close),
                       GINT_TO_POINTER (TRUE));
 
-	gtk_widget_show (warning_dialog);
+	ctk_widget_show (warning_dialog);
 
 	return FALSE;
 }
@@ -198,7 +198,7 @@ main (int argc, char **argv)
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         textdomain (GETTEXT_PACKAGE);
 
-        gtk_init_with_args (&argc, &argv,
+        ctk_init_with_args (&argc, &argv,
                             _(" — CAFE Volume Control"),
                             entries, GETTEXT_PACKAGE,
                             &error);
@@ -270,12 +270,12 @@ main (int argc, char **argv)
                                                   NULL);
         }
 
-        gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
+        ctk_icon_theme_append_search_path (ctk_icon_theme_get_default (),
                                            ICON_DATA_DIR);
 
-        gtk_window_set_default_icon_name ("multimedia-volume-control");
+        ctk_window_set_default_icon_name ("multimedia-volume-control");
 
-        gtk_main ();
+        ctk_main ();
 
         g_object_unref (context);
         g_object_unref (app);
