@@ -769,7 +769,7 @@ gvc_channel_bar_set_icon_name (GvcChannelBar *bar, const gchar *name)
                 }
 
                 if (pixbuf == NULL) {
-                        pixbuf = cdk_pixbuf_new_from_file_at_scale (name, width, height, TRUE, &error);
+                        pixbuf = gdk_pixbuf_new_from_file_at_scale (name, width, height, TRUE, &error);
                         if (error != NULL)
                         {
                                 g_warning ("Couldn’t load icon: %s\n", error->message);
