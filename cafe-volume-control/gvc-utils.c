@@ -28,7 +28,7 @@
 #include "gvc-utils.h"
 
 /* libkanberra requires a PulseAudio channel name to be given to its
- * CA_PROP_CANBERRA_FORCE_CHANNEL property.
+ * CA_PROP_KANBERRA_FORCE_CHANNEL property.
  *
  * The strings here are copied from PulseAudio source code to avoid depending
  * on libpulse. */
