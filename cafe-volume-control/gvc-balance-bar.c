@@ -71,33 +71,33 @@ static gboolean on_scale_scroll_event       (GtkWidget          *widget,
 static void     on_adjustment_value_changed (GtkAdjustment      *adjustment,
                                              GvcBalanceBar      *bar);
 
-G_DEFINE_TYPE_WITH_PRIVATE (GvcBalanceBar, gvc_balance_bar, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcBalanceBar, gvc_balance_bar, CTK_TYPE_BOX)
 
 static void
 create_scale_box (GvcBalanceBar *bar)
 {
-        bar->priv->scale_box = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        bar->priv->start_box = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        bar->priv->end_box   = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        bar->priv->scale     = ctk_scale_new (GTK_ORIENTATION_HORIZONTAL,
+        bar->priv->scale_box = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
+        bar->priv->start_box = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
+        bar->priv->end_box   = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
+        bar->priv->scale     = ctk_scale_new (CTK_ORIENTATION_HORIZONTAL,
                                               bar->priv->adjustment);
 
         /* Balance and fade scales do not have an origin */
         if (bar->priv->btype != BALANCE_TYPE_LFE)
-                ctk_scale_set_has_origin (GTK_SCALE (bar->priv->scale), FALSE);
+                ctk_scale_set_has_origin (CTK_SCALE (bar->priv->scale), FALSE);
 
         ctk_widget_set_size_request (bar->priv->scale, SCALE_SIZE, -1);
 
-        ctk_box_pack_start (GTK_BOX (bar->priv->scale_box),
+        ctk_box_pack_start (CTK_BOX (bar->priv->scale_box),
                             bar->priv->start_box,
                             FALSE, FALSE, 0);
-        ctk_box_pack_start (GTK_BOX (bar->priv->start_box),
+        ctk_box_pack_start (CTK_BOX (bar->priv->start_box),
                             bar->priv->label,
                             FALSE, FALSE, 0);
-        ctk_box_pack_start (GTK_BOX (bar->priv->scale_box),
+        ctk_box_pack_start (CTK_BOX (bar->priv->scale_box),
                             bar->priv->scale,
                             TRUE, TRUE, 0);
-        ctk_box_pack_start (GTK_BOX (bar->priv->scale_box),
+        ctk_box_pack_start (CTK_BOX (bar->priv->scale_box),
                             bar->priv->end_box,
                             FALSE, FALSE, 0);
 
@@ -119,7 +119,7 @@ create_scale_box (GvcBalanceBar *bar)
                                                    bar->priv->end_box);
         }
 
-        ctk_scale_set_draw_value (GTK_SCALE (bar->priv->scale), FALSE);
+        ctk_scale_set_draw_value (CTK_SCALE (bar->priv->scale), FALSE);
 }
 
 static void
@@ -130,7 +130,7 @@ update_scale_marks (GvcBalanceBar *bar)
         gdouble   lower,
                   upper;
 
-        ctk_scale_clear_marks (GTK_SCALE (bar->priv->scale));
+        ctk_scale_clear_marks (CTK_SCALE (bar->priv->scale));
 
         switch (bar->priv->btype) {
         case BALANCE_TYPE_RL:
@@ -148,22 +148,22 @@ update_scale_marks (GvcBalanceBar *bar)
         }
 
         lower = ctk_adjustment_get_lower (bar->priv->adjustment);
-        ctk_scale_add_mark (GTK_SCALE (bar->priv->scale),
+        ctk_scale_add_mark (CTK_SCALE (bar->priv->scale),
                             lower,
-                            GTK_POS_BOTTOM,
+                            CTK_POS_BOTTOM,
                             str_lower);
         upper = ctk_adjustment_get_upper (bar->priv->adjustment);
-        ctk_scale_add_mark (GTK_SCALE (bar->priv->scale),
+        ctk_scale_add_mark (CTK_SCALE (bar->priv->scale),
                             upper,
-                            GTK_POS_BOTTOM,
+                            CTK_POS_BOTTOM,
                             str_upper);
         g_free (str_lower);
         g_free (str_upper);
 
         if (bar->priv->btype != BALANCE_TYPE_LFE)
-                ctk_scale_add_mark (GTK_SCALE (bar->priv->scale),
+                ctk_scale_add_mark (CTK_SCALE (bar->priv->scale),
                                     (upper - lower) / 2 + lower,
-                                    GTK_POS_BOTTOM,
+                                    CTK_POS_BOTTOM,
                                     NULL);
 }
 
@@ -173,7 +173,7 @@ gvc_balance_bar_set_size_group (GvcBalanceBar *bar,
                                 gboolean       symmetric)
 {
         g_return_if_fail (GVC_IS_BALANCE_BAR (bar));
-        g_return_if_fail (GTK_IS_SIZE_GROUP (group));
+        g_return_if_fail (CTK_IS_SIZE_GROUP (group));
 
         bar->priv->size_group = group;
         bar->priv->symmetric = symmetric;
@@ -186,7 +186,7 @@ gvc_balance_bar_set_size_group (GvcBalanceBar *bar,
                         ctk_size_group_add_widget (bar->priv->size_group,
                                                    bar->priv->end_box);
         }
-        ctk_widget_queue_draw (GTK_WIDGET (bar));
+        ctk_widget_queue_draw (CTK_WIDGET (bar));
 }
 
 static void
@@ -265,7 +265,7 @@ gvc_balance_bar_set_control (GvcBalanceBar *bar, CafeMixerStreamControl *control
                  * Only subwoofer scale uses volume, balance and fade use fixed
                  * limits which do not need to be updated as balance type is
                  * only set during construction. */
-                ctk_adjustment_configure (GTK_ADJUSTMENT (bar->priv->adjustment),
+                ctk_adjustment_configure (CTK_ADJUSTMENT (bar->priv->adjustment),
                                           ctk_adjustment_get_value (bar->priv->adjustment),
                                           minimum,
                                           maximum,
@@ -319,10 +319,10 @@ gvc_balance_bar_set_balance_type (GvcBalanceBar *bar, GvcBalanceType btype)
          * some limits must be provided.
          * If subwoofer type is used instead, the limits will be changed when
          * stream is set. */
-        adjustment = GTK_ADJUSTMENT (ctk_adjustment_new (0.0, -1.0, 1.0, 0.05, 0.5, 0.0));
+        adjustment = CTK_ADJUSTMENT (ctk_adjustment_new (0.0, -1.0, 1.0, 0.05, 0.5, 0.0));
 
         bar->priv->btype = btype;
-        bar->priv->adjustment = GTK_ADJUSTMENT (g_object_ref_sink (adjustment));
+        bar->priv->adjustment = CTK_ADJUSTMENT (g_object_ref_sink (adjustment));
 
         g_signal_connect (G_OBJECT (adjustment),
                           "value-changed",
@@ -341,22 +341,22 @@ gvc_balance_bar_set_balance_type (GvcBalanceBar *bar, GvcBalanceType btype)
                 break;
         }
 
-        ctk_label_set_xalign (GTK_LABEL (bar->priv->label), 0.0);
-        ctk_label_set_yalign (GTK_LABEL (bar->priv->label), 0.0);
+        ctk_label_set_xalign (CTK_LABEL (bar->priv->label), 0.0);
+        ctk_label_set_yalign (CTK_LABEL (bar->priv->label), 0.0);
 
         /* Frame */
         frame = ctk_frame_new (NULL);
-        ctk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
-        ctk_box_pack_start (GTK_BOX (bar), frame, TRUE, TRUE, 0);
+        ctk_frame_set_shadow_type (CTK_FRAME (frame), CTK_SHADOW_NONE);
+        ctk_box_pack_start (CTK_BOX (bar), frame, TRUE, TRUE, 0);
 
         /* Box with scale */
         create_scale_box (bar);
-        ctk_container_add (GTK_CONTAINER (frame), bar->priv->scale_box);
+        ctk_container_add (CTK_CONTAINER (frame), bar->priv->scale_box);
 
-        ctk_label_set_mnemonic_widget (GTK_LABEL (bar->priv->label),
+        ctk_label_set_mnemonic_widget (CTK_LABEL (bar->priv->label),
                                        bar->priv->scale);
 
-        ctk_widget_set_direction (bar->priv->scale, GTK_TEXT_DIR_LTR);
+        ctk_widget_set_direction (bar->priv->scale, CTK_TEXT_DIR_LTR);
         ctk_widget_show_all (frame);
 
         g_object_notify_by_pspec (G_OBJECT (bar), properties[PROP_BALANCE_TYPE]);
@@ -446,7 +446,7 @@ on_scale_scroll_event (GtkWidget      *widget,
         minimum = ctk_adjustment_get_lower (bar->priv->adjustment);
         maximum = ctk_adjustment_get_upper (bar->priv->adjustment);
 
-        // XXX fix this for GTK3
+        // XXX fix this for CTK3
 
         if (bar->priv->btype == BALANCE_TYPE_LFE)
                 step = (maximum - minimum) / 100.0;
@@ -523,6 +523,6 @@ gvc_balance_bar_new (CafeMixerStreamControl *control, GvcBalanceType btype)
         return g_object_new (GVC_TYPE_BALANCE_BAR,
                             "balance-type", btype,
                             "control", control,
-                            "orientation", GTK_ORIENTATION_HORIZONTAL,
+                            "orientation", CTK_ORIENTATION_HORIZONTAL,
                             NULL);
 }

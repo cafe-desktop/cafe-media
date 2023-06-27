@@ -47,7 +47,7 @@ on_dialog_response (GtkDialog *dialog, guint response_id, gpointer data)
         gboolean destroy = GPOINTER_TO_INT (data);
 
         if (destroy == TRUE)
-                ctk_widget_destroy (GTK_WIDGET (dialog));
+                ctk_widget_destroy (CTK_WIDGET (dialog));
 
         ctk_main_quit ();
 }
@@ -58,7 +58,7 @@ on_dialog_close (GtkDialog *dialog, gpointer data)
         gboolean destroy = GPOINTER_TO_INT (data);
 
         if (destroy == TRUE)
-                ctk_widget_destroy (GTK_WIDGET (dialog));
+                ctk_widget_destroy (CTK_WIDGET (dialog));
 
         ctk_main_quit ();
 }
@@ -95,14 +95,14 @@ context_ready (CafeMixerContext *context, GtkApplication *application)
         {
                 g_application_activate (G_APPLICATION (app));
                 g_object_unref (app);
-                app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (context));
+                app_dialog = CTK_WIDGET (gvc_mixer_dialog_new (context));
                 ctk_main_quit ();
         }
 
         if (app_dialog != NULL)
                 return;
 
-        app_dialog = GTK_WIDGET (gvc_mixer_dialog_new (context));
+        app_dialog = CTK_WIDGET (gvc_mixer_dialog_new (context));
 
         g_signal_connect (G_OBJECT (app_dialog),
                           "response",
@@ -136,10 +136,10 @@ on_context_state_notify (CafeMixerContext *context,
 
                 remove_warning_dialog ();
 
-                dialog = ctk_message_dialog_new (GTK_WINDOW (app_dialog),
+                dialog = ctk_message_dialog_new (CTK_WINDOW (app_dialog),
                                                  0,
-                                                 GTK_MESSAGE_ERROR,
-                                                 GTK_BUTTONS_CLOSE,
+                                                 CTK_MESSAGE_ERROR,
+                                                 CTK_BUTTONS_CLOSE,
                                                  _("Sound system is not available"));
 
                 g_signal_connect (G_OBJECT (dialog),
@@ -158,10 +158,10 @@ on_context_state_notify (CafeMixerContext *context,
 static gboolean
 dialog_popup_timeout (gpointer data)
 {
-	warning_dialog = ctk_message_dialog_new (GTK_WINDOW (app_dialog),
+	warning_dialog = ctk_message_dialog_new (CTK_WINDOW (app_dialog),
 	                                         0,
-	                                         GTK_MESSAGE_INFO,
-	                                         GTK_BUTTONS_CANCEL,
+	                                         CTK_MESSAGE_INFO,
+	                                         CTK_BUTTONS_CANCEL,
 	                                         _("Waiting for sound system to respond"));
 
 	g_signal_connect (G_OBJECT (warning_dialog),
