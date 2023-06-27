@@ -26,7 +26,7 @@
 #include <glib-object.h>
 #include <ctk/ctk.h>
 
-#include <canberra.h>
+#include <kanberra.h>
 #include <libcafemixer/cafemixer.h>
 
 #include "gvc-speaker-test.h"
@@ -35,7 +35,7 @@
 struct _GvcSpeakerTestPrivate
 {
         GArray           *controls;
-        ca_context       *canberra;
+        ca_context       *kanberra;
         CafeMixerStream  *stream;
 };
 
@@ -92,7 +92,7 @@ gvc_speaker_test_set_stream (GvcSpeakerTest *test, CafeMixerStream *stream)
         name = cafe_mixer_stream_get_name (stream);
         control = cafe_mixer_stream_get_default_control (stream);
 
-        ca_context_change_device (test->priv->canberra, name);
+        ca_context_change_device (test->priv->kanberra, name);
 
         for (i = 0; i < G_N_ELEMENTS (positions); i++) {
                 gboolean has_position =
@@ -284,11 +284,11 @@ static void
 on_test_button_clicked (CtkButton *button, CtkWidget *control)
 {
         gboolean    playing;
-        ca_context *canberra;
+        ca_context *kanberra;
 
-        canberra = g_object_get_data (G_OBJECT (control), "canberra");
+        kanberra = g_object_get_data (G_OBJECT (control), "kanberra");
 
-        ca_context_cancel (canberra, 1);
+        ca_context_cancel (kanberra, 1);
 
         playing = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (control), "playing"));
 
@@ -316,17 +316,17 @@ on_test_button_clicked (CtkButton *button, CtkWidget *control)
                 name = sound_name (position);
                 if (name != NULL) {
                         ca_proplist_sets (proplist, CA_PROP_EVENT_ID, name);
-                        playing = ca_context_play_full (canberra, 1, proplist, finish_cb, control) >= 0;
+                        playing = ca_context_play_full (kanberra, 1, proplist, finish_cb, control) >= 0;
                 }
 
                 if (!playing) {
                         ca_proplist_sets (proplist, CA_PROP_EVENT_ID, "audio-test-signal");
-                        playing = ca_context_play_full (canberra, 1, proplist, finish_cb, control) >= 0;
+                        playing = ca_context_play_full (kanberra, 1, proplist, finish_cb, control) >= 0;
                 }
 
                 if (!playing) {
                         ca_proplist_sets(proplist, CA_PROP_EVENT_ID, "bell-window-system");
-                        playing = ca_context_play_full (canberra, 1, proplist, finish_cb, control) >= 0;
+                        playing = ca_context_play_full (kanberra, 1, proplist, finish_cb, control) >= 0;
                 }
 
                 g_object_set_data (G_OBJECT (control), "playing", GINT_TO_POINTER (playing));
@@ -336,7 +336,7 @@ on_test_button_clicked (CtkButton *button, CtkWidget *control)
 }
 
 static CtkWidget *
-create_control (ca_context *canberra, CafeMixerChannelPosition position)
+create_control (ca_context *kanberra, CafeMixerChannelPosition position)
 {
         CtkWidget   *control;
         CtkWidget   *box;
@@ -350,7 +350,7 @@ create_control (ca_context *canberra, CafeMixerChannelPosition position)
 
         g_object_set_data (G_OBJECT (control), "playing", GINT_TO_POINTER (FALSE));
         g_object_set_data (G_OBJECT (control), "position", GINT_TO_POINTER (position));
-        g_object_set_data (G_OBJECT (control), "canberra", canberra);
+        g_object_set_data (G_OBJECT (control), "kanberra", kanberra);
 
         name = icon_name (position, FALSE);
         if (name == NULL)
@@ -385,7 +385,7 @@ create_controls (GvcSpeakerTest *test)
         guint i;
 
         for (i = 0; i < G_N_ELEMENTS (positions); i++) {
-                CtkWidget *control = create_control (test->priv->canberra, positions[i].position);
+                CtkWidget *control = create_control (test->priv->kanberra, positions[i].position);
 
                 ctk_grid_attach (CTK_GRID (test),
                                  control,
@@ -416,14 +416,14 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
         ctk_grid_set_baseline_row (CTK_GRID (test), 1);
         ctk_widget_show (face);
 
-        ca_context_create (&test->priv->canberra);
+        ca_context_create (&test->priv->kanberra);
 
         /* The test sounds are played for a single channel, set up using the
-         * FORCE_CHANNEL property of libcanberra; this property is only supported
+         * FORCE_CHANNEL property of libkanberra; this property is only supported
          * in the PulseAudio backend, so avoid other backends completely */
-        ca_context_set_driver (test->priv->canberra, "pulse");
+        ca_context_set_driver (test->priv->kanberra, "pulse");
 
-        ca_context_change_props (test->priv->canberra,
+        ca_context_change_props (test->priv->kanberra,
                                  CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",
                                  CA_PROP_APPLICATION_NAME, _("Volume Control"),
                                  CA_PROP_APPLICATION_VERSION, VERSION,
@@ -454,7 +454,7 @@ gvc_speaker_test_finalize (GObject *object)
 
         test = GVC_SPEAKER_TEST (object);
 
-        ca_context_destroy (test->priv->canberra);
+        ca_context_destroy (test->priv->kanberra);
 
         G_OBJECT_CLASS (gvc_speaker_test_parent_class)->finalize (object);
 }

@@ -261,7 +261,7 @@ add_custom_file (const char **sounds, const char *filename)
                 char *name, *path;
 
                 /* We use *.ogg because it's the first type of file that
-                 * libcanberra looks at */
+                 * libkanberra looks at */
                 name = g_strdup_printf ("%s.ogg", sounds[i]);
                 path = custom_theme_dir_path (name);
                 g_free (name);
