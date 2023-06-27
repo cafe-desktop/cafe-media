@@ -169,7 +169,7 @@ create_scale_box (GvcChannelBar *bar)
                 ctk_widget_hide (bar->priv->high_image);
         }
 
-        ca_ctk_widget_disable_sounds (bar->priv->scale, FALSE);
+        ka_ctk_widget_disable_sounds (bar->priv->scale, FALSE);
 
         ctk_widget_add_events (bar->priv->scale, CDK_SCROLL_MASK);
 
@@ -469,7 +469,7 @@ on_scale_button_release_event (CtkWidget      *widget,
         }
 
         /* Play a sound */
-        ca_ctk_play_for_widget (CTK_WIDGET (bar), 0,
+        ka_ctk_play_for_widget (CTK_WIDGET (bar), 0,
                                 CA_PROP_EVENT_ID, "audio-volume-change",
                                 CA_PROP_EVENT_DESCRIPTION, "Volume change",
                                 CA_PROP_APPLICATION_ID, "org.cafe.VolumeControl",

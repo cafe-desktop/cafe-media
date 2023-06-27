@@ -724,7 +724,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, CtkTreePath *path)
          * play the alert for the parent theme */
         if (strcmp (id, DEFAULT_ALERT_ID) == 0) {
                 if (parent_theme != NULL) {
-                        ca_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
+                        ka_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
                                                 CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
                                                 CA_PROP_EVENT_ID, "bell-window-system",
                                                 CA_PROP_KANBERRA_XDG_THEME_NAME, parent_theme,
@@ -736,7 +736,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, CtkTreePath *path)
 #endif
                                                 NULL);
                 } else {
-                        ca_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
+                        ka_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
                                                 CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
                                                 CA_PROP_EVENT_ID, "bell-window-system",
                                                 CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
@@ -748,7 +748,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, CtkTreePath *path)
                                                 NULL);
                 }
         } else {
-                ca_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
+                ka_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
                                         CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
                                         CA_PROP_MEDIA_FILENAME, id,
                                         CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
