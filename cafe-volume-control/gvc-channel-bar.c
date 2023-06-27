@@ -491,7 +491,7 @@ on_scale_scroll_event (CtkWidget      *widget,
                 gdouble dx = 0.0;
                 gdouble dy = 0.0;
 
-                gdk_event_get_scroll_deltas ((const GdkEvent *) event, &dx, &dy);
+                cdk_event_get_scroll_deltas ((const GdkEvent *) event, &dx, &dy);
                 if (dy > 0.0)
                         direction = GDK_SCROLL_DOWN;
                 else if (dy < 0.0)
@@ -769,7 +769,7 @@ gvc_channel_bar_set_icon_name (GvcChannelBar *bar, const gchar *name)
                 }
 
                 if (pixbuf == NULL) {
-                        pixbuf = gdk_pixbuf_new_from_file_at_scale (name, width, height, TRUE, &error);
+                        pixbuf = cdk_pixbuf_new_from_file_at_scale (name, width, height, TRUE, &error);
                         if (error != NULL)
                         {
                                 g_warning ("Couldn’t load icon: %s\n", error->message);

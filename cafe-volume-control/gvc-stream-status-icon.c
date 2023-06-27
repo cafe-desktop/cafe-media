@@ -22,7 +22,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkkeysyms.h>
 
 #include <libcafemixer/cafemixer.h>
 
@@ -85,8 +85,8 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar),
                                          1 - orientation);
 
-        monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), area.x, area.y);
-        gdk_monitor_get_geometry (monitor_num, &monitor);
+        monitor_num = cdk_display_get_monitor_at_point (cdk_screen_get_display (screen), area.x, area.y);
+        cdk_monitor_get_geometry (monitor_num, &monitor);
 
         ctk_container_foreach (CTK_CONTAINER (icon->priv->dock),
                                (CtkCallback) ctk_widget_show_all, NULL);
@@ -128,10 +128,10 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         display = ctk_widget_get_display (icon->priv->dock);
 
         do {
-                GdkSeat *seat = gdk_display_get_default_seat (display);
+                GdkSeat *seat = cdk_display_get_default_seat (display);
                 GdkWindow *window = ctk_widget_get_window (icon->priv->dock);
 
-                if (gdk_seat_grab (seat,
+                if (cdk_seat_grab (seat,
                                    window,
                                    GDK_SEAT_CAPABILITY_ALL,
                                    TRUE,
@@ -187,7 +187,7 @@ on_menu_activate_open_volume_control (CtkMenuItem         *item,
 {
         GError *error = NULL;
 
-        cafe_gdk_spawn_command_line_on_screen (ctk_widget_get_screen (icon->priv->dock),
+        cafe_cdk_spawn_command_line_on_screen (ctk_widget_get_screen (icon->priv->dock),
                                                "cafe-volume-control",
                                                &error);
 
@@ -225,7 +225,7 @@ on_status_icon_popup_menu (CtkStatusIcon       *status_icon,
         CtkWidget *toplevel = ctk_widget_get_toplevel (menu);
         /* Fix any failures of compiz/other wm's to communicate with ctk for transparency */
         GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-        GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+        GdkVisual *visual = cdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
         /* Set menu and it's toplevel window to follow panel theme */
         CtkStyleContext *context;
@@ -277,8 +277,8 @@ static void
 gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
 {
         GdkDisplay *display = ctk_widget_get_display (icon->priv->dock);
-        GdkSeat *seat = gdk_display_get_default_seat (display);
-        gdk_seat_ungrab (seat);
+        GdkSeat *seat = cdk_display_get_default_seat (display);
+        cdk_seat_ungrab (seat);
         ctk_grab_remove (icon->priv->dock);
 
         /* Hide again */
@@ -305,8 +305,8 @@ popdown_dock (GvcStreamStatusIcon *icon)
 
         display = ctk_widget_get_display (icon->priv->dock);
 
-        GdkSeat *seat = gdk_display_get_default_seat (display);
-        gdk_seat_ungrab (seat);
+        GdkSeat *seat = cdk_display_get_default_seat (display);
+        cdk_seat_ungrab (seat);
 
         /* Hide again */
         ctk_widget_hide (icon->priv->dock);
@@ -743,7 +743,7 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         ctk_style_context_add_class(context,"cafe-panel-applet-slider");
         /* Make transparency possible in ctk3 theme */
         GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-        GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+        GdkVisual *visual = cdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
 
         box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);

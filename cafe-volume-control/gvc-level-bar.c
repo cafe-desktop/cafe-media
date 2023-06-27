@@ -98,11 +98,11 @@ layout_changed (LevelBarLayout *layout1, LevelBarLayout *layout2)
         if (layout1->max_peak_num != layout2->max_peak_num)
                 return TRUE;
 
-        if (!gdk_rgba_equal (&layout1->color_fg, &layout2->color_fg))
+        if (!cdk_rgba_equal (&layout1->color_fg, &layout2->color_fg))
                 return TRUE;
-        if (!gdk_rgba_equal (&layout1->color_bg, &layout2->color_bg))
+        if (!cdk_rgba_equal (&layout1->color_bg, &layout2->color_bg))
                 return TRUE;
-        if (!gdk_rgba_equal (&layout1->color_dark, &layout2->color_dark))
+        if (!cdk_rgba_equal (&layout1->color_dark, &layout2->color_dark))
                 return TRUE;
 
         return FALSE;
@@ -578,11 +578,11 @@ gvc_level_bar_draw (CtkWidget *widget, cairo_t *cr)
                                           bar->priv->layout.box_radius);
                         if ((bar->priv->layout.max_peak_num - 1) == i) {
                                 /* fill peak foreground */
-                                gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_fg);
+                                cdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_fg);
                                 cairo_fill_preserve (cr);
                         } else if ((bar->priv->layout.peak_num - 1) >= i) {
                                 /* fill background */
-                                gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
+                                cdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
                                 cairo_fill_preserve (cr);
 
                                 /* fill foreground */
@@ -594,12 +594,12 @@ gvc_level_bar_draw (CtkWidget *widget, cairo_t *cr)
                                 cairo_fill_preserve (cr);
                         } else {
                                 /* fill background */
-                                gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
+                                cdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
                                 cairo_fill_preserve (cr);
                         }
 
                         /* stroke border */
-                        gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_dark);
+                        cdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_dark);
                         cairo_set_line_width (cr, 1);
                         cairo_stroke (cr);
                 }
@@ -628,11 +628,11 @@ gvc_level_bar_draw (CtkWidget *widget, cairo_t *cr)
 
                         if ((bar->priv->layout.max_peak_num - 1) == i) {
                                 /* fill peak foreground */
-                                gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_fg);
+                                cdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_fg);
                                 cairo_fill_preserve (cr);
                         } else if ((bar->priv->layout.peak_num - 1) >= i) {
                                 /* fill background */
-                                gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
+                                cdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
                                 cairo_fill_preserve (cr);
 
                                 /* fill foreground */
@@ -644,12 +644,12 @@ gvc_level_bar_draw (CtkWidget *widget, cairo_t *cr)
                                 cairo_fill_preserve (cr);
                         } else {
                                 /* fill background */
-                                gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
+                                cdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_bg);
                                 cairo_fill_preserve (cr);
                         }
 
                         /* stroke border */
-                        gdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_dark);
+                        cdk_cairo_set_source_rgba (cr, &bar->priv->layout.color_dark);
                         cairo_set_line_width (cr, 1);
                         cairo_stroke (cr);
                 }

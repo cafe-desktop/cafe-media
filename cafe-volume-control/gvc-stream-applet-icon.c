@@ -23,7 +23,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkkeysyms.h>
 
 #include <libcafemixer/cafemixer.h>
 #include <cafe-panel-applet.h>
@@ -75,14 +75,14 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
 
         screen = ctk_widget_get_screen (CTK_WIDGET (icon));
         ctk_widget_get_allocation (CTK_WIDGET (icon), &allocation);
-        gdk_window_get_origin (ctk_widget_get_window (CTK_WIDGET (icon)), &allocation.x, &allocation.y);
+        cdk_window_get_origin (ctk_widget_get_window (CTK_WIDGET (icon)), &allocation.x, &allocation.y);
 
         /* position roughly */
         ctk_window_set_screen (CTK_WINDOW (icon->priv->dock), screen);
         gvc_channel_bar_set_orientation (GVC_CHANNEL_BAR (icon->priv->bar), icon->priv->orient);
 
-        monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), allocation.x, allocation.y);
-        gdk_monitor_get_geometry (monitor_num, &monitor);
+        monitor_num = cdk_display_get_monitor_at_point (cdk_screen_get_display (screen), allocation.x, allocation.y);
+        cdk_monitor_get_geometry (monitor_num, &monitor);
 
         ctk_container_foreach (CTK_CONTAINER (icon->priv->dock), (CtkCallback) ctk_widget_show_all, NULL);
         ctk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
@@ -123,10 +123,10 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         display = ctk_widget_get_display (icon->priv->dock);
 
         do {
-                GdkSeat *seat = gdk_display_get_default_seat (display);
+                GdkSeat *seat = cdk_display_get_default_seat (display);
                 GdkWindow *window = ctk_widget_get_window (icon->priv->dock);
 
-                if (gdk_seat_grab (seat,
+                if (cdk_seat_grab (seat,
                                    window,
                                    GDK_SEAT_CAPABILITY_ALL,
                                    TRUE,
@@ -182,7 +182,7 @@ gvc_stream_applet_icon_volume_control (GvcStreamAppletIcon *icon)
 {
         GError *error = NULL;
 
-        cafe_gdk_spawn_command_line_on_screen (ctk_widget_get_screen (icon->priv->dock),
+        cafe_cdk_spawn_command_line_on_screen (ctk_widget_get_screen (icon->priv->dock),
                                                "cafe-volume-control",
                                                &error);
 
@@ -216,8 +216,8 @@ static void
 gvc_icon_release_grab (GvcStreamAppletIcon *icon, GdkEventButton *event)
 {
         GdkDisplay *display = ctk_widget_get_display (icon->priv->dock);
-        GdkSeat *seat = gdk_display_get_default_seat (display);
-        gdk_seat_ungrab (seat);
+        GdkSeat *seat = cdk_display_get_default_seat (display);
+        cdk_seat_ungrab (seat);
         ctk_grab_remove (icon->priv->dock);
 
         /* Hide again */
@@ -244,8 +244,8 @@ popdown_dock (GvcStreamAppletIcon *icon)
 
         display = ctk_widget_get_display (icon->priv->dock);
 
-        GdkSeat *seat = gdk_display_get_default_seat (display);
-        gdk_seat_ungrab (seat);
+        GdkSeat *seat = cdk_display_get_default_seat (display);
+        cdk_seat_ungrab (seat);
 
         /* Hide again */
         ctk_widget_hide (icon->priv->dock);
@@ -729,7 +729,7 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
 
         /* Make transparency possible in ctk3 theme */
         GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-        GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+        GdkVisual *visual = cdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
 
         box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);

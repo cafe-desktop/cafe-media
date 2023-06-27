@@ -998,7 +998,7 @@ setup_list_size_constraint (CtkWidget *widget,
         int            max_height;
 
         /* Constrain height to be the tree height up to a max */
-        gdk_window_get_geometry (gdk_screen_get_root_window (ctk_widget_get_screen (widget)),
+        cdk_window_get_geometry (cdk_screen_get_root_window (ctk_widget_get_screen (widget)),
                                  NULL, NULL, NULL, &sc_height);
 
         max_height = sc_height / 4;
