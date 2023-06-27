@@ -65,7 +65,7 @@
 ### cafe-media 1.20.0
 
   * Translations update
-  * require GTK+ 3.22 and GLib 2.50
+  * require CTK+ 3.22 and GLib 2.50
   * gvc-applet: don't try to increase refcount of a NULL object
   * gvc-combo-box: fix signal arguments
   * applet: restore icon for "Sound Preferences" menu item
@@ -74,7 +74,7 @@
 
   * Translations update
   * avoid deprecated gdk_screen_get_height
-  * applet: use GdkSeat with GTK+ >= 3.20
+  * applet: use GdkSeat with CTK+ >= 3.20
   * applet: make keyboard work in popup
   * ctk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
   * refresh tray icon on icon theme change
@@ -94,7 +94,7 @@
   * NEWS: use consistent, project wide, markdown-like formatting to make
     generating release announcements easier
   * Build: require libcafemixer >= 1.10 and libcafe-desktop >= 1.17
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-ctk
+  * Move to CTK+3 (require CTK+ >= 3.14), drop CTK+2 code and --with-ctk
     build option
   * Port from libunique to GApplication and GtkApplication
   * Some cleanups
@@ -106,27 +106,27 @@
 
 ### cafe-media 1.14.1
 
-  * GTK+3: add css name gvc-level-bar for 3.20
+  * CTK+3: add css name gvc-level-bar for 3.20
   * Translations update
-  * Make distcheck use currently selected GTK+ version
+  * Make distcheck use currently selected CTK+ version
 
 ### cafe-media 1.14.0
 
-  * GTK+3: add css name GvcMixerDialog for 3.20
-  * GTK+3: fix several deprecations
+  * CTK+3: add css name GvcMixerDialog for 3.20
+  * CTK+3: fix several deprecations
   * Translations update
   * Fix Changelog generation
 
 ### cafe-media 1.12.1
 
-  * GTK+3: don't remove slider background (fixes background in some
+  * CTK+3: don't remove slider background (fixes background in some
     themes)
 
 ### cafe-media 1.12.0
 
   * Multiple fixes in manpages
-  * GTK+3: add style classes for slider and menu for volume-applet
-  * GTK+3: fix missing icons with custom icon theme
+  * CTK+3: add style classes for slider and menu for volume-applet
+  * CTK+3: fix missing icons with custom icon theme
   * Translations update
 
 ### cafe-media 1.10.0

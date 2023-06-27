@@ -144,7 +144,7 @@ update_icon_input (GvcApplet *applet)
 
         gvc_stream_applet_icon_set_control (applet->priv->icon_input, control);
 
-        ctk_widget_set_visible (GTK_WIDGET (applet->priv->icon_input), show);
+        ctk_widget_set_visible (CTK_WIDGET (applet->priv->icon_input), show);
 }
 
 static void
@@ -161,11 +161,11 @@ update_icon_output (GvcApplet *applet)
 
         if (control != NULL) {
                 g_debug ("Output icon enabled");
-                ctk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output), TRUE);
+                ctk_widget_set_visible (CTK_WIDGET (applet->priv->icon_output), TRUE);
         }
         else {
                 g_debug ("There is no output stream/control, output icon disabled");
-                ctk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output), FALSE);
+                ctk_widget_set_visible (CTK_WIDGET (applet->priv->icon_output), FALSE);
         }
 }
 
@@ -514,22 +514,22 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
         ctk_window_set_default_icon_name (APPLET_ICON);
 
         cafe_panel_applet_set_flags (applet_widget, CAFE_PANEL_APPLET_EXPAND_MINOR);
-        cafe_panel_applet_set_background_widget (CAFE_PANEL_APPLET (applet_widget), GTK_WIDGET (applet_widget));
+        cafe_panel_applet_set_background_widget (CAFE_PANEL_APPLET (applet_widget), CTK_WIDGET (applet_widget));
 
         applet->priv->applet = applet_widget;
         /*FIXME: We haved to set this up BEFORE packing in icons. find a way to update this when the applet is moved that works*/
         switch (cafe_panel_applet_get_orient (applet->priv->applet)) {
         case CAFE_PANEL_APPLET_ORIENT_UP:
-                applet->priv->box = GTK_BOX (ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
+                applet->priv->box = CTK_BOX (ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 0));
 		break;
         case CAFE_PANEL_APPLET_ORIENT_DOWN:
-                applet->priv->box = GTK_BOX (ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
+                applet->priv->box = CTK_BOX (ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 0));
 		break;
         case CAFE_PANEL_APPLET_ORIENT_LEFT:
-                applet->priv->box = GTK_BOX (ctk_box_new (GTK_ORIENTATION_VERTICAL, 0));
+                applet->priv->box = CTK_BOX (ctk_box_new (CTK_ORIENTATION_VERTICAL, 0));
 		break;
         case CAFE_PANEL_APPLET_ORIENT_RIGHT:
-                applet->priv->box = GTK_BOX (ctk_box_new (GTK_ORIENTATION_VERTICAL, 0));
+                applet->priv->box = CTK_BOX (ctk_box_new (CTK_ORIENTATION_VERTICAL, 0));
         break;
         }
 
@@ -540,17 +540,17 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
         gvc_stream_applet_icon_set_orient (applet->priv->icon_output, cafe_panel_applet_get_orient (applet->priv->applet));
 
         /* we add the Gtk buttons into the applet */
-        ctk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_input), TRUE, TRUE, 2);
-        ctk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_output), TRUE, TRUE, 2);
-        ctk_container_add (GTK_CONTAINER (applet->priv->applet), GTK_WIDGET (applet->priv->box));
-        ctk_widget_show_all (GTK_WIDGET (applet->priv->applet));
+        ctk_box_pack_start (applet->priv->box, CTK_WIDGET (applet->priv->icon_input), TRUE, TRUE, 2);
+        ctk_box_pack_start (applet->priv->box, CTK_WIDGET (applet->priv->icon_output), TRUE, TRUE, 2);
+        ctk_container_add (CTK_CONTAINER (applet->priv->applet), CTK_WIDGET (applet->priv->box));
+        ctk_widget_show_all (CTK_WIDGET (applet->priv->applet));
 
         /* Enable 'scroll-event' signal to get through */
-        window = ctk_widget_get_window (GTK_WIDGET (applet->priv->icon_input));
+        window = ctk_widget_get_window (CTK_WIDGET (applet->priv->icon_input));
         event_mask = gdk_window_get_events (window);
         gdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
 
-        window = ctk_widget_get_window (GTK_WIDGET (applet->priv->icon_output));
+        window = ctk_widget_get_window (CTK_WIDGET (applet->priv->icon_output));
         event_mask = gdk_window_get_events (window);
         gdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
 

@@ -50,7 +50,7 @@ struct GvcSoundThemeChooserPrivate
 
 static void     gvc_sound_theme_chooser_dispose   (GObject            *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (GvcSoundThemeChooser, gvc_sound_theme_chooser, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcSoundThemeChooser, gvc_sound_theme_chooser, CTK_TYPE_BOX)
 
 #define KEY_SOUNDS_SCHEMA          "org.cafe.sound"
 #define EVENT_SOUNDS_KEY           "event-sounds"
@@ -92,11 +92,11 @@ on_combobox_changed (GtkComboBox          *widget,
         GtkTreeModel *model;
         char         *theme_name;
 
-        if (ctk_combo_box_get_active_iter (GTK_COMBO_BOX (chooser->priv->combo_box), &iter) == FALSE) {
+        if (ctk_combo_box_get_active_iter (CTK_COMBO_BOX (chooser->priv->combo_box), &iter) == FALSE) {
                 return;
         }
 
-        model = ctk_combo_box_get_model (GTK_COMBO_BOX (chooser->priv->combo_box));
+        model = ctk_combo_box_get_model (CTK_COMBO_BOX (chooser->priv->combo_box));
         ctk_tree_model_get (model, &iter, THEME_IDENTIFIER_COL, &theme_name, -1);
 
         g_assert (theme_name != NULL);
@@ -231,7 +231,7 @@ set_combox_for_theme_name (GvcSoundThemeChooser *chooser,
                 name = "freedesktop";
         }
 
-        model = ctk_combo_box_get_model (GTK_COMBO_BOX (chooser->priv->combo_box));
+        model = ctk_combo_box_get_model (CTK_COMBO_BOX (chooser->priv->combo_box));
 
         if (ctk_tree_model_get_iter_first (model, &iter) == FALSE) {
                 return;
@@ -249,7 +249,7 @@ set_combox_for_theme_name (GvcSoundThemeChooser *chooser,
         /* When we can't find the theme we need to set, try to set the default
          * one "freedesktop" */
         if (found) {
-                ctk_combo_box_set_active_iter (GTK_COMBO_BOX (chooser->priv->combo_box), &iter);
+                ctk_combo_box_set_active_iter (CTK_COMBO_BOX (chooser->priv->combo_box), &iter);
         } else if (strcmp (name, "freedesktop") != 0) {
                 g_debug ("not found, falling back to fdo");
                 set_combox_for_theme_name (chooser, "freedesktop");
@@ -260,7 +260,7 @@ static void
 set_input_feedback_enabled (GvcSoundThemeChooser *chooser,
                             gboolean              enabled)
 {
-        ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (chooser->priv->click_feedback_button),
+        ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (chooser->priv->click_feedback_button),
                                       enabled);
 }
 
@@ -294,7 +294,7 @@ setup_theme_selector (GvcSoundThemeChooser *chooser)
         /* If there isn't at least one theme, make everything
          * insensitive, LAME! */
         if (g_hash_table_size (hash) == 0) {
-                ctk_widget_set_sensitive (GTK_WIDGET (chooser), FALSE);
+                ctk_widget_set_sensitive (CTK_WIDGET (chooser), FALSE);
                 g_warning ("Bad setup, install the freedesktop sound theme");
                 g_hash_table_destroy (hash);
                 return;
@@ -321,14 +321,14 @@ setup_theme_selector (GvcSoundThemeChooser *chooser)
         g_hash_table_destroy (hash);
 
         /* Set the display */
-        ctk_combo_box_set_model (GTK_COMBO_BOX (chooser->priv->combo_box),
-                                 GTK_TREE_MODEL (store));
+        ctk_combo_box_set_model (CTK_COMBO_BOX (chooser->priv->combo_box),
+                                 CTK_TREE_MODEL (store));
 
         renderer = ctk_cell_renderer_text_new ();
-        ctk_cell_layout_pack_start (GTK_CELL_LAYOUT (chooser->priv->combo_box),
+        ctk_cell_layout_pack_start (CTK_CELL_LAYOUT (chooser->priv->combo_box),
                                     renderer,
                                     TRUE);
-        ctk_cell_layout_set_attributes (GTK_CELL_LAYOUT (chooser->priv->combo_box),
+        ctk_cell_layout_set_attributes (CTK_CELL_LAYOUT (chooser->priv->combo_box),
                                         renderer,
                                         "text", THEME_DISPLAY_COL,
                                         NULL);
@@ -429,7 +429,7 @@ populate_model_from_node (GvcSoundThemeChooser *chooser,
         }
 
         if (filename != NULL && name != NULL) {
-                ctk_list_store_insert_with_values (GTK_LIST_STORE (model),
+                ctk_list_store_insert_with_values (CTK_LIST_STORE (model),
                                                    NULL,
                                                    G_MAXINT,
                                                    ALERT_IDENTIFIER_COL, filename,
@@ -542,7 +542,7 @@ update_alert_model (GvcSoundThemeChooser  *chooser,
         GtkTreeModel *model;
         GtkTreeIter   iter;
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (chooser->priv->treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (chooser->priv->treeview));
         ctk_tree_model_get_iter_first (model, &iter);
         do {
                 gboolean toggled;
@@ -559,7 +559,7 @@ update_alert_model (GvcSoundThemeChooser  *chooser,
                 }
                 g_free (this_id);
 
-                ctk_list_store_set (GTK_LIST_STORE (model),
+                ctk_list_store_set (CTK_LIST_STORE (model),
                                     &iter,
                                     ALERT_ACTIVE_COL, toggled,
                                     -1);
@@ -579,9 +579,9 @@ update_alert (GvcSoundThemeChooser *chooser,
         gboolean      add_custom;
         gboolean      remove_custom;
 
-        theme_model = ctk_combo_box_get_model (GTK_COMBO_BOX (chooser->priv->combo_box));
+        theme_model = ctk_combo_box_get_model (CTK_COMBO_BOX (chooser->priv->combo_box));
         /* Get the current theme's name, and set the parent */
-        if (ctk_combo_box_get_active_iter (GTK_COMBO_BOX (chooser->priv->combo_box), &iter) == FALSE) {
+        if (ctk_combo_box_get_active_iter (CTK_COMBO_BOX (chooser->priv->combo_box), &iter) == FALSE) {
                 return;
         }
 
@@ -618,7 +618,7 @@ update_alert (GvcSoundThemeChooser *chooser,
         }
 
         if (add_custom) {
-                ctk_list_store_insert_with_values (GTK_LIST_STORE (theme_model),
+                ctk_list_store_insert_with_values (CTK_LIST_STORE (theme_model),
                                                    NULL,
                                                    G_MAXINT,
                                                    THEME_DISPLAY_COL, _("Custom"),
@@ -636,7 +636,7 @@ update_alert (GvcSoundThemeChooser *chooser,
                                             -1);
                         if (this_parent != NULL && strcmp (this_parent, CUSTOM_THEME_NAME) != 0) {
                                 g_free (this_parent);
-                                ctk_list_store_remove (GTK_LIST_STORE (theme_model), &iter);
+                                ctk_list_store_remove (CTK_LIST_STORE (theme_model), &iter);
                                 break;
                         }
                         g_free (this_parent);
@@ -664,7 +664,7 @@ on_alert_toggled (GtkCellRendererToggle *renderer,
         gboolean      toggled;
         char         *id;
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (chooser->priv->treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (chooser->priv->treeview));
 
         path = ctk_tree_path_new_from_string (path_str);
         ctk_tree_model_get_iter (model, &iter, path);
@@ -693,7 +693,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, GtkTreePath *path)
         gchar        *id = NULL;
         gchar        *parent_theme = NULL;
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (chooser->priv->treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (chooser->priv->treeview));
         if (ctk_tree_model_get_iter (model, &iter, path) == FALSE)
                 return;
 
@@ -703,12 +703,12 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, GtkTreePath *path)
         if (id == NULL)
                 return;
 
-        if (ctk_combo_box_get_active_iter (GTK_COMBO_BOX (chooser->priv->combo_box), &theme_iter)) {
+        if (ctk_combo_box_get_active_iter (CTK_COMBO_BOX (chooser->priv->combo_box), &theme_iter)) {
                 GtkTreeModel *theme_model;
                 gchar        *theme_id = NULL;
                 gchar        *parent_id = NULL;
 
-                theme_model = ctk_combo_box_get_model (GTK_COMBO_BOX (chooser->priv->combo_box));
+                theme_model = ctk_combo_box_get_model (CTK_COMBO_BOX (chooser->priv->combo_box));
 
                 ctk_tree_model_get (theme_model, &theme_iter,
                                     THEME_IDENTIFIER_COL, &theme_id,
@@ -724,7 +724,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, GtkTreePath *path)
          * play the alert for the parent theme */
         if (strcmp (id, DEFAULT_ALERT_ID) == 0) {
                 if (parent_theme != NULL) {
-                        ca_ctk_play_for_widget (GTK_WIDGET (chooser), 0,
+                        ca_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
                                                 CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
                                                 CA_PROP_EVENT_ID, "bell-window-system",
                                                 CA_PROP_CANBERRA_XDG_THEME_NAME, parent_theme,
@@ -736,7 +736,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, GtkTreePath *path)
 #endif
                                                 NULL);
                 } else {
-                        ca_ctk_play_for_widget (GTK_WIDGET (chooser), 0,
+                        ca_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
                                                 CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
                                                 CA_PROP_EVENT_ID, "bell-window-system",
                                                 CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
@@ -748,7 +748,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, GtkTreePath *path)
                                                 NULL);
                 }
         } else {
-                ca_ctk_play_for_widget (GTK_WIDGET (chooser), 0,
+                ca_ctk_play_for_widget (CTK_WIDGET (chooser), 0,
                                         CA_PROP_APPLICATION_NAME, _("Sound Preferences"),
                                         CA_PROP_MEDIA_FILENAME, id,
                                         CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
@@ -784,7 +784,7 @@ on_treeview_selection_changed (GtkTreeSelection     *selection,
         if (chooser->priv->treeview == NULL)
                 return;
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (chooser->priv->treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (chooser->priv->treeview));
 
         paths = ctk_tree_selection_get_selected_rows (selection, &model);
         if (paths == NULL)
@@ -808,15 +808,15 @@ create_alert_treeview (GvcSoundThemeChooser *chooser)
 
         treeview = ctk_tree_view_new ();
 
-        ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
+        ctk_tree_view_set_headers_visible (CTK_TREE_VIEW (treeview), FALSE);
         g_signal_connect (G_OBJECT (treeview),
                           "row-activated",
                           G_CALLBACK (on_treeview_row_activated),
                           chooser);
 
-        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
+        selection = ctk_tree_view_get_selection (CTK_TREE_VIEW (treeview));
 
-        ctk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
+        ctk_tree_selection_set_mode (selection, CTK_SELECTION_SINGLE);
         g_signal_connect (G_OBJECT (selection),
                           "changed",
                           G_CALLBACK (on_treeview_selection_changed),
@@ -842,19 +842,19 @@ create_alert_treeview (GvcSoundThemeChooser *chooser)
                                            ALERT_ACTIVE_COL, TRUE,
                                            -1);
 
-        populate_model_from_dir (chooser, GTK_TREE_MODEL (store), SOUND_SET_DIR);
+        populate_model_from_dir (chooser, CTK_TREE_MODEL (store), SOUND_SET_DIR);
 
-        ctk_tree_view_set_model (GTK_TREE_VIEW (treeview),
-                                 GTK_TREE_MODEL (store));
+        ctk_tree_view_set_model (CTK_TREE_VIEW (treeview),
+                                 CTK_TREE_MODEL (store));
 
         renderer = ctk_cell_renderer_toggle_new ();
-        ctk_cell_renderer_toggle_set_radio (GTK_CELL_RENDERER_TOGGLE (renderer), TRUE);
+        ctk_cell_renderer_toggle_set_radio (CTK_CELL_RENDERER_TOGGLE (renderer), TRUE);
 
         column = ctk_tree_view_column_new_with_attributes (NULL,
                                                            renderer,
                                                            "active", ALERT_ACTIVE_COL,
                                                            NULL);
-        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+        ctk_tree_view_append_column (CTK_TREE_VIEW (treeview), column);
         g_signal_connect (renderer,
                           "toggled",
                           G_CALLBACK (on_alert_toggled),
@@ -865,7 +865,7 @@ create_alert_treeview (GvcSoundThemeChooser *chooser)
                                                            renderer,
                                                            "text", ALERT_DISPLAY_COL,
                                                            NULL);
-        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+        ctk_tree_view_append_column (CTK_TREE_VIEW (treeview), column);
 
         renderer = ctk_cell_renderer_text_new ();
         column = ctk_tree_view_column_new_with_attributes (_("Type"),
@@ -873,7 +873,7 @@ create_alert_treeview (GvcSoundThemeChooser *chooser)
                                                            "text", ALERT_SOUND_TYPE_COL,
                                                            NULL);
 
-        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+        ctk_tree_view_append_column (CTK_TREE_VIEW (treeview), column);
 
         return treeview;
 }
@@ -1006,7 +1006,7 @@ setup_list_size_constraint (GtkWidget *widget,
         // XXX this doesn't work
         ctk_widget_get_preferred_size (to_size, NULL, &req);
 
-        ctk_scrolled_window_set_min_content_height (GTK_SCROLLED_WINDOW (widget),
+        ctk_scrolled_window_set_min_content_height (CTK_SCROLLED_WINDOW (widget),
                                                     MIN (req.height, max_height));
 }
 
@@ -1020,16 +1020,16 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
 
         chooser->priv = gvc_sound_theme_chooser_get_instance_private (chooser);
 
-        chooser->priv->theme_box = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+        chooser->priv->theme_box = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 0);
 
-        ctk_box_pack_start (GTK_BOX (chooser),
+        ctk_box_pack_start (CTK_BOX (chooser),
                             chooser->priv->theme_box, FALSE, FALSE, 0);
 
         label = ctk_label_new_with_mnemonic (_("Sound _theme:"));
-        ctk_box_pack_start (GTK_BOX (chooser->priv->theme_box), label, FALSE, FALSE, 0);
+        ctk_box_pack_start (CTK_BOX (chooser->priv->theme_box), label, FALSE, FALSE, 0);
         chooser->priv->combo_box = ctk_combo_box_new ();
-        ctk_box_pack_start (GTK_BOX (chooser->priv->theme_box), chooser->priv->combo_box, FALSE, FALSE, 6);
-        ctk_label_set_mnemonic_widget (GTK_LABEL (label), chooser->priv->combo_box);
+        ctk_box_pack_start (CTK_BOX (chooser->priv->theme_box), chooser->priv->combo_box, FALSE, FALSE, 6);
+        ctk_label_set_mnemonic_widget (CTK_LABEL (label), chooser->priv->combo_box);
 
         chooser->priv->sound_settings = g_settings_new (KEY_SOUNDS_SCHEMA);
 
@@ -1042,35 +1042,35 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         chooser->priv->selection_box = box = ctk_frame_new (str);
         g_free (str);
 
-        label = ctk_frame_get_label_widget (GTK_FRAME (box));
-        ctk_label_set_use_underline (GTK_LABEL (label), TRUE);
-        ctk_label_set_use_markup (GTK_LABEL (label), TRUE);
-        ctk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
+        label = ctk_frame_get_label_widget (CTK_FRAME (box));
+        ctk_label_set_use_underline (CTK_LABEL (label), TRUE);
+        ctk_label_set_use_markup (CTK_LABEL (label), TRUE);
+        ctk_frame_set_shadow_type (CTK_FRAME (box), CTK_SHADOW_NONE);
 
-        ctk_box_pack_start (GTK_BOX (chooser), box, TRUE, TRUE, 6);
+        ctk_box_pack_start (CTK_BOX (chooser), box, TRUE, TRUE, 6);
 
         chooser->priv->treeview = create_alert_treeview (chooser);
-        ctk_label_set_mnemonic_widget (GTK_LABEL (label), chooser->priv->treeview);
+        ctk_label_set_mnemonic_widget (CTK_LABEL (label), chooser->priv->treeview);
 
         scrolled_window = ctk_scrolled_window_new (NULL, NULL);
         ctk_widget_set_hexpand (scrolled_window, TRUE);
         ctk_widget_set_vexpand (scrolled_window, TRUE);
         ctk_widget_set_margin_top (scrolled_window, 6);
 
-        ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
-                                        GTK_POLICY_NEVER,
-                                        GTK_POLICY_AUTOMATIC);
-        ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolled_window),
-                                             GTK_SHADOW_IN);
+        ctk_scrolled_window_set_policy (CTK_SCROLLED_WINDOW (scrolled_window),
+                                        CTK_POLICY_NEVER,
+                                        CTK_POLICY_AUTOMATIC);
+        ctk_scrolled_window_set_shadow_type (CTK_SCROLLED_WINDOW (scrolled_window),
+                                             CTK_SHADOW_IN);
 
-        ctk_container_add (GTK_CONTAINER (scrolled_window), chooser->priv->treeview);
-        ctk_container_add (GTK_CONTAINER (box), scrolled_window);
+        ctk_container_add (CTK_CONTAINER (scrolled_window), chooser->priv->treeview);
+        ctk_container_add (CTK_CONTAINER (box), scrolled_window);
 
         chooser->priv->click_feedback_button = ctk_check_button_new_with_mnemonic (_("Enable _window and button sounds"));
-        ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (chooser->priv->click_feedback_button),
+        ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (chooser->priv->click_feedback_button),
                                       g_settings_get_boolean (chooser->priv->sound_settings, INPUT_SOUNDS_KEY));
 
-        ctk_box_pack_start (GTK_BOX (chooser),
+        ctk_box_pack_start (CTK_BOX (chooser),
                             chooser->priv->click_feedback_button,
                             FALSE, FALSE, 0);
 
@@ -1102,6 +1102,6 @@ gvc_sound_theme_chooser_new (void)
 {
         return g_object_new (GVC_TYPE_SOUND_THEME_CHOOSER,
                                 "spacing", 6,
-                                "orientation", GTK_ORIENTATION_VERTICAL,
+                                "orientation", CTK_ORIENTATION_VERTICAL,
                                 NULL);
 }

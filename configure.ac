@@ -35,7 +35,7 @@ AC_TYPE_SIZE_T
 
 GLIB_REQUIRED_VERSION=2.50.0
 GIO_REQUIRED_VERSION=2.50.0
-GTK_REQUIRED_VERSION=3.22.0
+CTK_REQUIRED_VERSION=3.22.0
 CANBERRA_REQUIRED_VERSION=0.13
 CAFE_MIXER_REQUIRED_VERSION=1.10.0
 CAFE_DESKTOP_REQUIRED_VERSION=1.17.0
@@ -47,7 +47,7 @@ dnl=======================================================================
 
 PKG_CHECK_MODULES(VOLUME_CONTROL,
                   gobject-2.0 >= $GLIB_REQUIRED_VERSION
-                  ctk+-3.0 >= $GTK_REQUIRED_VERSION
+                  ctk+-3.0 >= $CTK_REQUIRED_VERSION
                   gio-2.0 >= $GIO_REQUIRED_VERSION
                   libcanberra-ctk3 >= $CANBERRA_REQUIRED_VERSION
                   libxml-2.0

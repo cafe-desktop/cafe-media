@@ -132,7 +132,7 @@ update_icon_input (GvcStatusIcon *status_icon)
 
         gvc_stream_status_icon_set_control (status_icon->priv->icon_input, control);
 
-        ctk_status_icon_set_visible (GTK_STATUS_ICON (status_icon->priv->icon_input), show);
+        ctk_status_icon_set_visible (CTK_STATUS_ICON (status_icon->priv->icon_input), show);
 }
 
 static void
@@ -149,12 +149,12 @@ update_icon_output (GvcStatusIcon *status_icon)
 
         if (control != NULL) {
                 g_debug ("Output icon enabled");
-                ctk_status_icon_set_visible (GTK_STATUS_ICON (status_icon->priv->icon_output),
+                ctk_status_icon_set_visible (CTK_STATUS_ICON (status_icon->priv->icon_output),
                                              TRUE);
         }
         else {
                 g_debug ("There is no output stream/control, output icon disabled");
-                ctk_status_icon_set_visible (GTK_STATUS_ICON (status_icon->priv->icon_output),
+                ctk_status_icon_set_visible (CTK_STATUS_ICON (status_icon->priv->icon_output),
                                              FALSE);
         }
 }
@@ -323,9 +323,9 @@ gvc_status_icon_init (GvcStatusIcon *status_icon)
         gvc_stream_status_icon_set_display_name (status_icon->priv->icon_input,  _("Input"));
         gvc_stream_status_icon_set_display_name (status_icon->priv->icon_output, _("Output"));
 
-        ctk_status_icon_set_title (GTK_STATUS_ICON (status_icon->priv->icon_input),
+        ctk_status_icon_set_title (CTK_STATUS_ICON (status_icon->priv->icon_input),
                                    _("Microphone Volume"));
-        ctk_status_icon_set_title (GTK_STATUS_ICON (status_icon->priv->icon_output),
+        ctk_status_icon_set_title (CTK_STATUS_ICON (status_icon->priv->icon_output),
                                    _("Sound Output Volume"));
 
         status_icon->priv->context = cafe_mixer_context_new ();

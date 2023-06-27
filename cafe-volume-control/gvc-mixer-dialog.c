@@ -131,7 +131,7 @@ static gboolean dialog_page_scroll_event_cb (GtkWidget          *widget,
                                              GdkEventScroll     *event,
                                              GtkWindow          *window);
 
-G_DEFINE_TYPE_WITH_PRIVATE (GvcMixerDialog, gvc_mixer_dialog, GTK_TYPE_DIALOG)
+G_DEFINE_TYPE_WITH_PRIVATE (GvcMixerDialog, gvc_mixer_dialog, CTK_TYPE_DIALOG)
 
 static CafeMixerSwitch *
 find_stream_port_switch (CafeMixerStream *stream)
@@ -239,7 +239,7 @@ update_default_tree_item (GvcMixerDialog  *dialog,
                 ctk_tree_model_get (model, &iter,
                                     NAME_COLUMN, &n,
                                     -1);
-                ctk_list_store_set (GTK_LIST_STORE (model),
+                ctk_list_store_set (CTK_LIST_STORE (model),
                                     &iter,
                                     ACTIVE_COLUMN, !g_strcmp0 (name, n),
                                     -1);
@@ -259,25 +259,25 @@ update_output_settings (GvcMixerDialog *dialog)
         g_debug ("Updating output settings");
 
         if (dialog->priv->output_balance_bar != NULL) {
-                ctk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
+                ctk_container_remove (CTK_CONTAINER (dialog->priv->output_settings_box),
                                       dialog->priv->output_balance_bar);
 
                 dialog->priv->output_balance_bar = NULL;
         }
         if (dialog->priv->output_fade_bar != NULL) {
-                ctk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
+                ctk_container_remove (CTK_CONTAINER (dialog->priv->output_settings_box),
                                       dialog->priv->output_fade_bar);
 
                 dialog->priv->output_fade_bar = NULL;
         }
         if (dialog->priv->output_lfe_bar != NULL) {
-                ctk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
+                ctk_container_remove (CTK_CONTAINER (dialog->priv->output_settings_box),
                                       dialog->priv->output_lfe_bar);
 
                 dialog->priv->output_lfe_bar = NULL;
         }
         if (dialog->priv->output_port_combo != NULL) {
-                ctk_container_remove (GTK_CONTAINER (dialog->priv->output_settings_box),
+                ctk_container_remove (CTK_CONTAINER (dialog->priv->output_settings_box),
                                       dialog->priv->output_port_combo);
 
                 dialog->priv->output_port_combo = NULL;
@@ -301,7 +301,7 @@ update_output_settings (GvcMixerDialog *dialog)
                                                 dialog->priv->size_group,
                                                 TRUE);
 
-                ctk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
+                ctk_box_pack_start (CTK_BOX (dialog->priv->output_settings_box),
                                     dialog->priv->output_balance_bar,
                                     FALSE, FALSE, 6);
 
@@ -318,7 +318,7 @@ update_output_settings (GvcMixerDialog *dialog)
                                                 dialog->priv->size_group,
                                                 TRUE);
 
-                ctk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
+                ctk_box_pack_start (CTK_BOX (dialog->priv->output_settings_box),
                                     dialog->priv->output_fade_bar,
                                     FALSE, FALSE, 6);
 
@@ -335,7 +335,7 @@ update_output_settings (GvcMixerDialog *dialog)
                                                 dialog->priv->size_group,
                                                 TRUE);
 
-                ctk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
+                ctk_box_pack_start (CTK_BOX (dialog->priv->output_settings_box),
                                     dialog->priv->output_lfe_bar,
                                     FALSE, FALSE, 6);
 
@@ -358,7 +358,7 @@ update_output_settings (GvcMixerDialog *dialog)
                                               dialog->priv->size_group,
                                               FALSE);
 
-                ctk_box_pack_start (GTK_BOX (dialog->priv->output_settings_box),
+                ctk_box_pack_start (CTK_BOX (dialog->priv->output_settings_box),
                                     dialog->priv->output_port_combo,
                                     TRUE, FALSE, 6);
 
@@ -419,7 +419,7 @@ set_output_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                 }
         }
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->output_treeview));
         update_default_tree_item (dialog, model, stream);
 
         update_output_settings (dialog);
@@ -472,7 +472,7 @@ update_input_settings (GvcMixerDialog *dialog)
         g_debug ("Updating input settings");
 
         if (dialog->priv->input_port_combo != NULL) {
-                ctk_container_remove (GTK_CONTAINER (dialog->priv->input_settings_box),
+                ctk_container_remove (CTK_CONTAINER (dialog->priv->input_settings_box),
                                       dialog->priv->input_port_combo);
 
                 dialog->priv->input_port_combo = NULL;
@@ -507,7 +507,7 @@ update_input_settings (GvcMixerDialog *dialog)
                                               dialog->priv->size_group,
                                               FALSE);
 
-                ctk_box_pack_start (GTK_BOX (dialog->priv->input_settings_box),
+                ctk_box_pack_start (CTK_BOX (dialog->priv->input_settings_box),
                                     dialog->priv->input_port_combo,
                                     TRUE, TRUE, 0);
 
@@ -558,7 +558,7 @@ set_input_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
 
         if (stream != NULL) {
                 const GList *controls;
-                guint page = ctk_notebook_get_current_page (GTK_NOTEBOOK (dialog->priv->notebook));
+                guint page = ctk_notebook_get_current_page (CTK_NOTEBOOK (dialog->priv->notebook));
 
                 controls = cafe_mixer_context_list_stored_controls (dialog->priv->context);
 
@@ -595,7 +595,7 @@ set_input_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                                   dialog);
         }
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->input_treeview));
         update_default_tree_item (dialog, model, stream);
 
         update_input_settings (dialog);
@@ -628,7 +628,7 @@ create_bar (GvcMixerDialog *dialog, gboolean use_size_group, gboolean symmetric)
                                                 symmetric);
 
         g_object_set (G_OBJECT (bar),
-                      "orientation", GTK_ORIENTATION_HORIZONTAL,
+                      "orientation", CTK_ORIENTATION_HORIZONTAL,
                       "show-mute",   TRUE,
                       "show-icons",  TRUE,
                       "show-marks",  TRUE,
@@ -691,9 +691,9 @@ bar_set_stream_control (GvcMixerDialog         *dialog,
                                      (gpointer) name,
                                      bar);
 
-                ctk_widget_set_sensitive (GTK_WIDGET (bar), TRUE);
+                ctk_widget_set_sensitive (CTK_WIDGET (bar), TRUE);
         } else
-                ctk_widget_set_sensitive (GTK_WIDGET (bar), TRUE);
+                ctk_widget_set_sensitive (CTK_WIDGET (bar), TRUE);
 }
 
 static void
@@ -770,7 +770,7 @@ add_application_control (GvcMixerDialog *dialog, CafeMixerStreamControl *control
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (bar), app_name);
         gvc_channel_bar_set_icon_name (GVC_CHANNEL_BAR (bar), app_icon);
 
-        ctk_box_pack_start (GTK_BOX (dialog->priv->applications_box),
+        ctk_box_pack_start (CTK_BOX (dialog->priv->applications_box),
                             bar,
                             FALSE, FALSE, 12);
 
@@ -853,7 +853,7 @@ add_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                         update_input_settings (dialog);
                         is_default = TRUE;
                 }
-                model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
+                model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->input_treeview));
         }
         else if (direction == CAFE_MIXER_DIRECTION_OUTPUT) {
                 CafeMixerStream        *output;
@@ -866,7 +866,7 @@ add_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                         update_output_settings (dialog);
                         is_default = TRUE;
                 }
-                model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
+                model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->output_treeview));
 
                 control = cafe_mixer_stream_get_default_control (stream);
                 if (G_LIKELY (control != NULL))
@@ -893,8 +893,8 @@ add_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
                 name  = cafe_mixer_stream_get_name (stream);
                 label = cafe_mixer_stream_get_label (stream);
 
-                ctk_list_store_append (GTK_LIST_STORE (model), &iter);
-                ctk_list_store_set (GTK_LIST_STORE (model),
+                ctk_list_store_append (CTK_LIST_STORE (model), &iter);
+                ctk_list_store_set (CTK_LIST_STORE (model),
                                     &iter,
                                     NAME_COLUMN, name,
                                     LABEL_COLUMN, label,
@@ -995,19 +995,19 @@ remove_stream (GvcMixerDialog *dialog, const gchar *name)
         }
 
         /* Remove from any models */
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
-        if (find_tree_item_by_name (GTK_TREE_MODEL (model),
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->output_treeview));
+        if (find_tree_item_by_name (CTK_TREE_MODEL (model),
                                     name,
                                     NAME_COLUMN,
                                     &iter) == TRUE)
-                ctk_list_store_remove (GTK_LIST_STORE (model), &iter);
+                ctk_list_store_remove (CTK_LIST_STORE (model), &iter);
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
-        if (find_tree_item_by_name (GTK_TREE_MODEL (model),
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->input_treeview));
+        if (find_tree_item_by_name (CTK_TREE_MODEL (model),
                                     name,
                                     NAME_COLUMN,
                                     &iter) == TRUE)
-                ctk_list_store_remove (GTK_LIST_STORE (model), &iter);
+                ctk_list_store_remove (CTK_LIST_STORE (model), &iter);
 }
 
 static void
@@ -1025,7 +1025,7 @@ remove_application_control (GvcMixerDialog *dialog, const gchar *name)
          * invalidate the channel bar, so just remove it ourselves */
         g_hash_table_remove (dialog->priv->bars, name);
 
-        ctk_container_remove (GTK_CONTAINER (ctk_widget_get_parent (bar)), bar);
+        ctk_container_remove (CTK_CONTAINER (ctk_widget_get_parent (bar)), bar);
 
         if (G_UNLIKELY (dialog->priv->num_apps <= 0)) {
                 g_warn_if_reached ();
@@ -1169,7 +1169,7 @@ update_device_info (GvcMixerDialog *dialog, CafeMixerDevice *device)
         gchar           *status;
         CafeMixerSwitch *profile_switch;
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->hw_treeview));
 
         if (find_tree_item_by_name (model,
                                     cafe_mixer_device_get_name (device),
@@ -1190,7 +1190,7 @@ update_device_info (GvcMixerDialog *dialog, CafeMixerDevice *device)
 
         status = device_status (device);
 
-        ctk_list_store_set (GTK_LIST_STORE (model),
+        ctk_list_store_set (CTK_LIST_STORE (model),
                             &iter,
                             HW_LABEL_COLUMN, label,
                             HW_PROFILE_COLUMN, profile_label,
@@ -1223,16 +1223,16 @@ add_device (GvcMixerDialog *dialog, CafeMixerDevice *device)
         const gchar     *profile_label = NULL;
         CafeMixerSwitch *profile_switch;
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->hw_treeview));
 
         name  = cafe_mixer_device_get_name (device);
         label = cafe_mixer_device_get_label (device);
 
-        if (find_tree_item_by_name (GTK_TREE_MODEL (model),
+        if (find_tree_item_by_name (CTK_TREE_MODEL (model),
                                     name,
                                     HW_NAME_COLUMN,
                                     &iter) == FALSE)
-                ctk_list_store_append (GTK_LIST_STORE (model), &iter);
+                ctk_list_store_append (CTK_LIST_STORE (model), &iter);
 
         icon = g_themed_icon_new_with_default_fallbacks (cafe_mixer_device_get_icon (device));
 
@@ -1252,7 +1252,7 @@ add_device (GvcMixerDialog *dialog, CafeMixerDevice *device)
 
         status = device_status (device);
 
-        ctk_list_store_set (GTK_LIST_STORE (model),
+        ctk_list_store_set (CTK_LIST_STORE (model),
                             &iter,
                             HW_NAME_COLUMN, name,
                             HW_LABEL_COLUMN, label,
@@ -1285,13 +1285,13 @@ on_context_device_removed (CafeMixerContext *context,
         GtkTreeModel *model;
 
         /* Remove from the device model */
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->hw_treeview));
 
-        if (find_tree_item_by_name (GTK_TREE_MODEL (model),
+        if (find_tree_item_by_name (CTK_TREE_MODEL (model),
                                     name,
                                     HW_NAME_COLUMN,
                                     &iter) == TRUE)
-                ctk_list_store_remove (GTK_LIST_STORE (model), &iter);
+                ctk_list_store_remove (CTK_LIST_STORE (model), &iter);
 }
 
 static void
@@ -1327,7 +1327,7 @@ on_input_radio_toggled (GtkCellRendererToggle *renderer,
         gboolean      toggled = FALSE;
         gchar        *name = NULL;
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->input_treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->input_treeview));
         path  = ctk_tree_path_new_from_string (path_str);
 
         ctk_tree_model_get_iter (model, &iter, path);
@@ -1372,7 +1372,7 @@ on_output_radio_toggled (GtkCellRendererToggle *renderer,
         gboolean      toggled = FALSE;
         gchar        *name = NULL;
 
-        model = ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->output_treeview));
+        model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->output_treeview));
         path  = ctk_tree_path_new_from_string (path_str);
 
         ctk_tree_model_get_iter (model, &iter, path);
@@ -1478,7 +1478,7 @@ create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
         GtkTreeViewColumn *column;
 
         treeview = ctk_tree_view_new ();
-        ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
+        ctk_tree_view_set_headers_visible (CTK_TREE_VIEW (treeview), FALSE);
 
         store = ctk_list_store_new (NUM_COLUMNS,
                                     G_TYPE_ICON,
@@ -1487,36 +1487,36 @@ create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
                                     G_TYPE_BOOLEAN,
                                     G_TYPE_STRING);
 
-        ctk_tree_view_set_model (GTK_TREE_VIEW (treeview),
-                                 GTK_TREE_MODEL (store));
+        ctk_tree_view_set_model (CTK_TREE_VIEW (treeview),
+                                 CTK_TREE_MODEL (store));
 
         renderer = ctk_cell_renderer_toggle_new ();
-        ctk_cell_renderer_toggle_set_radio (GTK_CELL_RENDERER_TOGGLE (renderer), TRUE);
+        ctk_cell_renderer_toggle_set_radio (CTK_CELL_RENDERER_TOGGLE (renderer), TRUE);
 
         column = ctk_tree_view_column_new_with_attributes (NULL,
                                                            renderer,
                                                            "active", ACTIVE_COLUMN,
                                                            NULL);
 
-        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
+        ctk_tree_view_append_column (CTK_TREE_VIEW (treeview), column);
 
         g_signal_connect (G_OBJECT (renderer),
                           "toggled",
                           G_CALLBACK (on_toggled),
                           dialog);
 
-        ctk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview), -1,
+        ctk_tree_view_insert_column_with_data_func (CTK_TREE_VIEW (treeview), -1,
                                                     _("Name"),
                                                     ctk_cell_renderer_text_new (),
                                                     stream_name_to_text,
                                                     NULL, NULL);
 
         /* Keep the list of streams sorted by the name */
-        ctk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (store),
+        ctk_tree_sortable_set_sort_column_id (CTK_TREE_SORTABLE (store),
                                               LABEL_COLUMN,
-                                              GTK_SORT_ASCENDING);
+                                              CTK_SORT_ASCENDING);
 
-        ctk_tree_sortable_set_sort_func (GTK_TREE_SORTABLE (store),
+        ctk_tree_sortable_set_sort_func (CTK_TREE_SORTABLE (store),
                                          LABEL_COLUMN,
                                          compare_stream_treeview_items,
                                          NULL, NULL);
@@ -1558,23 +1558,23 @@ on_test_speakers_clicked (GvcComboBox *widget, GvcMixerDialog *dialog)
                                  cafe_mixer_device_get_label (device));
 
         d = ctk_dialog_new_with_buttons (title,
-                                         GTK_WINDOW (dialog),
-                                         GTK_DIALOG_MODAL |
-                                         GTK_DIALOG_DESTROY_WITH_PARENT,
+                                         CTK_WINDOW (dialog),
+                                         CTK_DIALOG_MODAL |
+                                         CTK_DIALOG_DESTROY_WITH_PARENT,
                                          "ctk-close",
-                                         GTK_RESPONSE_CLOSE,
+                                         CTK_RESPONSE_CLOSE,
                                          NULL);
         g_free (title);
 
-        ctk_window_set_resizable (GTK_WINDOW (d), FALSE);
+        ctk_window_set_resizable (CTK_WINDOW (d), FALSE);
 
         test = gvc_speaker_test_new (stream);
         ctk_widget_show (test);
 
-        container = ctk_dialog_get_content_area (GTK_DIALOG (d));
-        ctk_container_add (GTK_CONTAINER (container), test);
+        container = ctk_dialog_get_content_area (CTK_DIALOG (d));
+        ctk_container_add (CTK_CONTAINER (container), test);
 
-        ctk_dialog_run (GTK_DIALOG (d));
+        ctk_dialog_run (CTK_DIALOG (d));
         ctk_widget_destroy (d);
 }
 
@@ -1589,7 +1589,7 @@ on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog
         g_debug ("Device selection changed");
 
         if (dialog->priv->hw_profile_combo != NULL) {
-                ctk_container_remove (GTK_CONTAINER (dialog->priv->hw_settings_box),
+                ctk_container_remove (CTK_CONTAINER (dialog->priv->hw_settings_box),
                                       dialog->priv->hw_profile_combo);
 
                 dialog->priv->hw_profile_combo = NULL;
@@ -1598,7 +1598,7 @@ on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog
         if (ctk_tree_selection_get_selected (selection, NULL, &iter) == FALSE)
                 return;
 
-        ctk_tree_model_get (ctk_tree_view_get_model (GTK_TREE_VIEW (dialog->priv->hw_treeview)),
+        ctk_tree_model_get (ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->hw_treeview)),
                             &iter,
                             HW_NAME_COLUMN, &name,
                             -1);
@@ -1636,7 +1636,7 @@ on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog
                                         g_object_ref (device),
                                         g_object_unref);
 
-                ctk_box_pack_start (GTK_BOX (dialog->priv->hw_settings_box),
+                ctk_box_pack_start (CTK_BOX (dialog->priv->hw_settings_box),
                                     dialog->priv->hw_profile_combo,
                                     TRUE, TRUE, 6);
 
@@ -1744,9 +1744,9 @@ create_device_treeview (GvcMixerDialog *dialog, GCallback on_changed)
         GtkTreeSelection  *selection;
 
         treeview = ctk_tree_view_new ();
-        ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (treeview), FALSE);
+        ctk_tree_view_set_headers_visible (CTK_TREE_VIEW (treeview), FALSE);
 
-        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
+        selection = ctk_tree_view_get_selection (CTK_TREE_VIEW (treeview));
         g_signal_connect (G_OBJECT (selection),
                           "changed",
                           on_changed,
@@ -1759,13 +1759,13 @@ create_device_treeview (GvcMixerDialog *dialog, GCallback on_changed)
                                     G_TYPE_STRING,
                                     G_TYPE_STRING);
 
-        ctk_tree_view_set_model (GTK_TREE_VIEW (treeview),
-                                 GTK_TREE_MODEL (store));
+        ctk_tree_view_set_model (CTK_TREE_VIEW (treeview),
+                                 CTK_TREE_MODEL (store));
 
         renderer = ctk_cell_renderer_pixbuf_new ();
         g_object_set (G_OBJECT (renderer),
                       "stock-size",
-                      GTK_ICON_SIZE_DIALOG,
+                      CTK_ICON_SIZE_DIALOG,
                       NULL);
 
         column = ctk_tree_view_column_new_with_attributes (NULL,
@@ -1773,19 +1773,19 @@ create_device_treeview (GvcMixerDialog *dialog, GCallback on_changed)
                                                            "gicon", HW_ICON_COLUMN,
                                                            NULL);
 
-        ctk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
-        ctk_tree_view_insert_column_with_data_func (GTK_TREE_VIEW (treeview), -1,
+        ctk_tree_view_append_column (CTK_TREE_VIEW (treeview), column);
+        ctk_tree_view_insert_column_with_data_func (CTK_TREE_VIEW (treeview), -1,
                                                     _("Name"),
                                                     ctk_cell_renderer_text_new (),
                                                     device_name_to_text,
                                                     NULL, NULL);
 
         /* Keep the list of streams sorted by the name */
-        ctk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (store),
+        ctk_tree_sortable_set_sort_column_id (CTK_TREE_SORTABLE (store),
                                               HW_LABEL_COLUMN,
-                                              GTK_SORT_ASCENDING);
+                                              CTK_SORT_ASCENDING);
 
-        ctk_tree_sortable_set_sort_func (GTK_TREE_SORTABLE (store),
+        ctk_tree_sortable_set_sort_func (CTK_TREE_SORTABLE (store),
                                          HW_LABEL_COLUMN,
                                          compare_device_treeview_items,
                                          NULL, NULL);
@@ -1810,7 +1810,7 @@ dialog_accel_cb (GtkAccelGroup    *accelgroup,
         }
 
         if (num != -1)
-                ctk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook), num);
+                ctk_notebook_set_current_page (CTK_NOTEBOOK (self->priv->notebook), num);
 }
 
 static void
@@ -1820,11 +1820,11 @@ create_page_effects (GvcMixerDialog *self)
         GtkWidget *label;
         GtkWidget *chooser;
 
-        box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-        ctk_container_set_border_width (GTK_CONTAINER (box), 12);
+        box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);
+        ctk_container_set_border_width (CTK_CONTAINER (box), 12);
 
         label = ctk_label_new (_("Sound Effects"));
-        ctk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
+        ctk_notebook_append_page (CTK_NOTEBOOK (self->priv->notebook),
                                   box,
                                   label);
 
@@ -1840,8 +1840,8 @@ create_page_effects (GvcMixerDialog *self)
 
                 bar = GVC_CHANNEL_BAR (create_bar (self, TRUE, TRUE));
 
-                ctk_box_pack_start (GTK_BOX (box),
-                                    GTK_WIDGET (bar),
+                ctk_box_pack_start (CTK_BOX (box),
+                                    CTK_WIDGET (bar),
                                     FALSE, FALSE, 0);
 
                 gvc_channel_bar_set_show_marks (bar, FALSE);
@@ -1857,18 +1857,18 @@ create_page_effects (GvcMixerDialog *self)
                         media_role = cafe_mixer_stream_control_get_media_role (control);
 
                         if (media_role == CAFE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT) {
-                                bar_set_stream_control (self, GTK_WIDGET (bar), control);
+                                bar_set_stream_control (self, CTK_WIDGET (bar), control);
                                 break;
                         }
 
                         list = list->next;
                 }
 
-                self->priv->effects_bar = GTK_WIDGET (bar);
+                self->priv->effects_bar = CTK_WIDGET (bar);
         }
 
         chooser = gvc_sound_theme_chooser_new ();
-        ctk_box_pack_start (GTK_BOX (box),
+        ctk_box_pack_start (CTK_BOX (box),
                             chooser,
                             TRUE, TRUE, 6);
 }
@@ -1899,17 +1899,17 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         self = GVC_MIXER_DIALOG (object);
 
-        ctk_dialog_add_button (GTK_DIALOG (self), "ctk-close", GTK_RESPONSE_OK);
+        ctk_dialog_add_button (CTK_DIALOG (self), "ctk-close", CTK_RESPONSE_OK);
 
-        main_vbox = ctk_dialog_get_content_area (GTK_DIALOG (self));
-        ctk_box_set_spacing (GTK_BOX (main_vbox), 2);
+        main_vbox = ctk_dialog_get_content_area (CTK_DIALOG (self));
+        ctk_box_set_spacing (CTK_BOX (main_vbox), 2);
 
-        ctk_container_set_border_width (GTK_CONTAINER (self), 6);
+        ctk_container_set_border_width (CTK_CONTAINER (self), 6);
 
-        self->priv->output_stream_box = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+        self->priv->output_stream_box = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 12);
         ctk_widget_set_margin_top (self->priv->output_stream_box, 12);
 
-        ctk_box_pack_start (GTK_BOX (main_vbox),
+        ctk_box_pack_start (CTK_BOX (main_vbox),
                             self->priv->output_stream_box,
                             FALSE, FALSE, 0);
 
@@ -1920,7 +1920,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         ctk_widget_show (self->priv->output_bar);
         ctk_widget_set_sensitive (self->priv->output_bar, FALSE);
 
-        ctk_box_pack_start (GTK_BOX (self->priv->output_stream_box),
+        ctk_box_pack_start (CTK_BOX (self->priv->output_stream_box),
                             self->priv->output_bar, TRUE, TRUE, 12);
 
         self->priv->notebook = ctk_notebook_new ();
@@ -1931,7 +1931,7 @@ gvc_mixer_dialog_constructor (GType                  type,
                           G_CALLBACK (dialog_page_scroll_event_cb),
                           self);
 
-        ctk_box_pack_start (GTK_BOX (main_vbox),
+        ctk_box_pack_start (CTK_BOX (main_vbox),
                             self->priv->notebook,
                             TRUE, TRUE, 0);
 
@@ -1940,11 +1940,11 @@ gvc_mixer_dialog_constructor (GType                  type,
                           G_CALLBACK (on_notebook_switch_page),
                           self);
 
-        ctk_container_set_border_width (GTK_CONTAINER (self->priv->notebook), 5);
+        ctk_container_set_border_width (CTK_CONTAINER (self->priv->notebook), 5);
 
         /* Set up accels (borrowed from Empathy) */
         accel_group = ctk_accel_group_new ();
-        ctk_window_add_accel_group (GTK_WINDOW (self), accel_group);
+        ctk_window_add_accel_group (CTK_WINDOW (self), accel_group);
 
         for (i = 0; i < G_N_ELEMENTS (tab_accel_keys); i++) {
                 closure = g_cclosure_new (G_CALLBACK (dialog_accel_cb),
@@ -1962,54 +1962,54 @@ gvc_mixer_dialog_constructor (GType                  type,
         /* Create notebook pages */
         create_page_effects (self);
 
-        self->priv->hw_box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-        ctk_container_set_border_width (GTK_CONTAINER (self->priv->hw_box), 12);
+        self->priv->hw_box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 12);
+        ctk_container_set_border_width (CTK_CONTAINER (self->priv->hw_box), 12);
 
         label = ctk_label_new (_("Hardware"));
-        ctk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
+        ctk_notebook_append_page (CTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->hw_box,
                                   label);
 
         box = ctk_frame_new (_("C_hoose a device to configure:"));
-        label = ctk_frame_get_label_widget (GTK_FRAME (box));
-        make_label_bold (GTK_LABEL (label));
-        ctk_label_set_use_underline (GTK_LABEL (label), TRUE);
-        ctk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        ctk_box_pack_start (GTK_BOX (self->priv->hw_box), box, TRUE, TRUE, 0);
+        label = ctk_frame_get_label_widget (CTK_FRAME (box));
+        make_label_bold (CTK_LABEL (label));
+        ctk_label_set_use_underline (CTK_LABEL (label), TRUE);
+        ctk_frame_set_shadow_type (CTK_FRAME (box), CTK_SHADOW_NONE);
+        ctk_box_pack_start (CTK_BOX (self->priv->hw_box), box, TRUE, TRUE, 0);
 
         self->priv->hw_treeview = create_device_treeview (self,
                                                          G_CALLBACK (on_device_selection_changed));
-        ctk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->hw_treeview);
+        ctk_label_set_mnemonic_widget (CTK_LABEL (label), self->priv->hw_treeview);
 
         scroll_box = ctk_scrolled_window_new (NULL, NULL);
         ctk_widget_set_margin_top (scroll_box, 6);
-        ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll_box),
-                                        GTK_POLICY_NEVER,
-                                        GTK_POLICY_AUTOMATIC);
-        ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll_box),
-                                             GTK_SHADOW_IN);
-        ctk_container_add (GTK_CONTAINER (scroll_box), self->priv->hw_treeview);
-        ctk_container_add (GTK_CONTAINER (box), scroll_box);
+        ctk_scrolled_window_set_policy (CTK_SCROLLED_WINDOW (scroll_box),
+                                        CTK_POLICY_NEVER,
+                                        CTK_POLICY_AUTOMATIC);
+        ctk_scrolled_window_set_shadow_type (CTK_SCROLLED_WINDOW (scroll_box),
+                                             CTK_SHADOW_IN);
+        ctk_container_add (CTK_CONTAINER (scroll_box), self->priv->hw_treeview);
+        ctk_container_add (CTK_CONTAINER (box), scroll_box);
 
-        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
-        ctk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
+        selection = ctk_tree_view_get_selection (CTK_TREE_VIEW (self->priv->hw_treeview));
+        ctk_tree_selection_set_mode (selection, CTK_SELECTION_SINGLE);
 
         box = ctk_frame_new (_("Settings for the selected device:"));
-        label = ctk_frame_get_label_widget (GTK_FRAME (box));
-        make_label_bold (GTK_LABEL (label));
-        ctk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        ctk_box_pack_start (GTK_BOX (self->priv->hw_box), box, FALSE, TRUE, 12);
+        label = ctk_frame_get_label_widget (CTK_FRAME (box));
+        make_label_bold (CTK_LABEL (label));
+        ctk_frame_set_shadow_type (CTK_FRAME (box), CTK_SHADOW_NONE);
+        ctk_box_pack_start (CTK_BOX (self->priv->hw_box), box, FALSE, TRUE, 12);
 
-        self->priv->hw_settings_box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+        self->priv->hw_settings_box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 12);
 
-        ctk_container_add (GTK_CONTAINER (box), self->priv->hw_settings_box);
+        ctk_container_add (CTK_CONTAINER (box), self->priv->hw_settings_box);
 
-        self->priv->input_box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+        self->priv->input_box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 12);
 
-        ctk_container_set_border_width (GTK_CONTAINER (self->priv->input_box), 12);
+        ctk_container_set_border_width (CTK_CONTAINER (self->priv->input_box), 12);
 
         label = ctk_label_new (_("Input"));
-        ctk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
+        ctk_notebook_append_page (CTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->input_box,
                                   label);
 
@@ -2027,135 +2027,135 @@ gvc_mixer_dialog_constructor (GType                  type,
         ctk_widget_show (self->priv->input_bar);
         ctk_widget_set_sensitive (self->priv->input_bar, FALSE);
 
-        ctk_box_pack_start (GTK_BOX (self->priv->input_box),
+        ctk_box_pack_start (CTK_BOX (self->priv->input_box),
                             self->priv->input_bar,
                             FALSE, FALSE, 0);
 
-        box  = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        sbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        ebox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+        box  = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
+        sbox = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
+        ebox = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
 
-        ctk_box_pack_start (GTK_BOX (self->priv->input_box),
+        ctk_box_pack_start (CTK_BOX (self->priv->input_box),
                             box,
                             FALSE, FALSE, 6);
-        ctk_box_pack_start (GTK_BOX (box),
+        ctk_box_pack_start (CTK_BOX (box),
                             sbox,
                             FALSE, FALSE, 0);
 
         label = ctk_label_new (_("Input level:"));
-        ctk_box_pack_start (GTK_BOX (sbox),
+        ctk_box_pack_start (CTK_BOX (sbox),
                             label,
                             FALSE, FALSE, 0);
         ctk_size_group_add_widget (self->priv->size_group, sbox);
 
         self->priv->input_level_bar = gvc_level_bar_new ();
         gvc_level_bar_set_orientation (GVC_LEVEL_BAR (self->priv->input_level_bar),
-                                       GTK_ORIENTATION_HORIZONTAL);
+                                       CTK_ORIENTATION_HORIZONTAL);
         gvc_level_bar_set_scale (GVC_LEVEL_BAR (self->priv->input_level_bar),
                                  GVC_LEVEL_SCALE_LINEAR);
-        ctk_box_pack_start (GTK_BOX (box),
+        ctk_box_pack_start (CTK_BOX (box),
                             self->priv->input_level_bar,
                             TRUE, TRUE, 6);
 
-        ctk_box_pack_start (GTK_BOX (box),
+        ctk_box_pack_start (CTK_BOX (box),
                             ebox,
                             FALSE, FALSE, 0);
         ctk_size_group_add_widget (self->priv->size_group, ebox);
 
-        self->priv->input_settings_box = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        ctk_box_pack_start (GTK_BOX (self->priv->input_box),
+        self->priv->input_settings_box = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
+        ctk_box_pack_start (CTK_BOX (self->priv->input_box),
                             self->priv->input_settings_box,
                             FALSE, FALSE, 0);
 
         box = ctk_frame_new (_("C_hoose a device for sound input:"));
-        label = ctk_frame_get_label_widget (GTK_FRAME (box));
-        make_label_bold (GTK_LABEL (label));
-        ctk_label_set_use_underline (GTK_LABEL (label), TRUE);
-        ctk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        ctk_box_pack_start (GTK_BOX (self->priv->input_box), box, TRUE, TRUE, 0);
+        label = ctk_frame_get_label_widget (CTK_FRAME (box));
+        make_label_bold (CTK_LABEL (label));
+        ctk_label_set_use_underline (CTK_LABEL (label), TRUE);
+        ctk_frame_set_shadow_type (CTK_FRAME (box), CTK_SHADOW_NONE);
+        ctk_box_pack_start (CTK_BOX (self->priv->input_box), box, TRUE, TRUE, 0);
 
         self->priv->input_treeview =
                 create_stream_treeview (self, G_CALLBACK (on_input_radio_toggled));
 
-        ctk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->input_treeview);
+        ctk_label_set_mnemonic_widget (CTK_LABEL (label), self->priv->input_treeview);
 
         scroll_box = ctk_scrolled_window_new (NULL, NULL);
         ctk_widget_set_margin_top (scroll_box, 6);
-        ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll_box),
-                                        GTK_POLICY_NEVER,
-                                        GTK_POLICY_AUTOMATIC);
-        ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll_box),
-                                             GTK_SHADOW_IN);
-        ctk_container_add (GTK_CONTAINER (scroll_box), self->priv->input_treeview);
-        ctk_container_add (GTK_CONTAINER (box), scroll_box);
+        ctk_scrolled_window_set_policy (CTK_SCROLLED_WINDOW (scroll_box),
+                                        CTK_POLICY_NEVER,
+                                        CTK_POLICY_AUTOMATIC);
+        ctk_scrolled_window_set_shadow_type (CTK_SCROLLED_WINDOW (scroll_box),
+                                             CTK_SHADOW_IN);
+        ctk_container_add (CTK_CONTAINER (scroll_box), self->priv->input_treeview);
+        ctk_container_add (CTK_CONTAINER (box), scroll_box);
 
-        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->input_treeview));
-        ctk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
+        selection = ctk_tree_view_get_selection (CTK_TREE_VIEW (self->priv->input_treeview));
+        ctk_tree_selection_set_mode (selection, CTK_SELECTION_SINGLE);
 
         /* Output page */
-        self->priv->output_box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-        ctk_container_set_border_width (GTK_CONTAINER (self->priv->output_box), 12);
+        self->priv->output_box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 12);
+        ctk_container_set_border_width (CTK_CONTAINER (self->priv->output_box), 12);
         label = ctk_label_new (_("Output"));
-        ctk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
+        ctk_notebook_append_page (CTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->output_box,
                                   label);
 
         box = ctk_frame_new (_("C_hoose a device for sound output:"));
-        label = ctk_frame_get_label_widget (GTK_FRAME (box));
-        make_label_bold (GTK_LABEL (label));
-        ctk_label_set_use_underline (GTK_LABEL (label), TRUE);
-        ctk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        ctk_box_pack_start (GTK_BOX (self->priv->output_box), box, TRUE, TRUE, 0);
+        label = ctk_frame_get_label_widget (CTK_FRAME (box));
+        make_label_bold (CTK_LABEL (label));
+        ctk_label_set_use_underline (CTK_LABEL (label), TRUE);
+        ctk_frame_set_shadow_type (CTK_FRAME (box), CTK_SHADOW_NONE);
+        ctk_box_pack_start (CTK_BOX (self->priv->output_box), box, TRUE, TRUE, 0);
 
         self->priv->output_treeview = create_stream_treeview (self,
                                                               G_CALLBACK (on_output_radio_toggled));
-        ctk_label_set_mnemonic_widget (GTK_LABEL (label), self->priv->output_treeview);
+        ctk_label_set_mnemonic_widget (CTK_LABEL (label), self->priv->output_treeview);
 
         scroll_box = ctk_scrolled_window_new (NULL, NULL);
         ctk_widget_set_margin_top (scroll_box, 6);
-        ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll_box),
-                                        GTK_POLICY_NEVER,
-                                        GTK_POLICY_AUTOMATIC);
-        ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll_box),
-                                             GTK_SHADOW_IN);
-        ctk_container_add (GTK_CONTAINER (scroll_box), self->priv->output_treeview);
-        ctk_container_add (GTK_CONTAINER (box), scroll_box);
+        ctk_scrolled_window_set_policy (CTK_SCROLLED_WINDOW (scroll_box),
+                                        CTK_POLICY_NEVER,
+                                        CTK_POLICY_AUTOMATIC);
+        ctk_scrolled_window_set_shadow_type (CTK_SCROLLED_WINDOW (scroll_box),
+                                             CTK_SHADOW_IN);
+        ctk_container_add (CTK_CONTAINER (scroll_box), self->priv->output_treeview);
+        ctk_container_add (CTK_CONTAINER (box), scroll_box);
 
-        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->output_treeview));
-        ctk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
+        selection = ctk_tree_view_get_selection (CTK_TREE_VIEW (self->priv->output_treeview));
+        ctk_tree_selection_set_mode (selection, CTK_SELECTION_SINGLE);
 
         box = ctk_frame_new (_("Settings for the selected device:"));
-        label = ctk_frame_get_label_widget (GTK_FRAME (box));
-        make_label_bold (GTK_LABEL (label));
-        ctk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        ctk_box_pack_start (GTK_BOX (self->priv->output_box), box, FALSE, FALSE, 12);
-        self->priv->output_settings_box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-        ctk_container_add (GTK_CONTAINER (box), self->priv->output_settings_box);
+        label = ctk_frame_get_label_widget (CTK_FRAME (box));
+        make_label_bold (CTK_LABEL (label));
+        ctk_frame_set_shadow_type (CTK_FRAME (box), CTK_SHADOW_NONE);
+        ctk_box_pack_start (CTK_BOX (self->priv->output_box), box, FALSE, FALSE, 12);
+        self->priv->output_settings_box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 0);
+        ctk_container_add (CTK_CONTAINER (box), self->priv->output_settings_box);
 
         self->priv->output_settings_frame = box;
 
         /* Applications */
         self->priv->applications_window = ctk_scrolled_window_new (NULL, NULL);
-        ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (self->priv->applications_window),
-                                        GTK_POLICY_NEVER,
-                                        GTK_POLICY_AUTOMATIC);
+        ctk_scrolled_window_set_policy (CTK_SCROLLED_WINDOW (self->priv->applications_window),
+                                        CTK_POLICY_NEVER,
+                                        CTK_POLICY_AUTOMATIC);
 
-        ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (self->priv->applications_window),
-                                             GTK_SHADOW_NONE);
+        ctk_scrolled_window_set_shadow_type (CTK_SCROLLED_WINDOW (self->priv->applications_window),
+                                             CTK_SHADOW_NONE);
 
-        self->priv->applications_box = ctk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-        ctk_container_set_border_width (GTK_CONTAINER (self->priv->applications_box), 12);
+        self->priv->applications_box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 12);
+        ctk_container_set_border_width (CTK_CONTAINER (self->priv->applications_box), 12);
 
-        ctk_container_add (GTK_CONTAINER (self->priv->applications_window),
+        ctk_container_add (CTK_CONTAINER (self->priv->applications_window),
                            self->priv->applications_box);
 
         label = ctk_label_new (_("Applications"));
-        ctk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
+        ctk_notebook_append_page (CTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->applications_window,
                                   label);
 
         self->priv->no_apps_label = ctk_label_new (_("No application is currently playing or recording audio."));
-        ctk_box_pack_start (GTK_BOX (self->priv->applications_box),
+        ctk_box_pack_start (CTK_BOX (self->priv->applications_box),
                             self->priv->no_apps_label,
                             TRUE, TRUE, 0);
 
@@ -2173,13 +2173,13 @@ gvc_mixer_dialog_constructor (GType                  type,
                 list = list->next;
         }
 
-        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->hw_treeview));
+        selection = ctk_tree_view_get_selection (CTK_TREE_VIEW (self->priv->hw_treeview));
 
         /* Select the first device in the list */
         // XXX handle no devices
         if (ctk_tree_selection_get_selected (selection, NULL, NULL) == FALSE) {
                 GtkTreeModel *model =
-                        ctk_tree_view_get_model (GTK_TREE_VIEW (self->priv->hw_treeview));
+                        ctk_tree_view_get_model (CTK_TREE_VIEW (self->priv->hw_treeview));
 
                 if (ctk_tree_model_get_iter_first (model, &iter))
                         ctk_tree_selection_select_iter (selection, &iter);
@@ -2312,7 +2312,7 @@ gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass)
                                                               G_PARAM_CONSTRUCT_ONLY |
                                                               G_PARAM_STATIC_STRINGS));
 
-        GtkWidgetClass *widget_class  = GTK_WIDGET_CLASS (klass);
+        GtkWidgetClass *widget_class  = CTK_WIDGET_CLASS (klass);
         ctk_widget_class_set_css_name (widget_class, "GvcMixerDialog");
 }
 
@@ -2322,7 +2322,7 @@ gvc_mixer_dialog_init (GvcMixerDialog *dialog)
         dialog->priv = gvc_mixer_dialog_get_instance_private (dialog);
 
         dialog->priv->bars = g_hash_table_new (g_str_hash, g_str_equal);
-        dialog->priv->size_group = ctk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
+        dialog->priv->size_group = ctk_size_group_new (CTK_SIZE_GROUP_HORIZONTAL);
 }
 
 static void
@@ -2367,7 +2367,7 @@ gvc_mixer_dialog_set_page (GvcMixerDialog *self, const gchar *page)
                         num = PAGE_APPLICATIONS;
         }
 
-        ctk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook), num);
+        ctk_notebook_set_current_page (CTK_NOTEBOOK (self->priv->notebook), num);
 
         return TRUE;
 }
@@ -2377,7 +2377,7 @@ dialog_page_scroll_event_cb (GtkWidget      *widget,
                              GdkEventScroll *event,
                              GtkWindow      *window)
 {
-        GtkNotebook *notebook = GTK_NOTEBOOK (widget);
+        GtkNotebook *notebook = CTK_NOTEBOOK (widget);
         GtkWidget *child, *event_widget, *action_widget;
 
         child = ctk_notebook_get_nth_page (notebook, ctk_notebook_get_current_page (notebook));
@@ -2393,11 +2393,11 @@ dialog_page_scroll_event_cb (GtkWidget      *widget,
                 return FALSE;
 
         /* And also from the action widgets */
-        action_widget = ctk_notebook_get_action_widget (notebook, GTK_PACK_START);
+        action_widget = ctk_notebook_get_action_widget (notebook, CTK_PACK_START);
         if (event_widget == action_widget ||
             (action_widget != NULL && ctk_widget_is_ancestor (event_widget, action_widget)))
                 return FALSE;
-        action_widget = ctk_notebook_get_action_widget (notebook, GTK_PACK_END);
+        action_widget = ctk_notebook_get_action_widget (notebook, CTK_PACK_END);
         if (event_widget == action_widget ||
             (action_widget != NULL && ctk_widget_is_ancestor (event_widget, action_widget)))
                 return FALSE;
@@ -2415,15 +2415,15 @@ dialog_page_scroll_event_cb (GtkWidget      *widget,
 
                 case GDK_SCROLL_SMOOTH:
                         switch (ctk_notebook_get_tab_pos (notebook)) {
-                            case GTK_POS_LEFT:
-                            case GTK_POS_RIGHT:
+                            case CTK_POS_LEFT:
+                            case CTK_POS_RIGHT:
                                     if (event->delta_y > 0)
                                         ctk_notebook_next_page (notebook);
                                     else if (event->delta_y < 0)
                                         ctk_notebook_prev_page (notebook);
                                     break;
-                            case GTK_POS_TOP:
-                            case GTK_POS_BOTTOM:
+                            case CTK_POS_TOP:
+                            case CTK_POS_BOTTOM:
                                     if (event->delta_x > 0)
                                         ctk_notebook_next_page (notebook);
                                     else if (event->delta_x < 0)
