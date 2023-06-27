@@ -26,7 +26,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <libcafemixer/cafemixer.h>
 #include <cafe-panel-applet.h>
@@ -144,7 +144,7 @@ update_icon_input (GvcApplet *applet)
 
         gvc_stream_applet_icon_set_control (applet->priv->icon_input, control);
 
-        gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_input), show);
+        ctk_widget_set_visible (GTK_WIDGET (applet->priv->icon_input), show);
 }
 
 static void
@@ -161,11 +161,11 @@ update_icon_output (GvcApplet *applet)
 
         if (control != NULL) {
                 g_debug ("Output icon enabled");
-                gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output), TRUE);
+                ctk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output), TRUE);
         }
         else {
                 g_debug ("There is no output stream/control, output icon disabled");
-                gtk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output), FALSE);
+                ctk_widget_set_visible (GTK_WIDGET (applet->priv->icon_output), FALSE);
         }
 }
 
@@ -457,16 +457,16 @@ gvc_applet_set_mute (GtkWidget* widget, int size, gpointer user_data)
 
         is_muted = gvc_stream_applet_icon_get_mute (applet->priv->icon_output);
 
-        action = gtk_action_group_get_action (applet->priv->action_group, "MuteOutput");
+        action = ctk_action_group_get_action (applet->priv->action_group, "MuteOutput");
 
         if (is_muted) {
-                gtk_action_set_label (action, _("Unmute Output"));
-                gtk_action_set_icon_name (action, "audio-volume-medium");
+                ctk_action_set_label (action, _("Unmute Output"));
+                ctk_action_set_icon_name (action, "audio-volume-medium");
         }
         else
         {
-                gtk_action_set_label (action, _("Mute Output"));
-                gtk_action_set_icon_name (action, "audio-volume-muted");
+                ctk_action_set_label (action, _("Mute Output"));
+                ctk_action_set_icon_name (action, "audio-volume-muted");
         }
 }
 
@@ -487,14 +487,14 @@ menu_output_mute (GtkAction *action, GvcApplet *applet)
         is_muted = gvc_stream_applet_icon_get_mute(applet->priv->icon_output);
         if (!is_muted) {
                 gvc_stream_applet_icon_set_mute (applet->priv->icon_output, TRUE);
-                gtk_action_set_label (action, "Unmute Output");
-                gtk_action_set_icon_name( action, "audio-volume-medium");
+                ctk_action_set_label (action, "Unmute Output");
+                ctk_action_set_icon_name( action, "audio-volume-medium");
 
         }
         else {
                 gvc_stream_applet_icon_set_mute (applet->priv->icon_output, FALSE);
-                gtk_action_set_label (action, "Mute Output");
-                gtk_action_set_icon_name (action, "audio-volume-muted");
+                ctk_action_set_label (action, "Mute Output");
+                ctk_action_set_icon_name (action, "audio-volume-muted");
        }
 }
 
@@ -511,7 +511,7 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
         GdkWindow      *window;
 
         g_set_application_name (_("Volume Control Applet"));
-        gtk_window_set_default_icon_name (APPLET_ICON);
+        ctk_window_set_default_icon_name (APPLET_ICON);
 
         cafe_panel_applet_set_flags (applet_widget, CAFE_PANEL_APPLET_EXPAND_MINOR);
         cafe_panel_applet_set_background_widget (CAFE_PANEL_APPLET (applet_widget), GTK_WIDGET (applet_widget));
@@ -520,16 +520,16 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
         /*FIXME: We haved to set this up BEFORE packing in icons. find a way to update this when the applet is moved that works*/
         switch (cafe_panel_applet_get_orient (applet->priv->applet)) {
         case CAFE_PANEL_APPLET_ORIENT_UP:
-                applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
+                applet->priv->box = GTK_BOX (ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
 		break;
         case CAFE_PANEL_APPLET_ORIENT_DOWN:
-                applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
+                applet->priv->box = GTK_BOX (ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
 		break;
         case CAFE_PANEL_APPLET_ORIENT_LEFT:
-                applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
+                applet->priv->box = GTK_BOX (ctk_box_new (GTK_ORIENTATION_VERTICAL, 0));
 		break;
         case CAFE_PANEL_APPLET_ORIENT_RIGHT:
-                applet->priv->box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
+                applet->priv->box = GTK_BOX (ctk_box_new (GTK_ORIENTATION_VERTICAL, 0));
         break;
         }
 
@@ -540,17 +540,17 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
         gvc_stream_applet_icon_set_orient (applet->priv->icon_output, cafe_panel_applet_get_orient (applet->priv->applet));
 
         /* we add the Gtk buttons into the applet */
-        gtk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_input), TRUE, TRUE, 2);
-        gtk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_output), TRUE, TRUE, 2);
-        gtk_container_add (GTK_CONTAINER (applet->priv->applet), GTK_WIDGET (applet->priv->box));
-        gtk_widget_show_all (GTK_WIDGET (applet->priv->applet));
+        ctk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_input), TRUE, TRUE, 2);
+        ctk_box_pack_start (applet->priv->box, GTK_WIDGET (applet->priv->icon_output), TRUE, TRUE, 2);
+        ctk_container_add (GTK_CONTAINER (applet->priv->applet), GTK_WIDGET (applet->priv->box));
+        ctk_widget_show_all (GTK_WIDGET (applet->priv->applet));
 
         /* Enable 'scroll-event' signal to get through */
-        window = gtk_widget_get_window (GTK_WIDGET (applet->priv->icon_input));
+        window = ctk_widget_get_window (GTK_WIDGET (applet->priv->icon_input));
         event_mask = gdk_window_get_events (window);
         gdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
 
-        window = gtk_widget_get_window (GTK_WIDGET (applet->priv->icon_output));
+        window = ctk_widget_get_window (GTK_WIDGET (applet->priv->icon_output));
         event_mask = gdk_window_get_events (window);
         gdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
 
@@ -562,9 +562,9 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
                          NULL);
 
         /* set up context menu */
-        applet->priv->action_group = gtk_action_group_new ("Volume Control Applet Actions");
-        gtk_action_group_set_translation_domain (applet->priv->action_group, GETTEXT_PACKAGE);
-        gtk_action_group_add_actions (applet->priv->action_group, applet_menu_actions,
+        applet->priv->action_group = ctk_action_group_new ("Volume Control Applet Actions");
+        ctk_action_group_set_translation_domain (applet->priv->action_group, GETTEXT_PACKAGE);
+        ctk_action_group_add_actions (applet->priv->action_group, applet_menu_actions,
                                       G_N_ELEMENTS (applet_menu_actions), applet);
 
         cafe_panel_applet_setup_menu (applet->priv->applet, ui, applet->priv->action_group);

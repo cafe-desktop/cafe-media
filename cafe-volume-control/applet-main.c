@@ -25,7 +25,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <libintl.h>
 #include <gio/gio.h>
@@ -61,7 +61,7 @@ applet_main (CafePanelApplet* applet_widget)
                 return FALSE;
         }
 
-        gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
+        ctk_icon_theme_append_search_path (ctk_icon_theme_get_default (),
                                            ICON_DATA_DIR);
 
         applet = gvc_applet_new ();

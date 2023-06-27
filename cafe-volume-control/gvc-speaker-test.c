@@ -24,7 +24,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <canberra.h>
 #include <libcafemixer/cafemixer.h>
@@ -98,7 +98,7 @@ gvc_speaker_test_set_stream (GvcSpeakerTest *test, CafeMixerStream *stream)
                 gboolean has_position =
                         cafe_mixer_stream_control_has_channel_position (control, positions[i].position);
 
-                gtk_widget_set_visible (g_array_index (test->priv->controls, GtkWidget *, i),
+                ctk_widget_set_visible (g_array_index (test->priv->controls, GtkWidget *, i),
                                         has_position);
         }
 
@@ -249,9 +249,9 @@ update_button (GtkWidget *control)
         position = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (control), "position"));
         playing  = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (control), "playing"));
 
-        gtk_button_set_label (GTK_BUTTON (button), playing ? _("Stop") : _("Test"));
+        ctk_button_set_label (GTK_BUTTON (button), playing ? _("Stop") : _("Test"));
 
-        gtk_image_set_from_icon_name (GTK_IMAGE (image),
+        ctk_image_set_from_icon_name (GTK_IMAGE (image),
                                       icon_name (position, playing),
                                       GTK_ICON_SIZE_DIALOG);
 }
@@ -345,8 +345,8 @@ create_control (ca_context *canberra, CafeMixerChannelPosition position)
         GtkWidget   *test_button;
         const gchar *name;
 
-        control = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-        box     = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+        control = ctk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+        box     = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 
         g_object_set_data (G_OBJECT (control), "playing", GINT_TO_POINTER (FALSE));
         g_object_set_data (G_OBJECT (control), "position", GINT_TO_POINTER (position));
@@ -356,14 +356,14 @@ create_control (ca_context *canberra, CafeMixerChannelPosition position)
         if (name == NULL)
                 name = "audio-volume-medium";
 
-        image = gtk_image_new_from_icon_name (name, GTK_ICON_SIZE_DIALOG);
+        image = ctk_image_new_from_icon_name (name, GTK_ICON_SIZE_DIALOG);
         g_object_set_data (G_OBJECT (control), "image", image);
-        gtk_box_pack_start (GTK_BOX (control), image, FALSE, FALSE, 0);
+        ctk_box_pack_start (GTK_BOX (control), image, FALSE, FALSE, 0);
 
-        label = gtk_label_new (gvc_channel_position_to_pretty_string (position));
-        gtk_box_pack_start (GTK_BOX (control), label, FALSE, FALSE, 0);
+        label = ctk_label_new (gvc_channel_position_to_pretty_string (position));
+        ctk_box_pack_start (GTK_BOX (control), label, FALSE, FALSE, 0);
 
-        test_button = gtk_button_new_with_label (_("Test"));
+        test_button = ctk_button_new_with_label (_("Test"));
         g_signal_connect (G_OBJECT (test_button),
                           "clicked",
                           G_CALLBACK (on_test_button_clicked),
@@ -371,10 +371,10 @@ create_control (ca_context *canberra, CafeMixerChannelPosition position)
 
         g_object_set_data (G_OBJECT (control), "button", test_button);
 
-        gtk_box_pack_start (GTK_BOX (box), test_button, TRUE, FALSE, 0);
-        gtk_box_pack_start (GTK_BOX (control), box, FALSE, FALSE, 0);
+        ctk_box_pack_start (GTK_BOX (box), test_button, TRUE, FALSE, 0);
+        ctk_box_pack_start (GTK_BOX (control), box, FALSE, FALSE, 0);
 
-        gtk_widget_show_all (control);
+        ctk_widget_show_all (control);
 
         return control;
 }
@@ -387,7 +387,7 @@ create_controls (GvcSpeakerTest *test)
         for (i = 0; i < G_N_ELEMENTS (positions); i++) {
                 GtkWidget *control = create_control (test->priv->canberra, positions[i].position);
 
-                gtk_grid_attach (GTK_GRID (test),
+                ctk_grid_attach (GTK_GRID (test),
                                  control,
                                  positions[i].left,
                                  positions[i].top,
@@ -403,18 +403,18 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
 
         test->priv = gvc_speaker_test_get_instance_private (test);
 
-        gtk_container_set_border_width (GTK_CONTAINER (test), 12);
+        ctk_container_set_border_width (GTK_CONTAINER (test), 12);
 
-        face = gtk_image_new_from_icon_name ("face-smile", GTK_ICON_SIZE_DIALOG);
+        face = ctk_image_new_from_icon_name ("face-smile", GTK_ICON_SIZE_DIALOG);
 
-        gtk_grid_attach (GTK_GRID (test),
+        ctk_grid_attach (GTK_GRID (test),
                          face,
                          1, 1,
                          3, 1);
 
 
-        gtk_grid_set_baseline_row (GTK_GRID (test), 1);
-        gtk_widget_show (face);
+        ctk_grid_set_baseline_row (GTK_GRID (test), 1);
+        ctk_widget_show (face);
 
         ca_context_create (&test->priv->canberra);
 

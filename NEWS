@@ -60,7 +60,7 @@
 
   * Translations update
   * Ignore PulseAudio "monitor" inputs when displaying mic icon
-  * gvc-mixer-dialog.c: avoid deprecated 'gtk_widget_override_font'
+  * gvc-mixer-dialog.c: avoid deprecated 'ctk_widget_override_font'
 
 ### cafe-media 1.20.0
 
@@ -76,7 +76,7 @@
   * avoid deprecated gdk_screen_get_height
   * applet: use GdkSeat with GTK+ >= 3.20
   * applet: make keyboard work in popup
-  * gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+  * ctk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
   * refresh tray icon on icon theme change
   * Restore Polish translation credits from GNOME
 
@@ -94,7 +94,7 @@
   * NEWS: use consistent, project wide, markdown-like formatting to make
     generating release announcements easier
   * Build: require libcafemixer >= 1.10 and libcafe-desktop >= 1.17
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-ctk
     build option
   * Port from libunique to GApplication and GtkApplication
   * Some cleanups

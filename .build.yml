@@ -14,9 +14,9 @@ requires:
     - expect #required for unbuffer
     - gcc
     - git
-    - libcanberra-gtk3-dev
+    - libcanberra-ctk3-dev
     - libglib2.0-dev
-    - libgtk-3-dev
+    - libctk-3-dev
     - libxml2-dev
     - make
 
@@ -25,7 +25,7 @@ requires:
 
     #required for libcafemixer
     - gettext
-    - gtk-doc-tools
+    - ctk-doc-tools
     - libasound2-dev
     - libpulse-dev
     - libtool
