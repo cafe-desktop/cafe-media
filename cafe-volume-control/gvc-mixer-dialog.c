@@ -24,8 +24,8 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
-#include <gdk/gdk.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkkeysyms.h>
 #include <ctk/ctk.h>
 #include <libcafemixer/cafemixer.h>
 

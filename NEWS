@@ -73,10 +73,10 @@
 ### cafe-media 1.19.1
 
   * Translations update
-  * avoid deprecated gdk_screen_get_height
+  * avoid deprecated cdk_screen_get_height
   * applet: use GdkSeat with CTK+ >= 3.20
   * applet: make keyboard work in popup
-  * ctk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+  * ctk 3.22: avoid deprecated cdk_screen_get_monitor... functions:
   * refresh tray icon on icon theme change
   * Restore Polish translation credits from GNOME
 
