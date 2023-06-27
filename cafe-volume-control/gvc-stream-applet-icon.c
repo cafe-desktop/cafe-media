@@ -128,12 +128,12 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
 
                 if (cdk_seat_grab (seat,
                                    window,
-                                   GDK_SEAT_CAPABILITY_ALL,
+                                   CDK_SEAT_CAPABILITY_ALL,
                                    TRUE,
                                    NULL,
                                    NULL,
                                    NULL,
-                                   NULL) != GDK_GRAB_SUCCESS) {
+                                   NULL) != CDK_GRAB_SUCCESS) {
                         ctk_grab_remove (icon->priv->dock);
                         ctk_widget_hide (icon->priv->dock);
                         break;
@@ -151,7 +151,7 @@ on_applet_icon_button_press (CtkWidget           *applet_icon,
                              GvcStreamAppletIcon *icon)
 {
         if (event->button == 1) {
-                popup_dock (icon, GDK_CURRENT_TIME);
+                popup_dock (icon, CDK_CURRENT_TIME);
                 return TRUE;
         }
 
@@ -229,7 +229,7 @@ on_dock_button_press (CtkWidget           *widget,
                       GdkEventButton      *event,
                       GvcStreamAppletIcon *icon)
 {
-        if (event->type == GDK_BUTTON_PRESS) {
+        if (event->type == CDK_BUTTON_PRESS) {
                 gvc_icon_release_grab (icon, event);
                 return TRUE;
         }
@@ -289,7 +289,7 @@ on_dock_key_release (CtkWidget           *widget,
                      GdkEventKey         *event,
                      GvcStreamAppletIcon *icon)
 {
-        if (event->keyval == GDK_KEY_Escape) {
+        if (event->keyval == CDK_KEY_Escape) {
                 popdown_dock (icon);
                 return TRUE;
         }

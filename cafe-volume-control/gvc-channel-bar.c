@@ -171,7 +171,7 @@ create_scale_box (GvcChannelBar *bar)
 
         ca_ctk_widget_disable_sounds (bar->priv->scale, FALSE);
 
-        ctk_widget_add_events (bar->priv->scale, GDK_SCROLL_MASK);
+        ctk_widget_add_events (bar->priv->scale, CDK_SCROLL_MASK);
 
         g_signal_connect (G_OBJECT (bar->priv->scale),
                           "button-press-event",
@@ -487,15 +487,15 @@ on_scale_scroll_event (CtkWidget      *widget,
 {
         GdkScrollDirection direction = event->direction;
 
-        if (direction == GDK_SCROLL_SMOOTH) {
+        if (direction == CDK_SCROLL_SMOOTH) {
                 gdouble dx = 0.0;
                 gdouble dy = 0.0;
 
                 cdk_event_get_scroll_deltas ((const GdkEvent *) event, &dx, &dy);
                 if (dy > 0.0)
-                        direction = GDK_SCROLL_DOWN;
+                        direction = CDK_SCROLL_DOWN;
                 else if (dy < 0.0)
-                        direction = GDK_SCROLL_UP;
+                        direction = CDK_SCROLL_UP;
                 else
                         return FALSE;
         }
@@ -847,22 +847,22 @@ gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
         g_return_val_if_fail (GVC_IS_CHANNEL_BAR (bar), FALSE);
 
         if (bar->priv->orientation == CTK_ORIENTATION_VERTICAL) {
-                if (direction != GDK_SCROLL_UP && direction != GDK_SCROLL_DOWN)
+                if (direction != CDK_SCROLL_UP && direction != CDK_SCROLL_DOWN)
                         return FALSE;
         } else {
                 /* Switch direction for RTL */
                 if (ctk_widget_get_direction (CTK_WIDGET (bar)) == CTK_TEXT_DIR_RTL) {
-                        if (direction == GDK_SCROLL_RIGHT)
-                                direction = GDK_SCROLL_LEFT;
-                        else if (direction == GDK_SCROLL_LEFT)
-                                direction = GDK_SCROLL_RIGHT;
+                        if (direction == CDK_SCROLL_RIGHT)
+                                direction = CDK_SCROLL_LEFT;
+                        else if (direction == CDK_SCROLL_LEFT)
+                                direction = CDK_SCROLL_RIGHT;
                 }
 
                 /* Switch side scroll to vertical */
-                if (direction == GDK_SCROLL_RIGHT)
-                        direction = GDK_SCROLL_UP;
-                else if (direction == GDK_SCROLL_LEFT)
-                        direction = GDK_SCROLL_DOWN;
+                if (direction == CDK_SCROLL_RIGHT)
+                        direction = CDK_SCROLL_UP;
+                else if (direction == CDK_SCROLL_LEFT)
+                        direction = CDK_SCROLL_DOWN;
         }
 
         value   = ctk_adjustment_get_value (bar->priv->adjustment);
@@ -882,9 +882,9 @@ gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
         /* Scale the volume step size accordingly to the range used by the control */
         scrollstep = (maximum - minimum) * scrollstep / 100;
 
-        if (direction == GDK_SCROLL_UP) {
+        if (direction == CDK_SCROLL_UP) {
                 value = MIN (value + scrollstep, maximum);
-        } else if (direction == GDK_SCROLL_DOWN) {
+        } else if (direction == CDK_SCROLL_DOWN) {
                 value = MAX (value - scrollstep, minimum);
         }
 

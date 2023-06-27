@@ -105,7 +105,7 @@ enum {
 };
 
 static const guint tab_accel_keys[] = {
-        GDK_KEY_1, GDK_KEY_2, GDK_KEY_3, GDK_KEY_4, GDK_KEY_5
+        CDK_KEY_1, CDK_KEY_2, CDK_KEY_3, CDK_KEY_4, CDK_KEY_5
 };
 
 static void gvc_mixer_dialog_finalize   (GObject                *object);
@@ -1925,7 +1925,7 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         self->priv->notebook = ctk_notebook_new ();
 
-        ctk_widget_add_events (self->priv->notebook, GDK_SCROLL_MASK);
+        ctk_widget_add_events (self->priv->notebook, CDK_SCROLL_MASK);
         g_signal_connect (self->priv->notebook,
                           "scroll-event",
                           G_CALLBACK (dialog_page_scroll_event_cb),
@@ -1952,7 +1952,7 @@ gvc_mixer_dialog_constructor (GType                  type,
                                           NULL);
                 ctk_accel_group_connect (accel_group,
                                          tab_accel_keys[i],
-                                         GDK_MOD1_MASK,
+                                         CDK_MOD1_MASK,
                                          0,
                                          closure);
         }
@@ -2404,16 +2404,16 @@ dialog_page_scroll_event_cb (CtkWidget      *widget,
 
         switch (event->direction) {
 
-                case GDK_SCROLL_RIGHT:
-                case GDK_SCROLL_DOWN:
+                case CDK_SCROLL_RIGHT:
+                case CDK_SCROLL_DOWN:
                         ctk_notebook_next_page (notebook);
                         break;
-                case GDK_SCROLL_LEFT:
-                case GDK_SCROLL_UP:
+                case CDK_SCROLL_LEFT:
+                case CDK_SCROLL_UP:
                         ctk_notebook_prev_page (notebook);
                         break;
 
-                case GDK_SCROLL_SMOOTH:
+                case CDK_SCROLL_SMOOTH:
                         switch (ctk_notebook_get_tab_pos (notebook)) {
                             case CTK_POS_LEFT:
                             case CTK_POS_RIGHT:

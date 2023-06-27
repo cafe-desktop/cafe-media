@@ -548,11 +548,11 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
         /* Enable 'scroll-event' signal to get through */
         window = ctk_widget_get_window (CTK_WIDGET (applet->priv->icon_input));
         event_mask = cdk_window_get_events (window);
-        cdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
+        cdk_window_set_events (window, event_mask | CDK_SCROLL_MASK);
 
         window = ctk_widget_get_window (CTK_WIDGET (applet->priv->icon_output));
         event_mask = cdk_window_get_events (window);
-        cdk_window_set_events (window, event_mask | GDK_SCROLL_MASK);
+        cdk_window_set_events (window, event_mask | CDK_SCROLL_MASK);
 
         /* Update icons on size/orientation changes */
         g_object_connect (applet->priv->applet,
