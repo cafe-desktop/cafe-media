@@ -16,7 +16,6 @@ requires:
     - git
     - libcanberra-ctk3-dev
     - libglib2.0-dev
-    - libctk-3-dev
     - libxml2-dev
     - make
 
