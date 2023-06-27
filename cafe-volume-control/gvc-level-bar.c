@@ -52,9 +52,9 @@ typedef struct {
 
 struct _GvcLevelBarPrivate
 {
-        GtkOrientation orientation;
-        GtkAdjustment *peak_adjustment;
-        GtkAdjustment *rms_adjustment;
+        CtkOrientation orientation;
+        CtkAdjustment *peak_adjustment;
+        CtkAdjustment *rms_adjustment;
         GvcLevelScale  scale;
         gdouble        peak_fraction;
         gdouble        rms_fraction;
@@ -110,7 +110,7 @@ layout_changed (LevelBarLayout *layout1, LevelBarLayout *layout2)
 
 static gdouble
 fraction_from_adjustment (GvcLevelBar   *bar,
-                          GtkAdjustment *adjustment)
+                          CtkAdjustment *adjustment)
 {
         gdouble level;
         gdouble fraction = 0.0;
@@ -151,9 +151,9 @@ bar_calc_layout (GvcLevelBar *bar)
 {
         int           peak_level;
         int           max_peak_level;
-        GtkAllocation allocation;
+        CtkAllocation allocation;
 
-        GtkStyleContext *context;
+        CtkStyleContext *context;
 
         context = ctk_widget_get_style_context (CTK_WIDGET (bar));
 
@@ -236,7 +236,7 @@ update_rms_value (GvcLevelBar *bar)
         bar->priv->rms_fraction = fraction_from_adjustment (bar, bar->priv->rms_adjustment);
 }
 
-GtkOrientation
+CtkOrientation
 gvc_level_bar_get_orientation (GvcLevelBar *bar)
 {
         g_return_val_if_fail (GVC_IS_LEVEL_BAR (bar), 0);
@@ -246,7 +246,7 @@ gvc_level_bar_get_orientation (GvcLevelBar *bar)
 
 void
 gvc_level_bar_set_orientation (GvcLevelBar   *bar,
-                               GtkOrientation orientation)
+                               CtkOrientation orientation)
 {
         g_return_if_fail (GVC_IS_LEVEL_BAR (bar));
 
@@ -266,14 +266,14 @@ gvc_level_bar_set_orientation (GvcLevelBar   *bar,
 }
 
 static void
-on_peak_adjustment_value_changed (GtkAdjustment *adjustment,
+on_peak_adjustment_value_changed (CtkAdjustment *adjustment,
                                   GvcLevelBar   *bar)
 {
         update_peak_value (bar);
 }
 
 static void
-on_rms_adjustment_value_changed (GtkAdjustment *adjustment,
+on_rms_adjustment_value_changed (CtkAdjustment *adjustment,
                                  GvcLevelBar   *bar)
 {
         update_rms_value (bar);
@@ -281,7 +281,7 @@ on_rms_adjustment_value_changed (GtkAdjustment *adjustment,
 
 void
 gvc_level_bar_set_peak_adjustment (GvcLevelBar   *bar,
-                                   GtkAdjustment *adjustment)
+                                   CtkAdjustment *adjustment)
 {
         g_return_if_fail (GVC_LEVEL_BAR (bar));
         g_return_if_fail (CTK_IS_ADJUSTMENT (adjustment));
@@ -307,7 +307,7 @@ gvc_level_bar_set_peak_adjustment (GvcLevelBar   *bar,
 
 void
 gvc_level_bar_set_rms_adjustment (GvcLevelBar   *bar,
-                                  GtkAdjustment *adjustment)
+                                  CtkAdjustment *adjustment)
 {
         g_return_if_fail (GVC_LEVEL_BAR (bar));
         g_return_if_fail (CTK_IS_ADJUSTMENT (adjustment));
@@ -331,7 +331,7 @@ gvc_level_bar_set_rms_adjustment (GvcLevelBar   *bar,
         g_object_notify_by_pspec (G_OBJECT (bar), properties[PROP_RMS_ADJUSTMENT]);
 }
 
-GtkAdjustment *
+CtkAdjustment *
 gvc_level_bar_get_peak_adjustment (GvcLevelBar *bar)
 {
         g_return_val_if_fail (GVC_IS_LEVEL_BAR (bar), NULL);
@@ -339,7 +339,7 @@ gvc_level_bar_get_peak_adjustment (GvcLevelBar *bar)
         return bar->priv->peak_adjustment;
 }
 
-GtkAdjustment *
+CtkAdjustment *
 gvc_level_bar_get_rms_adjustment (GvcLevelBar *bar)
 {
         g_return_val_if_fail (GVC_IS_LEVEL_BAR (bar), NULL);
@@ -422,8 +422,8 @@ gvc_level_bar_get_property (GObject     *object,
 }
 
 static void
-gvc_level_bar_size_request (GtkWidget      *widget,
-                            GtkRequisition *requisition)
+gvc_level_bar_size_request (CtkWidget      *widget,
+                            CtkRequisition *requisition)
 {
         GvcLevelBar *bar;
 
@@ -445,11 +445,11 @@ gvc_level_bar_size_request (GtkWidget      *widget,
 }
 
 static void
-gvc_level_bar_get_preferred_width (GtkWidget *widget,
+gvc_level_bar_get_preferred_width (CtkWidget *widget,
                                    gint      *minimum,
                                    gint      *natural)
 {
-        GtkRequisition requisition;
+        CtkRequisition requisition;
 
         gvc_level_bar_size_request (widget, &requisition);
 
@@ -460,11 +460,11 @@ gvc_level_bar_get_preferred_width (GtkWidget *widget,
 }
 
 static void
-gvc_level_bar_get_preferred_height (GtkWidget *widget,
+gvc_level_bar_get_preferred_height (CtkWidget *widget,
                                     gint      *minimum,
                                     gint      *natural)
 {
-        GtkRequisition requisition;
+        CtkRequisition requisition;
 
         gvc_level_bar_size_request (widget, &requisition);
 
@@ -475,7 +475,7 @@ gvc_level_bar_get_preferred_height (GtkWidget *widget,
 }
 
 static void
-gvc_level_bar_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
+gvc_level_bar_size_allocate (CtkWidget *widget, CtkAllocation *allocation)
 {
         GvcLevelBar *bar;
 
@@ -555,7 +555,7 @@ curved_rectangle (cairo_t *cr,
 }
 
 static int
-gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
+gvc_level_bar_draw (CtkWidget *widget, cairo_t *cr)
 {
         GvcLevelBar *bar;
 
@@ -607,7 +607,7 @@ gvc_level_bar_draw (GtkWidget *widget, cairo_t *cr)
                 int i;
 
                 if (ctk_widget_get_direction (widget) == CTK_TEXT_DIR_RTL) {
-                        GtkAllocation allocation;
+                        CtkAllocation allocation;
 
                         ctk_widget_get_allocation (widget, &allocation);
 
@@ -664,7 +664,7 @@ static void
 gvc_level_bar_class_init (GvcLevelBarClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
-        GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+        CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
         object_class->finalize = gvc_level_bar_finalize;
         object_class->set_property = gvc_level_bar_set_property;
@@ -689,7 +689,7 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
         properties[PROP_PEAK_ADJUSTMENT] =
                 g_param_spec_object ("peak-adjustment",
                                      "Peak Adjustment",
-                                     "The GtkAdjustment that contains the current peak value",
+                                     "The CtkAdjustment that contains the current peak value",
                                      CTK_TYPE_ADJUSTMENT,
                                      G_PARAM_READWRITE |
                                      G_PARAM_STATIC_STRINGS);
@@ -697,7 +697,7 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
         properties[PROP_RMS_ADJUSTMENT] =
                 g_param_spec_object ("rms-adjustment",
                                      "RMS Adjustment",
-                                     "The GtkAdjustment that contains the current rms value",
+                                     "The CtkAdjustment that contains the current rms value",
                                      CTK_TYPE_ADJUSTMENT,
                                      G_PARAM_READWRITE |
                                      G_PARAM_STATIC_STRINGS);
@@ -719,7 +719,7 @@ gvc_level_bar_class_init (GvcLevelBarClass *klass)
 static void
 gvc_level_bar_init (GvcLevelBar *bar)
 {
-        GtkStyleContext *context = ctk_widget_get_style_context (CTK_WIDGET (bar));
+        CtkStyleContext *context = ctk_widget_get_style_context (CTK_WIDGET (bar));
 
         ctk_style_context_add_class (context, CTK_STYLE_CLASS_LIST_ROW);
 
@@ -767,7 +767,7 @@ gvc_level_bar_finalize (GObject *object)
         G_OBJECT_CLASS (gvc_level_bar_parent_class)->finalize (object);
 }
 
-GtkWidget *
+CtkWidget *
 gvc_level_bar_new (void)
 {
         return g_object_new (GVC_TYPE_LEVEL_BAR, NULL);

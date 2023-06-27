@@ -50,9 +50,9 @@ static const gchar *icon_names_input[] = {
         NULL
 };
 
-static void menu_output_mute (GtkAction *action, GvcApplet *applet);
-static void menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet);
-static const GtkActionEntry applet_menu_actions [] = {
+static void menu_output_mute (CtkAction *action, GvcApplet *applet);
+static void menu_activate_open_volume_control (CtkAction *action, GvcApplet *applet);
+static const CtkActionEntry applet_menu_actions [] = {
         { "Preferences", APPLET_ICON, N_("_Sound Preferences"), NULL, NULL, G_CALLBACK(menu_activate_open_volume_control) },
         { "MuteOutput", "audio-volume-muted", N_("Mute Output"), NULL, NULL, G_CALLBACK (menu_output_mute) }
 };
@@ -70,8 +70,8 @@ struct _GvcAppletPrivate
         CafeMixerStream     *input;
 
         CafePanelApplet     *applet;
-        GtkBox              *box;
-        GtkActionGroup      *action_group;
+        CtkBox              *box;
+        CtkActionGroup      *action_group;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (GvcApplet, gvc_applet, G_TYPE_OBJECT)
@@ -430,7 +430,7 @@ gvc_applet_new (void)
 }
 
 static void
-gvc_applet_set_size(GtkWidget* widget, int size, gpointer user_data)
+gvc_applet_set_size(CtkWidget* widget, int size, gpointer user_data)
 {
         GvcApplet *applet = user_data;
 
@@ -449,11 +449,11 @@ gvc_applet_set_size(GtkWidget* widget, int size, gpointer user_data)
 }
 
 static void
-gvc_applet_set_mute (GtkWidget* widget, int size, gpointer user_data)
+gvc_applet_set_mute (CtkWidget* widget, int size, gpointer user_data)
 {
         GvcApplet *applet = user_data;
         gboolean is_muted;
-        GtkAction *action;
+        CtkAction *action;
 
         is_muted = gvc_stream_applet_icon_get_mute (applet->priv->icon_output);
 
@@ -471,7 +471,7 @@ gvc_applet_set_mute (GtkWidget* widget, int size, gpointer user_data)
 }
 
 static void
-gvc_applet_set_orient(GtkWidget *widget, CafePanelAppletOrient orient, gpointer user_data)
+gvc_applet_set_orient(CtkWidget *widget, CafePanelAppletOrient orient, gpointer user_data)
 {
         GvcApplet *applet = user_data;
 
@@ -480,7 +480,7 @@ gvc_applet_set_orient(GtkWidget *widget, CafePanelAppletOrient orient, gpointer 
 }
 
 static void
-menu_output_mute (GtkAction *action, GvcApplet *applet)
+menu_output_mute (CtkAction *action, GvcApplet *applet)
 {
         gboolean               is_muted;
 
@@ -499,7 +499,7 @@ menu_output_mute (GtkAction *action, GvcApplet *applet)
 }
 
 static void
-menu_activate_open_volume_control (GtkAction *action, GvcApplet *applet)
+menu_activate_open_volume_control (CtkAction *action, GvcApplet *applet)
 {
         gvc_stream_applet_icon_volume_control (applet->priv->icon_output);
 }
@@ -539,7 +539,7 @@ gvc_applet_fill (GvcApplet *applet, CafePanelApplet* applet_widget)
         gvc_stream_applet_icon_set_orient (applet->priv->icon_input, cafe_panel_applet_get_orient (applet->priv->applet));
         gvc_stream_applet_icon_set_orient (applet->priv->icon_output, cafe_panel_applet_get_orient (applet->priv->applet));
 
-        /* we add the Gtk buttons into the applet */
+        /* we add the Ctk buttons into the applet */
         ctk_box_pack_start (applet->priv->box, CTK_WIDGET (applet->priv->icon_input), TRUE, TRUE, 2);
         ctk_box_pack_start (applet->priv->box, CTK_WIDGET (applet->priv->icon_output), TRUE, TRUE, 2);
         ctk_container_add (CTK_CONTAINER (applet->priv->applet), CTK_WIDGET (applet->priv->box));

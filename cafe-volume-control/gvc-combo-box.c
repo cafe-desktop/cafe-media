@@ -30,13 +30,13 @@
 
 struct _GvcComboBoxPrivate
 {
-        GtkWidget       *drop_box;
-        GtkWidget       *start_box;
-        GtkWidget       *end_box;
-        GtkWidget       *label;
-        GtkWidget       *button;
-        GtkTreeModel    *model;
-        GtkWidget       *combobox;
+        CtkWidget       *drop_box;
+        CtkWidget       *start_box;
+        CtkWidget       *end_box;
+        CtkWidget       *label;
+        CtkWidget       *button;
+        CtkTreeModel    *model;
+        CtkWidget       *combobox;
         CafeMixerSwitch *swtch;
 };
 
@@ -79,7 +79,7 @@ gvc_combo_box_get_switch (GvcComboBox *combobox)
 
 void
 gvc_combo_box_set_size_group (GvcComboBox  *combobox,
-                              GtkSizeGroup *group,
+                              CtkSizeGroup *group,
                               gboolean      symmetric)
 {
         g_return_if_fail (GVC_IS_COMBO_BOX (combobox));
@@ -98,7 +98,7 @@ on_switch_active_option_notify (CafeMixerSwitch *swtch,
                                 GParamSpec      *pspec,
                                 GvcComboBox     *combobox)
 {
-        GtkTreeIter            iter;
+        CtkTreeIter            iter;
         CafeMixerSwitchOption *active;
         gboolean               cont;
         const gchar           *name;
@@ -144,7 +144,7 @@ gvc_combo_box_set_switch (GvcComboBox *combobox, CafeMixerSwitch *swtch)
         active  = cafe_mixer_switch_get_active_option (swtch);
         options = cafe_mixer_switch_list_options (swtch);
         while (options != NULL) {
-                GtkTreeIter            iter;
+                CtkTreeIter            iter;
                 CafeMixerSwitchOption *option = CAFE_MIXER_SWITCH_OPTION (options->data);
 
                 ctk_list_store_insert_with_values (CTK_LIST_STORE (combobox->priv->model),
@@ -294,9 +294,9 @@ gvc_combo_box_class_init (GvcComboBoxClass *klass)
 }
 
 static void
-on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
+on_combo_box_changed (CtkComboBox *widget, GvcComboBox *combobox)
 {
-        GtkTreeIter            iter;
+        CtkTreeIter            iter;
         gchar                 *name;
         CafeMixerSwitchOption *option;
 
@@ -322,7 +322,7 @@ on_combo_box_changed (GtkComboBox *widget, GvcComboBox *combobox)
 }
 
 static void
-on_combo_box_button_clicked (GtkButton *button, GvcComboBox *combobox)
+on_combo_box_button_clicked (CtkButton *button, GvcComboBox *combobox)
 {
         /* The meaning of the button is defined by the owner, so only notify
          * when it is clicked on */
@@ -332,8 +332,8 @@ on_combo_box_button_clicked (GtkButton *button, GvcComboBox *combobox)
 static void
 gvc_combo_box_init (GvcComboBox *combobox)
 {
-        GtkWidget       *frame;
-        GtkCellRenderer *renderer;
+        CtkWidget       *frame;
+        CtkCellRenderer *renderer;
 
         frame = ctk_frame_new (NULL);
         ctk_frame_set_shadow_type (CTK_FRAME (frame), CTK_SHADOW_NONE);
@@ -431,7 +431,7 @@ gvc_combo_box_dispose (GObject *object)
         G_OBJECT_CLASS (gvc_combo_box_parent_class)->dispose (object);
 }
 
-GtkWidget *
+CtkWidget *
 gvc_combo_box_new (CafeMixerSwitch *swtch, const gchar *label)
 {
         return g_object_new (GVC_TYPE_COMBO_BOX,

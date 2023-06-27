@@ -43,18 +43,18 @@ typedef struct _GvcSpeakerTestPrivate  GvcSpeakerTestPrivate;
 
 struct _GvcSpeakerTest
 {
-        GtkGrid                   parent;
+        CtkGrid                   parent;
         GvcSpeakerTestPrivate    *priv;
 };
 
 struct _GvcSpeakerTestClass
 {
-        GtkGridClass              parent_class;
+        CtkGridClass              parent_class;
 };
 
 GType               gvc_speaker_test_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_speaker_test_new                 (CafeMixerStream *stream);
+CtkWidget *         gvc_speaker_test_new                 (CafeMixerStream *stream);
 
 CafeMixerStream *   gvc_speaker_test_get_stream          (GvcSpeakerTest  *test);
 

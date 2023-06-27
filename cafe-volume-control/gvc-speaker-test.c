@@ -98,7 +98,7 @@ gvc_speaker_test_set_stream (GvcSpeakerTest *test, CafeMixerStream *stream)
                 gboolean has_position =
                         cafe_mixer_stream_control_has_channel_position (control, positions[i].position);
 
-                ctk_widget_set_visible (g_array_index (test->priv->controls, GtkWidget *, i),
+                ctk_widget_set_visible (g_array_index (test->priv->controls, CtkWidget *, i),
                                         has_position);
         }
 
@@ -236,10 +236,10 @@ icon_name (CafeMixerChannelPosition position, gboolean playing)
 }
 
 static void
-update_button (GtkWidget *control)
+update_button (CtkWidget *control)
 {
-        GtkWidget *button;
-        GtkWidget *image;
+        CtkWidget *button;
+        CtkWidget *image;
         gboolean   playing;
         CafeMixerChannelPosition position;
 
@@ -257,7 +257,7 @@ update_button (GtkWidget *control)
 }
 
 static gboolean
-idle_cb (GtkWidget *control)
+idle_cb (CtkWidget *control)
 {
         if (control != NULL) {
                 /* This is called in the background thread, hence forward to main thread
@@ -272,7 +272,7 @@ idle_cb (GtkWidget *control)
 static void
 finish_cb (ca_context *c, uint32_t id, int error_code, void *userdata)
 {
-        GtkWidget *control = (GtkWidget *) userdata;
+        CtkWidget *control = (CtkWidget *) userdata;
 
         if (error_code == CA_ERROR_DESTROYED || control == NULL)
                 return;
@@ -281,7 +281,7 @@ finish_cb (ca_context *c, uint32_t id, int error_code, void *userdata)
 }
 
 static void
-on_test_button_clicked (GtkButton *button, GtkWidget *control)
+on_test_button_clicked (CtkButton *button, CtkWidget *control)
 {
         gboolean    playing;
         ca_context *canberra;
@@ -335,14 +335,14 @@ on_test_button_clicked (GtkButton *button, GtkWidget *control)
         update_button (control);
 }
 
-static GtkWidget *
+static CtkWidget *
 create_control (ca_context *canberra, CafeMixerChannelPosition position)
 {
-        GtkWidget   *control;
-        GtkWidget   *box;
-        GtkWidget   *label;
-        GtkWidget   *image;
-        GtkWidget   *test_button;
+        CtkWidget   *control;
+        CtkWidget   *box;
+        CtkWidget   *label;
+        CtkWidget   *image;
+        CtkWidget   *test_button;
         const gchar *name;
 
         control = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);
@@ -385,7 +385,7 @@ create_controls (GvcSpeakerTest *test)
         guint i;
 
         for (i = 0; i < G_N_ELEMENTS (positions); i++) {
-                GtkWidget *control = create_control (test->priv->canberra, positions[i].position);
+                CtkWidget *control = create_control (test->priv->canberra, positions[i].position);
 
                 ctk_grid_attach (CTK_GRID (test),
                                  control,
@@ -399,7 +399,7 @@ create_controls (GvcSpeakerTest *test)
 static void
 gvc_speaker_test_init (GvcSpeakerTest *test)
 {
-        GtkWidget *face;
+        CtkWidget *face;
 
         test->priv = gvc_speaker_test_get_instance_private (test);
 
@@ -430,7 +430,7 @@ gvc_speaker_test_init (GvcSpeakerTest *test)
                                  CA_PROP_APPLICATION_ICON_NAME, "multimedia-volume-control",
                                  NULL);
 
-        test->priv->controls = g_array_new (FALSE, FALSE, sizeof (GtkWidget *));
+        test->priv->controls = g_array_new (FALSE, FALSE, sizeof (CtkWidget *));
 
         create_controls (test);
 }
@@ -459,7 +459,7 @@ gvc_speaker_test_finalize (GObject *object)
         G_OBJECT_CLASS (gvc_speaker_test_parent_class)->finalize (object);
 }
 
-GtkWidget *
+CtkWidget *
 gvc_speaker_test_new (CafeMixerStream *stream)
 {
         GObject *test;

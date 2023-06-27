@@ -43,13 +43,13 @@ typedef struct _GvcComboBoxPrivate  GvcComboBoxPrivate;
 
 struct _GvcComboBox
 {
-        GtkBox                  parent;
+        CtkBox                  parent;
         GvcComboBoxPrivate     *priv;
 };
 
 struct _GvcComboBoxClass
 {
-        GtkBoxClass             parent_class;
+        CtkBoxClass             parent_class;
 
         void (* changing)       (GvcComboBox           *combobox,
                                  CafeMixerSwitchOption *option);
@@ -58,13 +58,13 @@ struct _GvcComboBoxClass
 
 GType               gvc_combo_box_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_combo_box_new                 (CafeMixerSwitch *swtch,
+CtkWidget *         gvc_combo_box_new                 (CafeMixerSwitch *swtch,
                                                        const gchar     *label);
 
 CafeMixerSwitch *   gvc_combo_box_get_switch          (GvcComboBox     *combobox);
 
 void                gvc_combo_box_set_size_group      (GvcComboBox     *combobox,
-                                                       GtkSizeGroup    *group,
+                                                       CtkSizeGroup    *group,
                                                        gboolean         symmetric);
 
 G_END_DECLS

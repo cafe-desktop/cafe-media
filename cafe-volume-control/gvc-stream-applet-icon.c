@@ -37,9 +37,9 @@
 struct _GvcStreamAppletIconPrivate
 {
         gchar                 **icon_names;
-        GtkImage               *image;
-        GtkWidget              *dock;
-        GtkWidget              *bar;
+        CtkImage               *image;
+        CtkWidget              *dock;
+        CtkWidget              *bar;
         guint                   current_icon;
         gchar                  *display_name;
         CafeMixerStreamControl *control;
@@ -65,13 +65,13 @@ G_DEFINE_TYPE_WITH_PRIVATE (GvcStreamAppletIcon, gvc_stream_applet_icon, CTK_TYP
 static gboolean
 popup_dock (GvcStreamAppletIcon *icon, guint time)
 {
-        GtkAllocation  allocation;
+        CtkAllocation  allocation;
         GdkDisplay    *display;
         GdkScreen     *screen;
         int            x, y;
         GdkMonitor    *monitor_num;
         GdkRectangle   monitor;
-        GtkRequisition dock_req;
+        CtkRequisition dock_req;
 
         screen = ctk_widget_get_screen (CTK_WIDGET (icon));
         ctk_widget_get_allocation (CTK_WIDGET (icon), &allocation);
@@ -84,7 +84,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
         monitor_num = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), allocation.x, allocation.y);
         gdk_monitor_get_geometry (monitor_num, &monitor);
 
-        ctk_container_foreach (CTK_CONTAINER (icon->priv->dock), (GtkCallback) ctk_widget_show_all, NULL);
+        ctk_container_foreach (CTK_CONTAINER (icon->priv->dock), (CtkCallback) ctk_widget_show_all, NULL);
         ctk_widget_get_preferred_size (icon->priv->dock, &dock_req, NULL);
 
         if (icon->priv->orient == CAFE_PANEL_APPLET_ORIENT_LEFT || icon->priv->orient == CAFE_PANEL_APPLET_ORIENT_RIGHT) {
@@ -146,7 +146,7 @@ popup_dock (GvcStreamAppletIcon *icon, guint time)
 }
 
 static gboolean
-on_applet_icon_button_press (GtkWidget           *applet_icon,
+on_applet_icon_button_press (CtkWidget           *applet_icon,
                              GdkEventButton      *event,
                              GvcStreamAppletIcon *icon)
 {
@@ -187,7 +187,7 @@ gvc_stream_applet_icon_volume_control (GvcStreamAppletIcon *icon)
                                                &error);
 
         if (error != NULL) {
-                GtkWidget *dialog;
+                CtkWidget *dialog;
 
                 dialog = ctk_message_dialog_new (NULL,
                                                  0,
@@ -205,7 +205,7 @@ gvc_stream_applet_icon_volume_control (GvcStreamAppletIcon *icon)
 }
 
 static gboolean
-on_applet_icon_scroll_event (GtkWidget           *event_box,
+on_applet_icon_scroll_event (CtkWidget           *event_box,
                              GdkEventScroll      *event,
                              GvcStreamAppletIcon *icon)
 {
@@ -225,7 +225,7 @@ gvc_icon_release_grab (GvcStreamAppletIcon *icon, GdkEventButton *event)
 }
 
 static gboolean
-on_dock_button_press (GtkWidget           *widget,
+on_dock_button_press (CtkWidget           *widget,
                       GdkEventButton      *event,
                       GvcStreamAppletIcon *icon)
 {
@@ -268,7 +268,7 @@ gvc_icon_grab_notify (GvcStreamAppletIcon *icon, gboolean was_grabbed)
 }
 
 static void
-on_dock_grab_notify (GtkWidget           *widget,
+on_dock_grab_notify (CtkWidget           *widget,
                      gboolean             was_grabbed,
                      GvcStreamAppletIcon *icon)
 {
@@ -276,7 +276,7 @@ on_dock_grab_notify (GtkWidget           *widget,
 }
 
 static gboolean
-on_dock_grab_broken_event (GtkWidget           *widget,
+on_dock_grab_broken_event (CtkWidget           *widget,
                            gboolean             was_grabbed,
                            GvcStreamAppletIcon *icon)
 {
@@ -285,7 +285,7 @@ on_dock_grab_broken_event (GtkWidget           *widget,
 }
 
 static gboolean
-on_dock_key_release (GtkWidget           *widget,
+on_dock_key_release (CtkWidget           *widget,
                      GdkEventKey         *event,
                      GvcStreamAppletIcon *icon)
 {
@@ -297,7 +297,7 @@ on_dock_key_release (GtkWidget           *widget,
 }
 
 static gboolean
-on_dock_scroll_event (GtkWidget           *widget,
+on_dock_scroll_event (CtkWidget           *widget,
                       GdkEventScroll      *event,
                       GvcStreamAppletIcon *icon)
 {
@@ -310,7 +310,7 @@ static void
 gvc_stream_applet_icon_set_icon_from_name (GvcStreamAppletIcon *icon,
                                            const gchar *icon_name)
 {
-        GtkIconTheme *icon_theme = ctk_icon_theme_get_default ();
+        CtkIconTheme *icon_theme = ctk_icon_theme_get_default ();
         gint icon_scale = ctk_widget_get_scale_factor (CTK_WIDGET (icon));
 
         cairo_surface_t* surface = ctk_icon_theme_load_surface (icon_theme, icon_name,
@@ -608,7 +608,7 @@ static void
 gvc_stream_applet_icon_class_init (GvcStreamAppletIconClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
-        GtkWidgetClass *widget_class = (GtkWidgetClass *) klass;
+        CtkWidgetClass *widget_class = (CtkWidgetClass *) klass;
 
         object_class->finalize     = gvc_stream_applet_icon_finalize;
         object_class->dispose      = gvc_stream_applet_icon_dispose;
@@ -655,7 +655,7 @@ on_applet_icon_visible_notify (GvcStreamAppletIcon *icon)
 }
 
 static void
-on_icon_theme_change (GtkSettings         *settings,
+on_icon_theme_change (CtkSettings         *settings,
                       GParamSpec          *pspec,
                       GvcStreamAppletIcon *icon)
 {
@@ -665,8 +665,8 @@ on_icon_theme_change (GtkSettings         *settings,
 static void
 gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
 {
-        GtkWidget *frame;
-        GtkWidget *box;
+        CtkWidget *frame;
+        CtkWidget *box;
 
         icon->priv = gvc_stream_applet_icon_get_instance_private (icon);
 
@@ -722,8 +722,8 @@ gvc_stream_applet_icon_init (GvcStreamAppletIcon *icon)
                                          CTK_ORIENTATION_VERTICAL);
 
         /* Set volume control frame, slider and toplevel window to follow panel theme */
-        GtkWidget *toplevel = ctk_widget_get_toplevel (icon->priv->dock);
-        GtkStyleContext *context;
+        CtkWidget *toplevel = ctk_widget_get_toplevel (icon->priv->dock);
+        CtkStyleContext *context;
         context = ctk_widget_get_style_context (CTK_WIDGET(toplevel));
         ctk_style_context_add_class(context,"cafe-panel-applet-slider");
 

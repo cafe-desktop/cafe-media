@@ -51,22 +51,22 @@ typedef struct _GvcBalanceBarPrivate  GvcBalanceBarPrivate;
 
 struct _GvcBalanceBar
 {
-        GtkBox                parent;
+        CtkBox                parent;
         GvcBalanceBarPrivate *priv;
 };
 
 struct _GvcBalanceBarClass
 {
-        GtkBoxClass           parent_class;
+        CtkBoxClass           parent_class;
 };
 
 GType               gvc_balance_bar_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_balance_bar_new                 (CafeMixerStreamControl *control,
+CtkWidget *         gvc_balance_bar_new                 (CafeMixerStreamControl *control,
                                                          GvcBalanceType   btype);
 
 void                gvc_balance_bar_set_size_group      (GvcBalanceBar   *bar,
-                                                         GtkSizeGroup    *group,
+                                                         CtkSizeGroup    *group,
                                                          gboolean         symmetric);
 
 G_END_DECLS
