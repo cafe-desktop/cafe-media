@@ -43,20 +43,20 @@ typedef struct _GvcChannelBarPrivate  GvcChannelBarPrivate;
 
 struct _GvcChannelBar
 {
-        GtkBox                parent;
+        CtkBox                parent;
         GvcChannelBarPrivate *priv;
 };
 
 struct _GvcChannelBarClass
 {
-        GtkBoxClass           parent_class;
+        CtkBoxClass           parent_class;
 
         void (* changed) (GvcChannelBar *bar);
 };
 
 GType               gvc_channel_bar_get_type            (void);
 
-GtkWidget *         gvc_channel_bar_new                 (CafeMixerStreamControl    *control);
+CtkWidget *         gvc_channel_bar_new                 (CafeMixerStreamControl    *control);
 
 CafeMixerStreamControl *gvc_channel_bar_get_control          (GvcChannelBar      *bar);
 void                gvc_channel_bar_set_control          (GvcChannelBar      *bar,
@@ -78,9 +78,9 @@ const gchar *       gvc_channel_bar_get_high_icon_name  (GvcChannelBar      *bar
 void                gvc_channel_bar_set_high_icon_name  (GvcChannelBar      *bar,
                                                          const gchar        *icon_name);
 
-GtkOrientation      gvc_channel_bar_get_orientation     (GvcChannelBar      *bar);
+CtkOrientation      gvc_channel_bar_get_orientation     (GvcChannelBar      *bar);
 void                gvc_channel_bar_set_orientation     (GvcChannelBar      *bar,
-                                                         GtkOrientation      orientation);
+                                                         CtkOrientation      orientation);
 
 gboolean            gvc_channel_bar_get_show_icons      (GvcChannelBar      *bar);
 void                gvc_channel_bar_set_show_icons      (GvcChannelBar      *bar,
@@ -99,7 +99,7 @@ void                gvc_channel_bar_set_extended        (GvcChannelBar      *bar
                                                          gboolean            extended);
 
 void                gvc_channel_bar_set_size_group      (GvcChannelBar      *bar,
-                                                         GtkSizeGroup       *group,
+                                                         CtkSizeGroup       *group,
                                                          gboolean            symmetric);
 
 gboolean            gvc_channel_bar_scroll              (GvcChannelBar      *bar,

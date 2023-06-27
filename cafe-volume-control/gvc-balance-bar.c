@@ -31,7 +31,7 @@
 
 #define BALANCE_BAR_STYLE                                       \
         "style \"balance-bar-scale-style\" {\n"                 \
-        " GtkScale::trough-side-details = 0\n"                  \
+        " CtkScale::trough-side-details = 0\n"                  \
         "}\n"                                                   \
         "widget \"*.balance-bar-scale\" style : rc \"balance-bar-scale-style\"\n"
 
@@ -40,13 +40,13 @@
 struct _GvcBalanceBarPrivate
 {
         GvcBalanceType   btype;
-        GtkWidget       *scale_box;
-        GtkWidget       *start_box;
-        GtkWidget       *end_box;
-        GtkWidget       *label;
-        GtkWidget       *scale;
-        GtkAdjustment   *adjustment;
-        GtkSizeGroup    *size_group;
+        CtkWidget       *scale_box;
+        CtkWidget       *start_box;
+        CtkWidget       *end_box;
+        CtkWidget       *label;
+        CtkWidget       *scale;
+        CtkAdjustment   *adjustment;
+        CtkSizeGroup    *size_group;
         gboolean         symmetric;
         CafeMixerStreamControl *control;
         gint             lfe_channel;
@@ -64,11 +64,11 @@ static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
 static void     gvc_balance_bar_dispose     (GObject            *object);
 
-static gboolean on_scale_scroll_event       (GtkWidget          *widget,
+static gboolean on_scale_scroll_event       (CtkWidget          *widget,
                                              GdkEventScroll     *event,
                                              GvcBalanceBar      *bar);
 
-static void     on_adjustment_value_changed (GtkAdjustment      *adjustment,
+static void     on_adjustment_value_changed (CtkAdjustment      *adjustment,
                                              GvcBalanceBar      *bar);
 
 G_DEFINE_TYPE_WITH_PRIVATE (GvcBalanceBar, gvc_balance_bar, CTK_TYPE_BOX)
@@ -169,7 +169,7 @@ update_scale_marks (GvcBalanceBar *bar)
 
 void
 gvc_balance_bar_set_size_group (GvcBalanceBar *bar,
-                                GtkSizeGroup  *group,
+                                CtkSizeGroup  *group,
                                 gboolean       symmetric)
 {
         g_return_if_fail (GVC_IS_BALANCE_BAR (bar));
@@ -312,8 +312,8 @@ gvc_balance_bar_set_control (GvcBalanceBar *bar, CafeMixerStreamControl *control
 static void
 gvc_balance_bar_set_balance_type (GvcBalanceBar *bar, GvcBalanceType btype)
 {
-        GtkWidget     *frame;
-        GtkAdjustment *adjustment;
+        CtkWidget     *frame;
+        CtkAdjustment *adjustment;
 
         /* Create adjustment with limits for balance and fade types because
          * some limits must be provided.
@@ -433,7 +433,7 @@ gvc_balance_bar_class_init (GvcBalanceBarClass *klass)
 }
 
 static gboolean
-on_scale_scroll_event (GtkWidget      *widget,
+on_scale_scroll_event (CtkWidget      *widget,
                        GdkEventScroll *event,
                        GvcBalanceBar  *bar)
 {
@@ -470,7 +470,7 @@ on_scale_scroll_event (GtkWidget      *widget,
 }
 
 static void
-on_adjustment_value_changed (GtkAdjustment *adjustment, GvcBalanceBar *bar)
+on_adjustment_value_changed (CtkAdjustment *adjustment, GvcBalanceBar *bar)
 {
         gdouble value;
 
@@ -517,7 +517,7 @@ gvc_balance_bar_dispose (GObject *object)
         G_OBJECT_CLASS (gvc_balance_bar_parent_class)->dispose (object);
 }
 
-GtkWidget *
+CtkWidget *
 gvc_balance_bar_new (CafeMixerStreamControl *control, GvcBalanceType btype)
 {
         return g_object_new (GVC_TYPE_BALANCE_BAR,

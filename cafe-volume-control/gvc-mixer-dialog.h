@@ -44,13 +44,13 @@ typedef struct _GvcMixerDialogPrivate  GvcMixerDialogPrivate;
 
 struct _GvcMixerDialog
 {
-        GtkDialog              parent;
+        CtkDialog              parent;
         GvcMixerDialogPrivate *priv;
 };
 
 struct _GvcMixerDialogClass
 {
-        GtkDialogClass         parent_class;
+        CtkDialogClass         parent_class;
 };
 
 GType               gvc_mixer_dialog_get_type            (void) G_GNUC_CONST;

@@ -38,11 +38,11 @@ static gboolean    debug = FALSE;
 static gboolean    show_version = FALSE;
 
 static gchar      *page = NULL;
-static GtkWidget  *app_dialog = NULL;
-static GtkWidget  *warning_dialog = NULL;
+static CtkWidget  *app_dialog = NULL;
+static CtkWidget  *warning_dialog = NULL;
 
 static void
-on_dialog_response (GtkDialog *dialog, guint response_id, gpointer data)
+on_dialog_response (CtkDialog *dialog, guint response_id, gpointer data)
 {
         gboolean destroy = GPOINTER_TO_INT (data);
 
@@ -53,7 +53,7 @@ on_dialog_response (GtkDialog *dialog, guint response_id, gpointer data)
 }
 
 static void
-on_dialog_close (GtkDialog *dialog, gpointer data)
+on_dialog_close (CtkDialog *dialog, gpointer data)
 {
         gboolean destroy = GPOINTER_TO_INT (data);
 
@@ -75,11 +75,11 @@ remove_warning_dialog (void)
 }
 
 static void
-context_ready (CafeMixerContext *context, GtkApplication *application)
+context_ready (CafeMixerContext *context, CtkApplication *application)
 {
         /* The dialog might be already created, e.g. when reconnected
          * to a sound server */
-        GtkApplication *app;
+        CtkApplication *app;
         GError *error = NULL;
 
         app = ctk_application_new ("context.ready", G_APPLICATION_FLAGS_NONE);
@@ -123,7 +123,7 @@ context_ready (CafeMixerContext *context, GtkApplication *application)
 static void
 on_context_state_notify (CafeMixerContext *context,
                          GParamSpec       *pspec,
-                         GtkApplication	  *app)
+                         CtkApplication	  *app)
 {
         CafeMixerState state = cafe_mixer_context_get_state (context);
 
@@ -132,7 +132,7 @@ on_context_state_notify (CafeMixerContext *context,
                 context_ready (context, app);
         }
         else if (state == CAFE_MIXER_STATE_FAILED) {
-                GtkWidget *dialog;
+                CtkWidget *dialog;
 
                 remove_warning_dialog ();
 

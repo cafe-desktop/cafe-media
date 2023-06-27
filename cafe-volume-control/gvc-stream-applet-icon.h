@@ -42,13 +42,13 @@ typedef struct _GvcStreamAppletIconPrivate  GvcStreamAppletIconPrivate;
 
 struct _GvcStreamAppletIcon
 {
-        GtkEventBox                 parent;
+        CtkEventBox                 parent;
         GvcStreamAppletIconPrivate *priv;
 };
 
 struct _GvcStreamAppletIconClass
 {
-        GtkEventBoxClass            parent_class;
+        CtkEventBoxClass            parent_class;
 };
 
 GType                 gvc_stream_applet_icon_get_type         (void) G_GNUC_CONST;

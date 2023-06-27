@@ -40,11 +40,11 @@
 
 struct GvcSoundThemeChooserPrivate
 {
-        GtkWidget *combo_box;
-        GtkWidget *treeview;
-        GtkWidget *theme_box;
-        GtkWidget *selection_box;
-        GtkWidget *click_feedback_button;
+        CtkWidget *combo_box;
+        CtkWidget *treeview;
+        CtkWidget *theme_box;
+        CtkWidget *selection_box;
+        CtkWidget *click_feedback_button;
         GSettings *sound_settings;
 };
 
@@ -85,11 +85,11 @@ enum {
 };
 
 static void
-on_combobox_changed (GtkComboBox          *widget,
+on_combobox_changed (CtkComboBox          *widget,
                      GvcSoundThemeChooser *chooser)
 {
-        GtkTreeIter   iter;
-        GtkTreeModel *model;
+        CtkTreeIter   iter;
+        CtkTreeModel *model;
         char         *theme_name;
 
         if (ctk_combo_box_get_active_iter (CTK_COMBO_BOX (chooser->priv->combo_box), &iter) == FALSE) {
@@ -195,7 +195,7 @@ sound_theme_in_dir (GHashTable *hash,
 static void
 add_theme_to_store (const char   *key,
                     const char   *value,
-                    GtkListStore *store)
+                    CtkListStore *store)
 {
         char *parent;
 
@@ -222,8 +222,8 @@ static void
 set_combox_for_theme_name (GvcSoundThemeChooser *chooser,
                            const char           *name)
 {
-        GtkTreeIter   iter;
-        GtkTreeModel *model;
+        CtkTreeIter   iter;
+        CtkTreeModel *model;
         gboolean      found;
 
         /* If the name is empty, use "freedesktop" */
@@ -268,8 +268,8 @@ static void
 setup_theme_selector (GvcSoundThemeChooser *chooser)
 {
         GHashTable           *hash;
-        GtkListStore         *store;
-        GtkCellRenderer      *renderer;
+        CtkListStore         *store;
+        CtkCellRenderer      *renderer;
         const char * const   *data_dirs;
         const char           *data_dir;
         char                 *dir;
@@ -407,7 +407,7 @@ xml_get_and_trim_names (xmlNodePtr node)
 
 static void
 populate_model_from_node (GvcSoundThemeChooser *chooser,
-                          GtkTreeModel         *model,
+                          CtkTreeModel         *model,
                           xmlNodePtr            node)
 {
         xmlNodePtr child;
@@ -445,7 +445,7 @@ populate_model_from_node (GvcSoundThemeChooser *chooser,
 
 static void
 populate_model_from_file (GvcSoundThemeChooser *chooser,
-                          GtkTreeModel         *model,
+                          CtkTreeModel         *model,
                           const char           *filename)
 {
         xmlDocPtr  doc;
@@ -481,7 +481,7 @@ populate_model_from_file (GvcSoundThemeChooser *chooser,
 
 static void
 populate_model_from_dir (GvcSoundThemeChooser *chooser,
-                         GtkTreeModel         *model,
+                         CtkTreeModel         *model,
                          const char           *dirname)
 {
         GDir       *d;
@@ -539,8 +539,8 @@ static void
 update_alert_model (GvcSoundThemeChooser  *chooser,
                     const char            *id)
 {
-        GtkTreeModel *model;
-        GtkTreeIter   iter;
+        CtkTreeModel *model;
+        CtkTreeIter   iter;
 
         model = ctk_tree_view_get_model (CTK_TREE_VIEW (chooser->priv->treeview));
         ctk_tree_model_get_iter_first (model, &iter);
@@ -570,8 +570,8 @@ static void
 update_alert (GvcSoundThemeChooser *chooser,
               const char           *alert_id)
 {
-        GtkTreeModel *theme_model;
-        GtkTreeIter   iter;
+        CtkTreeModel *theme_model;
+        CtkTreeIter   iter;
         char         *theme;
         char         *parent;
         gboolean      is_custom;
@@ -654,13 +654,13 @@ update_alert (GvcSoundThemeChooser *chooser,
 }
 
 static void
-on_alert_toggled (GtkCellRendererToggle *renderer,
+on_alert_toggled (CtkCellRendererToggle *renderer,
                   char                  *path_str,
                   GvcSoundThemeChooser  *chooser)
 {
-        GtkTreeModel *model;
-        GtkTreeIter   iter;
-        GtkTreePath  *path;
+        CtkTreeModel *model;
+        CtkTreeIter   iter;
+        CtkTreePath  *path;
         gboolean      toggled;
         char         *id;
 
@@ -685,11 +685,11 @@ on_alert_toggled (GtkCellRendererToggle *renderer,
 }
 
 static void
-play_preview_for_path (GvcSoundThemeChooser *chooser, GtkTreePath *path)
+play_preview_for_path (GvcSoundThemeChooser *chooser, CtkTreePath *path)
 {
-        GtkTreeModel *model;
-        GtkTreeIter   iter;
-        GtkTreeIter   theme_iter;
+        CtkTreeModel *model;
+        CtkTreeIter   iter;
+        CtkTreeIter   theme_iter;
         gchar        *id = NULL;
         gchar        *parent_theme = NULL;
 
@@ -704,7 +704,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, GtkTreePath *path)
                 return;
 
         if (ctk_combo_box_get_active_iter (CTK_COMBO_BOX (chooser->priv->combo_box), &theme_iter)) {
-                GtkTreeModel *theme_model;
+                CtkTreeModel *theme_model;
                 gchar        *theme_id = NULL;
                 gchar        *parent_id = NULL;
 
@@ -765,21 +765,21 @@ play_preview_for_path (GvcSoundThemeChooser *chooser, GtkTreePath *path)
 }
 
 static void
-on_treeview_row_activated (GtkTreeView          *treeview,
-                           GtkTreePath          *path,
-                           GtkTreeViewColumn    *column,
+on_treeview_row_activated (CtkTreeView          *treeview,
+                           CtkTreePath          *path,
+                           CtkTreeViewColumn    *column,
                            GvcSoundThemeChooser *chooser)
 {
         play_preview_for_path (chooser, path);
 }
 
 static void
-on_treeview_selection_changed (GtkTreeSelection     *selection,
+on_treeview_selection_changed (CtkTreeSelection     *selection,
                                GvcSoundThemeChooser *chooser)
 {
         GList        *paths;
-        GtkTreeModel *model;
-        GtkTreePath  *path;
+        CtkTreeModel *model;
+        CtkTreePath  *path;
 
         if (chooser->priv->treeview == NULL)
                 return;
@@ -797,14 +797,14 @@ on_treeview_selection_changed (GtkTreeSelection     *selection,
         g_list_free (paths);
 }
 
-static GtkWidget *
+static CtkWidget *
 create_alert_treeview (GvcSoundThemeChooser *chooser)
 {
-        GtkListStore         *store;
-        GtkWidget            *treeview;
-        GtkCellRenderer      *renderer;
-        GtkTreeViewColumn    *column;
-        GtkTreeSelection     *selection;
+        CtkListStore         *store;
+        CtkWidget            *treeview;
+        CtkCellRenderer      *renderer;
+        CtkTreeViewColumn    *column;
+        CtkTreeSelection     *selection;
 
         treeview = ctk_tree_view_new ();
 
@@ -968,7 +968,7 @@ gvc_sound_theme_chooser_class_init (GvcSoundThemeChooserClass *klass)
 }
 
 static void
-on_click_feedback_toggled (GtkToggleButton      *button,
+on_click_feedback_toggled (CtkToggleButton      *button,
                            GvcSoundThemeChooser *chooser)
 {
         gboolean enabled;
@@ -990,10 +990,10 @@ on_key_changed (GSettings            *settings,
 }
 
 static void
-setup_list_size_constraint (GtkWidget *widget,
-                            GtkWidget *to_size)
+setup_list_size_constraint (CtkWidget *widget,
+                            CtkWidget *to_size)
 {
-        GtkRequisition req;
+        CtkRequisition req;
         gint           sc_height;
         int            max_height;
 
@@ -1013,9 +1013,9 @@ setup_list_size_constraint (GtkWidget *widget,
 static void
 gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
 {
-        GtkWidget   *box;
-        GtkWidget   *label;
-        GtkWidget   *scrolled_window;
+        CtkWidget   *box;
+        CtkWidget   *label;
+        CtkWidget   *scrolled_window;
         gchar       *str;
 
         chooser->priv = gvc_sound_theme_chooser_get_instance_private (chooser);
@@ -1097,7 +1097,7 @@ gvc_sound_theme_chooser_dispose (GObject *object)
         G_OBJECT_CLASS (gvc_sound_theme_chooser_parent_class)->dispose (object);
 }
 
-GtkWidget *
+CtkWidget *
 gvc_sound_theme_chooser_new (void)
 {
         return g_object_new (GVC_TYPE_SOUND_THEME_CHOOSER,

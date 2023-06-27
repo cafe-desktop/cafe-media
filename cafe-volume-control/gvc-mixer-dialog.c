@@ -43,32 +43,32 @@ struct _GvcMixerDialogPrivate
         CafeMixerContext *context;
         CafeMixerBackendFlags backend_flags;
         GHashTable       *bars;
-        GtkWidget        *notebook;
-        GtkWidget        *output_bar;
-        GtkWidget        *input_bar;
-        GtkWidget        *input_level_bar;
-        GtkWidget        *effects_bar;
-        GtkWidget        *output_stream_box;
-        GtkWidget        *hw_box;
-        GtkWidget        *hw_treeview;
-        GtkWidget        *hw_settings_box;
-        GtkWidget        *hw_profile_combo;
-        GtkWidget        *input_box;
-        GtkWidget        *output_box;
-        GtkWidget        *applications_box;
-        GtkWidget        *applications_window;
-        GtkWidget        *no_apps_label;
-        GtkWidget        *output_treeview;
-        GtkWidget        *output_settings_frame;
-        GtkWidget        *output_settings_box;
-        GtkWidget        *output_balance_bar;
-        GtkWidget        *output_fade_bar;
-        GtkWidget        *output_lfe_bar;
-        GtkWidget        *output_port_combo;
-        GtkWidget        *input_treeview;
-        GtkWidget        *input_port_combo;
-        GtkWidget        *input_settings_box;
-        GtkSizeGroup     *size_group;
+        CtkWidget        *notebook;
+        CtkWidget        *output_bar;
+        CtkWidget        *input_bar;
+        CtkWidget        *input_level_bar;
+        CtkWidget        *effects_bar;
+        CtkWidget        *output_stream_box;
+        CtkWidget        *hw_box;
+        CtkWidget        *hw_treeview;
+        CtkWidget        *hw_settings_box;
+        CtkWidget        *hw_profile_combo;
+        CtkWidget        *input_box;
+        CtkWidget        *output_box;
+        CtkWidget        *applications_box;
+        CtkWidget        *applications_window;
+        CtkWidget        *no_apps_label;
+        CtkWidget        *output_treeview;
+        CtkWidget        *output_settings_frame;
+        CtkWidget        *output_settings_box;
+        CtkWidget        *output_balance_bar;
+        CtkWidget        *output_fade_bar;
+        CtkWidget        *output_lfe_bar;
+        CtkWidget        *output_port_combo;
+        CtkWidget        *input_treeview;
+        CtkWidget        *input_port_combo;
+        CtkWidget        *input_settings_box;
+        CtkSizeGroup     *size_group;
         gdouble           last_input_peak;
         guint             num_apps;
 };
@@ -121,15 +121,15 @@ static void remove_application_control  (GvcMixerDialog         *dialog,
                                          const gchar            *name);
 
 static void bar_set_stream              (GvcMixerDialog         *dialog,
-                                         GtkWidget              *bar,
+                                         CtkWidget              *bar,
                                          CafeMixerStream        *stream);
 static void bar_set_stream_control      (GvcMixerDialog         *dialog,
-                                         GtkWidget              *bar,
+                                         CtkWidget              *bar,
                                          CafeMixerStreamControl *control);
 
-static gboolean dialog_page_scroll_event_cb (GtkWidget          *widget,
+static gboolean dialog_page_scroll_event_cb (CtkWidget          *widget,
                                              GdkEventScroll     *event,
-                                             GtkWindow          *window);
+                                             CtkWindow          *window);
 
 G_DEFINE_TYPE_WITH_PRIVATE (GvcMixerDialog, gvc_mixer_dialog, CTK_TYPE_DIALOG)
 
@@ -194,10 +194,10 @@ find_device_test_stream (GvcMixerDialog *dialog, CafeMixerDevice *device)
 }
 
 static gboolean
-find_tree_item_by_name (GtkTreeModel *model,
+find_tree_item_by_name (CtkTreeModel *model,
                         const gchar  *name,
                         guint         column,
-                        GtkTreeIter  *iter)
+                        CtkTreeIter  *iter)
 {
         gboolean found = FALSE;
 
@@ -219,10 +219,10 @@ find_tree_item_by_name (GtkTreeModel *model,
 
 static void
 update_default_tree_item (GvcMixerDialog  *dialog,
-                          GtkTreeModel    *model,
+                          CtkTreeModel    *model,
                           CafeMixerStream *stream)
 {
-        GtkTreeIter  iter;
+        CtkTreeIter  iter;
         const gchar *name = NULL;
 
         if (ctk_tree_model_get_iter_first (model, &iter) == FALSE)
@@ -375,7 +375,7 @@ update_output_settings (GvcMixerDialog *dialog)
 static void
 set_output_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
 {
-        GtkTreeModel           *model;
+        CtkTreeModel           *model;
         CafeMixerStreamControl *control;
 
         control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->output_bar));
@@ -444,7 +444,7 @@ on_stream_control_monitor_value (CafeMixerStream *stream,
                                  gdouble          value,
                                  GvcMixerDialog  *dialog)
 {
-        GtkAdjustment *adj;
+        CtkAdjustment *adj;
 
         if (dialog->priv->last_input_peak >= DECAY_STEP) {
                 if (value < dialog->priv->last_input_peak - DECAY_STEP) {
@@ -530,7 +530,7 @@ on_stream_control_mute_notify (CafeMixerStreamControl *control,
 static void
 set_input_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
 {
-        GtkTreeModel           *model;
+        CtkTreeModel           *model;
         CafeMixerStreamControl *control;
 
         control = gvc_channel_bar_get_control (GVC_CHANNEL_BAR (dialog->priv->input_bar));
@@ -615,10 +615,10 @@ on_context_default_input_stream_notify (CafeMixerContext *context,
         set_input_stream (dialog, stream);
 }
 
-static GtkWidget *
+static CtkWidget *
 create_bar (GvcMixerDialog *dialog, gboolean use_size_group, gboolean symmetric)
 {
-        GtkWidget *bar;
+        CtkWidget *bar;
 
         bar = gvc_channel_bar_new (NULL);
 
@@ -638,7 +638,7 @@ create_bar (GvcMixerDialog *dialog, gboolean use_size_group, gboolean symmetric)
 
 static void
 bar_set_stream (GvcMixerDialog  *dialog,
-                GtkWidget       *bar,
+                CtkWidget       *bar,
                 CafeMixerStream *stream)
 {
         CafeMixerStreamControl *control = NULL;
@@ -651,7 +651,7 @@ bar_set_stream (GvcMixerDialog  *dialog,
 
 static void
 bar_set_stream_control (GvcMixerDialog         *dialog,
-                        GtkWidget              *bar,
+                        CtkWidget              *bar,
                         CafeMixerStreamControl *control)
 {
         const gchar            *name;
@@ -703,7 +703,7 @@ add_application_control (GvcMixerDialog *dialog, CafeMixerStreamControl *control
         CafeMixerStreamControlMediaRole media_role;
         CafeMixerAppInfo               *info;
         CafeMixerDirection              direction = CAFE_MIXER_DIRECTION_UNKNOWN;
-        GtkWidget                      *bar;
+        CtkWidget                      *bar;
         const gchar                    *app_id;
         const gchar                    *app_name;
         const gchar                    *app_icon;
@@ -834,8 +834,8 @@ on_stream_control_removed (CafeMixerStream *stream,
 static void
 add_stream (GvcMixerDialog *dialog, CafeMixerStream *stream)
 {
-        GtkTreeModel      *model = NULL;
-        GtkTreeIter        iter;
+        CtkTreeModel      *model = NULL;
+        CtkTreeIter        iter;
         const gchar       *speakers = NULL;
         const GList       *controls;
         gboolean           is_default = FALSE;
@@ -939,7 +939,7 @@ on_context_stream_added (CafeMixerContext *context,
 {
         CafeMixerStream   *stream;
         CafeMixerDirection direction;
-        GtkWidget         *bar;
+        CtkWidget         *bar;
 
         stream = cafe_mixer_context_get_stream (context, name);
         if (G_UNLIKELY (stream == NULL))
@@ -980,9 +980,9 @@ on_context_stream_added (CafeMixerContext *context,
 static void
 remove_stream (GvcMixerDialog *dialog, const gchar *name)
 {
-        GtkWidget    *bar;
-        GtkTreeIter   iter;
-        GtkTreeModel *model;
+        CtkWidget    *bar;
+        CtkTreeIter   iter;
+        CtkTreeModel *model;
 
         bar = g_hash_table_lookup (dialog->priv->bars, name);
 
@@ -1013,7 +1013,7 @@ remove_stream (GvcMixerDialog *dialog, const gchar *name)
 static void
 remove_application_control (GvcMixerDialog *dialog, const gchar *name)
 {
-        GtkWidget *bar;
+        CtkWidget *bar;
 
         bar = g_hash_table_lookup (dialog->priv->bars, name);
         if (G_UNLIKELY (bar == NULL))
@@ -1080,7 +1080,7 @@ on_context_stored_control_removed (CafeMixerContext *context,
                                    const gchar      *name,
                                    GvcMixerDialog   *dialog)
 {
-        GtkWidget *bar;
+        CtkWidget *bar;
 
         bar = g_hash_table_lookup (dialog->priv->bars, name);
 
@@ -1162,8 +1162,8 @@ device_status (CafeMixerDevice *device)
 static void
 update_device_info (GvcMixerDialog *dialog, CafeMixerDevice *device)
 {
-        GtkTreeModel    *model = NULL;
-        GtkTreeIter      iter;
+        CtkTreeModel    *model = NULL;
+        CtkTreeIter      iter;
         const gchar     *label;
         const gchar     *profile_label = NULL;
         gchar           *status;
@@ -1214,8 +1214,8 @@ on_device_profile_active_option_notify (CafeMixerDeviceSwitch *swtch,
 static void
 add_device (GvcMixerDialog *dialog, CafeMixerDevice *device)
 {
-        GtkTreeModel    *model;
-        GtkTreeIter      iter;
+        CtkTreeModel    *model;
+        CtkTreeIter      iter;
         GIcon           *icon;
         const gchar     *name;
         const gchar     *label;
@@ -1281,8 +1281,8 @@ on_context_device_removed (CafeMixerContext *context,
                            const gchar      *name,
                            GvcMixerDialog   *dialog)
 {
-        GtkTreeIter   iter;
-        GtkTreeModel *model;
+        CtkTreeIter   iter;
+        CtkTreeModel *model;
 
         /* Remove from the device model */
         model = ctk_tree_view_get_model (CTK_TREE_VIEW (dialog->priv->hw_treeview));
@@ -1295,7 +1295,7 @@ on_context_device_removed (CafeMixerContext *context,
 }
 
 static void
-make_label_bold (GtkLabel *label)
+make_label_bold (CtkLabel *label)
 {
         PangoFontDescription *font_desc;
 
@@ -1317,13 +1317,13 @@ make_label_bold (GtkLabel *label)
 }
 
 static void
-on_input_radio_toggled (GtkCellRendererToggle *renderer,
+on_input_radio_toggled (CtkCellRendererToggle *renderer,
                         gchar                 *path_str,
                         GvcMixerDialog        *dialog)
 {
-        GtkTreeModel *model;
-        GtkTreeIter   iter;
-        GtkTreePath  *path;
+        CtkTreeModel *model;
+        CtkTreeIter   iter;
+        CtkTreePath  *path;
         gboolean      toggled = FALSE;
         gchar        *name = NULL;
 
@@ -1362,13 +1362,13 @@ on_input_radio_toggled (GtkCellRendererToggle *renderer,
 }
 
 static void
-on_output_radio_toggled (GtkCellRendererToggle *renderer,
+on_output_radio_toggled (CtkCellRendererToggle *renderer,
                          gchar                 *path_str,
                          GvcMixerDialog        *dialog)
 {
-        GtkTreeModel *model;
-        GtkTreeIter   iter;
-        GtkTreePath  *path;
+        CtkTreeModel *model;
+        CtkTreeIter   iter;
+        CtkTreePath  *path;
         gboolean      toggled = FALSE;
         gchar        *name = NULL;
 
@@ -1407,10 +1407,10 @@ on_output_radio_toggled (GtkCellRendererToggle *renderer,
 }
 
 static void
-stream_name_to_text (GtkTreeViewColumn *column,
-                     GtkCellRenderer   *cell,
-                     GtkTreeModel      *model,
-                     GtkTreeIter       *iter,
+stream_name_to_text (CtkTreeViewColumn *column,
+                     CtkCellRenderer   *cell,
+                     CtkTreeModel      *model,
+                     CtkTreeIter       *iter,
                      gpointer           user_data)
 {
         gchar *label;
@@ -1437,9 +1437,9 @@ stream_name_to_text (GtkTreeViewColumn *column,
 }
 
 static gint
-compare_stream_treeview_items (GtkTreeModel *model,
-                               GtkTreeIter  *a,
-                               GtkTreeIter  *b,
+compare_stream_treeview_items (CtkTreeModel *model,
+                               CtkTreeIter  *a,
+                               CtkTreeIter  *b,
                                gpointer      user_data)
 {
         gchar *desc_a = NULL;
@@ -1469,13 +1469,13 @@ compare_stream_treeview_items (GtkTreeModel *model,
         return result;
 }
 
-static GtkWidget *
+static CtkWidget *
 create_stream_treeview (GvcMixerDialog *dialog, GCallback on_toggled)
 {
-        GtkWidget         *treeview;
-        GtkListStore      *store;
-        GtkCellRenderer   *renderer;
-        GtkTreeViewColumn *column;
+        CtkWidget         *treeview;
+        CtkListStore      *store;
+        CtkCellRenderer   *renderer;
+        CtkTreeViewColumn *column;
 
         treeview = ctk_tree_view_new ();
         ctk_tree_view_set_headers_visible (CTK_TREE_VIEW (treeview), FALSE);
@@ -1535,7 +1535,7 @@ on_device_profile_changing (GvcComboBox           *combobox,
 static void
 on_test_speakers_clicked (GvcComboBox *widget, GvcMixerDialog *dialog)
 {
-        GtkWidget       *d,
+        CtkWidget       *d,
                         *test,
                         *container;
         gchar           *title;
@@ -1579,9 +1579,9 @@ on_test_speakers_clicked (GvcComboBox *widget, GvcMixerDialog *dialog)
 }
 
 static void
-on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog)
+on_device_selection_changed (CtkTreeSelection *selection, GvcMixerDialog *dialog)
 {
-        GtkTreeIter          iter;
+        CtkTreeIter          iter;
         gchar               *name;
         CafeMixerDevice     *device;
         CafeMixerSwitch     *profile_switch;
@@ -1649,8 +1649,8 @@ on_device_selection_changed (GtkTreeSelection *selection, GvcMixerDialog *dialog
 }
 
 static void
-on_notebook_switch_page (GtkNotebook    *notebook,
-                         GtkWidget      *page,
+on_notebook_switch_page (CtkNotebook    *notebook,
+                         CtkWidget      *page,
                          guint           page_num,
                          GvcMixerDialog *dialog)
 {
@@ -1671,10 +1671,10 @@ on_notebook_switch_page (GtkNotebook    *notebook,
 }
 
 static void
-device_name_to_text (GtkTreeViewColumn *column,
-                     GtkCellRenderer   *cell,
-                     GtkTreeModel      *model,
-                     GtkTreeIter       *iter,
+device_name_to_text (CtkTreeViewColumn *column,
+                     CtkCellRenderer   *cell,
+                     CtkTreeModel      *model,
+                     CtkTreeIter       *iter,
                      gpointer           user_data)
 {
         gchar *label = NULL;
@@ -1711,9 +1711,9 @@ device_name_to_text (GtkTreeViewColumn *column,
 }
 
 static gint
-compare_device_treeview_items (GtkTreeModel *model,
-                               GtkTreeIter  *a,
-                               GtkTreeIter  *b,
+compare_device_treeview_items (CtkTreeModel *model,
+                               CtkTreeIter  *a,
+                               CtkTreeIter  *b,
                                gpointer      user_data)
 {
         gchar *desc_a = NULL;
@@ -1734,14 +1734,14 @@ compare_device_treeview_items (GtkTreeModel *model,
         return result;
 }
 
-static GtkWidget *
+static CtkWidget *
 create_device_treeview (GvcMixerDialog *dialog, GCallback on_changed)
 {
-        GtkWidget         *treeview;
-        GtkListStore      *store;
-        GtkCellRenderer   *renderer;
-        GtkTreeViewColumn *column;
-        GtkTreeSelection  *selection;
+        CtkWidget         *treeview;
+        CtkListStore      *store;
+        CtkCellRenderer   *renderer;
+        CtkTreeViewColumn *column;
+        CtkTreeSelection  *selection;
 
         treeview = ctk_tree_view_new ();
         ctk_tree_view_set_headers_visible (CTK_TREE_VIEW (treeview), FALSE);
@@ -1793,7 +1793,7 @@ create_device_treeview (GvcMixerDialog *dialog, GCallback on_changed)
 }
 
 static void
-dialog_accel_cb (GtkAccelGroup    *accelgroup,
+dialog_accel_cb (CtkAccelGroup    *accelgroup,
                  GObject          *object,
                  guint             key,
                  GdkModifierType   mod,
@@ -1816,9 +1816,9 @@ dialog_accel_cb (GtkAccelGroup    *accelgroup,
 static void
 create_page_effects (GvcMixerDialog *self)
 {
-        GtkWidget *box;
-        GtkWidget *label;
-        GtkWidget *chooser;
+        CtkWidget *box;
+        CtkWidget *label;
+        CtkWidget *chooser;
 
         box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);
         ctk_container_set_border_width (CTK_CONTAINER (box), 12);
@@ -1880,15 +1880,15 @@ gvc_mixer_dialog_constructor (GType                  type,
 {
         GObject          *object;
         GvcMixerDialog   *self;
-        GtkWidget        *main_vbox;
-        GtkWidget        *label;
-        GtkWidget        *box;
-        GtkWidget        *scroll_box;
-        GtkWidget        *sbox;
-        GtkWidget        *ebox;
-        GtkTreeSelection *selection;
-        GtkAccelGroup    *accel_group;
-        GtkTreeIter       iter;
+        CtkWidget        *main_vbox;
+        CtkWidget        *label;
+        CtkWidget        *box;
+        CtkWidget        *scroll_box;
+        CtkWidget        *sbox;
+        CtkWidget        *ebox;
+        CtkTreeSelection *selection;
+        CtkAccelGroup    *accel_group;
+        CtkTreeIter       iter;
         gint              i;
         const GList      *list;
         GClosure         *closure = NULL;
@@ -2178,7 +2178,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         /* Select the first device in the list */
         // XXX handle no devices
         if (ctk_tree_selection_get_selected (selection, NULL, NULL) == FALSE) {
-                GtkTreeModel *model =
+                CtkTreeModel *model =
                         ctk_tree_view_get_model (CTK_TREE_VIEW (self->priv->hw_treeview));
 
                 if (ctk_tree_model_get_iter_first (model, &iter))
@@ -2312,7 +2312,7 @@ gvc_mixer_dialog_class_init (GvcMixerDialogClass *klass)
                                                               G_PARAM_CONSTRUCT_ONLY |
                                                               G_PARAM_STATIC_STRINGS));
 
-        GtkWidgetClass *widget_class  = CTK_WIDGET_CLASS (klass);
+        CtkWidgetClass *widget_class  = CTK_WIDGET_CLASS (klass);
         ctk_widget_class_set_css_name (widget_class, "GvcMixerDialog");
 }
 
@@ -2373,12 +2373,12 @@ gvc_mixer_dialog_set_page (GvcMixerDialog *self, const gchar *page)
 }
 
 static gboolean
-dialog_page_scroll_event_cb (GtkWidget      *widget,
+dialog_page_scroll_event_cb (CtkWidget      *widget,
                              GdkEventScroll *event,
-                             GtkWindow      *window)
+                             CtkWindow      *window)
 {
-        GtkNotebook *notebook = CTK_NOTEBOOK (widget);
-        GtkWidget *child, *event_widget, *action_widget;
+        CtkNotebook *notebook = CTK_NOTEBOOK (widget);
+        CtkWidget *child, *event_widget, *action_widget;
 
         child = ctk_notebook_get_nth_page (notebook, ctk_notebook_get_current_page (notebook));
         if (child == NULL)

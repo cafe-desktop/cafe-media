@@ -37,22 +37,22 @@
 
 struct _GvcChannelBarPrivate
 {
-        GtkOrientation              orientation;
-        GtkWidget                  *scale_box;
-        GtkWidget                  *start_box;
-        GtkWidget                  *end_box;
-        GtkWidget                  *image;
-        GtkWidget                  *label;
-        GtkWidget                  *low_image;
-        GtkWidget                  *scale;
-        GtkWidget                  *high_image;
-        GtkWidget                  *mute_button;
-        GtkAdjustment              *adjustment;
+        CtkOrientation              orientation;
+        CtkWidget                  *scale_box;
+        CtkWidget                  *start_box;
+        CtkWidget                  *end_box;
+        CtkWidget                  *image;
+        CtkWidget                  *label;
+        CtkWidget                  *low_image;
+        CtkWidget                  *scale;
+        CtkWidget                  *high_image;
+        CtkWidget                  *mute_button;
+        CtkAdjustment              *adjustment;
         gboolean                    show_icons;
         gboolean                    show_mute;
         gboolean                    show_marks;
         gboolean                    extended;
-        GtkSizeGroup               *size_group;
+        CtkSizeGroup               *size_group;
         gboolean                    symmetric;
         gboolean                    click_lock;
         CafeMixerStreamControl     *control;
@@ -76,13 +76,13 @@ enum {
 
 static GParamSpec *properties[N_PROPERTIES] = { NULL, };
 
-static gboolean on_scale_button_press_event   (GtkWidget          *widget,
+static gboolean on_scale_button_press_event   (CtkWidget          *widget,
                                                GdkEventButton     *event,
                                                GvcChannelBar      *bar);
-static gboolean on_scale_button_release_event (GtkWidget          *widget,
+static gboolean on_scale_button_release_event (CtkWidget          *widget,
                                                GdkEventButton     *event,
                                                GvcChannelBar      *bar);
-static gboolean on_scale_scroll_event         (GtkWidget          *widget,
+static gboolean on_scale_scroll_event         (CtkWidget          *widget,
                                                GdkEventScroll     *event,
                                                GvcChannelBar      *bar);
 
@@ -199,7 +199,7 @@ create_scale_box (GvcChannelBar *bar)
 }
 
 static void
-on_adjustment_value_changed (GtkAdjustment *adjustment,
+on_adjustment_value_changed (CtkAdjustment *adjustment,
                              GvcChannelBar *bar)
 {
         gdouble value;
@@ -219,7 +219,7 @@ on_adjustment_value_changed (GtkAdjustment *adjustment,
 }
 
 static void
-on_mute_button_toggled (GtkToggleButton *button, GvcChannelBar *bar)
+on_mute_button_toggled (CtkToggleButton *button, GvcChannelBar *bar)
 {
         gboolean mute;
 
@@ -231,7 +231,7 @@ on_mute_button_toggled (GtkToggleButton *button, GvcChannelBar *bar)
 static void
 update_layout (GvcChannelBar *bar)
 {
-        GtkWidget *frame;
+        CtkWidget *frame;
 
         if (bar->priv->scale == NULL)
                 return;
@@ -436,7 +436,7 @@ update_mute_button (GvcChannelBar *bar)
 }
 
 static gboolean
-on_scale_button_press_event (GtkWidget      *widget,
+on_scale_button_press_event (CtkWidget      *widget,
                              GdkEventButton *event,
                              GvcChannelBar  *bar)
 {
@@ -456,7 +456,7 @@ on_scale_button_press_event (GtkWidget      *widget,
 }
 
 static gboolean
-on_scale_button_release_event (GtkWidget      *widget,
+on_scale_button_release_event (CtkWidget      *widget,
                                GdkEventButton *event,
                                GvcChannelBar  *bar)
 {
@@ -481,7 +481,7 @@ on_scale_button_release_event (GtkWidget      *widget,
 }
 
 static gboolean
-on_scale_scroll_event (GtkWidget      *widget,
+on_scale_scroll_event (CtkWidget      *widget,
                        GdkEventScroll *event,
                        GvcChannelBar  *bar)
 {
@@ -585,7 +585,7 @@ gvc_channel_bar_set_control (GvcChannelBar *bar, CafeMixerStreamControl *control
         update_adjustment_value (bar);
 }
 
-GtkOrientation
+CtkOrientation
 gvc_channel_bar_get_orientation (GvcChannelBar *bar)
 {
         g_return_val_if_fail (GVC_IS_CHANNEL_BAR (bar), 0);
@@ -595,7 +595,7 @@ gvc_channel_bar_get_orientation (GvcChannelBar *bar)
 
 void
 gvc_channel_bar_set_orientation (GvcChannelBar  *bar,
-                                 GtkOrientation  orientation)
+                                 CtkOrientation  orientation)
 {
         g_return_if_fail (GVC_IS_CHANNEL_BAR (bar));
 
@@ -751,7 +751,7 @@ gvc_channel_bar_set_icon_name (GvcChannelBar *bar, const gchar *name)
         g_return_if_fail (GVC_IS_CHANNEL_BAR (bar));
 
         if (name != NULL) {
-                GtkIconTheme *icon_theme;
+                CtkIconTheme *icon_theme;
                 GdkPixbuf *pixbuf;
                 gint width, height;
                 GError *error = NULL;
@@ -895,7 +895,7 @@ gvc_channel_bar_scroll (GvcChannelBar *bar, GdkScrollDirection direction)
 
 void
 gvc_channel_bar_set_size_group (GvcChannelBar *bar,
-                                GtkSizeGroup  *group,
+                                CtkSizeGroup  *group,
                                 gboolean       symmetric)
 {
         g_return_if_fail (GVC_IS_CHANNEL_BAR (bar));
@@ -1099,7 +1099,7 @@ gvc_channel_bar_class_init (GvcChannelBarClass *klass)
 static void
 gvc_channel_bar_init (GvcChannelBar *bar)
 {
-        GtkWidget *frame;
+        CtkWidget *frame;
 
         bar->priv = gvc_channel_bar_get_instance_private (bar);
 
@@ -1152,7 +1152,7 @@ gvc_channel_bar_init (GvcChannelBar *bar)
         ctk_container_add (CTK_CONTAINER (frame), bar->priv->scale_box);
 }
 
-GtkWidget *
+CtkWidget *
 gvc_channel_bar_new (CafeMixerStreamControl *control)
 {
         return g_object_new (GVC_TYPE_CHANNEL_BAR,

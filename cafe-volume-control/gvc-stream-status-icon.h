@@ -41,13 +41,13 @@ typedef struct _GvcStreamStatusIconPrivate  GvcStreamStatusIconPrivate;
 
 struct _GvcStreamStatusIcon
 {
-        GtkStatusIcon               parent;
+        CtkStatusIcon               parent;
         GvcStreamStatusIconPrivate *priv;
 };
 
 struct _GvcStreamStatusIconClass
 {
-        GtkStatusIconClass          parent_class;
+        CtkStatusIconClass          parent_class;
 };
 
 GType                 gvc_stream_status_icon_get_type         (void) G_GNUC_CONST;

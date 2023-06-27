@@ -36,18 +36,18 @@ typedef struct GvcSoundThemeChooserPrivate GvcSoundThemeChooserPrivate;
 
 typedef struct
 {
-        GtkBox                       parent;
+        CtkBox                       parent;
         GvcSoundThemeChooserPrivate *priv;
 } GvcSoundThemeChooser;
 
 typedef struct
 {
-        GtkBoxClass           parent_class;
+        CtkBoxClass           parent_class;
 } GvcSoundThemeChooserClass;
 
 GType               gvc_sound_theme_chooser_get_type            (void);
 
-GtkWidget *         gvc_sound_theme_chooser_new                 (void);
+CtkWidget *         gvc_sound_theme_chooser_new                 (void);
 
 G_END_DECLS
 

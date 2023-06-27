@@ -41,13 +41,13 @@ typedef struct _GvcLevelBarPrivate  GvcLevelBarPrivate;
 
 struct _GvcLevelBar
 {
-        GtkWidget              parent;
+        CtkWidget              parent;
         GvcLevelBarPrivate    *priv;
 };
 
 struct _GvcLevelBarClass
 {
-        GtkWidgetClass         parent_class;
+        CtkWidgetClass         parent_class;
 };
 
 typedef enum
@@ -58,18 +58,18 @@ typedef enum
 
 GType               gvc_level_bar_get_type            (void) G_GNUC_CONST;
 
-GtkWidget *         gvc_level_bar_new                 (void);
+CtkWidget *         gvc_level_bar_new                 (void);
 void                gvc_level_bar_set_orientation     (GvcLevelBar   *bar,
-                                                       GtkOrientation orientation);
-GtkOrientation      gvc_level_bar_get_orientation     (GvcLevelBar   *bar);
+                                                       CtkOrientation orientation);
+CtkOrientation      gvc_level_bar_get_orientation     (GvcLevelBar   *bar);
 
 void                gvc_level_bar_set_peak_adjustment (GvcLevelBar   *bar,
-                                                       GtkAdjustment *adjustment);
-GtkAdjustment *     gvc_level_bar_get_peak_adjustment (GvcLevelBar   *bar);
+                                                       CtkAdjustment *adjustment);
+CtkAdjustment *     gvc_level_bar_get_peak_adjustment (GvcLevelBar   *bar);
 
 void                gvc_level_bar_set_rms_adjustment  (GvcLevelBar   *bar,
-                                                       GtkAdjustment *adjustment);
-GtkAdjustment *     gvc_level_bar_get_rms_adjustment  (GvcLevelBar   *bar);
+                                                       CtkAdjustment *adjustment);
+CtkAdjustment *     gvc_level_bar_get_rms_adjustment  (GvcLevelBar   *bar);
 
 void                gvc_level_bar_set_scale           (GvcLevelBar   *bar,
                                                        GvcLevelScale  scale);
