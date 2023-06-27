@@ -24,7 +24,7 @@ requires:
 
     #required for libcafemixer
     - gettext
-    - ctk-doc-tools
+    - gtk-doc-tools
     - libasound2-dev
     - libpulse-dev
     - libtool
