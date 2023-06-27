@@ -60,14 +60,14 @@ G_DEFINE_TYPE_WITH_PRIVATE (GvcStreamStatusIcon, gvc_stream_status_icon, CTK_TYP
 static gboolean
 popup_dock (GvcStreamStatusIcon *icon, guint time)
 {
-        GdkRectangle   area;
+        CdkRectangle   area;
         CtkOrientation orientation;
-        GdkDisplay    *display;
-        GdkScreen     *screen;
+        CdkDisplay    *display;
+        CdkScreen     *screen;
         int            x;
         int            y;
-        GdkMonitor    *monitor_num;
-        GdkRectangle   monitor;
+        CdkMonitor    *monitor_num;
+        CdkRectangle   monitor;
         CtkRequisition dock_req;
 
         screen = ctk_status_icon_get_screen (CTK_STATUS_ICON (icon));
@@ -128,8 +128,8 @@ popup_dock (GvcStreamStatusIcon *icon, guint time)
         display = ctk_widget_get_display (icon->priv->dock);
 
         do {
-                GdkSeat *seat = cdk_display_get_default_seat (display);
-                GdkWindow *window = ctk_widget_get_window (icon->priv->dock);
+                CdkSeat *seat = cdk_display_get_default_seat (display);
+                CdkWindow *window = ctk_widget_get_window (icon->priv->dock);
 
                 if (cdk_seat_grab (seat,
                                    window,
@@ -158,7 +158,7 @@ on_status_icon_activate (CtkStatusIcon *status_icon, GvcStreamStatusIcon *icon)
 
 static gboolean
 on_status_icon_button_press (CtkStatusIcon       *status_icon,
-                             GdkEventButton      *event,
+                             CdkEventButton      *event,
                              GvcStreamStatusIcon *icon)
 {
         /* Middle click acts as mute/unmute */
@@ -224,8 +224,8 @@ on_status_icon_popup_menu (CtkStatusIcon       *status_icon,
         /*Set up theme and transparency support*/
         CtkWidget *toplevel = ctk_widget_get_toplevel (menu);
         /* Fix any failures of compiz/other wm's to communicate with ctk for transparency */
-        GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-        GdkVisual *visual = cdk_screen_get_rgba_visual(screen);
+        CdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
+        CdkVisual *visual = cdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
         /* Set menu and it's toplevel window to follow panel theme */
         CtkStyleContext *context;
@@ -267,17 +267,17 @@ on_status_icon_popup_menu (CtkStatusIcon       *status_icon,
 
 static gboolean
 on_status_icon_scroll_event (CtkStatusIcon       *status_icon,
-                             GdkEventScroll      *event,
+                             CdkEventScroll      *event,
                              GvcStreamStatusIcon *icon)
 {
         return gvc_channel_bar_scroll (GVC_CHANNEL_BAR (icon->priv->bar), event->direction);
 }
 
 static void
-gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
+gvc_icon_release_grab (GvcStreamStatusIcon *icon, CdkEventButton *event)
 {
-        GdkDisplay *display = ctk_widget_get_display (icon->priv->dock);
-        GdkSeat *seat = cdk_display_get_default_seat (display);
+        CdkDisplay *display = ctk_widget_get_display (icon->priv->dock);
+        CdkSeat *seat = cdk_display_get_default_seat (display);
         cdk_seat_ungrab (seat);
         ctk_grab_remove (icon->priv->dock);
 
@@ -287,7 +287,7 @@ gvc_icon_release_grab (GvcStreamStatusIcon *icon, GdkEventButton *event)
 
 static gboolean
 on_dock_button_press (CtkWidget           *widget,
-                      GdkEventButton      *event,
+                      CdkEventButton      *event,
                       GvcStreamStatusIcon *icon)
 {
         if (event->type == CDK_BUTTON_PRESS) {
@@ -301,11 +301,11 @@ on_dock_button_press (CtkWidget           *widget,
 static void
 popdown_dock (GvcStreamStatusIcon *icon)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
 
         display = ctk_widget_get_display (icon->priv->dock);
 
-        GdkSeat *seat = cdk_display_get_default_seat (display);
+        CdkSeat *seat = cdk_display_get_default_seat (display);
         cdk_seat_ungrab (seat);
 
         /* Hide again */
@@ -347,7 +347,7 @@ on_dock_grab_broken_event (CtkWidget           *widget,
 
 static gboolean
 on_dock_key_release (CtkWidget           *widget,
-                     GdkEventKey         *event,
+                     CdkEventKey         *event,
                      GvcStreamStatusIcon *icon)
 {
         if (event->keyval == CDK_KEY_Escape) {
@@ -359,7 +359,7 @@ on_dock_key_release (CtkWidget           *widget,
 
 static gboolean
 on_dock_scroll_event (CtkWidget           *widget,
-                      GdkEventScroll      *event,
+                      CdkEventScroll      *event,
                       GvcStreamStatusIcon *icon)
 {
         /* Forward event to the status icon */
@@ -742,8 +742,8 @@ gvc_stream_status_icon_init (GvcStreamStatusIcon *icon)
         context = ctk_widget_get_style_context (CTK_WIDGET(toplevel));
         ctk_style_context_add_class(context,"cafe-panel-applet-slider");
         /* Make transparency possible in ctk3 theme */
-        GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-        GdkVisual *visual = cdk_screen_get_rgba_visual(screen);
+        CdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
+        CdkVisual *visual = cdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
 
         box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);

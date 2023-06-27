@@ -40,14 +40,14 @@
 typedef struct {
         int            peak_num;
         int            max_peak_num;
-        GdkRectangle   area;
+        CdkRectangle   area;
         int            delta;
         int            box_width;
         int            box_height;
         int            box_radius;
-        GdkRGBA        color_bg;
-        GdkRGBA        color_fg;
-        GdkRGBA        color_dark;
+        CdkRGBA        color_bg;
+        CdkRGBA        color_fg;
+        CdkRGBA        color_dark;
 } LevelBarLayout;
 
 struct _GvcLevelBarPrivate
