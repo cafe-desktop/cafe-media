@@ -24,7 +24,6 @@ AC_PROG_MAKE_SET
 AM_PROG_LIBTOOL
 
 # Checks for header files.
-AC_HEADER_STDC
 AC_CHECK_HEADERS([string.h math.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
