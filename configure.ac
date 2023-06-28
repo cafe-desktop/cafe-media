@@ -21,7 +21,7 @@ AM_PROG_CC_C_O
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-AM_PROG_LIBTOOL
+LT_INIT
 
 # Checks for header files.
 AC_CHECK_HEADERS([string.h math.h])
