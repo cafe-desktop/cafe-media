@@ -82,7 +82,7 @@ context_ready (CafeMixerContext *context, CtkApplication *application)
         CtkApplication *app;
         GError *error = NULL;
 
-        app = ctk_application_new ("context.ready", G_APPLICATION_FLAGS_NONE);
+        app = ctk_application_new ("context.ready", G_APPLICATION_DEFAULT_FLAGS);
         g_application_register (G_APPLICATION (app), NULL, &error);
         if (error != NULL)
         {
@@ -216,7 +216,7 @@ main (int argc, char **argv)
                 g_setenv ("G_MESSAGES_DEBUG", "all", FALSE);
         }
 
-        app = g_application_new (GVC_DIALOG_DBUS_NAME, G_APPLICATION_FLAGS_NONE);
+        app = g_application_new (GVC_DIALOG_DBUS_NAME, G_APPLICATION_DEFAULT_FLAGS);
 
         if (!g_application_register (app, NULL, &error))
         {

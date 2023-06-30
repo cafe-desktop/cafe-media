@@ -69,7 +69,7 @@ main (int argc, char **argv)
                 g_setenv ("G_MESSAGES_DEBUG", "all", FALSE);
         }
 
-        app = g_application_new (GVC_STATUS_ICON_DBUS_NAME, G_APPLICATION_FLAGS_NONE);
+        app = g_application_new (GVC_STATUS_ICON_DBUS_NAME, G_APPLICATION_DEFAULT_FLAGS);
 
         if (!g_application_register (app, NULL, &error)) {
                 g_warning ("%s", error->message);

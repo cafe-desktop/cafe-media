@@ -45,7 +45,7 @@ applet_main (CafePanelApplet* applet_widget)
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         textdomain (GETTEXT_PACKAGE);
 
-        app = g_application_new (GVC_APPLET_DBUS_NAME, G_APPLICATION_FLAGS_NONE);
+        app = g_application_new (GVC_APPLET_DBUS_NAME, G_APPLICATION_DEFAULT_FLAGS);
 
         if (!g_application_register (app, NULL, &error)) {
                 g_warning ("%s", error->message);
