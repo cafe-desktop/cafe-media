@@ -9,7 +9,7 @@
 # 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2020
 # clefebvre <clement.lefebvre@linuxmint.com>, 2020
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2020
-# Wolfgang Ulbrich <cafe@raveit.de>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
 # D.K Kim <pepct84@gmail.com>, 2020
 # 
 msgid ""

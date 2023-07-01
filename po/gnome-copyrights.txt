@@ -40,7 +40,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Amitakhya Phukan <amitakhya@svn.cafe.org>, 2008.
+# Amitakhya Phukan <amitakhya@svn.mate.org>, 2008.
 # Amitakhya Phukan <aphukan@fedoraproject.org>, 2009.
 
 
@@ -184,13 +184,13 @@
 # Czech messages for cafe-media.
 # Copyright (C) 2001, 2007, 2008, 2009, 2010 the author(s) of cafe-media.
 # Copyright (C) 2004, 2005, 2006 Miloslav Trmac <mitr@volny.cz>.
-# Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.cafe.org>.
+# Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.mate.org>.
 # This file is distributed under the same license as the cafe-media package.
 # Stanislav Brabec <utx@penguin.cz>, 2000, 2001.
 # Michal Bukovjan <bukm@centrum.cz>, 2002.
 # Miloslav Trmac <mitr@volny.cz>, 2003, 2004, 2005, 2006.
 # Petr Tomeš <ptomes@gmail.com>, 2006.
-# Lukas Novotny <lukasnov@cvs.cafe.org>, 2006.
+# Lukas Novotny <lukasnov@cvs.mate.org>, 2006.
 # Petr Kovar <pknbe@volny.cz>, 2007, 2008, 2009, 2010.
 
 
@@ -241,7 +241,7 @@
 # Matthias Warkus <mawa@iname.com>, 1999.
 # Karl Eichwalder <ke@suse.de>, 1999, 2000.
 # Christian Meyer <chrisime@gnome.org>, 2000-2002.
-# Christian Neumair <chris@cafe-de.org>, 2002-2004.
+# Christian Neumair <chris@mate-de.org>, 2002-2004.
 # Hendrik Richter <hendrikr@gnome.org>, 2004, 2005, 2006, 2008, 2009.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009.
 # Mario Blättermann <mariobl@gnome.org>, 2010.
@@ -331,12 +331,12 @@
 # Jesús Bravo Álvarez <jba@pobox.com>, 2000.
 # Germán Poo Caamaño <gpoo@ubiobio.cl>, 2002  (Revisor).
 # Yelitza Louze <ylouze@redhat.com>, 2003.
-# Francisco Javier F. Serrador <serrador@cvs.cafe.org>, 2004.
+# Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2004.
 # Lucas Vieites <lucas@asixinformatica.com>, 2002-2004.
-# Francisco Javier F. Serrador <serrador@cvs.cafe.org>, 2004, 2005, 2006.
+# Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2004, 2005, 2006.
 # Lucas Vieites Fariña <lucas@asixinformatica.com>, 2005, 2006, 2007.
 # Claudio Saavedra <csaavedra@alumnos.utalca.cl> 2007 (QA).
-# Jorge González <jorgegonz@svn.cafe.org>, 2008, 2009, 2010.
+# Jorge González <jorgegonz@svn.mate.org>, 2008, 2009, 2010.
 #
 
 
@@ -440,7 +440,7 @@
 # Jesús Bravo Álvarez <jba@pobox.com>, 2000-2001.
 # Sergio Rua <srua@iname.com>, 1999.
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
-# Ignacio Casal Quinteiro <icq@cvs.cafe.org>, 2007, 2008.
+# Ignacio Casal Quinteiro <icq@cvs.mate.org>, 2007, 2008.
 # Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
 # Suso Baleato <suso.baleato@xunta.es>, 2009.
 # Fran Diéguez <fran.dieguez@glug.es>, 2009.
@@ -500,13 +500,13 @@
 # Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
 # This file is distributed under the same license as the cafe-media package.
 #
-# Szabolcs Ban <shooby@cafe.hu>, 1999, 2000.
+# Szabolcs Ban <shooby@mate.hu>, 1999, 2000.
 # Miklos Szel <mukka@freemail.hu>, 2000.
-# Gergely Nagy <greg@cafe.hu>, 2001.
-# Andras Timar <timar@cafe.hu>, 2001, 2002, 2003.
-# Emese Kovacs <emese@cafe.hu>, 2002.
-# Laszlo Dvornik <dvornik@cafe.hu>, 2004.
-# Gabor Kelemen <kelemeng at cafe dot hu>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
+# Gergely Nagy <greg@mate.hu>, 2001.
+# Andras Timar <timar@mate.hu>, 2001, 2002, 2003.
+# Emese Kovacs <emese@mate.hu>, 2002.
+# Laszlo Dvornik <dvornik@mate.hu>, 2004.
+# Gabor Kelemen <kelemeng at mate dot hu>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
 # Cafe ORY <orycafe at gmail d0t com>, 2006.
 
 
@@ -522,10 +522,10 @@
 # cafe-media Italian translation
 # Copyright (C) 2000-2009, 2010 Free Software Foundation, Inc.
 # This file is distributed under the same licence of the cafe-media package
-# Salvatore Isaja <salvois@it.cafe.org>, 2000-2002.
+# Salvatore Isaja <salvois@it.mate.org>, 2000-2002.
 # Luca Ferretti <elle.uca@infinito.it>.
 # Alessio Frusciante <algol@firenze.linux.it>, 2004.
-# Salvatore Isaja <salvois@it.cafe.org>, 2004, 2005.
+# Salvatore Isaja <salvois@it.mate.org>, 2004, 2005.
 #
 # Milo Casagrande <milo@ubuntu.com>, 2006-2009, 2009, 2010.
 
@@ -866,7 +866,7 @@
 # translation of cafe-media.HEAD.ro.po to
 # Romanian translation for cafe-media.
 # Copyright (C) 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
-# Mugurel Tudor <mugurelu@cafe.ro>, 2002-2003, 2004, 2005, 2006, 2007.
+# Mugurel Tudor <mugurelu@mate.ro>, 2002-2003, 2004, 2005, 2006, 2007.
 # Adi Roiban https://launchpad.net/~adiroiban, 2008, 2009
 # Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010.
 
@@ -943,7 +943,7 @@
 # Andraž Tori <andraz.tori1@guest.arnes.si>, 2000.
 # Matjaž Horvat <m@owca.info>, 2006.
 # Matic Žgur <mr.zgur@gmail.com>, 2007.
-# Cafej Urbančič <cafeju@svn.cafe.org>, 2007 - 2010.
+# Matej Urbančič <mateju@svn.mate.org>, 2007 - 2010.
 #
 
 
@@ -1127,7 +1127,7 @@
 # Copyright (C) 2002, 2003, 2004, 2007, 2009, 2010 Free Software Foundation, Inc.
 # Dillion Chen <dillon.chen@turbolinux.com.cn>, 1999
 # Replaced by He Qiangqiang <carton@linux.net.cn>, 2002
-# Sun G11n <cafe_int_l10n@ireland.sun.com>, 2002
+# Sun G11n <mate_int_l10n@ireland.sun.com>, 2002
 # Funda Wang <fundawang@linux.net.cn>, 2003,2004.
 # Yang Zhang <zyangmath@gmail.com>, 2007.
 # Deng Xiyue <manphiz@gmail.com>, 2009.

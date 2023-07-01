@@ -7,7 +7,7 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # zubr139, 2020
 # Микола Ткач <chistomov@gmail.com>, 2020
-# Wolfgang Ulbrich <cafe@raveit.de>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
 # Шаповалов Анатолій Романович <elrond.716.smith@gmail.com>, 2020
 # Oleksii Khalikov <oleksii.khalikov@gmail.com>, 2020
 # 

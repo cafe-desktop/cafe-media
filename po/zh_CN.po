@@ -8,7 +8,7 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # Mingcong Bai <jeffbai@aosc.xyz>, 2020
 # liushuyu011 <liushuyu011@gmail.com>, 2020
-# Wolfgang Ulbrich <cafe@raveit.de>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
 # Wenbin Lv <wenbin816@gmail.com>, 2020
 # zhineng404 <zhinengge@gmail.com>, 2020
 # liulitchi <xingzuo88@qq.com>, 2020

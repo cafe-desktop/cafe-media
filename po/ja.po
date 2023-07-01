@@ -11,7 +11,7 @@
 # Mika Kobayashi, 2020
 # Rockers <sumorock@hotmail.com>, 2020
 # ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2020
-# Wolfgang Ulbrich <cafe@raveit.de>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
 # Ikuru K <kanumaiku@gmail.com>, 2020
 # 
 msgid ""
