@@ -91,6 +91,9 @@ main (int argc, char **argv)
         status_icon = gvc_status_icon_new ();
 
         gvc_status_icon_start (status_icon);
+
+        g_object_set (ctk_settings_get_default (), "ctk-menu-images", TRUE, NULL);
+
         ctk_main ();
 
         g_object_unref (status_icon);
