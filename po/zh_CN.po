@@ -465,6 +465,3 @@ msgstr "音量控制工厂"
 #: cafe-volume-control/status-icon-main.c:55
 msgid " — CAFE Volume Control Status Icon"
 msgstr " — CAFE音量控制状态图标"
-
-#~ msgid "multimedia-volume-control"
-#~ msgstr "multimedia-volume-control"

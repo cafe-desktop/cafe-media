@@ -470,6 +470,3 @@ msgstr "Generátor ovládání hlasitosti"
 #: cafe-volume-control/status-icon-main.c:55
 msgid " — CAFE Volume Control Status Icon"
 msgstr " — Stavová ikona ovládání hlasitosti CAFE"
-
-#~ msgid "multimedia-volume-control"
-#~ msgstr "multimedia-volume-control"

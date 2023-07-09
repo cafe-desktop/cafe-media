@@ -462,6 +462,3 @@ msgstr "Фабрика управљања јачином звука"
 #: cafe-volume-control/status-icon-main.c:55
 msgid " — CAFE Volume Control Status Icon"
 msgstr " – Иконица стања управљања Мејтовом јачином звука"
-
-#~ msgid "multimedia-volume-control"
-#~ msgstr "multimedia-volume-control"

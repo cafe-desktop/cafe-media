@@ -474,6 +474,3 @@ msgstr "Фабрика апплета регулятора громкости"
 #: cafe-volume-control/status-icon-main.c:55
 msgid " — CAFE Volume Control Status Icon"
 msgstr " — значок регулятора громкости CAFE"
-
-#~ msgid "multimedia-volume-control"
-#~ msgstr "multimedia-volume-control"

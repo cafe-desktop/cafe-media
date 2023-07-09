@@ -456,6 +456,3 @@ msgstr "Kilang Kawalan Volum"
 #: cafe-volume-control/status-icon-main.c:55
 msgid " — CAFE Volume Control Status Icon"
 msgstr " — Ikon Status Kawalan Volum CAFE"
-
-#~ msgid "multimedia-volume-control"
-#~ msgstr "multimedia-volume-control"

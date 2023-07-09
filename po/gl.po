@@ -460,6 +460,3 @@ msgstr "Factoría do control do volume"
 #: cafe-volume-control/status-icon-main.c:55
 msgid " — CAFE Volume Control Status Icon"
 msgstr "— Icona de estado do control do volume do CAFE"
-
-#~ msgid "multimedia-volume-control"
-#~ msgstr "multimedia-volume-control"

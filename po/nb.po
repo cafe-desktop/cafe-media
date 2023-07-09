@@ -462,6 +462,3 @@ msgstr "Volumkontrollfabrikk"
 #: cafe-volume-control/status-icon-main.c:55
 msgid " — CAFE Volume Control Status Icon"
 msgstr "– statusikon for CAFE-lydstyrkejustering"
-
-#~ msgid "multimedia-volume-control"
-#~ msgstr "multimedia-volume-control"
