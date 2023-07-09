@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # Tubuntu <tubuntu@testimonium.be>, 2020
@@ -14,19 +14,19 @@
 # David D, 2020
 # Rox fr <roxfr@outlook.fr>, 2020
 # Jerom Turible <jeromet9208@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2023-07-09 20:23+0200\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: Jerom Turible <jeromet9208@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/cafe/teams/13566/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: data/cafe-volume-control.desktop.in.in:3
@@ -37,16 +37,7 @@ msgstr "Son"
 msgid "Change sound volume and sound events"
 msgstr "Modifier le volume et des événements sonores"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-volume-control.desktop.in.in:7
-#: data/cafe-volume-control-status-icon.desktop.in:6
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
-msgstr "multimedia-volume-contrôle"
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control.desktop.in.in:13
 msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr "CAFE;volume;contrôle;mixer;paramètres;son;évènements;"
@@ -63,8 +54,7 @@ msgstr "Contrôleur de volume"
 msgid "Show desktop volume control"
 msgstr "Afficher le contrôleur de volume"
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control-status-icon.desktop.in:12
 msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr "CAFE;volume;contrôle;mixer;paramètres;son;"
@@ -184,7 +174,7 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100 %"
 
-#: cafe-volume-control/gvc-channel-bar.c:1079
+#: cafe-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr "Sourdine"
 
@@ -477,3 +467,6 @@ msgstr "Facteur de contrôle du volume"
 #: cafe-volume-control/status-icon-main.c:55
 msgid " — CAFE Volume Control Status Icon"
 msgstr " — Icône d'état du contrôle du volume CAFE"
+
+#~ msgid "multimedia-volume-control"
+#~ msgstr "multimedia-volume-contrôle"

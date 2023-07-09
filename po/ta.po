@@ -2,22 +2,22 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-media package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-media 1.23.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-09 15:11+0100\n"
+"POT-Creation-Date: 2023-07-09 20:23+0200\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2020\n"
 "Language-Team: Tamil (https://www.transifex.com/cafe/teams/13566/ta/)\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/cafe-volume-control.desktop.in.in:3
@@ -28,16 +28,7 @@ msgstr "ஒலியளவு"
 msgid "Change sound volume and sound events"
 msgstr "ஒலியளவு மற்றும்  ஒலி நிகழ்வுகளை மாற்று"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/cafe-volume-control.desktop.in.in:7
-#: data/cafe-volume-control-status-icon.desktop.in:6
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:11
-msgid "multimedia-volume-control"
-msgstr ""
-
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control.desktop.in.in:13
 msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr ""
@@ -54,8 +45,7 @@ msgstr "ஒலிவளவு கட்டுப்பாடு"
 msgid "Show desktop volume control"
 msgstr "பணிமேடை ஒலியளவு கட்டுப்பாட்டை காட்டு"
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/cafe-volume-control-status-icon.desktop.in:12
 msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr ""
@@ -175,7 +165,7 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: cafe-volume-control/gvc-channel-bar.c:1079
+#: cafe-volume-control/gvc-channel-bar.c:1107
 msgid "Mute"
 msgstr "அமைதியாக்கு"
 
