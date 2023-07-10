@@ -1,7 +1,7 @@
 AC_PREREQ(2.60)
 
 AC_INIT([cafe-media],
-        [1.24.1],
+        [1.25.0],
         [https://cafe-desktop.org/])
 
 AC_CONFIG_AUX_DIR([build-aux])
