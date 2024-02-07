@@ -54,7 +54,6 @@ requires:
     - yelp-tools
 
     #required for libcafeweather
-    - libsoup-gnome2.4-dev
     - libxml2-utils
     - tzdata
 
