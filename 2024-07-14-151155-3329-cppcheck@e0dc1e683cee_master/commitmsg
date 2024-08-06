@@ -1,0 +1,9 @@
+gvc-sound-them-chooser: Fix CtkComboBox behavior
+
+It reverts mate-media commit:
+https://github.com/mate-desktop/mate-media/commit/7b23aad70cb730faabbf867a57b1e8b1618a4cf1
+
+It fixes the issue:
+Change sound theme to 'No sounds'
+Change sound theme to 'Default'
+The CtkComboBox still says 'No sounds', but the expected is 'Default'
