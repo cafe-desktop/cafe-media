@@ -12,9 +12,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-media 1.25.0\n"
+"Project-Id-Version: cafe-media 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2023-07-09 20:23+0200\n"
+"POT-Creation-Date: 2026-01-02 12:29+0100\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: Aefgh Threenine <aefgh3962@gmail.com>, 2020\n"
 "Language-Team: Thai (https://www.transifex.com/cafe/teams/13566/th/)\n"
@@ -24,33 +24,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: data/cafe-volume-control.desktop.in.in:3
+#: data/cafe-volume-control.desktop.in.in:2
 msgid "Sound"
 msgstr "เสียง"
 
-#: data/cafe-volume-control.desktop.in.in:4
+#: data/cafe-volume-control.desktop.in.in:3
 msgid "Change sound volume and sound events"
 msgstr "ปรับความดังของเสียงและตั้งเสียงของเหตุการณ์ต่างๆ"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-volume-control.desktop.in.in:13
+#: data/cafe-volume-control.desktop.in.in:12
 msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr ""
 
-#: data/cafe-volume-control-status-icon.desktop.in:3
+#: data/cafe-volume-control-status-icon.desktop.in:2
 #: cafe-volume-control/dialog-main.c:255
 #: cafe-volume-control/gvc-channel-bar.c:476
 #: cafe-volume-control/gvc-speaker-test.c:428
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:9
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:8
 msgid "Volume Control"
 msgstr "ความดังเสียง"
 
-#: data/cafe-volume-control-status-icon.desktop.in:4
+#: data/cafe-volume-control-status-icon.desktop.in:3
 msgid "Show desktop volume control"
 msgstr "แสดงหน้าต่างปรับความดังเสียง"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-volume-control-status-icon.desktop.in:12
+#: data/cafe-volume-control-status-icon.desktop.in:11
 msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr[0] ""
 
 #: cafe-volume-control/gvc-mixer-dialog.c:1509
 #: cafe-volume-control/gvc-mixer-dialog.c:1778
-#: cafe-volume-control/gvc-sound-theme-chooser.c:864
+#: cafe-volume-control/gvc-sound-theme-chooser.c:862
 msgid "Name"
 msgstr "ชื่อ"
 
@@ -264,52 +264,52 @@ msgid "No application is currently playing or recording audio."
 msgstr "ไม่มีโปรแกรมที่เล่นหรืออัดเสียงอยู่"
 
 #: cafe-volume-control/gvc-mixer-dialog.c:2345
-#: cafe-volume-control/gvc-sound-theme-chooser.c:728
-#: cafe-volume-control/gvc-sound-theme-chooser.c:740
-#: cafe-volume-control/gvc-sound-theme-chooser.c:752
+#: cafe-volume-control/gvc-sound-theme-chooser.c:726
+#: cafe-volume-control/gvc-sound-theme-chooser.c:738
+#: cafe-volume-control/gvc-sound-theme-chooser.c:750
 msgid "Sound Preferences"
 msgstr "การปรับแต่งเสียง"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:316
+#: cafe-volume-control/gvc-sound-theme-chooser.c:314
 msgid "No sounds"
 msgstr "ไม่ใช้เสียง"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:437
+#: cafe-volume-control/gvc-sound-theme-chooser.c:435
 msgid "Built-in"
 msgstr "ที่มีในตัว"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:624
+#: cafe-volume-control/gvc-sound-theme-chooser.c:622
 #: cafe-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
 msgstr "กำหนดเอง"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:731
-#: cafe-volume-control/gvc-sound-theme-chooser.c:742
-#: cafe-volume-control/gvc-sound-theme-chooser.c:754
+#: cafe-volume-control/gvc-sound-theme-chooser.c:729
+#: cafe-volume-control/gvc-sound-theme-chooser.c:740
+#: cafe-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Testing event sound"
 msgstr "กำลังทดสอบเสียงของเหตุการณ์"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:840
+#: cafe-volume-control/gvc-sound-theme-chooser.c:838
 msgid "Default"
 msgstr "ปริยาย"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:841
+#: cafe-volume-control/gvc-sound-theme-chooser.c:839
 msgid "From theme"
 msgstr "จากชุดเสียง"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:871
+#: cafe-volume-control/gvc-sound-theme-chooser.c:869
 msgid "Type"
 msgstr "ชนิด"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1028
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1026
 msgid "Sound _theme:"
 msgstr "ชุดเ_สียง:"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1041
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1039
 msgid "C_hoose an alert sound:"
 msgstr "เ_ลือกเสียงแจ้งเตือน:"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1069
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1067
 msgid "Enable _window and button sounds"
 msgstr "เปิดใช้เสียงของห_น้าต่างและปุ่มต่างๆ"
 
@@ -453,7 +453,7 @@ msgstr ""
 msgid "Surround 7.1"
 msgstr ""
 
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:5
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:4
 msgid "Volume Control Factory"
 msgstr ""
 

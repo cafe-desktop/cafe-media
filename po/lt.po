@@ -12,9 +12,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-media 1.25.0\n"
+"Project-Id-Version: cafe-media 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2023-07-09 20:23+0200\n"
+"POT-Creation-Date: 2026-01-02 12:29+0100\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2020\n"
 "Language-Team: Lithuanian (https://www.transifex.com/cafe/teams/13566/lt/)\n"
@@ -26,33 +26,33 @@ msgstr ""
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
 
-#: data/cafe-volume-control.desktop.in.in:3
+#: data/cafe-volume-control.desktop.in.in:2
 msgid "Sound"
 msgstr "Garsas"
 
-#: data/cafe-volume-control.desktop.in.in:4
+#: data/cafe-volume-control.desktop.in.in:3
 msgid "Change sound volume and sound events"
 msgstr "Keisti garsį ir susieti garsus su įvykiais"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-volume-control.desktop.in.in:13
+#: data/cafe-volume-control.desktop.in.in:12
 msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr "CAFE;volume;control;mixer;settings;sound;events;"
 
-#: data/cafe-volume-control-status-icon.desktop.in:3
+#: data/cafe-volume-control-status-icon.desktop.in:2
 #: cafe-volume-control/dialog-main.c:255
 #: cafe-volume-control/gvc-channel-bar.c:476
 #: cafe-volume-control/gvc-speaker-test.c:428
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:9
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:8
 msgid "Volume Control"
 msgstr "Garsio valdymas"
 
-#: data/cafe-volume-control-status-icon.desktop.in:4
+#: data/cafe-volume-control-status-icon.desktop.in:3
 msgid "Show desktop volume control"
 msgstr "Rodyti darbalaukio garsio valdiklį"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-volume-control-status-icon.desktop.in:12
+#: data/cafe-volume-control-status-icon.desktop.in:11
 msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr "CAFE;volume;control;mixer;settings;sound;"
 
@@ -209,7 +209,7 @@ msgstr[3] "%u Išvesčių"
 
 #: cafe-volume-control/gvc-mixer-dialog.c:1509
 #: cafe-volume-control/gvc-mixer-dialog.c:1778
-#: cafe-volume-control/gvc-sound-theme-chooser.c:864
+#: cafe-volume-control/gvc-sound-theme-chooser.c:862
 msgid "Name"
 msgstr "Pavadinimas"
 
@@ -272,52 +272,52 @@ msgid "No application is currently playing or recording audio."
 msgstr "Šiuo metu jokia programa negroja ir neįrašinėja garso."
 
 #: cafe-volume-control/gvc-mixer-dialog.c:2345
-#: cafe-volume-control/gvc-sound-theme-chooser.c:728
-#: cafe-volume-control/gvc-sound-theme-chooser.c:740
-#: cafe-volume-control/gvc-sound-theme-chooser.c:752
+#: cafe-volume-control/gvc-sound-theme-chooser.c:726
+#: cafe-volume-control/gvc-sound-theme-chooser.c:738
+#: cafe-volume-control/gvc-sound-theme-chooser.c:750
 msgid "Sound Preferences"
 msgstr "Garso nustatymai"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:316
+#: cafe-volume-control/gvc-sound-theme-chooser.c:314
 msgid "No sounds"
 msgstr "Jokių garsų"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:437
+#: cafe-volume-control/gvc-sound-theme-chooser.c:435
 msgid "Built-in"
 msgstr "Įtaisytasis"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:624
+#: cafe-volume-control/gvc-sound-theme-chooser.c:622
 #: cafe-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
 msgstr "Pasirinktinis"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:731
-#: cafe-volume-control/gvc-sound-theme-chooser.c:742
-#: cafe-volume-control/gvc-sound-theme-chooser.c:754
+#: cafe-volume-control/gvc-sound-theme-chooser.c:729
+#: cafe-volume-control/gvc-sound-theme-chooser.c:740
+#: cafe-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Testing event sound"
 msgstr "Bandomasis įvykio signalas"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:840
+#: cafe-volume-control/gvc-sound-theme-chooser.c:838
 msgid "Default"
 msgstr "Numatytasis"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:841
+#: cafe-volume-control/gvc-sound-theme-chooser.c:839
 msgid "From theme"
 msgstr "Iš temos"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:871
+#: cafe-volume-control/gvc-sound-theme-chooser.c:869
 msgid "Type"
 msgstr "Tipas"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1028
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1026
 msgid "Sound _theme:"
 msgstr "Garsų _tema:"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1041
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1039
 msgid "C_hoose an alert sound:"
 msgstr "Pasi_rinkite įspėjimo garsą:"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1069
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1067
 msgid "Enable _window and button sounds"
 msgstr "Įjungti _langų ir mygtukų garsus"
 
@@ -461,7 +461,7 @@ msgstr "„Surround“ 5.1"
 msgid "Surround 7.1"
 msgstr "„Surround“ 7.1"
 
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:5
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:4
 msgid "Volume Control Factory"
 msgstr "Garsumo valdymo gamykla"
 

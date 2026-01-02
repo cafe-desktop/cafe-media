@@ -9,9 +9,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-media 1.25.0\n"
+"Project-Id-Version: cafe-media 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2023-07-09 20:23+0200\n"
+"POT-Creation-Date: 2026-01-02 12:29+0100\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/cafe/teams/13566/da/)\n"
@@ -21,39 +21,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/cafe-volume-control.desktop.in.in:3
+#: data/cafe-volume-control.desktop.in.in:2
 msgid "Sound"
 msgstr "Lyd"
 
-#: data/cafe-volume-control.desktop.in.in:4
+#: data/cafe-volume-control.desktop.in.in:3
 msgid "Change sound volume and sound events"
 msgstr "Skift lydstyrke og lydbegivenheder"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-volume-control.desktop.in.in:13
+#: data/cafe-volume-control.desktop.in.in:12
 msgid "CAFE;volume;control;mixer;settings;sound;events;"
-msgstr ""
-"CAFE;volume;control;mixer;settings;sound;events;lydstyrke;kontrol;styring;"
-"mikser;indstillinger;opsætning;lyde;hændelser;"
+msgstr "CAFE;volume;control;mixer;settings;sound;events;lydstyrke;kontrol;styring;mikser;indstillinger;opsætning;lyde;hændelser;"
 
-#: data/cafe-volume-control-status-icon.desktop.in:3
+#: data/cafe-volume-control-status-icon.desktop.in:2
 #: cafe-volume-control/dialog-main.c:255
 #: cafe-volume-control/gvc-channel-bar.c:476
 #: cafe-volume-control/gvc-speaker-test.c:428
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:9
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:8
 msgid "Volume Control"
 msgstr "Lydstyrkekontrol"
 
-#: data/cafe-volume-control-status-icon.desktop.in:4
+#: data/cafe-volume-control-status-icon.desktop.in:3
 msgid "Show desktop volume control"
 msgstr "Vis lydstyrkekontrol til skrivebordet"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-volume-control-status-icon.desktop.in:12
+#: data/cafe-volume-control-status-icon.desktop.in:11
 msgid "CAFE;volume;control;mixer;settings;sound;"
-msgstr ""
-"CAFE;volume;control;mixer;settings;sound;lydstyrke;kontrol;mikser;lyd;"
-"indstillinger;"
+msgstr "CAFE;volume;control;mixer;settings;sound;lydstyrke;kontrol;mikser;lyd;indstillinger;"
 
 #: cafe-volume-control/dialog-main.c:143
 msgid "Sound system is not available"
@@ -204,7 +200,7 @@ msgstr[1] "%u indgange"
 
 #: cafe-volume-control/gvc-mixer-dialog.c:1509
 #: cafe-volume-control/gvc-mixer-dialog.c:1778
-#: cafe-volume-control/gvc-sound-theme-chooser.c:864
+#: cafe-volume-control/gvc-sound-theme-chooser.c:862
 msgid "Name"
 msgstr "Navn"
 
@@ -267,52 +263,52 @@ msgid "No application is currently playing or recording audio."
 msgstr "Intet program afspiller eller optager i øjeblikket lyd."
 
 #: cafe-volume-control/gvc-mixer-dialog.c:2345
-#: cafe-volume-control/gvc-sound-theme-chooser.c:728
-#: cafe-volume-control/gvc-sound-theme-chooser.c:740
-#: cafe-volume-control/gvc-sound-theme-chooser.c:752
+#: cafe-volume-control/gvc-sound-theme-chooser.c:726
+#: cafe-volume-control/gvc-sound-theme-chooser.c:738
+#: cafe-volume-control/gvc-sound-theme-chooser.c:750
 msgid "Sound Preferences"
 msgstr "Lydindstillinger"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:316
+#: cafe-volume-control/gvc-sound-theme-chooser.c:314
 msgid "No sounds"
 msgstr "Ingen lyde"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:437
+#: cafe-volume-control/gvc-sound-theme-chooser.c:435
 msgid "Built-in"
 msgstr "Indbygget"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:624
+#: cafe-volume-control/gvc-sound-theme-chooser.c:622
 #: cafe-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
 msgstr "Tilpasset"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:731
-#: cafe-volume-control/gvc-sound-theme-chooser.c:742
-#: cafe-volume-control/gvc-sound-theme-chooser.c:754
+#: cafe-volume-control/gvc-sound-theme-chooser.c:729
+#: cafe-volume-control/gvc-sound-theme-chooser.c:740
+#: cafe-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Testing event sound"
 msgstr "Afprøver begivenhedslyd"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:840
+#: cafe-volume-control/gvc-sound-theme-chooser.c:838
 msgid "Default"
 msgstr "Standard"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:841
+#: cafe-volume-control/gvc-sound-theme-chooser.c:839
 msgid "From theme"
 msgstr "Fra tema"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:871
+#: cafe-volume-control/gvc-sound-theme-chooser.c:869
 msgid "Type"
 msgstr "Type"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1028
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1026
 msgid "Sound _theme:"
 msgstr "Lyd_tema:"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1041
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1039
 msgid "C_hoose an alert sound:"
 msgstr "_Vælg en påmindelseslyd:"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1069
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1067
 msgid "Enable _window and button sounds"
 msgstr "Aktiver lyde for _vinduer og knapper"
 
@@ -456,7 +452,7 @@ msgstr "Surround 5.1"
 msgid "Surround 7.1"
 msgstr "Surround 7.1"
 
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:5
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:4
 msgid "Volume Control Factory"
 msgstr "Fabrik til lydstyrkekontrol"
 

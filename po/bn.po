@@ -8,9 +8,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-media 1.25.0\n"
+"Project-Id-Version: cafe-media 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2023-07-09 20:23+0200\n"
+"POT-Creation-Date: 2026-01-02 12:29+0100\n"
 "PO-Revision-Date: 2020-02-15 14:01+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2020\n"
 "Language-Team: Bengali (https://www.transifex.com/cafe/teams/13566/bn/)\n"
@@ -20,33 +20,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/cafe-volume-control.desktop.in.in:3
+#: data/cafe-volume-control.desktop.in.in:2
 msgid "Sound"
 msgstr "শব্দ"
 
-#: data/cafe-volume-control.desktop.in.in:4
+#: data/cafe-volume-control.desktop.in.in:3
 msgid "Change sound volume and sound events"
 msgstr "ভলিউম পরিবর্তন করুন ও নির্দিষ্ট ঘটনার সাথে শব্দ যুক্ত করুন"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-volume-control.desktop.in.in:13
+#: data/cafe-volume-control.desktop.in.in:12
 msgid "CAFE;volume;control;mixer;settings;sound;events;"
 msgstr ""
 
-#: data/cafe-volume-control-status-icon.desktop.in:3
+#: data/cafe-volume-control-status-icon.desktop.in:2
 #: cafe-volume-control/dialog-main.c:255
 #: cafe-volume-control/gvc-channel-bar.c:476
 #: cafe-volume-control/gvc-speaker-test.c:428
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:9
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:8
 msgid "Volume Control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
-#: data/cafe-volume-control-status-icon.desktop.in:4
+#: data/cafe-volume-control-status-icon.desktop.in:3
 msgid "Show desktop volume control"
 msgstr "ডেস্কটপের মধ্যে ভলিউম নিয়ন্ত্রণ ব্যবস্থা প্রদর্শন করা হবে"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/cafe-volume-control-status-icon.desktop.in:12
+#: data/cafe-volume-control-status-icon.desktop.in:11
 msgid "CAFE;volume;control;mixer;settings;sound;"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgstr[1] ""
 
 #: cafe-volume-control/gvc-mixer-dialog.c:1509
 #: cafe-volume-control/gvc-mixer-dialog.c:1778
-#: cafe-volume-control/gvc-sound-theme-chooser.c:864
+#: cafe-volume-control/gvc-sound-theme-chooser.c:862
 msgid "Name"
 msgstr "নাম"
 
@@ -262,52 +262,52 @@ msgid "No application is currently playing or recording audio."
 msgstr "কোনো অ্যাপ্লিকেশন দ্বারা বর্তমানে অডিও বাজানো অথবা রেকর্ড করা হচ্ছে না।"
 
 #: cafe-volume-control/gvc-mixer-dialog.c:2345
-#: cafe-volume-control/gvc-sound-theme-chooser.c:728
-#: cafe-volume-control/gvc-sound-theme-chooser.c:740
-#: cafe-volume-control/gvc-sound-theme-chooser.c:752
+#: cafe-volume-control/gvc-sound-theme-chooser.c:726
+#: cafe-volume-control/gvc-sound-theme-chooser.c:738
+#: cafe-volume-control/gvc-sound-theme-chooser.c:750
 msgid "Sound Preferences"
 msgstr "শব্দ সংক্রান্ত পছন্দ"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:316
+#: cafe-volume-control/gvc-sound-theme-chooser.c:314
 msgid "No sounds"
 msgstr "শব্দবিহীন"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:437
+#: cafe-volume-control/gvc-sound-theme-chooser.c:435
 msgid "Built-in"
 msgstr "বিল্ট-ইন"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:624
+#: cafe-volume-control/gvc-sound-theme-chooser.c:622
 #: cafe-volume-control/sound-theme-file-utils.c:293
 msgid "Custom"
 msgstr "স্বনির্ধারিত"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:731
-#: cafe-volume-control/gvc-sound-theme-chooser.c:742
-#: cafe-volume-control/gvc-sound-theme-chooser.c:754
+#: cafe-volume-control/gvc-sound-theme-chooser.c:729
+#: cafe-volume-control/gvc-sound-theme-chooser.c:740
+#: cafe-volume-control/gvc-sound-theme-chooser.c:752
 msgid "Testing event sound"
 msgstr "ঘটনার জন্য চিহ্নিত শব্দ পরীক্ষা করা হচ্ছে"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:840
+#: cafe-volume-control/gvc-sound-theme-chooser.c:838
 msgid "Default"
 msgstr "ডিফল্ট"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:841
+#: cafe-volume-control/gvc-sound-theme-chooser.c:839
 msgid "From theme"
 msgstr "থিম থেকে প্রাপ্ত"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:871
+#: cafe-volume-control/gvc-sound-theme-chooser.c:869
 msgid "Type"
 msgstr "ধরণ"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1028
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1026
 msgid "Sound _theme:"
 msgstr "শব্দের থিম: (_t)"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1041
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1039
 msgid "C_hoose an alert sound:"
 msgstr "সতর্কবার্তার জন্য একটি শব্দ নির্বাচন করুন: (_h)"
 
-#: cafe-volume-control/gvc-sound-theme-chooser.c:1069
+#: cafe-volume-control/gvc-sound-theme-chooser.c:1067
 msgid "Enable _window and button sounds"
 msgstr "উইন্ডো ও বোতামের শব্দগুলো সক্রিয় করুন (_w)"
 
@@ -451,7 +451,7 @@ msgstr ""
 msgid "Surround 7.1"
 msgstr ""
 
-#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:5
+#: cafe-volume-control/org.cafe.applets.GvcApplet.cafe-panel-applet.desktop.in.in:4
 msgid "Volume Control Factory"
 msgstr ""
 
