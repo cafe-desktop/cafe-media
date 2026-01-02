@@ -1,3 +1,10 @@
+### cafe-media 2.0.0
+
+  * ci: some improvements
+  * gvc-sound-them-chooser: Fix CtkComboBox behavior
+  * update translations
+
+
 ### cafe-media 1.25.0
 
   * initial commit: mate-media 1.24.1 fork
