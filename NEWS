@@ -1,3 +1,8 @@
+### cafe-media 2.1.0
+
+  * port from GdkPixbuf to CdkPixbuf
+
+
 ### cafe-media 2.0.0
 
   * ci: some improvements
